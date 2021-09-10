@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Just a beta home page
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+// Concept pages
+Route::get('/concept/dashboard', function () {
+    return view('concept.dashboard');
+});
+Route::get('/concept/assignments', function () {
+    return view('concept.assignments');
+});
+Route::get('/concept/community', function () {
+    return view('concept.community');
+});
+Route::get('/concept/timetable', function () {
+    return view('concept.timetable');
+});
+Route::get('/concept/settings', function () {
+    return view('concept.settings');
 });
