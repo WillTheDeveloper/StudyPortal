@@ -25,6 +25,9 @@ Route::get('/concept/dashboard', function () {
 Route::get('/concept/assignments', function () {
     return view('concept.assignments');
 });
+Route::get('/concept/resources', function () {
+    return view('concept.resources');
+});
 Route::get('/concept/community', function () {
     return view('concept.community');
 });

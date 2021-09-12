@@ -13,6 +13,7 @@
 
 
 
+
 <div class="relative bg-indigo-600">
     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div class="pr-16 sm:text-center sm:px-16">
@@ -51,7 +52,7 @@
                                 <div class="ml-10 flex items-baseline space-x-4">
                                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                     <a href="/concept/dashboard"
-                                       class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                                       class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                        aria-current="page">Dashboard</a>
 
                                     <a href="/concept/timetable"
@@ -61,7 +62,7 @@
                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Assignments</a>
 
                                     <a href="/concept/resources"
-                                       class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Resources</a>
+                                       class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Resources</a>
 
                                     <a href="/concept/community"
                                        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Community</a>
@@ -215,7 +216,7 @@
         <header class="py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 class="text-3xl font-bold text-white">
-                    Dashboard
+                    Resources
                 </h1>
             </div>
         </header>
@@ -224,237 +225,140 @@
     <main class="-mt-32">
         <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
             <!-- Replace with your content -->
-            <!--
-  This example requires Tailwind CSS v2.0+
+            <!-- This example requires Tailwind CSS v2.0+ -->
+            <div class="bg-white shadow overflow-hidden sm:rounded-md">
 
-  This example requires some changes to your config:
 
-  ```
-  // tailwind.config.js
-  const colors = require('tailwindcss/colors')
 
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        colors: {
-          sky: colors.sky,
-          teal: colors.teal,
-          rose: colors.rose,
-        },
-      },
-    },
-  }
-  ```
--->
-            <div
-                class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
-                <div
-                    class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                    <div>
-      <span class="rounded-lg inline-flex p-3 bg-teal-50 text-teal-700 ring-4 ring-white">
-        <!-- Heroicon name: outline/clock -->
-        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-             aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-      </span>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-lg font-medium">
-                            <a href="/concept/timetable" class="focus:outline-none">
-                                <!-- Extend touch target to entire panel -->
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                View my timetable
-                            </a>
-                        </h3>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Find out what lessons you have and when you have them.
-                        </p>
-                    </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
-                          aria-hidden="true">
-      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path
-            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"/>
-      </svg>
-    </span>
-                </div>
+                <!-- This example requires Tailwind CSS v2.0+ -->
+                <nav class="bg-white border-b border-gray-200 flex" aria-label="Breadcrumb">
+                    <ol role="list" class="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8">
+                        <li class="flex">
+                            <div class="flex items-center">
+                                <a href="/concept/dashboard" class="text-gray-400 hover:text-gray-500">
+                                    <!-- Heroicon name: solid/home -->
+                                    <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                    </svg>
+                                    <span class="sr-only">Home</span>
+                                </a>
+                            </div>
+                        </li>
 
-                <div
-                    class="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                    <div>
-      <span class="rounded-lg inline-flex p-3 bg-purple-50 text-purple-700 ring-4 ring-white">
-        <!-- Heroicon name: outline/badge-check -->
-        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-             aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-        </svg>
-      </span>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-lg font-medium">
-                            <a href="/concept/assignments" class="focus:outline-none">
-                                <!-- Extend touch target to entire panel -->
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                Assignments
-                            </a>
-                        </h3>
-                        <p class="mt-2 text-sm text-gray-500">
-                            View all your assignments, hand them in and review tutor feedback on them.
-                        </p>
-                    </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
-                          aria-hidden="true">
-      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path
-            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"/>
-      </svg>
-    </span>
-                </div>
+                        <li class="flex">
+                            <div class="flex items-center">
+                                <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
+                                </svg>
+                                <a href="/concept/resources" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Resources</a>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
 
-                <div
-                    class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                    <div>
-      <span class="rounded-lg inline-flex p-3 bg-sky-50 text-sky-700 ring-4 ring-white">
-        <!-- Heroicon name: outline/users -->
-        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-             aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-        </svg>
-      </span>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-lg font-medium">
-                            <a href="/concept/community" class="focus:outline-none">
-                                <!-- Extend touch target to entire panel -->
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                Ask the Community
-                            </a>
-                        </h3>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Stuck on something? Ask the community and see if someone can help you!
-                        </p>
-                    </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
-                          aria-hidden="true">
-      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path
-            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"/>
-      </svg>
-    </span>
-                </div>
 
-                <div
-                    class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                    <div>
-      <span class="rounded-lg inline-flex p-3 bg-yellow-50 text-yellow-700 ring-4 ring-white">
-        <!-- Heroicon name: outline/cash -->
-        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-             aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-        </svg>
-      </span>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-lg font-medium">
-                            <a href="#" class="focus:outline-none">
-                                <!-- Extend touch target to entire panel -->
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                Work Placement
-                            </a>
-                        </h3>
-                        <p class="mt-2 text-sm text-gray-500">
-                            See if there are any work placements available for you to enroll onto.
-                        </p>
-                    </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
-                          aria-hidden="true">
-      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path
-            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"/>
-      </svg>
-    </span>
-                </div>
 
-                <div
-                    class="sm:rounded-bl-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                    <div>
-      <span class="rounded-lg inline-flex p-3 bg-rose-50 text-rose-700 ring-4 ring-white">
-        <!-- Heroicon name: outline/receipt-refund -->
-        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-             aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z"/>
-        </svg>
-      </span>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-lg font-medium">
-                            <a href="/concept/resources" class="focus:outline-none">
-                                <!-- Extend touch target to entire panel -->
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                Resources
-                            </a>
-                        </h3>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Store or retrieve anything that you need.
-                        </p>
-                    </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
-                          aria-hidden="true">
-      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path
-            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"/>
-      </svg>
-    </span>
-                </div>
 
-                <div
-                    class="rounded-bl-lg rounded-br-lg sm:rounded-bl-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
-                    <div>
-      <span class="rounded-lg inline-flex p-3 bg-indigo-50 text-indigo-700 ring-4 ring-white">
-        <!-- Heroicon name: outline/academic-cap -->
-        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-             aria-hidden="true">
-          <path d="M12 14l9-5-9-5-9 5 9 5z"/>
-          <path
-              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
-        </svg>
-      </span>
-                    </div>
-                    <div class="mt-8">
-                        <h3 class="text-lg font-medium">
-                            <a href="/concept/settings" class="focus:outline-none">
-                                <!-- Extend touch target to entire panel -->
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                My Profile
-                            </a>
-                        </h3>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Make any adjustments that you need to your profile to make you stand out from the crowd.
-                        </p>
-                    </div>
-                    <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
-                          aria-hidden="true">
-      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path
-            d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"/>
-      </svg>
-    </span>
-                </div>
+
+
+                <ul role="list" class="divide-y divide-gray-200">
+                    <li>
+                        <a href="#" class="block hover:bg-gray-50">
+                            <div class="px-4 py-4 flex items-center sm:px-6">
+                                <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
+                                    <div class="truncate">
+                                        <div class="flex text-sm">
+                                            <p class="font-medium text-indigo-600 truncate">Web Development</p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+                                        <div class="flex overflow-hidden -space-x-1">
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Dries Vincent">
+
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Lindsay Walton">
+
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Courtney Henry">
+
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Tom Cook">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-5 flex-shrink-0">
+                                    <!-- Heroicon name: solid/chevron-right -->
+                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="block hover:bg-gray-50">
+                            <div class="px-4 py-4 flex items-center sm:px-6">
+                                <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
+                                    <div class="truncate">
+                                        <div class="flex text-sm">
+                                            <p class="font-medium text-indigo-600 truncate">Project Management</p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+                                        <div class="flex overflow-hidden -space-x-1">
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Whitney Francis">
+
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Leonard Krasner">
+
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Floyd Miles">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-5 flex-shrink-0">
+                                    <!-- Heroicon name: solid/chevron-right -->
+                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="block hover:bg-gray-50">
+                            <div class="px-4 py-4 flex items-center sm:px-6">
+                                <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
+                                    <div class="truncate">
+                                        <div class="flex text-sm">
+                                            <p class="font-medium text-indigo-600 truncate">Advanced Networking</p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+                                        <div class="flex overflow-hidden -space-x-1">
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Emily Selman">
+
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Kristin Watson">
+
+                                            <img class="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Emma Dorsey">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-5 flex-shrink-0">
+                                    <!-- Heroicon name: solid/chevron-right -->
+                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
+
 
             <!-- /End replace -->
         </div>
     </main>
 </div>
+
 
 
 
