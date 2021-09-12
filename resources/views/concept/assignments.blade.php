@@ -3,10 +3,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
     <title>Study Portal</title>
 </head>
 
-<body>
+<body x-data="{icon:false, detail:false}">
 
 
 
@@ -320,7 +321,7 @@
                                         16th January 2022
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                        <a href="#" @click="detail = true" @click.away="detail = false" class="text-indigo-600 hover:text-indigo-900">View</a>
                                     </td>
                                 </tr>
 
@@ -340,8 +341,131 @@
     </main>
 </div>
 
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" x-show="detail" x-cloak>
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <!--
+          Background overlay, show/hide based on modal state.
 
+          Entering: "ease-out duration-300"
+            From: "opacity-0"
+            To: "opacity-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100"
+            To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
+        <!-- This element is to trick the browser into centering the modal contents. -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+        <!--
+          Modal panel, show/hide based on modal state.
+
+          Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+        <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    Assignment Details
+                </h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                    Uploaded work and assignment details
+                </p>
+            </div>
+            <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+                <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Task Name
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            Build an ecommerece website
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Subject
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            Web Development
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Assigned By
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            Sam
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-1">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Due Date
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            16th January 2022
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            About
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            Create a fully functioning website that runs on the Laravel framework that utilizes Tailwind and Livewire along with Alpine.js and Stripe to make a fully functional ecommerce website that allows people to buy products on.
+                        </dd>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Attachments
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900">
+                            <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
+                                <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                                    <div class="w-0 flex-1 flex items-center">
+                                        <!-- Heroicon name: solid/paper-clip -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="ml-2 flex-1 w-0 truncate">
+                  assignment.pdf
+                </span>
+                                    </div>
+                                    <div class="ml-4 flex-shrink-0">
+                                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                            Download
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                                    <div class="w-0 flex-1 flex items-center">
+                                        <!-- Heroicon name: solid/paper-clip -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span class="ml-2 flex-1 w-0 truncate">
+                  student_agreement.pdf
+                </span>
+                                    </div>
+                                    <div class="ml-4 flex-shrink-0">
+                                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                            Download
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <footer class="bg-white">

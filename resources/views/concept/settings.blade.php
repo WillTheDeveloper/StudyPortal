@@ -3,10 +3,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
     <title>Study Portal</title>
 </head>
 
-<body>
+<body x-data="{icon:false}">
 
 
 <div class="relative bg-indigo-600">
@@ -77,7 +78,7 @@
                                 <!-- Profile dropdown -->
                                 <div class="ml-3 relative">
                                     <div>
-                                        <button type="button"
+                                        <button type="button" @click="icon = true" @click.away="icon = false"
                                                 class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                                 id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                             <span class="sr-only">Open user menu</span>
@@ -97,7 +98,7 @@
                                         From: "transform opacity-100 scale-100"
                                         To: "transform opacity-0 scale-95"
                                     -->
-                                    <div
+                                    <div x-show="icon" x-cloak
                                         class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                         role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                         tabindex="-1">
