@@ -37,3 +37,6 @@ Route::get('/concept/timetable', function () {
 Route::get('/concept/settings', function () {
     return view('concept.settings');
 });
+Route::get('/concept/resources/webdevelopment', function () {
+    return view('concept.resources.webdevelopment');
+});

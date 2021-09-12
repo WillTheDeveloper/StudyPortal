@@ -6,7 +6,7 @@
     <title>Study Portal</title>
 </head>
 
-<body>
+<body x-data="{mobiledrop:false}">
 
 
 
@@ -127,7 +127,7 @@
                         </div>
                         <div class="-mr-2 flex md:hidden">
                             <!-- Mobile menu button -->
-                            <button type="button"
+                            <button type="button" @click="mobiledrop = true" @click.away="mobiledrop = false"
                                     class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                                     aria-controls="mobile-menu" aria-expanded="false">
                                 <span class="sr-only">Open main menu</span>
@@ -158,7 +158,7 @@
             </div>
 
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="border-b border-gray-700 md:hidden" id="mobile-menu">
+            <div class="border-b border-gray-700 md:hidden" id="mobile-menu" x-show="mobiledrop" x-cloak>
                 <div class="px-2 py-3 space-y-1 sm:px-3">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -253,6 +253,15 @@
                                 <a href="/concept/resources" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Resources</a>
                             </div>
                         </li>
+
+                        <li class="flex">
+                            <div class="flex items-center">
+                                <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
+                                </svg>
+                                <a href="/concept/resources/webdevelopment" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Web Development</a>
+                            </div>
+                        </li>
                     </ol>
                 </nav>
 
@@ -268,7 +277,7 @@
                                 <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                                     <div class="truncate">
                                         <div class="flex text-sm">
-                                            <p class="font-medium text-indigo-600 truncate">Web Development</p>
+                                            <p class="font-medium text-indigo-600 truncate">Class Materials</p>
                                         </div>
                                     </div>
                                     <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
@@ -299,7 +308,7 @@
                                 <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                                     <div class="truncate">
                                         <div class="flex text-sm">
-                                            <p class="font-medium text-indigo-600 truncate">Project Management</p>
+                                            <p class="font-medium text-indigo-600 truncate">Presentations</p>
                                         </div>
                                     </div>
                                     <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
@@ -328,7 +337,7 @@
                                 <div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
                                     <div class="truncate">
                                         <div class="flex text-sm">
-                                            <p class="font-medium text-indigo-600 truncate">Advanced Networking</p>
+                                            <p class="font-medium text-indigo-600 truncate">Supporting documentation</p>
                                         </div>
                                     </div>
                                     <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
