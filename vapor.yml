@@ -6,6 +6,7 @@ environments:
         cli-memory: 512
         runtime: 'docker'
         domain: studyportal.cloud
+        database: studyportal
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
             - 'php artisan event:cache'
