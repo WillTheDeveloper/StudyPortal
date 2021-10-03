@@ -91,6 +91,22 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('timetable')" :active="request()->routeIs('timetable')">
+                {{ __('Timetable') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('assignments')" :active="request()->routeIs('assignments')">
+                {{ __('Assignments') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
+                {{ __('Community') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                {{ __('Profile') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
