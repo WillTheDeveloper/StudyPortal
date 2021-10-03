@@ -365,10 +365,10 @@
                                             </div>
                                             <div class="min-w-0 flex-1">
                                                 <p class="text-sm font-medium text-gray-900">
-                                                    <a href="#">Leonard Krasner</a>
+                                                    <a href="#">William Burton</a>
                                                 </p>
                                                 <p class="text-sm text-gray-500">
-                                                    <a href="#">@leonardkrasner</a>
+                                                    <a href="#">@willdotchill</a>
                                                 </p>
                                             </div>
                                             <div class="flex-shrink-0">

@@ -13,7 +13,8 @@
         "laravel/telescope": "^4.6",
         "laravel/tinker": "^2.5",
         "laravel/vapor-cli": "^1.25",
-        "laravel/vapor-core": "^2.13"
+        "laravel/vapor-core": "^2.13",
+        "livewire/livewire": "^2.6"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
