@@ -45,22 +45,32 @@
                                         <tbody>
                                         <tr class="bg-white">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                9AM
+                                                9:00 -> 10:00
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             {{--<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -69,85 +79,125 @@
 
                                         <tr class="bg-white">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                10AM
+                                                10:00 -> 11:00
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                         </tr>
 
                                         <tr class="bg-white">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                11AM
+                                                11:00 -> 12:00
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                         </tr>
 
                                         <tr class="bg-white">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                12AM
+                                                12:00 -> 13:00
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                         </tr>
 
                                         <tr class="bg-white">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                1PM
+                                                13:00->14:00
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                Computer Science
+                                                <b>Computer Science</b><br>
+                                                Laura<br>
+                                                Room 251
                                             </td>
                                         </tr>
 
