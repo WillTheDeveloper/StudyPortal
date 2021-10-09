@@ -13,6 +13,7 @@
 
                     <form action="{{ route('subscribe') }}" method="post" id="form">
                         @csrf
+                        <input hidden name="pm" id="pm" value="">
                         <input type="radio" name="stripe" id="monthly" value="price_1JiiBJDEx6ZR0UQMWtdBytdf" checked>
                         <label for="monthly">Monthly Subscription</label>
                         <br>
@@ -38,7 +39,6 @@
             </div>
         </div>
     </div>
-
 
     @push('scripts')
         <script src="https://js.stripe.com/v3/"></script>
@@ -68,12 +68,12 @@
                 if (error) {
                     // Error stuff
                 } else {
-
+                    let boop = setupIntent.payment_method;
+                    /*let pm =  document.getElementById('pm');
+                    pm.value = boop.value;*/
                 }
             });
         </script>
     @endpush()
-
-
 
 </x-app-layout>

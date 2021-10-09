@@ -49,7 +49,7 @@ Route::post('/subscribe', function (Request $request) {
     dd($request->all());
     $request->user()->newSubscription(
         'default', $request->stripe,
-    )->create($request->thing);
+    )->create($request->boop);
 });
 
 // Don't delete this
