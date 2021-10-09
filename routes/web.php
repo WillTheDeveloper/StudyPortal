@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 // Normal routes
 Route::get('/', function () {
@@ -36,6 +37,20 @@ Route::get('/community', function () {
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
+
+Route::get('/subscribe', function () {
+    return view('subscribe', [
+        'intent' => auth()->user()->createSetupIntent()
+    ]);
+})->middleware(['auth'])->name('subscribe');
+
+// Post routes
+Route::post('/subscribe', function (Request $request) {
+    dd($request->all());
+    $request->user()->newSubscription(
+        'default', $request->stripe,
+    )->create($request->thing);
+});
 
 // Don't delete this
 require __DIR__.'/auth.php';

@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-{{--                    Hi {{auth()->user()->name}}. Welcome to your dashboard!--}}
+                    Hi {{auth()->user()->name}}. Welcome to your dashboard!
 
     <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
         <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
@@ -26,11 +26,11 @@
                     <a href="#" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Request time off
+                        View timetable
                     </a>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+                    Find out what lessons you have next.
                 </p>
             </div>
             <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -54,11 +54,11 @@
                     <a href="#" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Benefits
+                        Manage assignments
                     </a>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+                    Hand in any work that is required for upcoming assignments.
                 </p>
             </div>
             <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -82,11 +82,11 @@
                     <a href="#" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Schedule a one-on-one
+                        Book an event
                     </a>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+                    Book work placement meetings or anything that you need to sort out in advance.
                 </p>
             </div>
             <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -110,11 +110,11 @@
                     <a href="#" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Payroll
+                        Manage subscription
                     </a>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+                    Manage your student subscription here. Update payment methods here.
                 </p>
             </div>
             <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -138,11 +138,11 @@
                     <a href="#" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Submit an expense
+                        Edit your profile
                     </a>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+                    Your profile is like your student portfolio, make it look good.
                 </p>
             </div>
             <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
@@ -168,11 +168,11 @@
                     <a href="#" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
-                        Training
+                        Community
                     </a>
                 </h3>
                 <p class="mt-2 text-sm text-gray-500">
-                    Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+                    Talk to the community by answering questions.
                 </p>
             </div>
             <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">

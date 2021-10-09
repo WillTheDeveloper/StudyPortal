@@ -83,7 +83,7 @@
                     <div class="pt-10">
                         <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
                            id="communities-headline">
-                            My subjects
+                            All Subjects
                         </p>
                         <div class="mt-3 space-y-2" aria-labelledby="communities-headline">
                             <a href="#"

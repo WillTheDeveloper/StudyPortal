@@ -41,6 +41,12 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
+                        {{ __('Subscribe') }}
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -106,6 +112,10 @@
 
             <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
                 {{ __('Profile') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
+                {{ __('Subscribe') }}
             </x-responsive-nav-link>
         </div>
 
