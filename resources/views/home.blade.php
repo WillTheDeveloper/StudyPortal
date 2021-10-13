@@ -213,19 +213,19 @@
                     </div>
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                            Stay on top of customer support
+                            Collaboration leads to success
                         </h2>
                         <p class="mt-4 text-lg text-gray-500">
-                            Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+                            Enabling students to talk to each other and support one another with work while having the resources they need to support them during there studying years will be very beneficial for them and people yet to join the platform.
                         </p>
                         <div class="mt-6">
-                            <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                                Get started
+                            <a href="/pricing" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                                Read more!
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 border-t border-gray-200 pt-6">
+                {{--<div class="mt-8 border-t border-gray-200 pt-6">
                     <blockquote>
                         <div>
                             <p class="text-base text-gray-500">
@@ -243,7 +243,7 @@
                             </div>
                         </footer>
                     </blockquote>
-                </div>
+                </div>--}}
             </div>
             <div class="mt-12 sm:mt-16 lg:mt-0">
                 <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
@@ -266,14 +266,14 @@
                     </div>
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                            Better understand your customers
+                            Gain access to basic tools
                         </h2>
                         <p class="mt-4 text-lg text-gray-500">
-                            Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+                            You can't have a massive platform based around collaboration if you don't have the basic needs of a student implemented alongside it. This is a platform that has it all and does it all right. Students need to know when there lessons are, so we implemented timetables.
                         </p>
                         <div class="mt-6">
-                            <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                                Get started
+                            <a href="/register" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                                Register
                             </a>
                         </div>
                     </div>
@@ -292,12 +292,12 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-white py-16 sm:py-24 lg:py-32">
     <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-        <h2 class="text-base font-semibold tracking-wider text-indigo-600 uppercase">Deploy faster</h2>
+        <h2 class="text-base font-semibold tracking-wider text-indigo-600 uppercase">Collaborate</h2>
         <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-            Everything you need to deploy your app
+            Everything you need to support yourself and others
         </p>
         <p class="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-            Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper malesuada. Eleifend condimentum id viverra nulla.
+            Here at Study Portal, we believe that collaboration is important. Below are all the features that you have access to when you join this platform.
         </p>
         <div class="mt-12">
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -312,9 +312,9 @@
                   </svg>
                 </span>
                             </div>
-                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Push to Deploy</h3>
+                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Easy to use</h3>
                             <p class="mt-5 text-base text-gray-500">
-                                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                                We support students from colleges all the way up to universities. Not everyone is technical so we made it easy to use for everyone.
                             </p>
                         </div>
                     </div>
@@ -331,9 +331,9 @@
                   </svg>
                 </span>
                             </div>
-                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">SSL Certificates</h3>
+                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Data protection</h3>
                             <p class="mt-5 text-base text-gray-500">
-                                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                                We ensure that all the data is kept secure meaning that you can use this platform with confidence.
                             </p>
                         </div>
                     </div>
@@ -350,9 +350,9 @@
                   </svg>
                 </span>
                             </div>
-                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Simple Queues</h3>
+                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Timetables</h3>
                             <p class="mt-5 text-base text-gray-500">
-                                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                                Everyone has access to a timetable that they can either edit themselves or have there tutor or institution manage it for them.
                             </p>
                         </div>
                     </div>
@@ -369,9 +369,9 @@
                   </svg>
                 </span>
                             </div>
-                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Advanced Security</h3>
+                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Privacy settings</h3>
                             <p class="mt-5 text-base text-gray-500">
-                                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                                Some people like to keep themselves private so we have implemented privacy settings to support this.
                             </p>
                         </div>
                     </div>
@@ -389,9 +389,9 @@
                   </svg>
                 </span>
                             </div>
-                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Powerful API</h3>
+                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Shared resources</h3>
                             <p class="mt-5 text-base text-gray-500">
-                                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                                Each institution will have an area to share resources amongst students. Such as assignment briefs.
                             </p>
                         </div>
                     </div>
@@ -408,9 +408,9 @@
                   </svg>
                 </span>
                             </div>
-                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Database Backups</h3>
+                            <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Community area</h3>
                             <p class="mt-5 text-base text-gray-500">
-                                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.
+                                People will have access to an area where they can reach out to other people doing a similar course to them for support.
                             </p>
                         </div>
                     </div>
@@ -422,23 +422,6 @@
 
 
 
-
-<!--
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <div class="bg-white">
     <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
         <div class="lg:w-0 lg:flex-1">
@@ -446,7 +429,7 @@
                 Sign up for our newsletter
             </h2>
             <p class="mt-3 max-w-3xl text-lg text-gray-500">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.
+                Our newsletters have information regarding updates and other important information.
             </p>
         </div>
         <div class="mt-8 lg:mt-0 lg:ml-8">
@@ -454,8 +437,8 @@
                 <label for="email-address" class="sr-only">Email address</label>
                 <input id="email-address" name="email-address" type="email" autocomplete="email" required class="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs rounded-md" placeholder="Enter your email">
                 <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                    <button type="submit" class="w-full flex items-center justify-center py-3 px-5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Notify me
+                    <button disabled type="submit" class="w-full flex items-center justify-center py-3 px-5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Sign up
                     </button>
                 </div>
             </form>
