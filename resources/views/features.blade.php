@@ -164,23 +164,23 @@
                     </div>
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                            Stay on top of customer support
+                            Fully manageable timetable
                         </h2>
                         <p class="mt-4 text-lg text-gray-500">
-                            Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+                            Keep track of your lessons with you own timetable that you get access with just by signing up. This has lots of tools that come with it that are really useful.
                         </p>
-                        <div class="mt-6">
+                        {{--<div class="mt-6">
                             <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
                                 Get started
                             </a>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
                 <div class="mt-8 border-t border-gray-200 pt-6">
                     <blockquote>
                         <div>
                             <p class="text-base text-gray-500">
-                                &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed diam. Sit orci risus aenean curabitur donec aliquet. Mi venenatis in euismod ut.&rdquo;
+                                &ldquo;This is pretty cool&rdquo;
                             </p>
                         </div>
                         <footer class="mt-3">
@@ -189,7 +189,7 @@
                                     <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
                                 </div>
                                 <div class="text-base font-medium text-gray-700">
-                                    Marcia Hill, Digital Marketing Manager
+                                    Will, College student
                                 </div>
                             </div>
                         </footer>
@@ -217,14 +217,14 @@
                     </div>
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                            Better understand your customers
+                            Manage assignments
                         </h2>
                         <p class="mt-4 text-lg text-gray-500">
-                            Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+                            Keeping on top of work is important in college since you need to do well to succeed. You will recieve email notifcations of any assignments that get set. Might include text messages soon.
                         </p>
                         <div class="mt-6">
-                            <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                                Get started
+                            <a href="/pricing" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                                View feature breakdown
                             </a>
                         </div>
                     </div>
@@ -244,8 +244,8 @@
 <div class="bg-white">
     <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900">All-in-one platform</h2>
-            <p class="mt-4 text-lg text-gray-500">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.</p>
+            <h2 class="text-3xl font-extrabold text-gray-900">Students all-in-one platform</h2>
+            <p class="mt-4 text-lg text-gray-500">One platform where students have access to all the tools that they will ever need.</p>
         </div>
         <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
             <div class="relative">
@@ -254,7 +254,7 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Invite team members</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Collaborate in group chats</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
                     Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est, molestie blandit quis ac. Lacus.
@@ -267,7 +267,7 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Notifications</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Email Notifications</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
                     Ornare donec rhoncus vitae nisl velit, neque, mauris dictum duis. Nibh urna non parturient.
@@ -280,10 +280,10 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">List view</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Timetables</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
-                    Etiam cras augue ornare pretium sit malesuada morbi orci, venenatis. Dictum lacus.
+                    View when you have lessons throughout the entire week.
                 </dd>
             </div>
 
@@ -293,10 +293,10 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Boards</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Assignments</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
-                    Interdum quam pulvinar turpis tortor, egestas quis diam amet, natoque. Mauris sagittis.
+                    Hand in assignments in one place for all your subjects.
                 </dd>
             </div>
 
@@ -306,10 +306,10 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Keyboard shortcuts</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Collaboration</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
-                    Ullamcorper in ipsum ac feugiat. Senectus at aliquam vulputate mollis nec. In at risus odio.
+                    Work with others and build a constructive community.
                 </dd>
             </div>
 
@@ -319,10 +319,10 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Reporting</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Moderation</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
-                    Magna a vel sagittis aliquam eu amet. Et lorem auctor quam nunc odio. Sed bibendum.
+                    Content is moderated using machine learning and artificial intelligence.
                 </dd>
             </div>
 
@@ -332,10 +332,10 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Calendars</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Announcements</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
-                    Sed mi, dapibus turpis orci posuere integer. A porta viverra posuere adipiscing turpis.
+                    Receive important updates and notifications from your institution.
                 </dd>
             </div>
 
@@ -345,10 +345,10 @@
                     <svg class="absolute h-6 w-6 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Mobile app</p>
+                    <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Reliable platform</p>
                 </dt>
                 <dd class="mt-2 ml-9 text-base text-gray-500">
-                    Quisque sapien nunc nisl eros. Facilisis sagittis maecenas id dignissim tristique proin sed.
+                    Build using world class software to bring you the fastest and most reliable platform for students.
                 </dd>
             </div>
         </dl>
