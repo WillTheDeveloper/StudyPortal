@@ -47,9 +47,9 @@ Route::get('/subscribe', function () {
 // Post routes
 Route::post('/subscribe', function (Request $request) {
     dd($request->all());
-    auth()->user()->newSubscription(
-        'default', $request->stripe,
-    )->create($request->boop);
+//    auth()->user()->newSubscription(
+//        'default', $request->stripe,
+//    )->create($request->boop);
 });
 
 // Don't delete this
