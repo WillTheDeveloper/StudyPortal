@@ -154,7 +154,7 @@
                         <span class="block lg:inline">Pricing made,</span>
                         <span class="block lg:inline">simple.</span>
                     </h1>
-                    <p class="mt-4 text-xl text-indigo-100">Everything you need, nothing you don't. Pick a plan that best suits your business.</p>
+                    <p class="mt-4 text-xl text-indigo-100">Everything you need, nothing you don't.</p>
                 </div>
 
                 <h2 class="sr-only">Plans</h2>
@@ -217,7 +217,7 @@
                                             <p class="text-gray-500 text-sm">Billed yearly (£20)</p>
                                         </div>
                                     </div>
-                                    <a href="#" class="bg-indigo-600 text-white hover:bg-indigo-700 mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full">Subscribe as Student</a>
+                                    <a href="/subscribe" class="bg-indigo-600 text-white hover:bg-indigo-700 mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full">Subscribe as Student</a>
                                 </div>
                             </div>
                             <h4 class="sr-only">Features</h4>
@@ -274,7 +274,7 @@
 
                         <div class="bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12">
                             <div>
-                                <h3 class="text-white text-sm font-semibold uppercase tracking-wide">Insitution</h3>
+                                <h3 class="text-white text-sm font-semibold uppercase tracking-wide">Institution</h3>
                                 <div class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start">
                                     <a href="#" class="bg-white text-indigo-600 hover:bg-indigo-50 mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full">Contact Sales Team</a>
                                 </div>
@@ -347,7 +347,7 @@
                             <div class="ring-1 ring-black ring-opacity-5 shadow relative py-3 px-4 bg-white rounded-lg sm:p-0 sm:bg-transparent sm:rounded-none sm:ring-0 sm:shadow-none">
                                 <dl class="divide-y divide-gray-200">
                                     <div class="py-3 flex items-center justify-between sm:grid sm:grid-cols-2">
-                                        <dt class="pr-4 text-sm font-medium text-gray-600">Tax Savings</dt>
+                                        <dt class="pr-4 text-sm font-medium text-gray-600">Account access</dt>
                                         <dd class="flex items-center justify-end sm:px-4 sm:justify-center">
                                             <!-- Heroicon name: solid/check -->
                                             <svg class="mx-auto h-5 w-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -358,7 +358,7 @@
                                     </div>
 
                                     <div class="py-3 flex items-center justify-between sm:grid sm:grid-cols-2">
-                                        <dt class="pr-4 text-sm font-medium text-gray-600">Easy to use accounting</dt>
+                                        <dt class="pr-4 text-sm font-medium text-gray-600">Timetable access</dt>
                                         <dd class="flex items-center justify-end sm:px-4 sm:justify-center">
                                             <!-- Heroicon name: solid/check -->
                                             <svg class="mx-auto h-5 w-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -369,21 +369,29 @@
                                     </div>
 
                                     <div class="py-3 flex items-center justify-between sm:grid sm:grid-cols-2">
-                                        <dt class="pr-4 text-sm font-medium text-gray-600">Multi-accounts</dt>
+                                        <dt class="pr-4 text-sm font-medium text-gray-600">Assignments access</dt>
                                         <dd class="flex items-center justify-end sm:px-4 sm:justify-center">
-                                            <span class="text-gray-900 text-sm font-medium">3 accounts</span>
+                                            <!-- Heroicon name: solid/check -->
+                                            <svg class="mx-auto h-5 w-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span class="sr-only">Yes</span>
                                         </dd>
                                     </div>
 
                                     <div class="py-3 flex items-center justify-between sm:grid sm:grid-cols-2">
-                                        <dt class="pr-4 text-sm font-medium text-gray-600">Invoicing</dt>
+                                        <dt class="pr-4 text-sm font-medium text-gray-600">Community access</dt>
                                         <dd class="flex items-center justify-end sm:px-4 sm:justify-center">
-                                            <span class="text-gray-900 text-sm font-medium">3 invoices</span>
+                                            <!-- Heroicon name: solid/x -->
+                                            <svg class="mx-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                            <span class="sr-only">View only</span>
                                         </dd>
                                     </div>
 
                                     <div class="py-3 flex items-center justify-between sm:grid sm:grid-cols-2">
-                                        <dt class="pr-4 text-sm font-medium text-gray-600">Exclusive offers</dt>
+                                        <dt class="pr-4 text-sm font-medium text-gray-600">Notifications</dt>
                                         <dd class="flex items-center justify-end sm:px-4 sm:justify-center">
                                             <!-- Heroicon name: solid/x -->
                                             <svg class="mx-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -394,7 +402,7 @@
                                     </div>
 
                                     <div class="py-3 flex items-center justify-between sm:grid sm:grid-cols-2">
-                                        <dt class="pr-4 text-sm font-medium text-gray-600">6 months free advisor</dt>
+                                        <dt class="pr-4 text-sm font-medium text-gray-600">Portfolio profile</dt>
                                         <dd class="flex items-center justify-end sm:px-4 sm:justify-center">
                                             <!-- Heroicon name: solid/x -->
                                             <svg class="mx-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -405,7 +413,7 @@
                                     </div>
 
                                     <div class="py-3 flex items-center justify-between sm:grid sm:grid-cols-2">
-                                        <dt class="pr-4 text-sm font-medium text-gray-600">Mobile and web access</dt>
+                                        <dt class="pr-4 text-sm font-medium text-gray-600">Work placements</dt>
                                         <dd class="flex items-center justify-end sm:px-4 sm:justify-center">
                                             <!-- Heroicon name: solid/x -->
                                             <svg class="mx-auto h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -521,7 +529,7 @@
 
                     <div class="border-t border-gray-200">
                         <div class="border-indigo-600 -mt-px pt-6 border-t-2 sm:w-1/2">
-                            <h3 class="text-indigo-600 text-sm font-bold">Scale</h3>
+                            <h3 class="text-indigo-600 text-sm font-bold">Student</h3>
                             <p class="mt-2 text-sm text-gray-500">The best financial services for your thriving business.</p>
                         </div>
                         <h4 class="mt-10 text-sm font-bold text-gray-900">Catered for business</h4>
@@ -709,7 +717,7 @@
 
                     <div class="border-t border-gray-200">
                         <div class="border-transparent -mt-px pt-6 border-t-2 sm:w-1/2">
-                            <h3 class="text-gray-900 text-sm font-bold">Growth</h3>
+                            <h3 class="text-gray-900 text-sm font-bold">Institution</h3>
                             <p class="mt-2 text-sm text-gray-500">Convenient features to take your business to the next level.</p>
                         </div>
                         <h4 class="mt-10 text-sm font-bold text-gray-900">Catered for business</h4>
