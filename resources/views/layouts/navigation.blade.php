@@ -41,11 +41,13 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
-                        {{ __('Subscribe') }}
-                    </x-nav-link>
-                </div>
+                @if (!auth()->user()->subscribed('default'))
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
+                            {{ __('Subscribe') }}
+                        </x-nav-link>
+                    </div>
+                @endif
 
             </div>
 
@@ -114,9 +116,12 @@
                 {{ __('Profile') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
-                {{ __('Subscribe') }}
-            </x-responsive-nav-link>
+            @if (!auth()->user()->subscribed('default'))
+                <x-responsive-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
+                    {{ __('Subscribe') }}
+                </x-responsive-nav-link>
+            @endif
+
         </div>
 
         <!-- Responsive Settings Options -->
