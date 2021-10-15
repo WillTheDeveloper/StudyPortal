@@ -83,64 +83,19 @@
                     <div class="pt-10">
                         <p class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
                            id="communities-headline">
-                            All Subjects
+                            My Subjects
                         </p>
                         <div class="mt-3 space-y-2" aria-labelledby="communities-headline">
-                            <a href="#"
-                               class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Computer Science
-                </span>
-                            </a>
 
+                            @foreach(auth()->user()->Subject()->get() as $subject)
                             <a href="#"
                                class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Hair and Beauty
-                </span>
+                                <span class="truncate">
+                                  {{$subject->subject}}
+                                </span>
                             </a>
+                            @endforeach
 
-                            <a href="#"
-                               class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Psychology
-                </span>
-                            </a>
-
-                            <a href="#"
-                               class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Science
-                </span>
-                            </a>
-
-                            <a href="#"
-                               class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Science
-                </span>
-                            </a>
-
-                            <a href="#"
-                               class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Dinosaurs
-                </span>
-                            </a>
-
-                            <a href="#"
-                               class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Talents
-                </span>
-                            </a>
-
-                            <a href="#"
-                               class="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50">
-                <span class="truncate">
-                  Gaming
-                </span>
-                            </a>
                         </div>
                     </div>
                 </nav>

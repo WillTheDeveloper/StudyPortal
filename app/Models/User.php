@@ -23,6 +23,16 @@ class User extends Authenticatable
         return $this->morphOne(Timetable::class, 'timetableable');
     }
 
+    public function Assignment()
+    {
+        return $this->belongsToMany(Assignment::class);
+    }
+
+    public function Subject()
+    {
+        return $this->belongsToMany(Subject::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -51,5 +61,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_tutor' => 'boolean',
+        'is_admin' => 'boolean',
+        'is_moderator' => 'boolean'
     ];
 }

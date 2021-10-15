@@ -9,7 +9,7 @@ class Institution extends Model
 {
     use HasFactory;
 
-    public function Student()
+    public function User()
     {
         return $this->hasMany(User::class);
     }

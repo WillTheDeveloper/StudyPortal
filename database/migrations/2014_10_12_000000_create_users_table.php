@@ -21,6 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('username')->unique()->nullable();
             $table->string('bio')->nullable();
+            $table->boolean('is_tutor')->default('0');
+            $table->boolean('is_admin')->default('0');
+            $table->boolean('is_moderator')->default('0');
+            $table->boolean('is_banned')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

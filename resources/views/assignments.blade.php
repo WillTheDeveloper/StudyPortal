@@ -44,7 +44,7 @@
                                         <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
                                             Due
 
-                                            <span class="bg-gray-100 text-gray-900 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">4</span>
+                                            <span class="bg-gray-100 text-gray-900 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">{{auth()->user()->Assignment()->count()}}</span>
                                         </a>
 
                                         <a href="#" class="border-purple-500 text-purple-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
@@ -67,30 +67,31 @@
 
                         <!-- Stacked list -->
                         <ul role="list" class="mt-5 border-t border-gray-200 divide-y divide-gray-200 sm:mt-0 sm:border-t-0">
+                            @foreach(auth()->user()->Assignment()->get() as $assignment)
                             <li>
                                 <a href="#" class="group block">
                                     <div class="flex items-center py-5 px-4 sm:py-6 sm:px-0">
                                         <div class="min-w-0 flex-1 flex items-center">
-                                            <div class="flex-shrink-0">
+                                            {{--<div class="flex-shrink-0">
                                                 <img class="h-12 w-12 rounded-full group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                                            </div>
+                                            </div>--}}
                                             <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                                                 <div>
-                                                    <p class="text-sm font-medium text-purple-600 truncate">Emily Selman</p>
+                                                    <p class="text-sm font-medium text-purple-600 truncate">{{$assignment->title}}</p>
                                                     <p class="mt-2 flex items-center text-sm text-gray-500">
                                                         <!-- Heroicon name: solid/mail -->
-                                                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        {{--<svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                                        </svg>
-                                                        <span class="truncate">emilyselman@example.com</span>
+                                                        </svg>--}}
+                                                        <span>{{$assignment->details}}</span>
                                                     </p>
                                                 </div>
                                                 <div class="hidden md:block">
                                                     <div>
                                                         <p class="text-sm text-gray-900">
-                                                            Applied on
-                                                            <time datetime="2020-07-01T15:34:56">January 7, 2020</time>
+                                                            Due for
+                                                            <time>{{$assignment->duedate->format('D d M')}} at {{$assignment->duedate->format('H:00')}}</time>
                                                         </p>
                                                         <p class="mt-2 flex items-center text-sm text-gray-500">
                                                             <!-- Heroicon name: solid/check-circle -->
@@ -112,6 +113,7 @@
                                     </div>
                                 </a>
                             </li>
+                        @endforeach
 
                             <!-- More candidates... -->
                         </ul>
