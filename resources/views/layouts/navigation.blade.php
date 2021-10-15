@@ -29,6 +29,22 @@
                     </x-nav-link>
                 </div>
 
+                @if (auth()->user()->is_tutor)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
+                            {{ __('Groups') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+
+                @if (auth()->user()->is_admin)
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                            {{ __('Users') }}
+                        </x-nav-link>
+                    </div>
+                @endif
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('community')" :active="request()->routeIs('community')">
                         {{ __('Community') }}

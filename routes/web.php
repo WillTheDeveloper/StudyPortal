@@ -38,6 +38,20 @@ Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
 
+Route::get('/groups', function (Request $request) {
+    if ($request->user()->is_tutor) {
+        return view('groups');
+    }
+    return view('dashboard');
+})->middleware(['auth'])->name('groups');
+
+Route::get('/users', function (Request $request) {
+    if ($request->user()->is_admin) {
+        return view('users');
+    }
+    return view('dashboard');
+})->middleware(['auth'])->name('users');
+
 Route::get('/subscribe', function () {
     return view('subscribe', [
         'intent' => auth()->user()->createSetupIntent()
