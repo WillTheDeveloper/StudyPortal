@@ -14,6 +14,10 @@
                         <div class="px-4 sm:px-0">
                             <h2 class="text-lg font-medium text-gray-900">My Assignments</h2>
 
+                            @if (auth()->user()->is_tutor)
+                                <x-button>Create Assignment</x-button>
+                            @endif
+
                             <!-- Tabs -->
                             <div class="sm:hidden">
                                 <label for="tabs" class="sr-only">Select a tab</label>
