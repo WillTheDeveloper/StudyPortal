@@ -15,7 +15,8 @@
         "laravel/tinker": "^2.5",
         "laravel/vapor-cli": "^1.25",
         "laravel/vapor-core": "^2.13",
-        "livewire/livewire": "^2.6"
+        "livewire/livewire": "^2.6",
+      "ext-pdo": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
