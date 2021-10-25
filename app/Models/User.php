@@ -18,6 +18,11 @@ class User extends Authenticatable
         return $this->belongsTo(Institution::class);
     }
 
+    public function Group()
+    {
+        return $this->belongsToMany(Group::class);
+    }
+
     public function Timetable()
     {
         return $this->morphOne(Timetable::class, 'timetableable');

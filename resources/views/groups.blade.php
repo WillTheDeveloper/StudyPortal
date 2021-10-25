@@ -11,6 +11,12 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Manage groups
 
+                    <br>
+
+                    @if (auth()->user()->is_tutor)
+                        <x-button>Create Group</x-button>
+                    @endif
+
                     <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="bg-white shadow overflow-hidden sm:rounded-md">
                         <ul role="list" class="divide-y divide-gray-200">
