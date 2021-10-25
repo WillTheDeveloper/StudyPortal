@@ -15,6 +15,6 @@ class Group extends Model
     }
 
     public function Subject() {
-        $this->belongsTo(Subject::class);
+        return $this->belongsTo(Subject::class);
     }
 }

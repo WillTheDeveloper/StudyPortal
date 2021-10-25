@@ -31,7 +31,7 @@
                                                 <div class="flex text-sm">
                                                     <p class="font-medium text-indigo-600 truncate">{{$group->name}}</p>
                                                     <p class="ml-1 flex-shrink-0 font-normal text-gray-500">
-                                                        in Engineering
+                                                        in {{$group->Subject->subject}}
                                                     </p>
                                                 </div>
                                                 <div class="mt-2 flex">
