@@ -18,4 +18,8 @@ class Subject extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function Group() {
+        return $this->hasMany(Group::class);
+    }
 }

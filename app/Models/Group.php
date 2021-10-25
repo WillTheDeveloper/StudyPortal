@@ -13,4 +13,8 @@ class Group extends Model
     {
         return $this->belongsToMany(User::class)->where('users.is_tutor', 0);
     }
+
+    public function Subject() {
+        $this->belongsTo(Subject::class);
+    }
 }
