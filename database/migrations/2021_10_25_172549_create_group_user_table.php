@@ -15,8 +15,8 @@ class CreateGroupUserTable extends Migration
     {
         Schema::create('group_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('groups_id');
-            $table->integer('users_id');
+            $table->integer('group_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
