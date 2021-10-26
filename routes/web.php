@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Group;
+use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -46,23 +47,8 @@ Route::get('/groups', function (Request $request) {
     return view('dashboard');
 })->middleware(['auth'])->name('groups');
 
-//Route::get('/groups/manage/{id}', function (Request $request) {
-//    if ($request->user()->is_tutor) {
-//        return view('managegroups');
-//    }
-//    return view('dashboard');
-//})->middleware(['auth'])->name('groups.manage');
-
 Route::get('/groups/manage/{id}', [Group::class, 'returnView'])->middleware('auth')->name('groups.manage');
-
-//Route::get('/users', function (Request $request) {
-//    if ($request->user()->is_admin) {
-//        return view('users');
-//    }
-//    return view('dashboard');
-//})->middleware(['auth'])->name('users');
-
-Route::get('/users', [\App\Http\Controllers\User::class, 'showAll'])->middleware('auth')->name('users');
+Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users');
 
 Route::get('/subscribe', function () {
     return view('subscribe', [
