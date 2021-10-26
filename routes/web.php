@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Community;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +33,11 @@ Route::get('/assignments', function () {
     return view('assignments');
 })->middleware(['auth'])->name('assignments');
 
-Route::get('/community', function () {
-    return view('community');
-})->middleware(['auth'])->name('community');
+//Route::get('/community', function () {
+//    return view('community');
+//})->middleware(['auth'])->name('community');
+
+Route::get('/community', [Community::class, 'view'])->middleware('auth')->name('community');
 
 Route::get('/profile', function () {
     return view('profile');

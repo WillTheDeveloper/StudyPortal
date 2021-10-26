@@ -131,6 +131,7 @@
                 <div class="mt-4">
                     <h1 class="sr-only">Recent questions</h1>
                     <ul role="list" class="space-y-4">
+                        @foreach($posts as $post)
                         <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
                             <article aria-labelledby="question-title-81614">
                                 <div>
@@ -142,11 +143,11 @@
                                         </div>
                                         <div class="min-w-0 flex-1">
                                             <p class="text-sm font-medium text-gray-900">
-                                                <a href="#" class="hover:underline">Dries Vincent</a>
+                                                <a href="#" class="hover:underline">{{$post->User->name}}</a>
                                             </p>
                                             <p class="text-sm text-gray-500">
                                                 <a href="#" class="hover:underline">
-                                                    <time datetime="2020-12-09T11:43:00">December 9 at 11:43 AM</time>
+                                                    <time datetime="{{$post->created_at}}">{{$post->created_at->diffForHumans()}}</time>
                                                 </a>
                                             </p>
                                         </div>
@@ -221,15 +222,11 @@
                                         </div>
                                     </div>
                                     <h2 id="question-title-81614" class="mt-4 text-base font-medium text-gray-900">
-                                        What would you have done differently if you ran Jurassic Park?
+                                        {{$post->title}}
                                     </h2>
                                 </div>
                                 <div class="mt-2 text-sm text-gray-700 space-y-4">
-                                    <p>Jurassic Park was an incredible idea and a magnificent feat of engineering, but
-                                        poor protocols and a disregard for human safety killed what could have otherwise
-                                        been one of the best businesses of our generation.</p>
-                                    <p>Ultimately, I think that if you wanted to run the park successfully and keep
-                                        visitors safe, the most important thing to prioritize would be&hellip;</p>
+                                    <p>{{$post->body}}</p>
                                 </div>
                                 <div class="mt-6 flex justify-between space-x-8">
                                     <div class="flex space-x-6">
@@ -240,7 +237,7 @@
                              aria-hidden="true">
                           <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
                         </svg>
-                        <span class="font-medium text-gray-900">29</span>
+                        <span class="font-medium text-gray-900">{{$post->Like()->count()}}</span>
                         <span class="sr-only">likes</span>
                       </button>
                     </span>
@@ -253,8 +250,8 @@
                                 d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
                                 clip-rule="evenodd"/>
                         </svg>
-                        <span class="font-medium text-gray-900">11</span>
-                        <span class="sr-only">replies</span>
+                        <span class="font-medium text-gray-900">{{$post->Comments()->count()}}</span>
+                        <span class="sr-only">comments</span>
                       </button>
                     </span>
                                         <span class="inline-flex items-center text-sm">
@@ -267,7 +264,7 @@
                                 d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
                                 clip-rule="evenodd"/>
                         </svg>
-                        <span class="font-medium text-gray-900">2.7k</span>
+                        <span class="font-medium text-gray-900">1</span>
                         <span class="sr-only">views</span>
                       </button>
                     </span>
@@ -287,6 +284,8 @@
                                 </div>
                             </article>
                         </li>
+
+                    @endforeach
 
                         <!-- More questions... -->
                     </ul>
