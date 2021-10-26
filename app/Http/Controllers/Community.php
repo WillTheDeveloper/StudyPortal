@@ -21,4 +21,11 @@ class Community extends Controller
             'user' => User::query()->where('users.id', $id)->findOrFail($id)
         ]);
     }
+
+    public function post($id)
+    {
+        return view('communitypost', [
+            'post' => Post::all()->where('posts.id', $id)
+        ]);
+    }
 }

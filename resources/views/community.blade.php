@@ -146,7 +146,7 @@
                                                 <a href="{{ route('community.profile', $post->User->id) }}" class="hover:underline">{{$post->User->name}}</a>
                                             </p>
                                             <p class="text-sm text-gray-500">
-                                                <a href="#" class="hover:underline">
+                                                <a href="{{ route('community.post', $post->id) }}" class="hover:underline">
                                                     <time datetime="{{$post->created_at}}">Posted {{$post->created_at->diffForHumans()}}</time>
                                                 </a>
                                             </p>
