@@ -33,12 +33,6 @@ Route::get('/assignments', function () {
     return view('assignments');
 })->middleware(['auth'])->name('assignments');
 
-//Route::get('/community', function () {
-//    return view('community');
-//})->middleware(['auth'])->name('community');
-
-Route::get('/community', [Community::class, 'view'])->middleware('auth')->name('community');
-
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
@@ -50,6 +44,7 @@ Route::get('/groups', function (Request $request) {
     return view('dashboard');
 })->middleware(['auth'])->name('groups');
 
+Route::get('/community', [Community::class, 'view'])->middleware('auth')->name('community');
 Route::get('/groups/manage/{id}', [Group::class, 'returnView'])->middleware('auth')->name('groups.manage');
 Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users');
 
