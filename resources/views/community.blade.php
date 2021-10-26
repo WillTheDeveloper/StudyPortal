@@ -147,7 +147,7 @@
                                             </p>
                                             <p class="text-sm text-gray-500">
                                                 <a href="#" class="hover:underline">
-                                                    <time datetime="{{$post->created_at}}">{{$post->created_at->diffForHumans()}}</time>
+                                                    <time datetime="{{$post->created_at}}">Posted {{$post->created_at->diffForHumans()}}</time>
                                                 </a>
                                             </p>
                                         </div>
