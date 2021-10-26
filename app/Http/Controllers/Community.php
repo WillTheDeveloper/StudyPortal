@@ -10,11 +10,16 @@ class Community extends Controller
 {
     public function view()
     {
-        return view('community', ['posts' => Post::all()->sortByDesc('created_at')]);
+        return view('community', [
+            'posts' => Post::all()->sortByDesc('created_at'),
+            'users' => User::all()->take(3)
+        ]);
     }
 
     public function profile($id)
     {
-        return view('communityuser', ['user' => User::query()->where('users.id', $id)->findOrFail($id)]);
+        return view('communityuser', [
+            'user' => User::query()->where('users.id', $id)->findOrFail($id)
+        ]);
     }
 }
