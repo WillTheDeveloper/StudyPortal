@@ -47,6 +47,7 @@ Route::get('/groups', function (Request $request) {
 Route::get('/community', [Community::class, 'view'])->middleware('auth')->name('community');
 Route::get('/groups/manage/{id}', [Group::class, 'returnView'])->middleware('auth')->name('groups.manage');
 Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users');
+Route::get('/community/{id}', [Community::class, 'profile'])->middleware('auth')->name('community.profile');
 
 Route::get('/subscribe', function () {
     return view('subscribe', [

@@ -143,7 +143,7 @@
                                         </div>
                                         <div class="min-w-0 flex-1">
                                             <p class="text-sm font-medium text-gray-900">
-                                                <a href="#" class="hover:underline">{{$post->User->name}}</a>
+                                                <a href="{{ route('community.profile', $post->User->id) }}" class="hover:underline">{{$post->User->name}}</a>
                                             </p>
                                             <p class="text-sm text-gray-500">
                                                 <a href="#" class="hover:underline">
@@ -395,5 +395,4 @@
             </aside>
         </div>
     </div>
-
 </x-app-layout>
