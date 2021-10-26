@@ -314,7 +314,7 @@
                                                 </p>
                                                 @isset($user->username)
                                                 <p class="text-sm text-gray-500">
-                                                    <a href="#">@ {{$user->username}}</a>
+                                                    <a href="{{ route('community.profile', $user->id) }}">@ {{$user->username}}</a>
                                                 </p>
                                                 @endisset
                                             </div>
