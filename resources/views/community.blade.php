@@ -132,7 +132,7 @@
                     <h1 class="sr-only">Recent questions</h1>
                     <ul role="list" class="space-y-4">
                         @foreach($posts as $post)
-                        <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
+                        <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg" x-data="{dropdown: false}">
                             <article aria-labelledby="question-title-81614">
                                 <div>
                                     <div class="flex space-x-3">
@@ -154,7 +154,7 @@
                                         <div class="flex-shrink-0 self-center flex">
                                             <div class="relative inline-block text-left">
                                                 <div>
-                                                    <button type="button"
+                                                    <button @click="dropdown = true" @click.away="dropdown = false" type="button"
                                                             class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600"
                                                             id="options-menu-0-button" aria-expanded="false"
                                                             aria-haspopup="true">
@@ -177,7 +177,7 @@
                                                     From: "transform opacity-100 scale-100"
                                                     To: "transform opacity-0 scale-95"
                                                 -->
-                                                <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                <div x-show="dropdown" x-cloak class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                                      role="menu" aria-orientation="vertical"
                                                      aria-labelledby="options-menu-0-button" tabindex="-1">
                                                     <div class="py-1" role="none">
