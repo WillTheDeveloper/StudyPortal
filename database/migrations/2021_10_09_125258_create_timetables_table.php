@@ -15,8 +15,13 @@ class CreateTimetablesTable extends Migration
     {
         Schema::create('timetables', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
             $table->integer('timetableable_id');
             $table->string('timetableable_type');
+            $table->time('start');
+            $table->time('end');
+            $table->integer('subject_id')->nullable(false);
+            $table->integer('institution_id')->nullable(true);
             $table->timestamps();
         });
     }
