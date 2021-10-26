@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     This is your timetable for this week!
 
-                    @foreach(auth()->user()->Timetable() as $slot)
+                    @foreach(auth()->user()->Timetable()->get() as $slot)
                         <p>{{$slot}}</p>
                     @endforeach
 

@@ -25,7 +25,7 @@ class User extends Authenticatable
 
     public function Timetable()
     {
-        return $this->morphOne(Timetable::class, 'timetableable');
+        return $this->morphMany(Timetable::class, 'timetableable');
     }
 
     public function Assignment()
