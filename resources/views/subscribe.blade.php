@@ -120,7 +120,7 @@
                 if (error) {
                     // Error stuff
                 } else {
-                    console.log(setupIntent.payment_method);
+                    console.log(stripe.paymentMethod.id());
                 }
             });
         </script>
