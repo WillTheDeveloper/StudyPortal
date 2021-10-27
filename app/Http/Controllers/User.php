@@ -13,7 +13,7 @@ class User extends Controller
     {
         if (auth()->user()->is_admin) {
             return view('users', [
-                'users' => \App\Models\User::all()
+                'users' => \App\Models\User::all()->sortByDesc('name')
             ]);
         }
     }
