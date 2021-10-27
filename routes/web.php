@@ -44,17 +44,18 @@ Route::get('/groups', function (Request $request) {
     return view('dashboard');
 })->middleware(['auth'])->name('groups');
 
-Route::get('/community', [Community::class, 'view'])->middleware('auth')->name('community');
-Route::get('/groups/manage/{id}', [Group::class, 'returnView'])->middleware('auth')->name('groups.manage');
-Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users');
-Route::get('/community/{id}', [Community::class, 'profile'])->middleware('auth')->name('community.profile');
-Route::get('/community/post/{id}', [Community::class, 'post'])->middleware('auth')->name('community.post');
-
 Route::get('/subscribe', function () {
     return view('subscribe', [
         'intent' => auth()->user()->createSetupIntent()
     ]);
 })->middleware(['auth'])->name('subscribe');
+
+// Dynamic get routes
+Route::get('/community', [Community::class, 'view'])->middleware('auth')->name('community');
+Route::get('/groups/manage/{id}', [Group::class, 'returnView'])->middleware('auth')->name('groups.manage');
+Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users');
+Route::get('/community/{id}', [Community::class, 'profile'])->middleware('auth')->name('community.profile');
+Route::get('/community/post/{id}', [Community::class, 'post'])->middleware('auth')->name('community.post');
 
 // Post routes
 Route::post('/subscribe', function (Request $request) {
