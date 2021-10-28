@@ -13,7 +13,10 @@
 
                     <br>
 
-                    <x-button>Add student</x-button>
+                    <x-button href="{{ route('groups') }}">Add student</x-button>
+                    @empty($groupstuff->User)
+                        <x-button action="{{ route('groups') }}">Assign assignment</x-button>
+                    @endempty
 
                 <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="flex flex-col">

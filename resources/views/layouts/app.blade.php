@@ -34,7 +34,6 @@
             </main>
         </div>
 
-{{--stripe stuff--}}
     @stack('scripts')
 
     </body>
