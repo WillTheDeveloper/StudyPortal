@@ -56,7 +56,7 @@
                 <p>{{$user->name}}'s Posts.</p> <br>
 
                 @foreach($user->Post as $post)
-                    <p><b>{{$post->title}}</b></p><br>
+                    <a href="{{ route('community.post', $post->id) }}"><b>{{$post->title}}</b></a><br>
                     <p>{{$post->body}}</p><br>
                 @endforeach
             </div>
