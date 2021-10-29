@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Group;
+use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -25,10 +26,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/timetable', function () {
-    return view('timetable');
-})->middleware(['auth'])->name('timetable');
-
 Route::get('/assignments', function () {
     return view('assignments');
 })->middleware(['auth'])->name('assignments');
@@ -51,6 +48,7 @@ Route::get('/subscribe', function () {
 })->middleware(['auth'])->name('subscribe');
 
 // Dynamic get routes
+Route::get('/timetable', [Timetable::class, 'view'])->middleware(['auth'])->name('timetable');
 Route::get('/community', [Community::class, 'view'])->middleware('auth')->name('community');
 Route::get('/groups/manage/{id}', [Group::class, 'returnView'])->middleware('auth')->name('groups.manage');
 Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users');
