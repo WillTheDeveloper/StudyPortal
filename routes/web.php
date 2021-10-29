@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Assignment;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Timetable;
@@ -29,6 +30,8 @@ Route::get('/dashboard', function () {
 Route::get('/assignments', function () {
     return view('assignments');
 })->middleware(['auth'])->name('assignments');
+
+Route::get('/assignments/manage/{id}', [Assignment::class, 'manage'])->middleware(['auth'])->name('assignments.manage');
 
 Route::get('/profile', function () {
     return view('profile');

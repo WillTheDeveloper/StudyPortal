@@ -73,7 +73,7 @@
                         <ul role="list" class="mt-5 border-t border-gray-200 divide-y divide-gray-200 sm:mt-0 sm:border-t-0">
                             @foreach(auth()->user()->Assignment()->get() as $assignment)
                             <li>
-                                <a href="#" class="group block">
+                                <a href="{{ route('assignments.manage', $assignment->id) }}" class="group block">
                                     <div class="flex items-center py-5 px-4 sm:py-6 sm:px-0">
                                         <div class="min-w-0 flex-1 flex items-center">
                                             {{--<div class="flex-shrink-0">
