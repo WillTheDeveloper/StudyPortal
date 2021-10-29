@@ -61,6 +61,9 @@ Route::post('/subscribe', function (Request $request) {
 //    auth()->user()->newSubscription(
 //        'default', $request->stripe,
 //    )->create($request);
+
+//    auth()->user()->updateDefaultPaymentMethodFromStripe();
+//    auth()->user()->syncStripeCustomerDetails();
 });
 
 // Don't delete this

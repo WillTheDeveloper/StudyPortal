@@ -13,5 +13,20 @@ class Timetable extends Model
     {
         return $this->morphTo();
     }
+
+    public function Subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    protected $casts = [
+        'start' => 'datetime:h-i-s',
+        'end' => 'datetime:h-i-s'
+    ];
 }
 

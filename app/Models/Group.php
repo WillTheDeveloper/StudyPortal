@@ -20,6 +20,6 @@ class Group extends Model
 
     public function Timetable()
     {
-        return $this->morphMany(Timetable::class, 'timetableable');
+        return $this->morphOne(Timetable::class, 'timetableable');
     }
 }

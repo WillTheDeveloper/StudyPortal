@@ -11,8 +11,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     This is your timetable for this week!
 
-                    {{--@foreach(auth()->user()->Timetable() as $slot)
-                        <p>{{$slot->name}}</p>
+                   {{--@foreach(auth()->user()->Timetable()->get() as $slot)
+                        <p>You have {{$slot->Subject->subject}} at {{$slot->start->format('h:i')}}-{{$slot->end->format('h:i')}} with {{$slot->User->name}}</p>
                     @endforeach--}}
 
                     <div class="flex flex-col">
@@ -47,163 +47,52 @@
                                         </thead>
 
                                         <tbody>
+
+                                        @foreach(auth()->user()->Timetable()->get()->sortBy('start') as $timetable)
                                         <tr class="bg-white">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                9:00 -> 10:00
+                                                {{$timetable->start->format('h:i')}} - {{$timetable->end->format('h:i')}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
+                                                <b>{{$timetable->Subject->subject}}</b><br>
+                                                {{$timetable->User->name}}<br>
+                                                @isset($timetable->room)
+                                                    Room {{$timetable->room}}
+                                                @endisset
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
+                                                <b>{{$timetable->Subject->subject}}</b><br>
+                                                {{$timetable->User->name}}<br>
+                                                @isset($timetable->room)
+                                                    Room {{$timetable->room}}
+                                                @endisset
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
+                                                <b>{{$timetable->Subject->subject}}</b><br>
+                                                {{$timetable->User->name}}<br>
+                                                @isset($timetable->room)
+                                                    Room {{$timetable->room}}
+                                                @endisset
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
+                                                <b>{{$timetable->Subject->subject}}</b><br>
+                                                {{$timetable->User->name}}<br>
+                                                @isset($timetable->room)
+                                                    Room {{$timetable->room}}
+                                                @endisset
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
+                                                <b>{{$timetable->Subject->subject}}</b><br>
+                                                {{$timetable->User->name}}<br>
+                                                @isset($timetable->room)
+                                                    Room {{$timetable->room}}
+                                                @endisset
                                             </td>
-                                            {{--<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                            </td>--}}
-                                        </tr>
-
-                                        <tr class="bg-white">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                10:00 -> 11:00
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
                                             </td>
                                         </tr>
-
-                                        <tr class="bg-white">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                11:00 -> 12:00
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                        </tr>
-
-                                        <tr class="bg-white">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                12:00 -> 13:00
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                        </tr>
-
-                                        <tr class="bg-white">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                13:00->14:00
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>Computer Science</b><br>
-                                                Laura<br>
-                                                Room 251
-                                            </td>
-                                        </tr>
+                                        @endforeach
 
                                         </tbody>
                                     </table>
