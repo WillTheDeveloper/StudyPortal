@@ -9,6 +9,11 @@ class Group extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'subject_id'
+    ];
+
     public function User()
     {
         return $this->belongsToMany(User::class)->where('users.is_tutor', 0);

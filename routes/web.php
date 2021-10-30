@@ -73,6 +73,7 @@ Route::post('/subscribe', function (Request $request) {
 
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])->middleware(['auth'])->name('assignment.delete');
 Route::post('/assignments/new', [Assignment::class, 'new'])->middleware('auth')->name('assignment.new');
+Route::post('/groups/new', [Group::class, 'new'])->middleware('auth')->name('groups.new');
 
 // Don't delete this
 require __DIR__.'/auth.php';
