@@ -11,9 +11,9 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     This is your timetable for this week! <br> (Current time: {{now()->locale('gb_uk')->format('H:i')}})
 
-                   {{--@foreach(auth()->user()->Timetable()->get() as $slot)
-                        <p>You have {{$slot->Subject->subject}} at {{$slot->start->format('h:i')}}-{{$slot->end->format('h:i')}} with {{$slot->User->name}}</p>
-                    @endforeach--}}
+                    <br>
+
+                    <x-button>Edit Timetable</x-button>
 
                     <div class="flex flex-col">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -88,9 +88,9 @@
                                                     Room {{$timetable->room}}
                                                 @endisset
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            {{--<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                            </td>
+                                            </td>--}}
                                         </tr>
                                         @endforeach
 
