@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\Models\Group as UserGroup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Group extends Controller
 {
@@ -24,9 +25,22 @@ class Group extends Controller
 
         $group->save();
 
-        $group->User()->attach([$group->id ,auth()->user()->id]);
+        $group->User()->attach([auth()->user()->id]);
 
         return view('groups');
+    }
+
+    public function add()
+    {
+
+    }
+
+    public function delete($id)
+    {
+        UserGroup::query()->where('groups.id', $id)->select('*')->delete();
+        $group = new UserGroup();
+        $group->User()->detach();
+        return redirect('groups');
     }
 
     public function create()

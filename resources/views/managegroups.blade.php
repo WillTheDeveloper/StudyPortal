@@ -19,9 +19,12 @@
                         </x-button>
                     </a>
 
-                    <x-button>
-                        Delete group
-                    </x-button>
+                    <form action="{{ route('groups.delete', $groupstuff->id) }}" method="post">
+                        @csrf
+                        <x-button>
+                            Delete group
+                        </x-button>
+                    </form>
 
                     @empty($groupstuff->User)
                         <x-button>
