@@ -147,7 +147,7 @@
                                             </p>
                                             <p class="text-sm text-gray-500">
                                                 <a href="{{ route('community.post', $post->id) }}" class="hover:underline">
-                                                    <time datetime="{{$post->created_at}}">Posted {{$post->created_at->diffForHumans()}}</time>
+                                                    <time datetime="{{$post->created_at}}">Posted {{$post->created_at->diffForHumans()}} on <b>{{$post->Subject->subject}}</b></time>
                                                 </a>
                                             </p>
                                         </div>

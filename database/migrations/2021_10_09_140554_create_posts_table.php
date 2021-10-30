@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->integer('user_id')->nullable(false);
+            $table->integer('subject_id')->nullable(false);
             $table->timestamps();
         });
     }

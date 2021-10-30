@@ -22,4 +22,9 @@ class Subject extends Model
     public function Group() {
         return $this->hasMany(Group::class);
     }
+
+    public function Post()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

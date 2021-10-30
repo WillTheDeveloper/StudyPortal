@@ -23,4 +23,9 @@ class Post extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    public function Subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
 }
