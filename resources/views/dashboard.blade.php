@@ -23,7 +23,7 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-lg font-medium">
-                    <a href="#" class="focus:outline-none">
+                    <a href="{{ route('timetable') }}" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         View timetable
@@ -51,7 +51,7 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-lg font-medium">
-                    <a href="#" class="focus:outline-none">
+                    <a href="{{ route('assignments') }}" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Manage assignments
@@ -107,7 +107,7 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-lg font-medium">
-                    <a href="#" class="focus:outline-none">
+                    <a href="{{ route('subscribe') }}" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Manage subscription
@@ -135,7 +135,7 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-lg font-medium">
-                    <a href="#" class="focus:outline-none">
+                    <a href="{{ route('profile') }}" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Edit your profile
@@ -165,7 +165,7 @@
             </div>
             <div class="mt-8">
                 <h3 class="text-lg font-medium">
-                    <a href="#" class="focus:outline-none">
+                    <a href="{{ route('community') }}" class="focus:outline-none">
                         <!-- Extend touch target to entire panel -->
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         Community
