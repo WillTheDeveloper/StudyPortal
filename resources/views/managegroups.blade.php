@@ -26,12 +26,6 @@
                         </x-button>
                     </form>
 
-                    @empty($groupstuff->User)
-                        <x-button>
-                            Assign assignment
-                        </x-button>
-                    @endempty
-
                 <!-- This example requires Tailwind CSS v2.0+ -->
                     <div class="flex flex-col">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -58,7 +52,7 @@
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach($groupstuff->User as $users)
+                                        @foreach($groupstuff->User->sortBy('name') as $users)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
