@@ -43,7 +43,7 @@ class Group extends Controller
     {
         $group = UserGroup::find($id);
 
-        $users = $request->input('user-select');
+        $users = $request->input(['user-select']);
 
         $group->User()->attach([$users]);
 
