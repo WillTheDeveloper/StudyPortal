@@ -59,6 +59,7 @@ Route::get('/community/{id}', [Community::class, 'profile'])->middleware('auth')
 Route::get('/community/post/{id}', [Community::class, 'post'])->middleware('auth')->name('community.post');
 Route::get('/assignments/create', [Assignment::class, 'create'])->middleware('auth')->name('assignment.create');
 Route::get('/groups/create', [Group::class, 'create'])->middleware('auth')->name('groups.create');
+Route::get('/groups/update/{id}', [Group::class, 'add'])->middleware('auth')->name('groups.update');
 
 // Post routes
 Route::post('/subscribe', function (Request $request) {
@@ -75,6 +76,7 @@ Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])->middlewa
 Route::post('/assignments/new', [Assignment::class, 'new'])->middleware('auth')->name('assignment.new');
 Route::post('/groups/new', [Group::class, 'new'])->middleware('auth')->name('groups.new');
 Route::post('/groups/delete/{id}', [Group::class, 'delete'])->middleware('auth')->name('groups.delete');
+Route::post('/groups/update/{id}/add', [Group::class, 'update'])->middleware('auth')->name('groups.add');
 
 // Don't delete this
 require __DIR__.'/auth.php';

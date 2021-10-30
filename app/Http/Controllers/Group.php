@@ -30,9 +30,23 @@ class Group extends Controller
         return view('groups');
     }
 
-    public function add()
+    public function add($id)
     {
+        return view('addusertogroup', [
+            //TODO:Ensure that tutors cannot get added to groups.
+            'users' => \App\Models\User::all()->except(\App\Models\User::query()->where('is_tutor', 1)->find('id')),
+            'groupid' => $id
+        ]);
+    }
 
+    public function update(Request $request, $id)
+    {
+//        dd($request->all());
+        $group = new UserGroup();
+
+        $group->User()->attach([$request->input(['user-select'])]);
+
+        return redirect(route('groups', $id));
     }
 
     public function delete($id)

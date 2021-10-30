@@ -13,7 +13,7 @@
 
                     <br>
 
-                    <a href="{{ route('groups') }}">
+                    <a href="{{ route('groups.update', $groupstuff->id) }}">
                         <x-button>
                             Add students
                         </x-button>
