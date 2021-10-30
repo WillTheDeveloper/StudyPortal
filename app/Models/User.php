@@ -78,6 +78,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'is_tutor' => 'boolean',
         'is_admin' => 'boolean',
-        'is_moderator' => 'boolean'
+        'is_moderator' => 'boolean',
+        'is_banned' => 'boolean'
     ];
 }
