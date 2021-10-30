@@ -28,4 +28,10 @@ class Community extends Controller
             'post' => Post::all()->where('posts.id', $id)
         ]);
     }
+
+    public function showSubject($id) {
+        return view('communitysubject', [
+            'posts' => Post::all()->where('subject_id', $id)
+        ]);
+    }
 }

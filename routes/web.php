@@ -60,6 +60,7 @@ Route::get('/community/post/{id}', [Community::class, 'post'])->middleware('auth
 Route::get('/assignments/create', [Assignment::class, 'create'])->middleware('auth')->name('assignment.create');
 Route::get('/groups/create', [Group::class, 'create'])->middleware('auth')->name('groups.create');
 Route::get('/groups/update/{id}', [Group::class, 'add'])->middleware('auth')->name('groups.update');
+Route::get('/community/subject/{id}', [Community::class, 'showSubject'])->middleware('auth')->name('community.subject');
 
 // Post routes
 Route::post('/subscribe', function (Request $request) {
