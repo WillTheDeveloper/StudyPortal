@@ -58,6 +58,7 @@ Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users'
 Route::get('/community/{id}', [Community::class, 'profile'])->middleware('auth')->name('community.profile');
 Route::get('/community/post/{id}', [Community::class, 'post'])->middleware('auth')->name('community.post');
 Route::get('/assignments/create', [Assignment::class, 'create'])->middleware('auth')->name('assignment.create');
+Route::get('/groups/create', [Group::class, 'create'])->middleware('auth')->name('groups.create');
 
 // Post routes
 Route::post('/subscribe', function (Request $request) {

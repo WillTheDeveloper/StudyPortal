@@ -14,7 +14,9 @@
                     <br>
 
                     @if (auth()->user()->is_tutor)
-                        <x-button>Create Group</x-button>
+                        <a href="{{ route('groups.create') }}">
+                            <x-button>Create Group</x-button>
+                        </a>
                     @endif
 
                     <!-- This example requires Tailwind CSS v2.0+ -->

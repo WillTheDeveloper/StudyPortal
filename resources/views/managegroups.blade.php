@@ -15,9 +15,14 @@
 
                     <a href="{{ route('groups') }}">
                         <x-button>
-                                Add students
+                            Add students
                         </x-button>
                     </a>
+
+                    <x-button>
+                        Delete group
+                    </x-button>
+
                     @empty($groupstuff->User)
                         <x-button>
                             Assign assignment

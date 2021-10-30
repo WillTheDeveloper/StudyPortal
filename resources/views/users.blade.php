@@ -29,10 +29,10 @@
                                                 Email
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Role
+                                                Group
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Edit</span>
+                                                <span class="sr-only">Manage</span>
                                             </th>
                                         </tr>
                                         </thead>
@@ -46,17 +46,19 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 @foreach($user->Subject()->get() as $subject)
-                                                    <p>{{$subject->subject}} <br></p>
+                                                    <p>{{$subject->subject}}<br></p>
                                                 @endforeach
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{$user->email}}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                -placeholder-
+                                                @foreach($user->Group()->get() as $group)
+                                                    <p>{{$group->name}}<br></p>
+                                                @endforeach
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Manage</a>
                                             </td>
                                         </tr>
                                         @endforeach

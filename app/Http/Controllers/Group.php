@@ -12,4 +12,9 @@ class Group extends Controller
             'groupstuff' => \App\Models\Group::all()->where('id', $id)->find($id)
         ]);
     }
+
+    public function create()
+    {
+        return view('creategroup');
+    }
 }
