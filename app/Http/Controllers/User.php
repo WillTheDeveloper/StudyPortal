@@ -17,4 +17,16 @@ class User extends Controller
             ]);
         }
     }
+
+    public function updateprofile(Request $request)
+    {
+        auth()->user()->update(
+            [
+                'username' => $request->input('username'),
+                'bio' => $request->input('about'),
+            ]
+        );
+        auth()->user()->save();
+        return redirect('profile');
+    }
 }

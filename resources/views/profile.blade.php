@@ -11,7 +11,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Institutions name: {{auth()->user()->Institution()->first()}}
 
-    <form class="space-y-8 divide-y divide-gray-200">
+    <form class="space-y-8 divide-y divide-gray-200" action="{{ route('profile.update') }}" method="post">
+        @csrf
         <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
             <div>
                 <div class="mt-6 sm:mt-5 space-y-6 sm:space-y-5">
@@ -24,7 +25,7 @@
               <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                 studyportal.cloud/
               </span>
-                                <input type="text" name="username" id="username" autocomplete="username" class="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300">
+                                <input type="text" name="username" id="username" value="{{auth()->user()->username}}" autocomplete="username" class="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300">
                             </div>
                         </div>
                     </div>
@@ -34,7 +35,7 @@
                             About
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                            <textarea id="about" name="about" rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
+                            <textarea id="about" name="about" rows="3" class="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md">{{auth()->user()->bio}}</textarea>
                             <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
                         </div>
                     </div>

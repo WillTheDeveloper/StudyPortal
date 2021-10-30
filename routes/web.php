@@ -77,6 +77,7 @@ Route::post('/assignments/new', [Assignment::class, 'new'])->middleware('auth')-
 Route::post('/groups/new', [Group::class, 'new'])->middleware('auth')->name('groups.new');
 Route::post('/groups/delete/{id}', [Group::class, 'delete'])->middleware('auth')->name('groups.delete');
 Route::post('/groups/update/{id}/add', [Group::class, 'update'])->middleware('auth')->name('groups.add');
+Route::post('/profile/update', [User::class, 'updateprofile'])->middleware('auth')->name('profile.update');
 
 // Don't delete this
 require __DIR__.'/auth.php';
