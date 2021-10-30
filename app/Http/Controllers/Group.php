@@ -44,7 +44,7 @@ class Group extends Controller
         $group = UserGroup::find($id);
 
         $users = $request->input(['user-select']);
-
+        //TODO:Be able to select more than one to at a time to add to a group. Turn into an array.
         $group->User()->attach([$users]);
 
         return redirect(route('groups.manage', $id));
