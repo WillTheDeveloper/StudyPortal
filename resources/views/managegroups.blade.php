@@ -13,11 +13,13 @@
 
                     <br>
 
-                    <x-button href="{{ route('groups') }}">
-                        Add students
-                    </x-button>
+                    <a href="{{ route('groups') }}">
+                        <x-button>
+                                Add students
+                        </x-button>
+                    </a>
                     @empty($groupstuff->User)
-                        <x-button href="{{ route('groups') }}">
+                        <x-button>
                             Assign assignment
                         </x-button>
                     @endempty
