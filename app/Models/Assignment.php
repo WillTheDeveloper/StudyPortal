@@ -9,14 +9,32 @@ class Assignment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'duedate',
+        'setdate',
+        'subject_id',
+        'details'
+    ];
+
     public function User()
     {
         return $this->belongsToMany(User::class);
     }
 
+    public function Group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
     public function Subject()
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    public function Assignment()
+    {
+        return $this->belongsTo(Assignment::class);
     }
 
     protected $casts = [

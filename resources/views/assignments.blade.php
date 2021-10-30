@@ -15,7 +15,9 @@
                             <h2 class="text-lg font-medium text-gray-900">My Assignments</h2>
 
                             @if (auth()->user()->is_tutor)
-                                <x-button>Create Assignment</x-button>
+                                <a href="{{ route('assignment.create') }}">
+                                    <x-button>Create Assignment</x-button>
+                                </a>
                             @endif
 
                             <!-- Tabs -->

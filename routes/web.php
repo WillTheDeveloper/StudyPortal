@@ -57,6 +57,7 @@ Route::get('/groups/manage/{id}', [Group::class, 'returnView'])->middleware('aut
 Route::get('/users', [User::class, 'showAll'])->middleware('auth')->name('users');
 Route::get('/community/{id}', [Community::class, 'profile'])->middleware('auth')->name('community.profile');
 Route::get('/community/post/{id}', [Community::class, 'post'])->middleware('auth')->name('community.post');
+Route::get('/assignments/create', [Assignment::class, 'create'])->middleware('auth')->name('assignment.create');
 
 // Post routes
 Route::post('/subscribe', function (Request $request) {
@@ -70,6 +71,7 @@ Route::post('/subscribe', function (Request $request) {
 });
 
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])->middleware(['auth'])->name('assignment.delete');
+Route::post('/assignments/new', [Assignment::class, 'new'])->middleware('auth')->name('assignment.new');
 
 // Don't delete this
 require __DIR__.'/auth.php';
