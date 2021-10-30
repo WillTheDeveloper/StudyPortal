@@ -110,9 +110,15 @@
                                 @endif
 
                                 @if (auth()->user()->is_tutor)
-                                    <x-button>Edit Assignment</x-button>
+                                    <a>
+                                        <x-button>Edit Assignment</x-button>
+                                    </a>
 
-                                    <x-button>Delete Assignment</x-button>
+                                    <form action="{{ route('assignment.delete', $assignment->id) }}" method="post">
+                                        @csrf
+                                        <x-button>Delete Assignment</x-button>
+                                    </form>
+
                                 @endif
                             </div>
 

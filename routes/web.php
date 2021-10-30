@@ -69,5 +69,7 @@ Route::post('/subscribe', function (Request $request) {
 //    auth()->user()->syncStripeCustomerDetails();
 });
 
+Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])->middleware(['auth'])->name('assignment.delete');
+
 // Don't delete this
 require __DIR__.'/auth.php';
