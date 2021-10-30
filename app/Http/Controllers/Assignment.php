@@ -42,11 +42,9 @@ class Assignment extends Controller
         );
         $assignment->save();
 
-        $group = \App\Models\Group::all()->find($request->input('group-select'));
+        //TODO: Be able to get all the user ID's from the group and attach them all to this assignment.
 
-        $assignment->Group()->associate($group);
-
-        return view('assignments');
+        return redirect('assignments');
     }
 
     public function delete($id, Request $request)
