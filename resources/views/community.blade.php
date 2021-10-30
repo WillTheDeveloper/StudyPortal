@@ -26,7 +26,7 @@
               </span>
                         </a>
 
-                        <a href="#"
+                        <a href="{{ route('community.popular') }}"
                            class="text-gray-600 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <!-- Heroicon name: outline/fire -->
                             <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
@@ -42,7 +42,7 @@
               </span>
                         </a>
 
-                        <a href="#"
+                        <a href="{{ route('community.communities') }}"
                            class="text-gray-600 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <!-- Heroicon name: outline/user-group -->
                             <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
@@ -56,7 +56,7 @@
               </span>
                         </a>
 
-                        <a href="#"
+                        <a href="{{ route('community.trending') }}"
                            class="text-gray-600 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <!-- Heroicon name: outline/trending-up -->
                             <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
