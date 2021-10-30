@@ -29,6 +29,21 @@ class Community extends Controller
         ]);
     }
 
+    public function popular()
+    {
+
+    }
+
+    public function communites()
+    {
+
+    }
+
+    public function trending()
+    {
+
+    }
+
     public function showSubject($id) {
         return view('communitysubject', [
             'posts' => Post::all()->where('subject_id', $id)
