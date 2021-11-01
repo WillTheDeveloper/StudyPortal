@@ -42,7 +42,13 @@ class Assignment extends Controller
         );
         $assignment->save();
 
-        //TODO: Be able to get all the user ID's from the group and attach them all to this assignment.
+        $array = $request->input(['group-select']); // Get the numbers from the select
+        $assign = Assign::find($assignment->id); // Get the assignment that just got created
+
+        $users = DB::table('group_user')
+            ->where('group_id', $array)->get('user_id')->keyBy('user_id')->keys()->toArray();
+
+        $assign->User()->attach($users);
 
         return redirect('assignments');
     }
