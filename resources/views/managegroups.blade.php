@@ -19,6 +19,12 @@
                         </x-button>
                     </a>
 
+                    <a href="{{ route('groups.edit', $groupstuff->id) }}">
+                        <x-button>
+                            Edit group
+                        </x-button>
+                    </a>
+
                     <form action="{{ route('groups.delete', $groupstuff->id) }}" method="post">
                         @csrf
                         <x-button>

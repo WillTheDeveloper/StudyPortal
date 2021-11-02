@@ -64,4 +64,22 @@ class Group extends Controller
             'subjects' => Subject::all()
         ]);
     }
+
+    public function edit($id)
+    {
+        return view('editgroup', [
+            'group' => UserGroup::query()->find($id)
+        ]);
+    }
+
+    public function updatename($id, Request $request)
+    {
+        UserGroup::all()->find($id)->update(
+            [
+                'name' => $request->input('groupname'),
+            ]
+        );
+
+        return redirect(route('groups.manage', $id));
+    }
 }
