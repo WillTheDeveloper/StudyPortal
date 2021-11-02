@@ -31,17 +31,17 @@ class Community extends Controller
 
     public function popular()
     {
-
+        return view('popular');
     }
 
     public function communites()
     {
-
+        return view('communities');
     }
 
     public function trending()
     {
-
+        return view('trending');
     }
 
     public function showSubject($id) {
