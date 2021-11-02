@@ -34,7 +34,7 @@ class Community extends Controller
         return view('popular');
     }
 
-    public function communites()
+    public function communities()
     {
         return view('communities');
     }

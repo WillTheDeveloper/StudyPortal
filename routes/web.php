@@ -88,7 +88,7 @@ Route::get('/community/subject/{id}', [Community::class, 'showSubject'])
 Route::get('/community/popular', [Community::class, 'popular'])
     ->middleware('auth')
     ->name('community.popular');
-Route::get('/community/communities', [Community::class, 'communites'])
+Route::get('/community/communities', [Community::class, 'communities'])
     ->middleware('auth')
     ->name('community.communities');
 Route::get('/community/trending', [Community::class, 'trending'])
