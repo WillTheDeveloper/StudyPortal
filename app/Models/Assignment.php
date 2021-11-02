@@ -39,6 +39,6 @@ class Assignment extends Model
 
     protected $casts = [
         'duedate' => 'datetime:Y-m-d H:00',
-        'setdate' => 'datetime:Y-m-d H:00'
+        'setdate' => 'datetime:Y-m-d H:00',
     ];
 }

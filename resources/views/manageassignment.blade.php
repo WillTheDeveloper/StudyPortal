@@ -123,6 +123,93 @@
                             </div>
 
                         </div>
+
+                        @if (auth()->user()->is_tutor)
+                        <br>
+
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Submitted
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status
+                                </th>
+                                <th scope="col" class="relative px-6 py-3">
+                                    <span class="sr-only">View</span>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach($assignment->User as $user)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">
+                                                {{$user->name}}
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                {{$user->email}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @if (isset($user->submitted_at))
+                                        <div class="text-sm text-gray-900">Submitted</div>
+                                        <div class="text-sm text-gray-500">At: {{$user->submitted_at}}</div>
+                                    @else
+                                        <div class="text-sm text-gray-900">Not submitted</div>
+                                        <div class="text-sm text-gray-500">N/A</div>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    @switch($user->has_seen)
+                                        @case(false)
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                            Not seen
+                                        </span>
+                                        @break
+                                        @case(true)
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Seen
+                                        </span>
+                                        @break
+                                        @default
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                            Unknown
+                                        </span>
+                                        @break
+                                    @endswitch
+{{--                                    TODO:Fix the boolean issue with true statements not showing.--}}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                </td>
+                            </tr>
+                            @endforeach
+
+
+
+                            <!-- More people... -->
+                            </tbody>
+                        </table>
+
+                        <br>
+
+                        <x-button>Add Student</x-button>
+                        <x-button>Remove Student</x-button>
+
+                        @endif
+
                     </div>
                 </div>
             </div>
