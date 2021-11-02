@@ -94,6 +94,9 @@ Route::get('/community/communities', [Community::class, 'communites'])
 Route::get('/community/trending', [Community::class, 'trending'])
     ->middleware('auth')
     ->name('community.trending');
+Route::get('/assignments/edit/{id}', [Assignment::class, 'edit'])
+    ->middleware('auth')
+    ->name('assignment.edit');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -114,6 +117,9 @@ Route::post('/groups/update/{id}/add', [Group::class, 'update'])
 Route::post('/profile/update', [User::class, 'updateprofile'])
     ->middleware('auth')
     ->name('profile.update');
+Route::post('/assignment/update/{id}', [Assignment::class, 'update'])
+    ->middleware('auth')
+    ->name('assignment.update');
 
 
 

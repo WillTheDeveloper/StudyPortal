@@ -64,4 +64,25 @@ class Assignment extends Controller
         }
         return redirect('assignments');
     }
+
+    public function edit($id)
+    {
+        return view('editassignment', [
+            'assignment' => Assign::query()->where('assignments.id', $id)->findOrFail($id),
+            'subjects' => Subject::query()->get('subjects.subject')
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        Assign::all()->find($id)->update(
+            [
+                'subject_id' => $request->input('subject-select'),
+                'title' => $request->input('title'),
+                'details' => $request->input('details')
+            ]
+        );
+
+        return redirect(route('assignments.manage', $id));
+    }
 }

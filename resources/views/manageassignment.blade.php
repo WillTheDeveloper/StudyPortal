@@ -110,7 +110,7 @@
                                 @endif
 
                                 @if (auth()->user()->is_tutor)
-                                    <a>
+                                    <a href="{{ route('assignment.edit', $assignment->id) }}">
                                         <x-button>Edit Assignment</x-button>
                                     </a>
 
