@@ -111,7 +111,7 @@ Route::post('/groups/new', [Group::class, 'new'])
     ->middleware('auth')
     ->name('groups.new');
 Route::post('/groups/delete/{id}', [Group::class, 'delete'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.delete');
 Route::post('/groups/update/{id}/add', [Group::class, 'update'])
     ->middleware('auth')
