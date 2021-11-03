@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\EnsureUserIsAdmin;
 use App\Http\Middleware\EnsureUserIsSubscribed;
 use App\Http\Middleware\EnsureUserIsTutor;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -68,5 +69,6 @@ class Kernel extends HttpKernel
 
         'subscribed' => EnsureUserIsSubscribed::class,
         'tutor' => EnsureUserIsTutor::class,
+        'admin' => EnsureUserIsAdmin::class,
     ];
 }
