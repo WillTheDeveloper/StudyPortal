@@ -25,7 +25,8 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->unique()->title(),
             'body' => $this->faker->unique()->paragraph(),
-            'users_id' => '1',
+            'user_id' => '1',
+            'subject_id' => '1'
         ];
     }
 }
