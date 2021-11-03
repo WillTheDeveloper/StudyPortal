@@ -16,6 +16,9 @@ class EnsureUserIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if ($request->user()->is_admin) {
+            return $next($request);
+        }
+        return abort(401, 'You are not a Admin');
     }
 }
