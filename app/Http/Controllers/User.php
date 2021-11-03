@@ -16,6 +16,7 @@ class User extends Controller
                 'users' => \App\Models\User::all()->sortByDesc('name')
             ]);
         }
+        return abort(401);
     }
 
     public function updateprofile(Request $request)

@@ -41,7 +41,7 @@ Route::get('/groups', function (Request $request) {
     if ($request->user()->is_tutor) {
         return view('groups');
     }
-    return view('dashboard');
+    return abort(401);
 })->middleware(['auth'])->name('groups');
 
 Route::get('/subscribe', function () {

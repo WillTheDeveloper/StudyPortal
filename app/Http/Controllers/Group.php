@@ -27,7 +27,7 @@ class Group extends Controller
 
         $group->User()->attach([auth()->user()->id]);
 
-        return view('groups');
+        return redirect('groups');
     }
 
     public function add($id)
