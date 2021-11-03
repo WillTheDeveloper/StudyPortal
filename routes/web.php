@@ -33,10 +33,6 @@ Route::get('/assignments', function () {
     return view('assignments');
 })->middleware(['auth'])->name('assignments');
 
-Route::get('/assignments/manage/{id}', [Assignment::class, 'manage'])
-    ->middleware(['auth'])
-    ->name('assignments.manage');
-
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
@@ -100,6 +96,9 @@ Route::get('/assignments/edit/{id}', [Assignment::class, 'edit'])
 Route::get('/groups/edit/{id}', [Group::class, 'edit'])
     ->middleware('auth')
     ->name('groups.edit');
+Route::get('/assignments/manage/{id}', [Assignment::class, 'manage'])
+    ->middleware(['auth'])
+    ->name('assignments.manage');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
