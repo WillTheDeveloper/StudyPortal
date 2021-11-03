@@ -61,7 +61,7 @@ Route::get('/groups/manage/{id}', [Group::class, 'returnView'])
     ->middleware(['auth', 'tutor'])
     ->name('groups.manage');
 Route::get('/users', [User::class, 'showAll'])
-    ->middleware('auth')
+    ->middleware(['auth', 'admin'])
     ->name('users');
 Route::get('/community/{id}', [Community::class, 'profile'])
     ->middleware('auth')
