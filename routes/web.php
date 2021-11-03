@@ -70,7 +70,7 @@ Route::get('/community/post/{id}', [Community::class, 'post'])
     ->middleware('auth')
     ->name('community.post');
 Route::get('/assignments/create', [Assignment::class, 'create'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('assignment.create');
 Route::get('/groups/create', [Group::class, 'create'])
     ->middleware(['auth', 'tutor'])
@@ -91,39 +91,39 @@ Route::get('/community/trending', [Community::class, 'trending'])
     ->middleware('auth')
     ->name('community.trending');
 Route::get('/assignments/edit/{id}', [Assignment::class, 'edit'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('assignment.edit');
 Route::get('/groups/edit/{id}', [Group::class, 'edit'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.edit');
 Route::get('/assignments/manage/{id}', [Assignment::class, 'manage'])
-    ->middleware(['auth'])
+    ->middleware(['auth', 'tutor'])
     ->name('assignments.manage');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
-    ->middleware(['auth'])
+    ->middleware(['auth', 'tutor'])
     ->name('assignment.delete');
 Route::post('/assignments/new', [Assignment::class, 'new'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('assignment.new');
 Route::post('/groups/new', [Group::class, 'new'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.new');
 Route::post('/groups/delete/{id}', [Group::class, 'delete'])
     ->middleware(['auth', 'tutor'])
     ->name('groups.delete');
 Route::post('/groups/update/{id}/add', [Group::class, 'update'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.add');
 Route::post('/profile/update', [User::class, 'updateprofile'])
     ->middleware('auth')
     ->name('profile.update');
 Route::post('/assignment/update/{id}', [Assignment::class, 'update'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('assignment.update');
 Route::post('/groups/updating/{id}', [Group::class, 'updatename'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.updatedata');
 
 
