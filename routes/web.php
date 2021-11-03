@@ -42,7 +42,7 @@ Route::get('/groups', function (Request $request) {
         return view('groups');
     }
     return abort(401);
-})->middleware(['auth'])->name('groups');
+})->middleware(['auth', 'tutor'])->name('groups');
 
 Route::get('/subscribe', function () {
     return view('subscribe', [
@@ -58,7 +58,7 @@ Route::get('/community', [Community::class, 'view'])
     ->middleware('auth')
     ->name('community');
 Route::get('/groups/manage/{id}', [Group::class, 'returnView'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.manage');
 Route::get('/users', [User::class, 'showAll'])
     ->middleware('auth')
@@ -73,10 +73,10 @@ Route::get('/assignments/create', [Assignment::class, 'create'])
     ->middleware('auth')
     ->name('assignment.create');
 Route::get('/groups/create', [Group::class, 'create'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.create');
 Route::get('/groups/update/{id}', [Group::class, 'add'])
-    ->middleware('auth')
+    ->middleware(['auth', 'tutor'])
     ->name('groups.update');
 Route::get('/community/subject/{id}', [Community::class, 'showSubject'])
     ->middleware('auth')
