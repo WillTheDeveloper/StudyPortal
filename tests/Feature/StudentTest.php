@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Post;
+use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -66,7 +68,7 @@ class StudentTest extends TestCase
         $view->assertStatus(200);
     }
 
-    public function test_students_cant_see_groups()
+    public function test_student_cant_see_groups()
     {
         $user = User::factory()->create();
         $response = $this->actingAs($user);
@@ -75,7 +77,7 @@ class StudentTest extends TestCase
         $view->assertUnauthorized();
     }
 
-    public function test_students_cant_see_users()
+    public function test_student_cant_see_users()
     {
         $user = User::factory()->create();
         $response = $this->actingAs($user);
@@ -83,4 +85,35 @@ class StudentTest extends TestCase
         $view = $this->get('/users');
         $view->assertUnauthorized();
     }
+
+    public function test_student_can_see_their_profile()
+    {
+        $user = User::factory()->create();
+        $response = $this->actingAs($user);
+        $response->assertAuthenticated();
+        $view = $this->get('/community/'.$user->id);
+        $view->assertStatus(200);
+    }
+
+    /*public function test_student_can_see_post()
+    {
+        $user = User::factory()->create();
+        $response = $this->actingAs($user);
+        $response->assertAuthenticated();
+        $subject = Subject::factory()->create(
+            [
+                'subject' => 'testing only'
+            ]
+        );
+        $post = Post::factory()->create(
+            [
+                'title' => 'testing only',
+                'body' => 'ignore this',
+                'user_id' => $user->id,
+                'subject_id' => $subject->id
+            ]
+        );
+        $view = $this->get('/community/post/'.$post->id);
+        $view->assertStatus(200);
+    }*/
 }

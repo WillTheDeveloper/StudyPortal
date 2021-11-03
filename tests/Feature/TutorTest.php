@@ -129,4 +129,17 @@ class TutorTest extends TestCase
         $view = $this->get('/groups/create');
         $view->assertStatus(200);
     }
+
+    public function test_tutor_can_see_their_profile()
+    {
+        $user = User::factory()->create(
+            [
+                'is_tutor' => '1'
+            ]
+        );
+        $response = $this->actingAs($user);
+        $response->assertAuthenticated();
+        $view = $this->get('/community/'.$user->id);
+        $view->assertStatus(200);
+    }
 }
