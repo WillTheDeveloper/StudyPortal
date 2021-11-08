@@ -47,7 +47,7 @@
                                                         <div class="flex flex-col">
                                                             <span id="delivery-method-0-label" class="block text-sm font-medium text-gray-900"> Monthly </span>
                                                             <span id="delivery-method-0-description-0" class="mt-1 flex items-center text-sm text-gray-500"> Charged every month </span>
-                                                            <span id="delivery-method-0-description-1" class="mt-6 text-sm font-medium text-gray-900"> £2.00 per month </span>
+                                                            <span id="delivery-method-0-description-1" class="mt-6 text-sm font-medium text-gray-900"> £2.00 </span>
                                                         </div>
                                                     </div>
                                                 </label>
@@ -118,9 +118,10 @@
                 );
 
                 if (error) {
-                    // Error stuff
+                    axios.get('/subscribe')
                 } else {
-                    console.log(stripe.paymentMethod.id());
+                    console.log(setupIntent.payment_method)
+                    axios.post('/subscribe', { payment_method: setupIntent.payment_method })
                 }
             });
         </script>
