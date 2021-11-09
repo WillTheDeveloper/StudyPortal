@@ -3,6 +3,7 @@
 use App\Http\Controllers\Assignment;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Group;
+use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
 
@@ -99,6 +100,12 @@ Route::get('/groups/edit/{id}', [Group::class, 'edit'])
 Route::get('/assignments/manage/{id}', [Assignment::class, 'manage'])
     ->middleware(['auth', 'tutor'])
     ->name('assignments.manage');
+Route::get('/kanban', [Kanban::class, 'list'])
+    ->middleware('auth')
+    ->name('kanban.list');
+Route::get('/kanban/{id}', [Kanban::class, 'view'])
+    ->middleware('auth')
+    ->name('kanban.view');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

@@ -29,6 +29,12 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
+                        {{ __('Kanban') }}
+                    </x-nav-link>
+                </div>
+
                 @if (auth()->user()->is_tutor)
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
@@ -122,6 +128,10 @@
 
             <x-responsive-nav-link :href="route('assignments')" :active="request()->routeIs('assignments')">
                 {{ __('Assignments') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
+                {{ __('Kanban') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
