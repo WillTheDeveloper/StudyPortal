@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KanbanGroup;
+use App\Models\KanbanItem;
 use Illuminate\Http\Request;
 
 class Kanban extends Controller
@@ -10,7 +12,7 @@ class Kanban extends Controller
     {
         return view('kanban',
         [
-            'kanban' => \App\Models\Kanban::all()->where('id', auth()->user()->id)
+            'kanban' => \App\Models\Kanban::all()->where('id', auth()->user()->id),
         ]);
     }
 
@@ -18,7 +20,9 @@ class Kanban extends Controller
     {
         return view('viewkanban',
         [
-            'kanban' => \App\Models\Kanban::all()->where('id', auth()->user()->id)
+            'kanban' => \App\Models\Kanban::all()->where('id', $id),
+            'groups' => KanbanGroup::all()->where('kanban_id', $id),
+            'items' => KanbanItem::all()->where('kanban_id', $id)
         ]);
     }
 }
