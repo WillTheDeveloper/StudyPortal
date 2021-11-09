@@ -130,10 +130,10 @@ Route::post('/groups/updating/{id}', [Group::class, 'updatename'])
 
 // Stripe Routes
 Route::post('/subscribe', function (Request $request) {
-//    dd($request->all());
-    auth()->user()->newSubscription(
-        'default', $request->stripe,
-    )->create($request->payment_method);
+    dd($request->all());
+//    auth()->user()->newSubscription(
+//        'default', $request->stripe,
+//    )->create($request->payment_method);
 
 //    auth()->user()->updateDefaultPaymentMethodFromStripe();
 //    auth()->user()->syncStripeCustomerDetails();
