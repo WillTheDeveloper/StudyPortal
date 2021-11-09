@@ -14,6 +14,9 @@
                         <div class="px-4 sm:px-0">
                             <h2 class="text-lg font-medium text-gray-900">My Kanbans</h2>
 
+                            <x-button>
+                                Create Kanban
+                            </x-button>
 
                             <!-- This example requires Tailwind CSS v2.0+ -->
                             <div class="flex flex-col">
