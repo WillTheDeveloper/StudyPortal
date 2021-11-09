@@ -50,7 +50,7 @@
                                                                     {{$item->name}}
                                                                 </div>
                                                                 <div class="text-sm text-gray-500">
-                                                                    Created by:
+                                                                    Created at: {{$item->created_at->diffForHumans()}}
                                                                 </div>
                                                             </div>
                                                         </div>
