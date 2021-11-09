@@ -11,7 +11,41 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Hi {{auth()->user()->name}}. Welcome to your dashboard!
 
-    <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+
+                    <!-- This example requires Tailwind CSS v2.0+ -->
+                    <div class="pb-5">
+                        <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                            <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+                                <dt class="text-sm font-medium text-gray-500 truncate">
+                                    Attendance
+                                </dt>
+                                <dd class="mt-1 text-3xl font-semibold text-gray-900">
+                                    100%
+                                </dd>
+                            </div>
+
+                            <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+                                <dt class="text-sm font-medium text-gray-500 truncate">
+                                    Assignments Due
+                                </dt>
+                                <dd class="mt-1 text-3xl font-semibold text-gray-900">
+                                    {{auth()->user()->Assignment()->count()}}
+                                </dd>
+                            </div>
+
+                            <div class="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
+                                <dt class="text-sm font-medium text-gray-500 truncate">
+                                    Assignments Completed
+                                </dt>
+                                <dd class="mt-1 text-3xl font-semibold text-gray-900">
+                                    {{auth()->user()->Assignment()->count()}}
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+
+
+                    <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
         <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
             <div>
       <span class="rounded-lg inline-flex p-3 bg-teal-50 text-teal-700 ring-4 ring-white">
