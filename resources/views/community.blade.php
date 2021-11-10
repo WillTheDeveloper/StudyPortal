@@ -587,7 +587,6 @@
                                         </fieldset>--}}
                                     </div>
                                 </div>
-
                                 <!-- Action buttons -->
                                 <div class="flex-shrink-0 px-4 border-t border-gray-200 py-5 sm:px-6">
                                     <div class="space-x-3 flex justify-end">
