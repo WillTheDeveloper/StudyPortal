@@ -17,8 +17,8 @@ class CreateAssignmentUserTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('assignment_id');
-            $table->boolean('has_seen');
-            $table->dateTime('submitted_on');
+            $table->boolean('has_seen')->default('0');
+            $table->dateTime('submitted_on')->nullable(true);
             $table->timestamps();
         });
     }
