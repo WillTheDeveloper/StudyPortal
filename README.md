@@ -6,11 +6,11 @@ The idea behind Study Portal is to have one platform where students are able to 
 
 ## Study Portal features
 
-*Tick means it has been implemented*
+*Tick means it has been finished*
 
 - [ ] Timetable - Place for students to create there own timetable and keep track of what lessons they have.
 - [ ] Assignments - This is where students can keep track of assignment work that they are doing.
-- [ ] Dashboard - Overview of all the stats that matter to students.
+- [X] Dashboard - Overview of all the stats that matter to students.
 - [ ] Community - Place where students can talk to each other with posts and support each other.
 - [ ] Kanban - Students being able to have there own personalised kanban to track progress of work or other stuff.
 
