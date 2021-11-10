@@ -52,13 +52,44 @@
                     </div>
                 </dl>
             </div>
-            <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-                <p>{{$user->name}}'s Posts.</p> <br>
+            <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                <div>
+                    <p>{{$user->name}}'s Posts.</p> <br>
+                    <ul role="list" class="divide-y divide-gray-200">
+                        @foreach($user->Post as $post)
+                        <li class="py-4">
+                            <div class="flex space-x-3">
+                                <div class="flex-1 space-y-1">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-sm font-medium">{{$user->name}}</h3>
+                                        <p class="text-sm text-gray-500">{{$post->created_at->diffForHumans()}}</p>
+                                    </div>
+                                    <p class="text-sm text-gray-500">Posted {{$post->title}} in {{$post->Subject->subject}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
 
-                @foreach($user->Post as $post)
-                    <a href="{{ route('community.post', $post->id) }}"><b>{{$post->title}}</b></a><br>
-                    <p>{{$post->body}}</p><br>
-                @endforeach
+                <div>
+                    <p>{{$user->name}}'s Comments.</p> <br>
+                    <ul role="list" class="divide-y divide-gray-200">
+                        @foreach($user->Comment as $comment)
+                            <li class="py-4">
+                                <div class="flex space-x-3">
+                                    <div class="flex-1 space-y-1">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-sm font-medium">{{$user->name}}</h3>
+                                            <p class="text-sm text-gray-500">{{$comment->created_at->diffForHumans()}}</p>
+                                        </div>
+                                        <p class="text-sm text-gray-500">Said "{{$comment->comment}}" on {{$comment->Post->title}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
