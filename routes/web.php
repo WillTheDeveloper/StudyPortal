@@ -135,6 +135,9 @@ Route::post('/groups/updating/{id}', [Group::class, 'updatename'])
 Route::post('/community/post/create', [Community::class, 'createNewPost'])
     ->middleware('auth')
     ->name('community.new');
+Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
+    ->middleware('auth')
+    ->name('community.delete');
 
 
 

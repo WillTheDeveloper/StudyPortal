@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -65,5 +66,19 @@ class Community extends Controller
         $post->save();
 
         return redirect(route('community.post', $post->id));
+    }
+
+    public function deletePost($id, Request $request)
+    {
+        $user = Post::all()->find($id)->get('posts.user_id');
+        if ($request->user()->id = $user) {
+            $post = Post::all()->find($id);
+            $post->delete();
+
+            //TODO: Ensure that when posts get deleted, all the comments get deleted, either via web request or queue. Queue is preferable.
+
+            return redirect(route('community'));
+        }
+        return abort(403);
     }
 }
