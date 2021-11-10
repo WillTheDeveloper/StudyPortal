@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class Community extends Controller
 {
@@ -48,5 +49,21 @@ class Community extends Controller
         return view('communitysubject', [
             'posts' => Post::all()->where('subject_id', $id)
         ]);
+    }
+
+    public function createNewPost(Request $request)
+    {
+        $post = new Post(
+            [
+                'title' => $request->input('title'),
+                'body' => $request->input('text'),
+                'user_id' => $request->user()->id,
+                'subject_id' => $request->input('subject'),
+            ]
+        );
+
+        $post->save();
+
+        return redirect(route('community.post', $post->id));
     }
 }

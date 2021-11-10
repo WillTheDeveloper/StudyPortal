@@ -132,6 +132,9 @@ Route::post('/assignment/update/{id}', [Assignment::class, 'update'])
 Route::post('/groups/updating/{id}', [Group::class, 'updatename'])
     ->middleware(['auth', 'tutor'])
     ->name('groups.updatedata');
+Route::post('/community/post/create', [Community::class, 'createNewPost'])
+    ->middleware('auth')
+    ->name('community.new');
 
 
 
