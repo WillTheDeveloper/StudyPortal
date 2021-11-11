@@ -8,18 +8,18 @@ The idea behind Study Portal is to have one platform where students are able to 
 
 *Tick means it has been finished*
 
-- [ ] Timetable - Place for students to create there own timetable and keep track of what lessons they have.
+- [ ] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
 - [ ] Assignments - This is where students can keep track of assignment work that they are doing.
 - [X] Dashboard - Overview of all the stats that matter to students.
 - [ ] Community - Place where students can talk to each other with posts and support each other.
-- [ ] Kanban - Students being able to have there own personalised kanban to track progress of work or other stuff.
+- [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
 
-If you want to see what is happening in more detail then follow this link: https://github.com/users/WillTheDeveloper/projects/5
+If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
 ## Feature suggestions
 
 - If you have the skills to build it yourself then you should create a pull request with it. If you need some information or anything that is database related then contact me directly.
-- If you would just like to suggest something then, create a discussions page and we can look into implementing it.
+- If you would just like to suggest something then, create a discussions page, and we can look into implementing it.
 
 ## Contribute to Study Portal
 
@@ -67,11 +67,11 @@ This is where students will be able to collaborate on work and ask each other th
 
 ### Regarding tutors
 
-In regard to tutors, the views will be similar with additional functionality. There are security measures in place to ensure that there is no access from a student to tutors tools.
+In regard to tutor, the views will be similar with additional functionality. There are security measures in place to ensure that there is no access from a student to tutors tools.
 
 ### Tutors Group Management
 
-On this page, tutors can create groups of students which could be different classes or such. Groups are groups of students that can be chosen to assign assignments to by tutors, this will be shown further down.
+On this page, tutors can create groups of students which could be different classes or such. Groups are groups of students that can be chosen to assign assignments to be tutors, this will be shown further down.
 
 ![image](https://user-images.githubusercontent.com/78596837/141193329-c4173e52-628b-46d0-a156-09fbc4f964b9.png)
 
