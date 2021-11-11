@@ -98,7 +98,7 @@ Route::get('/groups/edit/{id}', [Group::class, 'edit'])
     ->middleware(['auth', 'tutor'])
     ->name('groups.edit');
 Route::get('/assignments/manage/{id}', [Assignment::class, 'manage'])
-    ->middleware(['auth', 'tutor'])
+    ->middleware('auth')
     ->name('assignments.manage');
 Route::get('/kanban', [Kanban::class, 'list'])
     ->middleware('auth')
