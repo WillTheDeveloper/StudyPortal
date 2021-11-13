@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 // Normal routes
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 Route::get('/features', function () {
     return view('features');
 });
@@ -44,12 +44,6 @@ Route::get('/groups', function (Request $request) {
     }
     return abort(401);
 })->middleware(['auth', 'tutor'])->name('groups');
-
-Route::get('/subscribe', function () {
-    return view('subscribe', [
-        'intent' => auth()->user()->createSetupIntent()
-    ]);
-})->middleware(['auth'])->name('subscribe');
 
 // Dynamic get routes
 Route::get('/timetable', [Timetable::class, 'view'])
@@ -139,18 +133,17 @@ Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
     ->middleware('auth')
     ->name('community.delete');
 
+Route::get('/subscribe', function () {
+    return auth()->user()
+        ->newSubscription('default', ['price_1JiiBJDEx6ZR0UQMWtdBytdf'])
+        ->checkout(
+            [
+                'success_url' => route('dashboard'),
+                'cancel_url' => route('subscribe')
+            ]
+        );
+})->middleware('auth')->name('subscribe');
 
-
-// Stripe Routes
-Route::post('/subscribe', function (Request $request) {
-    dd($request->all());
-//    auth()->user()->newSubscription(
-//        'default', $request->stripe,
-//    )->create($request->payment_method);
-
-//    auth()->user()->updateDefaultPaymentMethodFromStripe();
-//    auth()->user()->syncStripeCustomerDetails();
-});
 
 // Don't delete this
 require __DIR__.'/auth.php';
