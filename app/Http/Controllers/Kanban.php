@@ -27,6 +27,26 @@ class Kanban extends Controller
         ]);
     }
 
+    public function renderCreate()
+    {
+        return view('newkanban');
+    }
+
+    public function create(Request $request)
+    {
+        $kan = new Kan(
+            [
+                'user_id' => auth()->user()->id,
+                'name' => $request->input('name')
+            ]
+        );
+    }
+
+    public function update()
+    {
+
+    }
+
     public function delete($id)
     {
         KanbanItem::query()->where('kanban_items.kanban_id', $id)->delete();

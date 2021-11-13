@@ -9,6 +9,10 @@ class Kanban extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name'
+    ];
+
     public function User()
     {
         return $this->belongsTo(User::class);
