@@ -133,6 +133,10 @@ Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
     ->middleware('auth')
     ->name('community.delete');
 
+Route::get('/billing-portal', function (Request $request) {
+    return $request->user()->redirectToBillingPortal(route('dashboard'));
+});
+
 Route::get('/subscribe', function () {
     return auth()->user()
         ->newSubscription('default', ['price_1JiiBJDEx6ZR0UQMWtdBytdf'])
