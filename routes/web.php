@@ -132,6 +132,9 @@ Route::post('/community/post/create', [Community::class, 'createNewPost'])
 Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
     ->middleware('auth')
     ->name('community.delete');
+Route::post('/kanban/delete/{id}', [Kanban::class, 'delete'])
+    ->middleware('auth')
+    ->name('kanban.delete');
 
 Route::get('/billing-portal', function (Request $request) {
     return $request->user()->redirectToBillingPortal(route('dashboard'));

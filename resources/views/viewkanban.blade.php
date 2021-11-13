@@ -18,9 +18,12 @@
                                 Edit Kanban
                             </x-button>
 
-                            <x-button>
-                                Delete Kanban
-                            </x-button>
+                            <form action="{{ route('kanban.delete', $kanban->id) }}" method="post">
+                                @csrf
+                                <x-button>
+                                    Delete Kanban
+                                </x-button>
+                            </form>
 
                             <!-- This example requires Tailwind CSS v2.0+ -->
                             <div class="flex flex-col">

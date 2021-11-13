@@ -21,9 +21,18 @@ class Kanban extends Controller
     {
         return view('viewkanban',
         [
-            'kanban' => Kan::all()->where('id', $id),
+            'kanban' => Kan::all()->where('id', $id)->find($id),
             'groups' => KanbanGroup::all()->where('kanban_id', $id),
             'items' => KanbanItem::all()->where('kanban_id', $id)
         ]);
+    }
+
+    public function delete($id)
+    {
+        KanbanItem::query()->where('kanban_items.kanban_id', $id)->delete();
+        KanbanGroup::query()->where('kanban_groups.kanban_id', $id)->delete();
+        Kan::query()->where('kanbans.id', $id)->delete();
+
+        return redirect(route('kanban.list'));
     }
 }
