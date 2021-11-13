@@ -73,7 +73,7 @@
 
                         <!-- Stacked list -->
                         <ul role="list" class="mt-5 border-t border-gray-200 divide-y divide-gray-200 sm:mt-0 sm:border-t-0">
-                            @foreach(auth()->user()->Assignment()->get() as $assignment)
+                            @forelse(auth()->user()->Assignment()->get() as $assignment)
                             <li>
                                 <a href="{{ route('assignments.manage', $assignment->id) }}" class="group block">
                                     <div class="flex items-center py-5 px-4 sm:py-6 sm:px-0">
@@ -119,9 +119,15 @@
                                     </div>
                                 </a>
                             </li>
-                        @endforeach
-
-                            <!-- More candidates... -->
+                        @empty
+                            <!-- This example requires Tailwind CSS v2.0+ -->
+                                <div class="text-center py-10">
+                                    <h3 class="mt-2 text-sm font-medium text-gray-900">No assignments due</h3>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Good job! You have no assignments
+                                    </p>
+                                </div>
+                        @endforelse
                         </ul>
 
                         <!-- Pagination -->
