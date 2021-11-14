@@ -26,8 +26,10 @@ class Community extends Controller
 
     public function post($id)
     {
+        Post::query()->where('posts.id', $id)->increment('views', '1');
+
         return view('communitypost', [
-            'post' => Post::all()->where('posts.id', $id)
+            'post' => Post::all()->where('posts.id', $id),
         ]);
     }
 
