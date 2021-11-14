@@ -20,7 +20,7 @@
                                     Attendance
                                 </dt>
                                 <dd class="mt-1 text-3xl font-semibold text-gray-900">
-                                    100%
+                                    (To be implemented)
                                 </dd>
                             </div>
 
