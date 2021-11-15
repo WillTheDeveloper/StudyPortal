@@ -132,7 +132,7 @@
                 <div class="mt-4">
                     <h1 class="sr-only">Recent questions</h1>
                     <ul role="list" class="space-y-4">
-                        @foreach($posts as $post)
+                        @forelse($posts as $post)
                             <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg" x-data="{dropdown: false}">
                                 <article aria-labelledby="question-title-81614">
                                     <div>
@@ -231,62 +231,73 @@
                                     </div>
                                     <div class="mt-6 flex justify-between space-x-8">
                                         <div class="flex space-x-6">
-                    <span class="inline-flex items-center text-sm">
-                      <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                        <!-- Heroicon name: solid/thumb-up -->
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             aria-hidden="true">
-                          <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
-                        </svg>
-                        <span class="font-medium text-gray-900">{{$post->Like()->count()}}</span>
-                        <span class="sr-only">likes</span>
-                      </button>
-                    </span>
                                             <span class="inline-flex items-center text-sm">
-                      <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                        <!-- Heroicon name: solid/chat-alt -->
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             aria-hidden="true">
-                          <path fill-rule="evenodd"
-                                d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                                clip-rule="evenodd"/>
-                        </svg>
-                        <span class="font-medium text-gray-900">{{$post->Comments()->count()}}</span>
-                        <span class="sr-only">comments</span>
-                      </button>
-                    </span>
+                                              <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                                <!-- Heroicon name: solid/thumb-up -->
+                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                     aria-hidden="true">
+                                                  <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
+                                                </svg>
+                                                <span class="font-medium text-gray-900">{{$post->Like()->count()}}</span>
+                                                <span class="sr-only">likes</span>
+                                              </button>
+                                            </span>
                                             <span class="inline-flex items-center text-sm">
-                      <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                        <!-- Heroicon name: solid/eye -->
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             aria-hidden="true">
-                          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                          <path fill-rule="evenodd"
-                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                                clip-rule="evenodd"/>
-                        </svg>
-                        <span class="font-medium text-gray-900">1</span>
-                        <span class="sr-only">views</span>
-                      </button>
-                    </span>
+                                                  <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                                    <!-- Heroicon name: solid/chat-alt -->
+                                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                         aria-hidden="true">
+                                                      <path fill-rule="evenodd"
+                                                            d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                                            clip-rule="evenodd"/>
+                                                    </svg>
+                                                    <span class="font-medium text-gray-900">{{$post->Comments()->count()}}</span>
+                                                    <span class="sr-only">comments</span>
+                                                  </button>
+                                                </span>
+                                            <span class="inline-flex items-center text-sm">
+                                              <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                                <!-- Heroicon name: solid/eye -->
+                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                     aria-hidden="true">
+                                                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                  <path fill-rule="evenodd"
+                                                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                                        clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="font-medium text-gray-900">1</span>
+                                                <span class="sr-only">views</span>
+                                              </button>
+                                            </span>
                                         </div>
                                         <div class="flex text-sm">
-                    <span class="inline-flex items-center text-sm">
-                      <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                        <!-- Heroicon name: solid/share -->
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             aria-hidden="true">
-                          <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
-                        </svg>
-                        <span class="font-medium text-gray-900">Share</span>
-                      </button>
-                    </span>
+                                            <span class="inline-flex items-center text-sm">
+                                              <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                                <!-- Heroicon name: solid/share -->
+                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                                     aria-hidden="true">
+                                                  <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/>
+                                                </svg>
+                                                <span class="font-medium text-gray-900">Share</span>
+                                              </button>
+                                            </span>
                                         </div>
                                     </div>
                                 </article>
                             </li>
 
-                    @endforeach
+                            @empty
+
+                            <span class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                {{--<svg class="mx-auto h-12 w-12 text-gray-400" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v20c0 4.418 7.163 8 16 8 1.381 0 2.721-.087 4-.252M8 14c0 4.418 7.163 8 16 8s16-3.582 16-8M8 14c0-4.418 7.163-8 16-8s16 3.582 16 8m0 0v14m0-4c0 4.418-7.163 8-16 8S8 28.418 8 24m32 10v6m0 0v6m0-6h6m-6 0h-6" />
+                                </svg>--}}
+                                <span class="mt-2 block text-sm font-medium text-gray-900">
+                                No posts here yet
+                              </span>
+                            </span>
+
+                    @endforelse
 
                     <!-- More questions... -->
                     </ul>
