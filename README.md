@@ -13,8 +13,17 @@ The idea behind Study Portal is to have one platform where students are able to 
 - [X] Dashboard - Overview of all the stats that matter to students.
 - [ ] Community - Place where students can talk to each other with posts and support each other.
 - [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
+- [ ] Calandar - This idea is still **provisional** but it will be a calander where events can be created for things such as meetings.
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
+
+## Issue tracking
+
+*I am still yet to create the templates for issues*
+
+If you come across any issues on the website that is causing you problems, please take a moment to either email me if you do not have a Github account and choose not to create one or feel free to create an issue on this repository which will be reviewed and looked into resolving. You may be asked for further details on it or how to recreate the issue so please make sure to check your Github notifications a few days after you submit the issue.
+
+You can do this in the issues tab. If you are not sure of where this is then here is a link - https://github.com/WillTheDeveloper/StudyPortal/issues
 
 ## Feature suggestions
 
