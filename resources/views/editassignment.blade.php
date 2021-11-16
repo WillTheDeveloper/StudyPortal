@@ -43,7 +43,6 @@
                                                 </dt>
                                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                                     {{$assignment->duedate->format('D d M Y - h:i')}}
-                                                    {{--                                                TODO:Make the due date changable and autofill on load.--}}
                                                     {{--                                                <input name="duedate" type="date">--}}
                                                 </dd>
                                             </div>

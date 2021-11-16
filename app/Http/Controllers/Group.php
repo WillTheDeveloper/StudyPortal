@@ -33,7 +33,6 @@ class Group extends Controller
     public function add($id)
     {
         return view('addusertogroup', [
-            //TODO:Ensure that tutors cannot get added to groups.
             'users' => \App\Models\User::all()->except(\App\Models\User::query()->where('is_tutor', '1')->find('id')),
             'groupid' => $id,
         ]);
@@ -44,7 +43,6 @@ class Group extends Controller
         $group = UserGroup::find($id);
 
         $users = $request->input(['user-select']);
-        //TODO:Be able to select more than one to at a time to add to a group. Turn into an array.
         $group->User()->attach([$users]);
 
         return redirect(route('groups.manage', $id));

@@ -77,8 +77,6 @@ class Community extends Controller
             $post = Post::all()->find($id);
             $post->delete();
 
-            //TODO: Ensure that when posts get deleted, all the comments get deleted, either via web request or queue. Queue is preferable.
-
             return redirect(route('community'));
         }
         return abort(403);

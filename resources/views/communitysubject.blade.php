@@ -2,7 +2,6 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Community') }}
-{{--            TODO:Change the title of these pages to the name of the subject. Pass in subjects?--}}
         </h2>
     </x-slot>
 
