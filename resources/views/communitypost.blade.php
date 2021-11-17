@@ -267,7 +267,7 @@
                                                 New Comment
                                             </h2>
                                             <div class="ml-3 h-7 flex items-center">
-                                                <button type="button" class="bg-indigo-700 rounded-md text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                                                <button @click="newcomment = false" type="button" class="bg-indigo-700 rounded-md text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
                                                     <span class="sr-only">Close panel</span>
                                                     <!-- Heroicon name: outline/x -->
                                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -278,7 +278,7 @@
                                         </div>
                                         <div class="mt-1">
                                             <p class="text-sm text-indigo-300">
-                                                Get started by filling in the information below to create your new project.
+                                                Create a new comment by filling out the text box below.
                                             </p>
                                         </div>
                                     </div>
@@ -416,7 +416,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-shrink-0 px-4 py-4 flex justify-end">
-                                    <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    <button @click="newcomment = false" type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                         Cancel
                                     </button>
                                     <button type="submit" class="ml-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
