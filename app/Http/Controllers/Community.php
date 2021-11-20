@@ -74,6 +74,8 @@ class Community extends Controller
     {
         $post = Post::all()->find($id);
         $post->delete();
+        $comments = Comment::all()->where('post_id', $id)->find($id);
+        $comments->delete();
 
         return redirect(route('community'));
     }
