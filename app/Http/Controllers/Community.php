@@ -70,16 +70,12 @@ class Community extends Controller
         return redirect(route('community.post', $post->id));
     }
 
-    public function deletePost($id, Request $request)
+    public function deletePost($id)
     {
-        $user = Post::all()->find($id)->get('posts.user_id');
-        if ($request->user()->id = $user) {
-            $post = Post::all()->find($id);
-            $post->delete();
+        $post = Post::all()->find($id);
+        $post->delete();
 
-            return redirect(route('community'));
-        }
-        return abort(403);
+        return redirect(route('community'));
     }
 
     public function createNewComment($id, Request $request)

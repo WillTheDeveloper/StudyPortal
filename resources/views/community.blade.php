@@ -205,18 +205,21 @@
                                                             </svg>
                                                             <span>Edit</span>
                                                         </a>
-                                                        <a href="{{ route('community.delete', $post->id) }}" class="text-gray-700 flex px-4 py-2 text-sm"
-                                                           role="menuitem" tabindex="-1" id="options-menu-0-item-1">
-                                                            <!-- Heroicon name: solid/code -->
-                                                            <svg class="mr-3 h-5 w-5 text-gray-400"
-                                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                                 fill="currentColor" aria-hidden="true">
-                                                                <path fill-rule="evenodd"
-                                                                      d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                                                                      clip-rule="evenodd"/>
-                                                            </svg>
-                                                            <span>Delete</span>
-                                                        </a>
+                                                        <form action="{{ route('community.delete', $post->id) }}" method="post">
+                                                            @csrf
+                                                            <a class="text-gray-700 flex px-4 py-2 text-sm"
+                                                               role="menuitem" tabindex="-1" id="options-menu-0-item-1">
+                                                                <!-- Heroicon name: solid/code -->
+                                                                <svg class="mr-3 h-5 w-5 text-gray-400"
+                                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                     fill="currentColor" aria-hidden="true">
+                                                                    <path fill-rule="evenodd"
+                                                                          d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                                                                          clip-rule="evenodd"/>
+                                                                </svg>
+                                                                <button type="submit">Delete</button>
+                                                            </a>
+                                                        </form>
                                                         <a href="#" class="text-gray-700 flex px-4 py-2 text-sm"
                                                            role="menuitem" tabindex="-1" id="options-menu-0-item-2">
                                                             <!-- Heroicon name: solid/flag -->
