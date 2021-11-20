@@ -106,6 +106,7 @@
 
             <div class="flow-root lg:col-span-8">
                 <ul role="list" class="-mb-8">
+                    @foreach($post->Comments->sortByDesc('created_at') as $p)
                     <li>
                         <div class="relative pb-8">
                             <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
@@ -123,21 +124,22 @@
                                 <div class="min-w-0 flex-1">
                                     <div>
                                         <div class="text-sm">
-                                            <a href="#" class="font-medium text-gray-900">Eduardo Benz</a>
+                                            <a href="{{ route('community.profile', $p->User->id) }}" class="font-medium text-gray-900">{{$p->User->name}}</a>
                                         </div>
                                         <p class="mt-0.5 text-sm text-gray-500">
-                                            Commented 6d ago
+                                            Commented {{$p->created_at->DiffForHumans()}}
                                         </p>
                                     </div>
                                     <div class="mt-2 text-sm text-gray-700">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam.
+                                            {{$p->comment}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
