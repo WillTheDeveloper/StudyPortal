@@ -144,7 +144,15 @@
             </div>
         </div>
 
-        <div class="fixed inset-0 overflow-hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true" x-cloak x-show="newcomment">
+        <div class="fixed inset-0 overflow-hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true"
+             x-cloak
+             x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+             x-transition:enter-start="translate-x-full"
+             x-transition:enter-end="translate-x-0"
+             x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+             x-transition:leave-start="translate-x-0"
+             x-transition:leave-end="translate-x-full"
+             x-show="newcomment">
             <div class="absolute inset-0 overflow-hidden">
                 <!-- Background overlay, show/hide based on slide-over state. -->
                 <div class="absolute inset-0" aria-hidden="true">
