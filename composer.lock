@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.203.1",
+            "version": "3.204.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "63be45bbf3d2a325017f92fcad6764ebd98bb266"
+                "reference": "181ca8aaeb0a6efdbeb665af9b02de610719b1bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/63be45bbf3d2a325017f92fcad6764ebd98bb266",
-                "reference": "63be45bbf3d2a325017f92fcad6764ebd98bb266",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/181ca8aaeb0a6efdbeb665af9b02de610719b1bb",
+                "reference": "181ca8aaeb0a6efdbeb665af9b02de610719b1bb",
                 "shasum": ""
             },
             "require": {
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.203.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.204.2"
             },
-            "time": "2021-11-16T19:23:28+00:00"
+            "time": "2021-11-19T19:21:39+00:00"
         },
         {
             "name": "brick/math",
@@ -1298,16 +1298,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.72.0",
+            "version": "v8.73.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5168f8589195a5f48b9c41ad2eec77a6c15f14f3"
+                "reference": "f60e5ceccac453864edbf001b665450886cda8fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5168f8589195a5f48b9c41ad2eec77a6c15f14f3",
-                "reference": "5168f8589195a5f48b9c41ad2eec77a6c15f14f3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f60e5ceccac453864edbf001b665450886cda8fc",
+                "reference": "f60e5ceccac453864edbf001b665450886cda8fc",
                 "shasum": ""
             },
             "require": {
@@ -1466,7 +1466,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-11-17T15:15:08+00:00"
+            "time": "2021-11-19T14:10:17+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -3985,16 +3985,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.101.0",
+            "version": "v7.103.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "392d387c61a72a4629a92fa93a4bc44318089224"
+                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/392d387c61a72a4629a92fa93a4bc44318089224",
-                "reference": "392d387c61a72a4629a92fa93a4bc44318089224",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/3a029598395bb4c7cfafa64707a553f4b01a9a12",
+                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12",
                 "shasum": ""
             },
             "require": {
@@ -4040,9 +4040,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v7.101.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v7.103.0"
             },
-            "time": "2021-11-16T16:07:54+00:00"
+            "time": "2021-11-20T00:36:07+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8164,16 +8164,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.8",
+            "version": "9.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "cf04e88a2e3c56fc1a65488afd493325b4c1bc3e"
+                "reference": "f301eb1453c9e7a1bc912ee8b0ea9db22c60223b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cf04e88a2e3c56fc1a65488afd493325b4c1bc3e",
-                "reference": "cf04e88a2e3c56fc1a65488afd493325b4c1bc3e",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f301eb1453c9e7a1bc912ee8b0ea9db22c60223b",
+                "reference": "f301eb1453c9e7a1bc912ee8b0ea9db22c60223b",
                 "shasum": ""
             },
             "require": {
@@ -8229,7 +8229,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.8"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.9"
             },
             "funding": [
                 {
@@ -8237,7 +8237,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-30T08:01:38+00:00"
+            "time": "2021-11-19T15:21:02+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
