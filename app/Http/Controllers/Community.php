@@ -81,4 +81,19 @@ class Community extends Controller
         }
         return abort(403);
     }
+
+    public function createNewComment($id, Request $request)
+    {
+        $comment = new Comment(
+            [
+                'comment' => $request->input('comment'),
+                'user_id' => auth()->user()->id,
+                'post_id' => $id
+            ]
+        );
+
+        $comment->save();
+
+        return redirect()->back();
+    }
 }
