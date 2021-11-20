@@ -33,7 +33,7 @@ class Group extends Controller
     public function add($id)
     {
         return view('addusertogroup', [
-            'users' => \App\Models\User::all()->except(\App\Models\User::query()->where('is_tutor', '1')->find('id')),
+            'users' => \App\Models\User::all()->where('is_tutor', 0),
             'groupid' => $id,
         ]);
     }
