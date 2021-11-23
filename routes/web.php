@@ -58,7 +58,7 @@ Route::get('/groups/manage/{id}', [Group::class, 'returnView'])
 Route::get('/users', [User::class, 'showAll'])
     ->middleware(['auth', 'admin'])
     ->name('users');
-Route::get('/community/{id}', [Community::class, 'profile'])
+Route::get('/community/user/{id}', [Community::class, 'profile'])
     ->middleware('auth')
     ->name('community.profile');
 Route::get('/community/post/{id}', [Community::class, 'post'])
