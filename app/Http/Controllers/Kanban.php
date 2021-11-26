@@ -27,19 +27,24 @@ class Kanban extends Controller
         ]);
     }
 
-    public function renderCreate()
+    public function renderCreate() //GET REQUEST
     {
         return view('newkanban');
     }
 
-    public function create(Request $request)
+    public function create(Request $request) //POST REQUEST
     {
         $kan = new Kan(
             [
-                'user_id' => auth()->user()->id,
-                'name' => $request->input('name')
+                'user_id' => $request->user()->id,
+                'name' => $request->input('title'),
+                'description' => $request->input('description')
             ]
         );
+
+        $kan->save();
+
+        return redirect(route('kanban.view', $kan->id));
     }
 
     public function update()

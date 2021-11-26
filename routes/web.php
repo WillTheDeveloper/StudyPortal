@@ -100,6 +100,9 @@ Route::get('/kanban', [Kanban::class, 'list'])
 Route::get('/kanban/{id}', [Kanban::class, 'view'])
     ->middleware('auth')
     ->name('kanban.view');
+Route::get('/kanban/board/create', [Kanban::class, 'renderCreate'])
+    ->middleware('auth')
+    ->name('kanban.create');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -138,6 +141,9 @@ Route::post('/kanban/delete/{id}', [Kanban::class, 'delete'])
 Route::post('/community/post/{id}/comment/new', [Community::class, 'CreateNewComment'])
     ->middleware('auth')
     ->name('community.comment.new');
+Route::post('/kanban/board/new', [Kanban::class, 'create'])
+    ->middleware('auth')
+    ->name('kanban.new');
 
 Route::get('/billing-portal', function (Request $request) {
     return $request->user()->redirectToBillingPortal(route('dashboard'));

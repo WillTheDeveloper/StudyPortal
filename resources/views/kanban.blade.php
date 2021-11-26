@@ -14,9 +14,11 @@
                         <div class="px-4 sm:px-0">
                             <h2 class="text-lg font-medium text-gray-900">My Kanbans</h2>
 
+                            <a href="{{ route('kanban.create') }}">
                             <x-button>
                                 Create Kanban
                             </x-button>
+                            </a>
 
                             <!-- This example requires Tailwind CSS v2.0+ -->
                             <div class="flex flex-col">
@@ -30,7 +32,7 @@
                                                         Name
                                                     </th>
                                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Subject
+                                                        Description
                                                     </th>
                                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Status
@@ -56,8 +58,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
-                                                        <div class="text-sm text-gray-500">Optimization</div>
+                                                        <div class="text-sm text-gray-900">{{$item->description}}</div>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">

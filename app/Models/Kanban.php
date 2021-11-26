@@ -10,7 +10,9 @@ class Kanban extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'user_id',
+        'description'
     ];
 
     public function User()

@@ -41,9 +41,9 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($group->Item as $item)
+                                                    @foreach($groups as $group)
                                                         <tr class="bg-white">
-
+                                                            @foreach($group->Item as $item)
                                                             <td class="px-6 py-2">
                                                                 <div class="w-full flex items-center justify-between p-3 space-x-6 border border-gray-500">
                                                                     <div class="flex-1 truncate">
@@ -55,7 +55,7 @@
                                                                     </div>
                                                                 </div>
                                                             </td>
-
+                                                            @endforeach
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
