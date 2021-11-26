@@ -42,7 +42,7 @@ class Community extends Controller
     public function communities()
     {
         return view('communities', [
-            'subject' => Subject::all()->collect()
+            'subject' => Subject::all()
         ]);
     }
 
