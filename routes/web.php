@@ -144,6 +144,12 @@ Route::post('/community/post/{id}/comment/new', [Community::class, 'CreateNewCom
 Route::post('/kanban/board/new', [Kanban::class, 'create'])
     ->middleware('auth')
     ->name('kanban.new');
+Route::post('/kanban/{id}/group/create', [Kanban::class, 'addGroup'])
+    ->middleware('auth')
+    ->name('kanban.group.create');
+Route::post('/kanban/{id}/item/create', [Kanban::class, 'addItem'])
+    ->middleware('auth')
+    ->name('kanban.item.create');
 
 Route::get('/billing-portal', function (Request $request) {
     return $request->user()->redirectToBillingPortal(route('dashboard'));

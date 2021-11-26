@@ -60,4 +60,35 @@ class Kanban extends Controller
 
         return redirect(route('kanban.list'));
     }
+
+    public function addItem($id, Request $request)
+    {
+        $item = new KanbanItem(
+            [
+                'item' => $request->input('item'),
+                'kanban_id' => $id,
+                'kanban_group_id' => $request->input('group-select'),
+                'user_id' => $request->user()->id
+            ]
+        );
+
+        $item->save();
+
+        return redirect(route('kanban.view', $id));
+    }
+
+    public function addGroup($id, Request $request)
+    {
+        $group = new KanbanGroup(
+            [
+                'group' => $request->input('group'),
+                'kanban_id' => $id,
+                'user_id' => $request->user()->id
+            ]
+        );
+
+        $group->save();
+
+        return redirect(route('kanban.view', $id));
+    }
 }

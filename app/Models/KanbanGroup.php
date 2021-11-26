@@ -9,6 +9,12 @@ class KanbanGroup extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'group',
+        'kanban_id',
+        'user_id'
+    ];
+
     public function Kanban()
     {
         return $this->belongsTo(Kanban::class);
