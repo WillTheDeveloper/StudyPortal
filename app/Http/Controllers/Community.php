@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,9 @@ class Community extends Controller
 
     public function communities()
     {
-        return view('communities');
+        return view('communities', [
+            'subject' => Subject::all()->collect()
+        ]);
     }
 
     public function trending()
