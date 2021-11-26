@@ -13,7 +13,7 @@ class Kanban extends Controller
     {
         return view('kanban',
         [
-            'kanban' => Kan::all()->where('id', auth()->user()->id),
+            'kanban' => Kan::all()->where('user_id', auth()->id()),
         ]);
     }
 
