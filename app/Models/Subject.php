@@ -9,6 +9,10 @@ class Subject extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'subject' => 'string'
+    ];
+
     public function Assignment()
     {
         return $this->hasMany(Assignment::class);
