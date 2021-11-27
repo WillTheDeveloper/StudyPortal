@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
+use function GuzzleHttp\Promise\all;
 
 class Community extends Controller
 {
@@ -42,7 +43,7 @@ class Community extends Controller
     public function communities()
     {
         return view('communities', [
-            'subject' => Subject::all()
+            'data' => Subject::all()
         ]);
     }
 
