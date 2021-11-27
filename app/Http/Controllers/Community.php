@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use function GuzzleHttp\Promise\all;
 
 class Community extends Controller
@@ -70,6 +71,18 @@ class Community extends Controller
         );
 
         $post->save();
+
+        Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
+            'content' => "New post!",
+            'embeds' => [
+                [
+                    'title' => $request->input('title'),
+                    'description' => $request->input('text'),
+                    'color' => '7506394',
+                    'url' => route('community.post', $post->id),
+                ]
+            ],
+        ]);
 
         return redirect(route('community.post', $post->id));
     }
