@@ -10,6 +10,7 @@ use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 
 // Normal routes
 Route::get('/', function () {
@@ -151,10 +152,10 @@ Route::post('/kanban/{id}/item/create', [Kanban::class, 'addItem'])
     ->middleware('auth')
     ->name('kanban.item.create');
 
+//STRIPE
 Route::get('/billing-portal', function (Request $request) {
     return $request->user()->redirectToBillingPortal(route('dashboard'));
 });
-
 Route::get('/subscribe', function () {
     return auth()->user()
         ->newSubscription('default', ['price_1JiiBJDEx6ZR0UQMWtdBytdf'])
@@ -165,6 +166,19 @@ Route::get('/subscribe', function () {
             ]
         );
 })->middleware('auth')->name('subscribe');
+
+
+//SOCIALITE
+Route::get('/auth/github/redirect', function () {
+    return Socialite::driver('github')->redirect();
+})->name('github.redirect');
+
+Route::get('/auth/github/callback', function () {
+    $user = Socialite::driver('github')->user();
+
+    $user->getEmail();
+    $user->getName();
+})->name('github.callback');
 
 
 // Don't delete this
