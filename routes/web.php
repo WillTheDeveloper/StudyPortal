@@ -176,8 +176,7 @@ Route::get('/auth/github/redirect', function () {
 Route::get('/auth/github/callback', function () {
     $user = Socialite::driver('github')->user();
 
-    $user->getEmail();
-    $user->getName();
+    return redirect(route('dashboard'));
 })->name('github.callback');
 
 
