@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProfileSettings;
 use Illuminate\Http\Request;
 
 class User extends Controller
@@ -16,7 +17,7 @@ class User extends Controller
         return abort(401);
     }
 
-    public function updateprofile(Request $request)
+    public function updateprofile(UpdateProfileSettings $request)
     {
         auth()->user()->update(
             [
