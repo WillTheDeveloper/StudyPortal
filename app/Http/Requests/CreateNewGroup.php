@@ -28,4 +28,16 @@ class CreateNewGroup extends FormRequest
             'subject' => 'required|integer'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'groupname.required' => 'Please enter a group name',
+            'groupname.string' => 'Group name must be a string',
+            'groupname.min' => 'Group name must be at least 2 characters',
+            'groupname.max' => 'Group name cannot exceed 20 characters',
+
+            'subject.required' => 'Please select a valid subject in dropdown'
+        ];
+    }
 }
