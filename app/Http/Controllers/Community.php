@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewPost;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Subject;
@@ -59,8 +60,10 @@ class Community extends Controller
         ]);
     }
 
-    public function createNewPost(Request $request)
+    public function createNewPost(CreateNewPost $request)
     {
+        $request->validated();
+
         $post = new Post(
             [
                 'title' => $request->input('title'),
