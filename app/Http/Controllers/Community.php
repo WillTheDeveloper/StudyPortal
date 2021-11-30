@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewComment;
 use App\Http\Requests\CreateNewPost;
 use App\Models\Comment;
 use App\Models\Post;
@@ -100,8 +101,10 @@ class Community extends Controller
         return redirect(route('community'));
     }
 
-    public function createNewComment($id, Request $request)
+    public function createNewComment($id, CreateNewComment $request)
     {
+        $request->validated();
+
         $comment = new Comment(
             [
                 'comment' => $request->input('comment'),
