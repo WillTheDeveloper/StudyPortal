@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewGroup;
 use App\Models\Subject;
 use App\Models\Group as UserGroup;
 use Illuminate\Http\Request;
@@ -16,8 +17,10 @@ class Group extends Controller
         ]);
     }
 
-    public function new(Request $request)
+    public function new(CreateNewGroup $request)
     {
+        $request->validated();
+
         $group = new UserGroup([
             'name' => $request->input('groupname'),
             'subject_id' => $request->input('subject')
