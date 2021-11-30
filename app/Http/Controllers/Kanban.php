@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewKanbanBoard;
 use App\Models\KanbanGroup;
 use App\Models\KanbanItem;
 use App\Models\Kanban as Kan;
@@ -32,8 +33,10 @@ class Kanban extends Controller
         return view('newkanban');
     }
 
-    public function create(Request $request) //POST REQUEST
+    public function create(CreateNewKanbanBoard $request) //POST REQUEST
     {
+        $request->validated();
+
         $kan = new Kan(
             [
                 'user_id' => $request->user()->id,
