@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewAssignment;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\Assignment as Assign;
@@ -29,7 +30,7 @@ class Assignment extends Controller
         ]);
     }
 
-    public function new(Request $request)
+    public function new(CreateNewAssignment $request)
     {
         $assignment = new Assign(
             [
