@@ -25,6 +25,9 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default('0');
             $table->boolean('is_moderator')->default('0');
             $table->boolean('is_banned')->default('0');
+            $table->integer('github_id')->nullable(true)->default(null);
+            $table->string('github_token')->nullable(true)->default(null);
+            $table->string('github_refresh_token')->nullable(true)->default(null);
             $table->rememberToken();
             $table->timestamps();
         });

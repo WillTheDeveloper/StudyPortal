@@ -4,6 +4,7 @@ use App\Http\Controllers\Assignment;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Kanban;
+use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
 
@@ -169,16 +170,11 @@ Route::get('/subscribe', function () {
 
 
 //SOCIALITE
-Route::get('/auth/github/redirect', function () {
-    return Socialite::driver('github')->redirect();
-})->name('github.redirect');
+Route::get('/auth/github/redirect', [ThirdPartyAuthentication::class, 'githubRedirect'])
+    ->name('github.redirect');
 
-Route::get('/auth/github/callback', function () {
-    $user = Socialite::driver('github')->user();
-
-    return redirect(route('dashboard'));
-})->name('github.callback');
-
+Route::get('/auth/github/callback', [ThirdPartyAuthentication::class, 'githubCallback'])
+    ->name('github.callback');
 
 // Don't delete this
 require __DIR__.'/auth.php';
