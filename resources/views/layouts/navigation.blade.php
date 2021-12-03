@@ -52,46 +52,47 @@
         <div x-show="menu" class="mt-5 flex-1 h-0 overflow-y-auto">
             <nav class="px-2">
                 <div class="space-y-1">
-                    <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:text-gray-900 hover:bg-gray-50" -->
-                    <a href="#"
-                       class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md"
-                       aria-current="page">
-                        <!--
-                          Heroicon name: outline/home
+                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-responsive-nav-link>
 
-                          Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"
-                        -->
-                        <svg class="text-gray-500 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
-                             fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                        </svg>
-                        Home
-                    </a>
+                    <x-responsive-nav-link :href="route('timetable')" :active="request()->routeIs('timetable')">
+                        {{ __('Timetable') }}
+                    </x-responsive-nav-link>
 
-                    <a href="#"
-                       class="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md">
-                        <!-- Heroicon name: outline/view-list -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
-                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                             aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
-                        </svg>
-                        My tasks
-                    </a>
+                    <x-responsive-nav-link :href="route('assignments')" :active="request()->routeIs('assignments')">
+                        {{ __('Assignments') }}
+                    </x-responsive-nav-link>
 
-                    <a href="#"
-                       class="text-gray-600 hover:text-gray-900 hover:bg-gray-50 group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md">
-                        <!-- Heroicon name: outline/clock -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
-                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                             aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        Recent
-                    </a>
+                    <x-responsive-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
+                        {{ __('Kanban') }}
+                    </x-responsive-nav-link>
+
+                    @if (auth()->user()->is_tutor)
+                        <x-responsive-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
+                            {{ __('Groups') }}
+                        </x-responsive-nav-link>
+                    @endif
+
+                    @if (auth()->user()->is_admin)
+                        <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                            {{ __('Users') }}
+                        </x-responsive-nav-link>
+                    @endif
+
+                    <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
+                        {{ __('Community') }}
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
+                        {{ __('Profile') }}
+                    </x-responsive-nav-link>
+
+                    @if (!auth()->user()->subscribed('default'))
+                        <x-responsive-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
+                            {{ __('Subscribe') }}
+                        </x-responsive-nav-link>
+                    @endif
                 </div>
                 <div class="mt-8">
                     <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
