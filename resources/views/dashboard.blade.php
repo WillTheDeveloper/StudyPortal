@@ -5,30 +5,6 @@
         </h2>
     </x-slot>
 
-    <!--
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-    <!--
-      This example requires updating your template:
-
-      ```
-      <html class="h-full bg-white">
-      <body class="h-full">
-      ```
-    -->
     <div class="min-h-full">
 
         <!-- Main column -->
@@ -254,6 +230,4 @@
             </main>
         </div>
     </div>
-
-
 </x-app-layout>

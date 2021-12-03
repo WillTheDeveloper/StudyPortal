@@ -118,7 +118,9 @@
                 <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
                 <span class="flex-1 flex flex-col min-w-0">
                   <span class="text-gray-900 text-sm font-medium truncate">{{auth()->user()->name}}</span>
-                  <span class="text-gray-500 text-sm truncate">@jessyschwarz</span>
+                    @isset(auth()->user()->username)
+                        <span class="text-gray-500 text-sm truncate">@ {{auth()->user()->username}}</span>
+                    @endisset
                 </span>
               </span>
                 <!-- Heroicon name: solid/selector -->
@@ -142,7 +144,7 @@
             <div x-show="profile" @click.away="profile = false" x-cloak class="z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-button" tabindex="-1">
                 <div class="py-1" role="none">
                     <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="options-menu-item-0">View profile</a>
+                    <a href="{{ route('profile') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="options-menu-item-0">View profile</a>
                     <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="options-menu-item-1">Settings</a>
                     <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="options-menu-item-2">Notifications</a>
                 </div>
