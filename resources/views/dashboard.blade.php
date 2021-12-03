@@ -29,7 +29,7 @@
       <body class="h-full">
       ```
     -->
-    <div class="min-h-full" x-data="{profile: false, projects: false, menu: false}">
+    <div class="min-h-full">
 
         <!-- Main column -->
         <div class="lg:pl-64 flex flex-col">

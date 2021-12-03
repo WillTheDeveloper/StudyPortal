@@ -17,7 +17,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="//unpkg.com/alpinejs" defer></script>
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" x-data="{profile: false, projects: false, menu: false}">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
