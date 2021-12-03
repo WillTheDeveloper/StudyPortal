@@ -42,6 +42,10 @@ Here are some images of the fundamental structure of the application at the minu
 
 ### Student Dashboard
 
+**UPDATE - THIS PAGE IS CURRENTLY HAVING AN HEAVY REDESIGN**
+
+You can preview this redesign on a different branch linked here - https://github.com/WillTheDeveloper/StudyPortal/tree/redesigned-backend
+
 On this page, students will be able to get an overview of what is happening.
 
 ![image](https://user-images.githubusercontent.com/78596837/141191969-64332fb7-c4b2-46c1-b435-689658c34c10.png)
