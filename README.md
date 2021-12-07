@@ -1,5 +1,7 @@
 # Study Portal
 
+Official Discord server - https://discord.gg/ZEkX2NPWVs
+
 ## Concept behind Study Portal
 
 The idea behind Study Portal is to have one platform where students are able to work together on work where other people are doing similar subjects and help each other out.
