@@ -9,7 +9,7 @@ The idea behind Study Portal is to have one platform where students are able to 
 *Tick means it has been finished*
 
 - [ ] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
-- [ ] Assignments - This is where students can keep track of assignment work that they are doing.
+- [X] Assignments - This is where students can keep track of assignment work that they are doing.
 - [X] Dashboard - Overview of all the stats that matter to students.
 - [ ] Community - Place where students can talk to each other with posts and support each other.
 - [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
@@ -23,10 +23,13 @@ Study Portal will have a lot of cross application notification intergration that
 
 Below are a list of methods that you will be able to recieve notifications:
 
-- [ ] Microsoft Teams
-- [ ] Email
-- [ ] Text message
-- [X] Discord
+- [ ] Microsoft Teams - This has been requested upon some feedback that I received and made it clear that it would be quite a good idea and an alternative way to get into contact with students regarding any new assignments that they may have.
+- [ ] Email - This would be one of the main ways of notifying students of updates on the platform that would be targetted towards them.
+- [ ] Text message - I aim for this to be one of the other notifying channels that most of the students would use since I am assumuming that most students would have phones that they can check when they get a notification.
+- [X] Discord - This is the main notification channel for testing initially but could be used on a wider scope on a per person basis but would require webhook relationships with users which is not a thing yet. Further investigation is required for this.
+- [ ] Twitter - This might not make it to the final release since I cannot see it being used.
+
+*Suggestions are welcome for other notification channels but would need some sort of justification.*
 
 ## Issue tracking
 
