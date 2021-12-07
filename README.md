@@ -17,6 +17,17 @@ The idea behind Study Portal is to have one platform where students are able to 
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
+## Notifications
+
+Study Portal will have a lot of cross application notification intergration that initially will be heavily based around JSON webhooks.
+
+Below are a list of methods that you will be able to recieve notifications:
+
+- [ ] Microsoft Teams
+- [ ] Email
+- [ ] Text message
+- [X] Discord
+
 ## Issue tracking
 
 *I am still yet to create the templates for issues*
