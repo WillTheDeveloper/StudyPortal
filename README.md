@@ -75,25 +75,25 @@ You can preview this redesign on a different branch linked here - https://github
 
 On this page, students will be able to get an overview of what is happening.
 
-![image](https://user-images.githubusercontent.com/78596837/141191969-64332fb7-c4b2-46c1-b435-689658c34c10.png)
+![image](https://user-images.githubusercontent.com/78596837/144643845-79159886-2273-4514-b8c7-34bc3d6a379c.png)
 
 ### Student Timetable
 
 This is where students will be able to view their timetables and edit them if they need to. They will also be able to create their own if they have not been assigned one. Currently, this is still a work in progress.
 
-![image](https://user-images.githubusercontent.com/78596837/141192250-0e03add8-7e43-46fb-9b77-9a929e8ff187.png)
+![image](https://user-images.githubusercontent.com/78596837/144643904-054571a0-73e8-4a9c-8bbe-cca319096783.png)
 
 ### Student Assignments
 
 This is where students will be able to view all the assignments they have. Which will be followed by an image of where students can view their assignment details.
 
-![image](https://user-images.githubusercontent.com/78596837/141192378-c445cc11-3bb9-4a22-b5a5-42af46598872.png)
+![image](https://user-images.githubusercontent.com/78596837/144643958-f0054008-a4eb-468e-a242-bb3586da5328.png)
 
 ### Student Kanban (New feature)
 
 This is where students will be able to create their own kanban boards to allow them to organise tasks and work into groups for themselves.
 
-![image](https://user-images.githubusercontent.com/78596837/141192766-b421332b-8178-4dc1-98a0-4bd6f0e29675.png)
+![image](https://user-images.githubusercontent.com/78596837/144643998-7114bbe2-199d-4b00-90db-be85ab0f098b.png)
 
 Details view of the kanban board. **Still in early development.**
 
@@ -103,7 +103,7 @@ Details view of the kanban board. **Still in early development.**
 
 This is where students will be able to collaborate on work and ask each other things related to their own subjects.
 
-![image](https://user-images.githubusercontent.com/78596837/141193057-4a67a032-baa0-44e2-9d20-ff07b0e33835.png)
+![image](https://user-images.githubusercontent.com/78596837/144644088-b891c412-3ad7-45d5-9ba0-10c6cd6c724b.png)
 
 ### Regarding tutors
 
