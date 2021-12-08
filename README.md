@@ -19,6 +19,17 @@ The idea behind Study Portal is to have one platform where students are able to 
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
+## Versioning
+
+This repository follows semantic versioning: MAJOR . MINOR . PATCH.
+
+The versioning has been introduced into the repository a bit late but has now been implemented and will be used from now on.
+
+- [X] Alpha (Not part of versioning)
+- [ ] Beta (Partially part of versioning, read release notes)
+- [ ] Public Beta Testing (Planned for 1st January 2022)
+- [ ] Initial release (Date TBD)
+
 ## Notifications
 
 Study Portal will have a lot of cross application notification intergration that initially will be heavily based around JSON webhooks.
