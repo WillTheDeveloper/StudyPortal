@@ -53,7 +53,7 @@ Route::get('/timetable', [Timetable::class, 'view'])
     ->middleware(['auth'])
     ->name('timetable');
 Route::get('/community', [Community::class, 'view'])
-    ->middleware('auth')
+    ->middleware(['auth', 'verified'])
     ->name('community');
 Route::get('/groups/manage/{id}', [Group::class, 'returnView'])
     ->middleware(['auth', 'tutor'])
