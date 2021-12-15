@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Assignment as Assign;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class Assignment extends Controller
 {
@@ -50,6 +51,18 @@ class Assignment extends Controller
             ->where('group_id', $array)->get('user_id')->keyBy('user_id')->keys()->toArray();
 
         $assign->User()->attach($users);
+
+        Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
+            'content' => "Assignment created.",
+            'embeds' => [
+                [
+                    'title' => $request->input('title'),
+                    'description' => $request->input('description'),
+                    'color' => '7506394',
+                    'url' => route('assignments.manage', $assignment->id),
+                ]
+            ],
+        ]);
 
         return redirect('assignments');
     }
