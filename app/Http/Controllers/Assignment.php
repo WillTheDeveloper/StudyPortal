@@ -72,6 +72,17 @@ class Assignment extends Controller
         if ($request->user()->is_tutor) {
             Assign::query()->where('assignments.id', $id)->findOrFail($id)->delete();
             DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->select('*')->delete();
+
+            Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
+                'embeds' => [
+                    [
+                        'title' => 'Assignment deleted',
+                        'description' => 'Test',
+                        'color' => '7506394',
+                        'url' => route('assignments'),
+                    ]
+                ],
+            ]);
         }
         else {
             abort(401);
