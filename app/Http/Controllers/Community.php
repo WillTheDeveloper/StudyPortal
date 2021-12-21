@@ -117,4 +117,22 @@ class Community extends Controller
 
         return redirect()->back();
     }
+
+    public function joinSubject($id) //POST REQUEST
+    {
+        $subject = Subject::find($id);
+
+        $subject->User()->attach(auth()->id());
+
+        return redirect(route('community.subject', $id));
+    }
+
+    public function leaveSubject($id) //POST REQUEST
+    {
+        $subject = Subject::find($id);
+
+        $subject->User()->detach(auth()->id());
+
+        return redirect(route('community'));
+    }
 }

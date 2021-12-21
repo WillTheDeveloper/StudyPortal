@@ -153,6 +153,12 @@ Route::post('/kanban/{id}/group/create', [Kanban::class, 'addGroup'])
 Route::post('/kanban/{id}/item/create', [Kanban::class, 'addItem'])
     ->middleware('auth')
     ->name('kanban.item.create');
+Route::post('/community/communities/join/{id}', [Community::class, 'joinSubject'])
+    ->middleware('auth')
+    ->name('communities.join');
+Route::post('/community/communities/leave/{id}', [Community::class, 'leaveSubject'])
+    ->middleware('auth')
+    ->name('communities.leave');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
