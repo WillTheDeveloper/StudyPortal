@@ -111,11 +111,11 @@ class Assignment extends Controller
         $assignment = \App\Models\Assignment::query()->where('assignments.id', $id)->find($id);
 
         Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
-            'content' => "Assignment created.",
+            'content' => "Assignment updated.",
             'embeds' => [
                 [
                     'title' => $assignment->title,
-                    'description' => $assignment->description,
+                    'description' => $assignment->details,
                     'color' => '7506394',
                     'url' => route('assignments.manage', $assignment->id),
                 ]
