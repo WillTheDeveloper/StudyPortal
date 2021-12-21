@@ -77,7 +77,6 @@ class Assignment extends Controller
                 'embeds' => [
                     [
                         'title' => 'Assignment deleted',
-                        'description' => 'Test',
                         'color' => '7506394',
                         'url' => route('assignments'),
                     ]
