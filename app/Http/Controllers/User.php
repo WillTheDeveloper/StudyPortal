@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JoinInstitution;
 use App\Http\Requests\UpdateProfileSettings;
+use App\Models\Institution;
 use Illuminate\Http\Request;
 
 class User extends Controller
@@ -27,5 +29,27 @@ class User extends Controller
         );
         auth()->user()->save();
         return redirect('profile');
+    }
+
+    public function joinInstitution(JoinInstitution $joinInstitution)
+    {
+        $code = $joinInstitution->input('joincode');
+
+        $id = Institution::query()->where('joincode', $code)->get('id')->first();
+
+        if (Institution::query()->where('joincode', $code)->exists()) {
+            /*auth()->user()->update(
+                [
+                    'institution_id' => $id
+                ]
+            );*/
+            $user = auth()->user();
+
+            $user->Institution()->associate($id);
+
+            $user->save();
+        }
+
+        return redirect(route('profile'));
     }
 }

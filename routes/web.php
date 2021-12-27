@@ -159,6 +159,9 @@ Route::post('/community/communities/join/{id}', [Community::class, 'joinSubject'
 Route::post('/community/communities/leave/{id}', [Community::class, 'leaveSubject'])
     ->middleware('auth')
     ->name('communities.leave');
+Route::post('/profile/institution/join', [User::class, 'joinInstitution'])
+    ->middleware('auth')
+    ->name('institution.join');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
