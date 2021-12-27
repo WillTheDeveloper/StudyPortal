@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->integer('github_id')->nullable(true)->default(null);
             $table->string('github_token')->nullable(true)->default(null);
             $table->string('github_refresh_token')->nullable(true)->default(null);
+            $table->integer('institution_id')->nullable(true)->default(null);
             $table->rememberToken();
             $table->timestamps();
         });

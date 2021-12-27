@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Institutions name: {{auth()->user()->Institution()->first()}}
+                    Associated institution: {{auth()->user()->Institution()->first()->institution}}
 
                     <form class="space-y-8 divide-y divide-gray-200" action="{{ route('profile.update') }}"
                           method="post">
