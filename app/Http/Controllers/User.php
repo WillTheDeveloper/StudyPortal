@@ -38,11 +38,6 @@ class User extends Controller
         $id = Institution::query()->where('joincode', $code)->get('id')->first();
 
         if (Institution::query()->where('joincode', $code)->exists()) {
-            /*auth()->user()->update(
-                [
-                    'institution_id' => $id
-                ]
-            );*/
             $user = auth()->user();
 
             $user->Institution()->associate($id);
