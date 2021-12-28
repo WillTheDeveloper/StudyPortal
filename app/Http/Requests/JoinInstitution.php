@@ -24,7 +24,7 @@ class JoinInstitution extends FormRequest
     public function rules()
     {
         return [
-            'joincode' => 'max:10'
+            'joincode' => 'required|max:12|min:3|string'
         ];
     }
 }
