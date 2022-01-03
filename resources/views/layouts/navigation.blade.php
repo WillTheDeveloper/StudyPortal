@@ -46,8 +46,8 @@
         </div>
 
         <div class="flex-shrink-0 flex items-center px-4">
-            <img class="h-8 w-auto"
-                 src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg" alt="Workflow">
+{{--            <img class="h-8 w-auto"--}}
+{{--                 src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg" alt="Workflow">--}}
         </div>
         <div x-show="menu" class="mt-5 flex-1 h-0 overflow-y-auto">
             <nav class="px-2">
@@ -123,8 +123,8 @@
 <!-- Static sidebar for desktop -->
 <div class="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100">
     <div class="flex items-center flex-shrink-0 px-6">
-        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg"
-             alt="Workflow">
+        {{--<img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg"
+             alt="Workflow">--}}
     </div>
     <!-- Sidebar component, swap this element with another sidebar if you like -->
     <div class="mt-6 h-0 flex-1 flex flex-col overflow-y-auto">
