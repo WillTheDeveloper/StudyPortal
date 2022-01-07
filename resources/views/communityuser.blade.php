@@ -105,17 +105,17 @@
                                     </div>
                                     <div class="min-w-0 flex-1">
                                         <div>
-                                            <div class="text-sm">
+                                            {{--<div class="text-sm">
                                                 <a href="#" class="font-medium text-gray-900">Eduardo Benz</a>
-                                            </div>
+                                            </div>--}}
                                             <p class="mt-0.5 text-sm text-gray-500">
-                                                Commented 6d ago
+                                                Posted {{$post->created_at->DiffForHumans()}}
                                             </p>
                                         </div>
                                         <div class="mt-2 text-sm text-gray-700">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam.
-                                            </p>
+                                            <a href="{{ route('community.post', $post->id) }}">
+                                                {{$post->title}}
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
