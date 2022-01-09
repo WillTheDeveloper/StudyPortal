@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Group;
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class GroupFactory extends Factory
@@ -23,7 +24,7 @@ class GroupFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->title(),
-            'subject_id' => 1,
+            'subject_id' => Subject::query()->first()->id,
         ];
     }
 }

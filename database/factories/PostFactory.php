@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Post;
+use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -24,8 +26,8 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->unique()->title(),
             'body' => $this->faker->unique()->paragraph(),
-            'user_id' => '1',
-            'subject_id' => '1'
+            'user_id' => User::query()->first()->id,
+            'subject_id' => Subject::query()->first()->id
         ];
     }
 }

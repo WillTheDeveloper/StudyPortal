@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Assignment;
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AssignmentFactory extends Factory
@@ -25,7 +26,7 @@ class AssignmentFactory extends Factory
             'title' => $this->faker->unique()->title(),
             'duedate' => $this->faker->unique()->dateTime(),
             'setdate' => $this->faker->unique()->dateTime(),
-            'subject_id' => '1',
+            'subject_id' => Subject::query()->first()->id,
             'details' => $this->faker->unique()->paragraph(),
         ];
     }
