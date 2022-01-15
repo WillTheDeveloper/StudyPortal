@@ -125,6 +125,8 @@
     <div class="flex items-center flex-shrink-0 px-6">
         {{--<img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg"
              alt="Workflow">--}}
+        <img class="h-8 w-auto" src="https://studyportal.s3.eu-west-2.amazonaws.com/logo_banner_style_v1.png"
+             alt="Study Portal logo">
     </div>
     <!-- Sidebar component, swap this element with another sidebar if you like -->
     <div class="mt-6 h-0 flex-1 flex flex-col overflow-y-auto">
