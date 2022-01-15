@@ -20,13 +20,13 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/features', function () {
     return view('features');
-});
+})->name('features');
 Route::get('/pricing', function () {
     return view('pricing');
-});
+})->name('pricing');
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
 // Dashboard routes
 Route::get('/dashboard', function () {
