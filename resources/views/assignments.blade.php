@@ -116,7 +116,7 @@
 
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="px-4 sm:px-0">
-                        <h2 class="text-lg font-medium text-gray-900">My Assignments</h2>
+{{--                        <h2 class="text-lg font-medium text-gray-900">My Assignments</h2>--}}
 
                         @if (auth()->user()->is_tutor)
                             <a href="{{ route('assignment.create') }}">
