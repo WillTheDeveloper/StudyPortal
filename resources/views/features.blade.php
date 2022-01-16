@@ -223,7 +223,7 @@
                             Keeping on top of work is important in college since you need to do well to succeed. You will recieve email notifcations of any assignments that get set. Might include text messages soon.
                         </p>
                         <div class="mt-6">
-                            <a href="/pricing" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                            <a href="{{route('pricing')}}" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
                                 View feature breakdown
                             </a>
                         </div>
