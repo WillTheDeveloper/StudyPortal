@@ -35,9 +35,9 @@ class User extends Controller
     {
         $code = $joinInstitution->input('joincode');
 
-        $id = Institution::query()->where('joincode', $code)->get('id')->first();
-
         if (Institution::query()->where('joincode', $code)->exists()) {
+            $id = Institution::query()->where('joincode', $code)->get('id')->first();
+            
             $user = auth()->user();
 
             $user->Institution()->associate($id);
