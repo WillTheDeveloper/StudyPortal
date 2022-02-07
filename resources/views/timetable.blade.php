@@ -95,129 +95,156 @@
                 </div>
             </div>
             <main class="flex-1">
-                <!-- Page title & actions -->
-                <div class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
-                    <div class="flex-1 min-w-0">
-                        <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
-                            Timetable
-                        </h1>
-                    </div>
-                    {{--<div class="mt-4 flex sm:mt-0 sm:ml-4">
-                        <button type="button"
-                                class="order-1 ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-0 sm:ml-0">
-                            Share
-                        </button>
-                        <button type="button"
-                                class="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">
-                            Create
-                        </button>
-                    </div>--}}
-                </div>
-
-                <x-button>Edit Timetable</x-button>
-
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gray-50">
-                                    <tr>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Time
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Monday
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Tuesday
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Wednesday
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Thursday
-                                        </th>
-                                        <th scope="col"
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Friday
-                                        </th>
-                                        {{--<th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Edit</span>
-                                        </th>--}}
-                                    </tr>
-                                    </thead>
 
-                                    <tbody>
+                            <!-- This example requires Tailwind CSS v2.0+ -->
+                            <div class="flex h-full flex-col">
+                                <header class="relative z-20 flex flex-none items-center justify-between border-b border-gray-200 py-4 px-6">
+                                    <h1 class="text-lg font-semibold text-gray-900">
+                                        <time datetime="2022-01">{{now()->monthName}} {{now()->year}}</time>
+                                    </h1>
+                                    <div class="flex items-center">
+                                        <div class="hidden md:ml-4 md:flex md:items-center">
+                                            <div class="ml-6 h-6 w-px bg-gray-300"></div>
+                                            <button type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add event</button>
+                                        </div>
+                                        <div class="relative ml-6 md:hidden">
+                                            <button type="button" class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
+                                                <span class="sr-only">Open menu</span>
+                                                <!-- Heroicon name: solid/dots-horizontal -->
+                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="flex flex-auto flex-col overflow-auto bg-white">
+                                    <div style="width: 165%" class="flex max-w-full flex-none flex-col sm:max-w-none md:max-w-full">
+                                        <div class="sticky top-0 z-10 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
+                                            <div class="grid grid-cols-7 text-sm leading-6 text-gray-500 sm:hidden">
+                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">M <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">10</span></button>
+                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">T <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">11</span></button>
+                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">W <span class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">12</span></button>
+                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">T <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">13</span></button>
+                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">F <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">14</span></button>
+                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">S <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">15</span></button>
+                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">S <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">16</span></button>
+                                            </div>
 
-                                    @forelse(auth()->user()->Timetable()->get()->sortBy('start') as $timetable)
-                                        <tr class="bg-white">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                {{$timetable->start->format('h:i')}}
-                                                - {{$timetable->end->format('h:i')}}
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>{{$timetable->Subject->subject}}</b><br>
-                                                {{$timetable->User->name}}<br>
-                                                @isset($timetable->room)
-                                                    Room {{$timetable->room}}
-                                                @endisset
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>{{$timetable->Subject->subject}}</b><br>
-                                                {{$timetable->User->name}}<br>
-                                                @isset($timetable->room)
-                                                    Room {{$timetable->room}}
-                                                @endisset
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>{{$timetable->Subject->subject}}</b><br>
-                                                {{$timetable->User->name}}<br>
-                                                @isset($timetable->room)
-                                                    Room {{$timetable->room}}
-                                                @endisset
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>{{$timetable->Subject->subject}}</b><br>
-                                                {{$timetable->User->name}}<br>
-                                                @isset($timetable->room)
-                                                    Room {{$timetable->room}}
-                                                @endisset
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                <b>{{$timetable->Subject->subject}}</b><br>
-                                                {{$timetable->User->name}}<br>
-                                                @isset($timetable->room)
-                                                    Room {{$timetable->room}}
-                                                @endisset
-                                            </td>
-                                            {{--<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                            </td>--}}
-                                        </tr>
-                                    @empty
-                                        <button type="button"
-                                                class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                            <svg class="mx-auto h-12 w-12 text-gray-400"
-                                                 xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none"
-                                                 viewBox="0 0 48 48" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                      d="M8 14v20c0 4.418 7.163 8 16 8 1.381 0 2.721-.087 4-.252M8 14c0 4.418 7.163 8 16 8s16-3.582 16-8M8 14c0-4.418 7.163-8 16-8s16 3.582 16 8m0 0v14m0-4c0 4.418-7.163 8-16 8S8 28.418 8 24m32 10v6m0 0v6m0-6h6m-6 0h-6"/>
-                                            </svg>
-                                            <span class="mt-2 block text-sm font-medium text-gray-900">
-                                                    Create a new timetable
-                                                  </span>
-                                        </button>
-                                    @endforelse
+                                            <div class="-mr-px hidden grid-cols-7 divide-x divide-gray-100 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
+                                                <div class="col-end-1 w-14"></div>
+                                                <div class="flex items-center justify-center py-3">
+                                                    <span>Monday</span>
+                                                </div>
+                                                <div class="flex items-center justify-center py-3">
+                                                    <span>Tuesday</span>
+                                                </div>
+                                                <div class="flex items-center justify-center py-3">
+                                                    <span class="flex items-baseline">Wednesday</span>
+                                                </div>
+                                                <div class="flex items-center justify-center py-3">
+                                                    <span>Thursday</span>
+                                                </div>
+                                                <div class="flex items-center justify-center py-3">
+                                                    <span>Friday</span>
+                                                </div>
+                                                <div class="flex items-center justify-center py-3">
+                                                    <span>Saturday</span>
+                                                </div>
+                                                <div class="flex items-center justify-center py-3">
+                                                    <span>Sunday</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-auto">
+                                            <div class="sticky left-0 w-14 flex-none bg-white ring-1 ring-gray-100"></div>
+                                            <div class="grid flex-auto grid-cols-1 grid-rows-1">
+                                                <!-- Horizontal lines -->
+                                                <div class="col-start-1 col-end-2 row-start-1 grid divide-y divide-gray-100" style="grid-template-rows: repeat(21, minmax(3.5rem, 1fr))">
+                                                    <div class="row-end-1 h-7"></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">7AM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">8AM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">9AM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">10AM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">11AM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">12PM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">1PM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">2PM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">3PM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">4PM</div>
+                                                    </div>
+                                                    <div></div>
+                                                    <div>
+                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">5PM</div>
+                                                    </div>
+                                                    <div></div>
+                                                </div>
 
-                                    </tbody>
-                                </table>
+                                                <!-- Vertical lines -->
+                                                <div class="col-start-1 col-end-2 row-start-1 hidden grid-cols-7 grid-rows-1 divide-x divide-gray-100 sm:grid sm:grid-cols-7">
+                                                    <div class="col-start-1 row-span-full"></div>
+                                                    <div class="col-start-2 row-span-full"></div>
+                                                    <div class="col-start-3 row-span-full"></div>
+                                                    <div class="col-start-4 row-span-full"></div>
+                                                    <div class="col-start-5 row-span-full"></div>
+                                                    <div class="col-start-6 row-span-full"></div>
+                                                    <div class="col-start-7 row-span-full"></div>
+                                                    <div class="col-start-8 row-span-full w-8"></div>
+                                                </div>
+
+                                                <!-- Events -->
+                                                <ol class="col-start-1 col-end-2 row-start-1 grid grid-cols-1 sm:grid-cols-7 sm:pr-8" style="grid-template-rows: 1.75rem repeat(288, minmax(0, 1fr)) auto">
+                                                    <li class="relative mt-px flex sm:col-start-3" style="grid-row: 74 / span 18">
+                                                        <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-blue-50 p-2 text-xs leading-5 hover:bg-blue-100">
+                                                            <p class="order-1 font-semibold text-blue-700">Breakfast</p>
+                                                            <p class="text-blue-500 group-hover:text-blue-700"><time datetime="2022-01-12T06:00">6:00 AM</time></p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="relative mt-px flex sm:col-start-3" style="grid-row: 92 / span 30">
+                                                        <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-pink-50 p-2 text-xs leading-5 hover:bg-pink-100">
+                                                            <p class="order-1 font-semibold text-pink-700">Flight to Paris</p>
+                                                            <p class="text-pink-500 group-hover:text-pink-700"><time datetime="2022-01-12T07:30">7:30 AM</time></p>
+                                                        </a>
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
