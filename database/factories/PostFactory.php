@@ -24,8 +24,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->unique()->title(),
-            'body' => $this->faker->unique()->paragraph(),
+            'title' => $this->faker->text(),
+            'body' => $this->faker->paragraph(2),
             'user_id' => User::query()->first()->id,
             'subject_id' => Subject::query()->first()->id
         ];
