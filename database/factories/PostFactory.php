@@ -26,8 +26,8 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->text(),
             'body' => $this->faker->paragraph(2),
-            'user_id' => User::query()->first()->id,
-            'subject_id' => Subject::query()->first()->id
+            'user_id' => User::query()->get('id')->random(),
+            'subject_id' => Subject::query()->get('id')->random()
         ];
     }
 }
