@@ -455,6 +455,9 @@
                                 <!-- More questions... -->
                                 </ul>
                             </div>
+
+                            {{$posts->links()}}
+
                         </main>
                         <aside class="hidden xl:block xl:col-span-4">
                             <div class="sticky top-4 space-y-4">

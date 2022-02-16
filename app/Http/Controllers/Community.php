@@ -10,13 +10,14 @@ use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Pagination;
 
 class Community extends Controller
 {
     public function view()
     {
         return view('community', [
-            'posts' => Post::all()->sortByDesc('created_at'),
+            'posts' => Post::query()->orderByDesc('created_at')->paginate(10),
             'users' => User::all()->take(3)
         ]);
     }
