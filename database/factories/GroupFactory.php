@@ -23,8 +23,8 @@ class GroupFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->unique()->title(),
-            'subject_id' => Subject::query()->first()->id,
+            'name' => $this->faker->unique()->name(),
+            'subject_id' => Subject::query()->get('id')->random(),
         ];
     }
 }
