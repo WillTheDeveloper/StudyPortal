@@ -6,6 +6,7 @@ use App\Http\Requests\JoinInstitution;
 use App\Http\Requests\UpdateProfileSettings;
 use App\Models\Institution;
 use Illuminate\Http\Request;
+use Illuminate\Pagination;
 
 class User extends Controller
 {
@@ -13,7 +14,7 @@ class User extends Controller
     {
         if (auth()->user()->is_admin) {
             return view('users', [
-                'users' => \App\Models\User::all()->sortByDesc('name')
+                'users' => \App\Models\User::query()->orderByDesc('created_at')->paginate(15),
             ]);
         }
         return abort(401);

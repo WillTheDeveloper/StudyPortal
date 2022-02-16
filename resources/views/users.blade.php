@@ -144,6 +144,7 @@
                                             </th>
                                         </tr>
                                         </thead>
+                                        {{$users->links()}}
                                         <tbody>
                                         <!-- Odd row -->
 
@@ -170,7 +171,6 @@
                                             </td>
                                         </tr>
                                         @endforeach
-
                                         </tbody>
                                     </table>
                                 </div>
