@@ -106,6 +106,9 @@
             <main class="lg:col-span-9 xl:col-span-6">
                 <div class="mt-4">
                     <h1 class="sr-only">Communities</h1>
+
+                    {{$data->links()}}
+
                     <ul role="list" class="space-y-4">
                         @foreach($data as $sub)
                             <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">

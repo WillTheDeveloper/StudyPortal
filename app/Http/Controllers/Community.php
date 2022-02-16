@@ -46,7 +46,7 @@ class Community extends Controller
     public function communities()
     {
         return view('communities', [
-            'data' => Subject::all()
+            'data' => Subject::query()->orderByDesc('created_at')->paginate(10)
         ]);
     }
 
