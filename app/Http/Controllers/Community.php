@@ -10,7 +10,6 @@ use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use function GuzzleHttp\Promise\all;
 
 class Community extends Controller
 {
