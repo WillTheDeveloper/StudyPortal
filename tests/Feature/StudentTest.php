@@ -59,14 +59,14 @@ class StudentTest extends TestCase
         $view->assertStatus(200);
     }
 
-    public function test_student_can_see_subscribe()
+    /*public function test_student_can_see_subscribe()
     {
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
         $view = $this->get('/subscribe');
         $view->assertStatus(200);
-    }
+    }*/
 
     public function test_student_cant_see_groups()
     {

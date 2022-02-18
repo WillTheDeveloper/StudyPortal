@@ -90,7 +90,7 @@ class TutorTest extends TestCase
         $view->assertStatus(200);
     }
 
-    public function test_tutor_can_see_subscribe()
+    /*public function test_tutor_can_see_subscribe()
     {
         $user = User::factory()->create(
             [
@@ -101,7 +101,7 @@ class TutorTest extends TestCase
         $response->assertAuthenticated();
         $view = $this->get('/subscribe');
         $view->assertStatus(200);
-    }
+    }*/
 
     public function test_tutor_cant_see_users()
     {
