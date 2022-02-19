@@ -26,8 +26,8 @@ This repository follows semantic versioning: MAJOR . MINOR . PATCH.
 The versioning has been introduced into the repository a bit late but has now been implemented and will be used from now on.
 
 - [X] Alpha (Not part of versioning)
-- [ ] Beta (Partially part of versioning, read release notes)
-- [ ] Public Beta Testing (Planned for 1st January 2022)
+- [ ] Beta (Currently in Beta)
+- [ ] Public Beta Testing
 - [ ] Initial release (Date TBD)
 
 ## Notifications
