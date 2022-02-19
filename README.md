@@ -15,7 +15,7 @@ The idea behind Study Portal is to have one platform where students are able to 
 - [X] Dashboard - Overview of all the stats that matter to students.
 - [ ] Community - Place where students can talk to each other with posts and support each other.
 - [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
-- [ ] Calandar - This idea is still **provisional** but it will be a calander where events can be created for things such as meetings.
+- [ ] Calendar - This idea is still **provisional** but it will be a calendar where events can be created for things such as meetings.
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
@@ -32,9 +32,9 @@ The versioning has been introduced into the repository a bit late but has now be
 
 ## Notifications
 
-Study Portal will have a lot of cross application notification intergration that initially will be heavily based around JSON webhooks.
+Study Portal will have a lot of cross application notification integration that initially will be heavily based around JSON webhooks.
 
-Below are a list of methods that you will be able to recieve notifications:
+Below are a list of methods that you will be able to receive notifications:
 
 - [ ] Microsoft Teams - This has been requested upon some feedback that I received and made it clear that it would be quite a good idea and an alternative way to get into contact with students regarding any new assignments that they may have.
 - [ ] Email - This would be one of the main ways of notifying students of updates on the platform that would be targetted towards them.
