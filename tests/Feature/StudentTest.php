@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Assignment;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Subject;
@@ -131,5 +132,15 @@ class StudentTest extends TestCase
     {
         $comment = Comment::factory()->for(User::factory()->create())->create();
         $this->assertModelExists($comment);
+    }
+
+    public function test_student_can_view_assignment()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $assignment = Assignment::factory()->create();
+        $this->assertModelExists($assignment);
+        $view = $this->get(route('assignments.manage', $assignment->id));
+        $view->assertOk();
     }
 }
