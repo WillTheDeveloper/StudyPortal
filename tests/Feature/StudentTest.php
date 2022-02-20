@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
+use Database\Factories\SubjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 
@@ -141,6 +142,14 @@ class StudentTest extends TestCase
         $assignment = Assignment::factory()->create();
         $this->assertModelExists($assignment);
         $view = $this->get(route('assignments.manage', $assignment->id));
+        $view->assertOk();
+    }
+
+    public function test_student_can_view_subject()
+    {
+        $user = User::factory()->has($subject = Subject::factory())->create();
+        $this->actingAs($user);
+        $view = $this->get(route('community.subject', $subject->create()->id));
         $view->assertOk();
     }
 }
