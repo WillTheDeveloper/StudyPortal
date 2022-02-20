@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Assignment;
 use App\Models\Comment;
+use App\Models\Group;
 use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
@@ -139,6 +140,7 @@ class StudentTest extends TestCase
     {
         $user = User::factory()->create();
         $this->actingAs($user);
+        $this->assertAuthenticated();
         $assignment = Assignment::factory()->create();
         $this->assertModelExists($assignment);
         $view = $this->get(route('assignments.manage', $assignment->id));
@@ -149,9 +151,66 @@ class StudentTest extends TestCase
     {
         $user = User::factory()->has($subject = Subject::factory())->create();
         $this->actingAs($user);
+        $this->assertAuthenticated();
         $view = $this->get(route('community.subject', $subject->create()->id));
         $view->assertOk();
     }
 
+    public function test_student_can_not_create_assignment()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('assignment.create'));
+        $view->assertUnauthorized();
+    }
 
+    public function test_student_can_not_update_assignment()
+    {
+        $ass = Assignment::factory()->create();
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('assignment.edit', $ass->id));
+        $view->assertUnauthorized();
+    }
+
+    public function test_student_can_not_delete_assignment()
+    {
+        $ass = Assignment::factory()->create();
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $post = $this->post(route('assignment.delete', $ass->id));
+        $post->assertUnauthorized();
+    }
+
+    public function test_student_can_not_create_group()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('groups.create'));
+        $view->assertUnauthorized();
+    }
+
+    public function test_student_can_not_update_group()
+    {
+        $group = Group::factory()->create();
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('groups.update', $group->id));
+        $view->assertUnauthorized();
+    }
+
+    public function test_student_can_not_delete_group()
+    {
+        $group = Group::factory()->create();
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $post = $this->post(route('groups.delete', $group->id));
+        $post->assertUnauthorized();
+    }
 }
