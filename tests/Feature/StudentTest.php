@@ -152,4 +152,6 @@ class StudentTest extends TestCase
         $view = $this->get(route('community.subject', $subject->create()->id));
         $view->assertOk();
     }
+
+
 }

@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Assignment;
+use App\Models\Group;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -142,4 +144,83 @@ class TutorTest extends TestCase
         $view = $this->get(route('community.profile', $user->id));
         $view->assertStatus(200);
     }
+
+    public function test_tutor_can_create_group()
+    {
+        $user = User::factory()->create(
+            [
+                'is_tutor' => '1',
+            ]
+        );
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('groups.create'));
+        $view->assertOk();
+    }
+
+    public function test_tutor_can_update_group()
+    {
+        $user = User::factory()->has($group = Group::factory())->create(
+            [
+                'is_tutor' => '1',
+            ]
+        );
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('groups.update', $group->create()->id));
+        $view->assertOk();
+    }
+
+    public function test_tutor_can_delete_group()
+    {
+        $user = User::factory()->has($group = Group::factory())->create(
+            [
+                'is_tutor' => '1',
+            ]
+        );
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $post = $this->post(route('groups.delete', $group->create()->id));
+        $post->assertRedirect();
+    }
+
+    public function test_tutor_can_create_assignment()
+    {
+        $user = User::factory()->has($ass = Assignment::factory())->create(
+            [
+                'is_tutor' => '1',
+            ]
+        );
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('assignment.create'));
+        $view->assertOk();
+    }
+
+    public function test_tutor_can_update_assignment()
+    {
+        $user = User::factory()->has($ass = Assignment::factory())->create(
+            [
+                'is_tutor' => '1',
+            ]
+        );
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('assignment.edit', $ass->create()->id));
+        $view->assertOk();
+    }
+
+    public function test_tutor_can_delete_assignment()
+    {
+        $user = User::factory()->has($ass = Assignment::factory())->create(
+            [
+                'is_tutor' => '1',
+            ]
+        );
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $post = $this->post(route('assignment.delete', $ass->create()->id));
+        $post->assertRedirect();
+    }
+
 }
