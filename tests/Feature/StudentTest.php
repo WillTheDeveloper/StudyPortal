@@ -123,17 +123,13 @@ class StudentTest extends TestCase
 
     public function test_student_can_create_post()
     {
-        $user = User::factory()->create();
-        $this->assertAuthenticated($user);
-        $post = Post::factory()->for($user)->create();
+        $post = Post::factory()->for(User::factory()->create())->create();
         $this->assertModelExists($post);
     }
 
     public function test_student_can_create_comment()
     {
-        $user = User::factory()->create();
-        $this->assertAuthenticated($user);
-        $comment = Comment::factory()->for($user)->create();
+        $comment = Comment::factory()->for(User::factory()->create())->create();
         $this->assertModelExists($comment);
     }
 }
