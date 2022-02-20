@@ -133,12 +133,13 @@ class TutorTest extends TestCase
     {
         $user = User::factory()->create(
             [
-                'is_tutor' => '1'
+                'is_tutor' => '1',
+                'email_verified_at' => now()
             ]
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/community/'.$user->id);
+        $view = $this->get('/community/user/'.$user->id);
         $view->assertStatus(200);
     }
 }

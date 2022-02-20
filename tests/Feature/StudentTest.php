@@ -88,11 +88,24 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_their_profile()
     {
+        $user = User::factory()->create(
+            [
+                'email_verified_at' => now()
+            ]
+        );
+        $response = $this->actingAs($user);
+        $response->assertAuthenticated();
+        $view = $this->get('/community/user/'.$user->id);
+        $view->assertStatus(200);
+    }
+
+    public function test_unverified_student_gets_redirected()
+    {
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/community/'.$user->id);
-        $view->assertStatus(200);
+        $view = $this->get('/community/user/'.$user->id);
+        $view->assertRedirect();
     }
 
     /*public function test_student_can_see_post()
