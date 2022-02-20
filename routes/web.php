@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Assignment;
 use App\Http\Controllers\Community;
+use App\Http\Controllers\Contact;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\ThirdPartyAuthentication;
@@ -162,6 +163,8 @@ Route::post('/community/communities/leave/{id}', [Community::class, 'leaveSubjec
 Route::post('/profile/institution/join', [User::class, 'joinInstitution'])
     ->middleware('auth')
     ->name('institution.join');
+Route::post('/contact/submit', [Contact::class, 'SendContactForm'])
+    ->name('contact.submitform');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
