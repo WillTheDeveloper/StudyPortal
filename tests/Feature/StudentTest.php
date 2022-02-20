@@ -19,7 +19,7 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/dashboard');
+        $view = $this->get(route('dashboard'));
         $view->assertStatus(200);
     }
 
@@ -28,7 +28,7 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/timetable');
+        $view = $this->get(route('timetable'));
         $view->assertStatus(200);
     }
 
@@ -37,7 +37,7 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/assignments');
+        $view = $this->get(route('assignments'));
         $view->assertStatus(200);
     }
 
@@ -46,7 +46,7 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/community');
+        $view = $this->get(route('community'));
         $view->assertStatus(200);
     }
 
@@ -55,7 +55,7 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/profile');
+        $view = $this->get(route('profile'));
         $view->assertStatus(200);
     }
 
@@ -73,7 +73,7 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/groups');
+        $view = $this->get(route('groups'));
         $view->assertUnauthorized();
     }
 
@@ -82,7 +82,7 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/users');
+        $view = $this->get(route('groups'));
         $view->assertUnauthorized();
     }
 
@@ -95,7 +95,7 @@ class StudentTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/community/user/'.$user->id);
+        $view = $this->get(route('community.profile', $user->id));
         $view->assertStatus(200);
     }
 
@@ -104,29 +104,9 @@ class StudentTest extends TestCase
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/community/user/'.$user->id);
+        $view = $this->get(route('community.profile', $user->id));
         $view->assertRedirect();
     }
 
-    /*public function test_student_can_see_post()
-    {
-        $user = User::factory()->create();
-        $response = $this->actingAs($user);
-        $response->assertAuthenticated();
-        $subject = Subject::factory()->create(
-            [
-                'subject' => 'testing only'
-            ]
-        );
-        $post = Post::factory()->create(
-            [
-                'title' => 'testing only',
-                'body' => 'ignore this',
-                'user_id' => $user->id,
-                'subject_id' => $subject->id
-            ]
-        );
-        $view = $this->get('/community/post/'.$post->id);
-        $view->assertStatus(200);
-    }*/
+    // Student can see posts etc
 }

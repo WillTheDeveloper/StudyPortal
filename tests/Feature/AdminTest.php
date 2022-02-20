@@ -19,7 +19,7 @@ class AdminTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/users');
+        $view = $this->get(route('users'));
         $view->assertStatus(200);
     }
 }

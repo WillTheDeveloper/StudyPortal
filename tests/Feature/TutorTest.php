@@ -21,7 +21,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/dashboard');
+        $view = $this->get(route('dashboard'));
         $view->assertStatus(200);
     }
 
@@ -34,7 +34,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/timetable');
+        $view = $this->get(route('timetable'));
         $view->assertStatus(200);
     }
 
@@ -47,7 +47,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/assignments');
+        $view = $this->get(route('assignments'));
         $view->assertStatus(200);
     }
 
@@ -60,7 +60,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/groups');
+        $view = $this->get(route('groups'));
         $view->assertStatus(200);
     }
 
@@ -73,7 +73,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/community');
+        $view = $this->get(route('community'));
         $view->assertStatus(200);
     }
 
@@ -86,7 +86,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/profile');
+        $view = $this->get(route('profile'));
         $view->assertStatus(200);
     }
 
@@ -112,7 +112,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/users');
+        $view = $this->get(route('users'));
         $view->assertUnauthorized();
     }
 
@@ -125,7 +125,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/groups/create');
+        $view = $this->get(route('groups.create'));
         $view->assertStatus(200);
     }
 
@@ -139,7 +139,7 @@ class TutorTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
-        $view = $this->get('/community/user/'.$user->id);
+        $view = $this->get(route('community.profile', $user->id));
         $view->assertStatus(200);
     }
 }
