@@ -3,7 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Assignment;
+use App\Models\Comment;
 use App\Models\Group;
+use App\Models\Institution;
 use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
@@ -76,5 +78,31 @@ class DatabaseTest extends TestCase
         $assignment = Assignment::factory()->create();
         $assignment->delete();
         $this->assertModelMissing($assignment);
+    }
+
+    public function test_comment_can_be_created()
+    {
+        $comment = Comment::factory()->create();
+        $this->assertModelExists($comment);
+    }
+
+    public function test_comment_can_be_deleted()
+    {
+        $comment = Comment::factory()->create();
+        $comment->delete();
+        $this->assertModelMissing($comment);
+    }
+
+    public function test_institution_can_be_created()
+    {
+        $institution = Institution::factory()->create();
+        $this->assertModelExists($institution);
+    }
+
+    public function test_institution_can_be_deleted()
+    {
+        $institution = Institution::factory()->create();
+        $institution->delete();
+        $this->assertModelMissing($institution);
     }
 }

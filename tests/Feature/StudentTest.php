@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
@@ -99,14 +100,40 @@ class StudentTest extends TestCase
         $view->assertStatus(200);
     }
 
-    public function test_unverified_student_gets_redirected()
+    public function test_student_can_see_post()
     {
-        $user = User::factory()->create();
-        $response = $this->actingAs($user);
-        $response->assertAuthenticated();
-        $view = $this->get(route('community.profile', $user->id));
-        $view->assertRedirect();
+        $user = User::factory()->create(
+            [
+                'email_verified_at' => now()
+            ]
+        );
+        $auth = $this->actingAs($user);
+        $auth->assertAuthenticated();
+        $subject = Subject::factory()->create();
+        $post = Post::factory()->create(
+            [
+                'user_id' => $user->id,
+                'subject_id' => $subject->id,
+            ]
+        );
+        $this->assertModelExists($post);
+        $view = $this->get(route('community.post', $post->id));
+        $view->assertOk();
     }
 
-    // Student can see posts etc
+    public function test_student_can_create_post()
+    {
+        $user = User::factory()->create();
+        $this->assertAuthenticated($user);
+        $post = Post::factory()->for($user)->create();
+        $this->assertModelExists($post);
+    }
+
+    public function test_student_can_create_comment()
+    {
+        $user = User::factory()->create();
+        $this->assertAuthenticated($user);
+        $comment = Comment::factory()->for($user)->create();
+        $this->assertModelExists($comment);
+    }
 }
