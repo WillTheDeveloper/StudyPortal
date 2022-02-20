@@ -23,7 +23,7 @@ class DatabaseTest extends TestCase
     {
         $user = User::factory()->create();
         $user->delete();
-        $this->assertDeleted($user);
+        $this->assertModelMissing($user);
     }
 
     public function test_subjects_can_be_created()
@@ -36,7 +36,7 @@ class DatabaseTest extends TestCase
     {
         $subject = Subject::factory()->create();
         $subject->delete();
-        $this->assertDeleted($subject);
+        $this->assertModelMissing($subject);
     }
 
     public function test_posts_can_be_created()
@@ -49,7 +49,7 @@ class DatabaseTest extends TestCase
     {
         $post = Post::factory()->create();
         $post->delete();
-        $this->assertDeleted($post);
+        $this->assertModelMissing($post);
     }
 
     public function test_groups_can_be_created()
@@ -62,7 +62,7 @@ class DatabaseTest extends TestCase
     {
         $group = Group::factory()->create();
         $group->delete();
-        $this->assertDeleted($group);
+        $this->assertModelMissing($group);
     }
 
     public function test_assignment_can_be_created()
@@ -75,6 +75,6 @@ class DatabaseTest extends TestCase
     {
         $assignment = Assignment::factory()->create();
         $assignment->delete();
-        $this->assertDeleted($assignment);
+        $this->assertModelMissing($assignment);
     }
 }
