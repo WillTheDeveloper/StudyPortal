@@ -6,6 +6,25 @@ Official Discord server - https://discord.gg/ZEkX2NPWVs
 
 The idea behind Study Portal is to have one platform where students are able to work together on work where other people are doing similar subjects and help each other out.
 
+## How to install/run server
+
+Install composer packages
+```
+composer install
+```
+
+Install NPM packages
+```
+npm install
+```
+
+Run the server
+```
+./vendor/bin/sail up
+```
+
+*You may get an error about a missing .env file which I do not source control since it has credentials in it.*
+
 ## Study Portal features
 
 *Tick means it has been finished*
