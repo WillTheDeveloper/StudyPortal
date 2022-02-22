@@ -18,6 +18,11 @@ Install NPM packages
 npm install
 ```
 
+If you have setup the .ENV then run the migrations command:
+```
+php artisan migrate
+```
+
 Run the server
 ```
 ./vendor/bin/sail up
@@ -48,6 +53,18 @@ The versioning has been introduced into the repository a bit late but has now be
 - [ ] Beta (Currently in Beta)
 - [ ] Public Beta Testing
 - [ ] Initial release (Date TBD)
+
+## Testing
+
+Testing should be completed and successful before accepting any pull requests into the repository.
+
+Tests can be run via the command line using the following command in the root directory of the project:
+
+```
+php artisan test
+```
+
+Tests can be located inside ```/tests/feature/``` directory.
 
 ## Notifications
 
