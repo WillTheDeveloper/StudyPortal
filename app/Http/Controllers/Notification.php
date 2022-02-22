@@ -8,7 +8,19 @@ class Notification extends Controller
 {
     public function show() {
         return view('notifications', [
-            'notify' => auth()->user()->unreadNotifications()
+            'notify' => auth()->user()->unreadNotifications(),
         ]);
+    }
+
+    public function viewNotification() {
+
+    }
+
+    public function markAsRead() {
+
+    }
+
+    public function markAllAsRead() {
+
     }
 }

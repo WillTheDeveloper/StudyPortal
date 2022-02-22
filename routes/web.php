@@ -111,6 +111,7 @@ Route::get('/notifications', [\App\Http\Controllers\Notification::class, 'show']
     ->middleware('auth')
     ->name('notifications.view');
 
+
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
     ->middleware(['auth', 'tutor'])
