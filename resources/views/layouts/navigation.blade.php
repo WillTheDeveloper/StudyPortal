@@ -178,7 +178,7 @@
                        tabindex="-1" id="options-menu-item-0">View profile</a>
                     <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                        id="options-menu-item-1">Settings</a>
-                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                    <a href="{{ route('notifications.view') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                        id="options-menu-item-2">Notifications</a>
                 </div>
                 <div class="py-1" role="none">
