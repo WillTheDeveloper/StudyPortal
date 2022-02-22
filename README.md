@@ -125,25 +125,25 @@ Here are some images of the fundamental structure of the application at the minu
 
 You can preview this redesign on a different branch linked here - https://github.com/WillTheDeveloper/StudyPortal/tree/redesigned-backend
 
-On this page, students will be able to get an overview of what is happening.
+On this page, students will be able to get an overview of what is happening. Here they will be able to view an overview of key flags for that individual, which will include things such as the students attendance etc. Additionally, other information will be available here such as updates or notifications that the student may recieve regarding anything that they may need updating on, such as assignment updates etc.
 
 ![image](https://user-images.githubusercontent.com/78596837/144643845-79159886-2273-4514-b8c7-34bc3d6a379c.png)
 
 ### Student Timetable
 
-This is where students will be able to view their timetables and edit them if they need to. They will also be able to create their own if they have not been assigned one. Currently, this is still a work in progress.
+This is where students will be able to view their timetables and edit them if they need to. They will also be able to create their own if they have not been assigned one. **This image is due for an update as this has changed a lot.** Here they will be able to manage and view their timetable for the week. They will be able to click on the slot that they want to query and view extra information about it. I am also going to link the timetable to assigments so when they view it or look at the details, assignment pointers can be found there too as a subtle reminder.
 
 ![image](https://user-images.githubusercontent.com/78596837/144643904-054571a0-73e8-4a9c-8bbe-cca319096783.png)
 
 ### Student Assignments
 
-This is where students will be able to view all the assignments they have. Which will be followed by an image of where students can view their assignment details.
+This is where students will be able to view all the assignments they have. Which will be followed by an image of where students can view their assignment details. Here they are able to view details of assignments that tutors or staff have assigned to them. They will be able to hand in work and tutors will be able to see this on their own dashboard interface.
 
 ![image](https://user-images.githubusercontent.com/78596837/144643958-f0054008-a4eb-468e-a242-bb3586da5328.png)
 
 ### Student Kanban (New feature)
 
-This is where students will be able to create their own kanban boards to allow them to organise tasks and work into groups for themselves.
+This is where students will be able to create their own kanban boards to allow them to organise tasks and work into groups for themselves. The idea behind this is to support them by giving them a tool where they can possibly time manage their tasks and other things they are doing by adding their own tasks and syncing it with assignments. Additional information will be able to be viewed when clicking on the task that you create. These tasks can be associated with other things such as subjects and assignments if they felt it was nessasary. In the future, these will be sharable with other people with set permissions on each.
 
 ![image](https://user-images.githubusercontent.com/78596837/144643998-7114bbe2-199d-4b00-90db-be85ab0f098b.png)
 
