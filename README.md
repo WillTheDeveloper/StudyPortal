@@ -2,9 +2,36 @@
 
 Official Discord server - https://discord.gg/ZEkX2NPWVs
 
-## Concept behind Study Portal
+## About Study Portal
 
 The idea behind Study Portal is to have one platform where students are able to work together on work where other people are doing similar subjects and help each other out.
+
+## My goal and original idea
+
+**Extracted from my [blog post](https://blog.willthedeveloper.co.uk/2022/02/20/an-ecosystem-for-students.html)**
+
+Before we get into the nitty gritty of the project and my plans for the future, I first wanted to give a little back-story to how the idea came about and the situation that I was in at the time that I had come up with the idea. I am going to assume that you know nothing about me so I will make sure to leave some pointers. During my time at college, I had to do a work placement and I had actually decided to take part of a work placement where we was all told that it was going to be really difficult, well long story short, it started with 12 people and finished with 2, including myself. During that project, I got exposed to Laravel which is an entire different story and quite a steep learning curve since I had never worked with any frameworks before. You can read about my experience with laravel up to yet [here](https://blog.willthedeveloper.co.uk/2022/02/13/laravel-one-year-later.html).
+
+Anyway, if we fast forward 12 months, I am finishing my work placement with over 700 hours of industry experience in the bag. At the time of writing this I can't remember what triggered it but I had this idea to create a platform that allowed students to work together in one way or another. Teams is cool but I feel like it's tailored more towards a business environment compared to a student environment which is one of the problems I was aiming to solve by developing this application.
+
+But, long explaination, cut short, my primary goals were as follows;
+* Create a platform that students could work together in some way to get work done more effeciently.
+* Enable collaboration accross all levels of study, ranging from college to universtity.
+* Implement additional tools that other applications don't have to ensure that it tailors for students.
+* Have something that is open source so it can be developed over a long time.
+
+## Study Portal features
+
+*Tick means it has been finished*
+
+- [ ] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
+- [X] Assignments - This is where students can keep track of assignment work that they are doing.
+- [X] Dashboard - Overview of all the stats that matter to students.
+- [ ] Community - Place where students can talk to each other with posts and support each other.
+- [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
+- [ ] Calendar - This idea is still **provisional** but it will be a calendar where events can be created for things such as meetings.
+
+If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
 ## How to install/run server
 
@@ -29,19 +56,6 @@ Run the server
 ```
 
 *You may get an error about a missing .env file which I do not source control since it has credentials in it.*
-
-## Study Portal features
-
-*Tick means it has been finished*
-
-- [ ] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
-- [X] Assignments - This is where students can keep track of assignment work that they are doing.
-- [X] Dashboard - Overview of all the stats that matter to students.
-- [ ] Community - Place where students can talk to each other with posts and support each other.
-- [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
-- [ ] Calendar - This idea is still **provisional** but it will be a calendar where events can be created for things such as meetings.
-
-If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
 ## Versioning
 
