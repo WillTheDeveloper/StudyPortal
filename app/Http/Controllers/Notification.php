@@ -21,6 +21,8 @@ class Notification extends Controller
     }
 
     public function markAllAsRead() {
+        auth()->user()->unreadNotifications()->update(['read_at' => now()]);
 
+        return view('notifications');
     }
 }
