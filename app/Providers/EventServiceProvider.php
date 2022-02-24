@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use App\Notifications\PostCreated;
 use App\Observers\NewCommentOnYourPost;
 use App\Observers\NewPostOnYourSubject;
+use App\Observers\PostObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -31,11 +33,6 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Post::observe(PostObserver::class);
     }
-
-    /*protected $observers = [
-        Post::class => [NewPostOnYourSubject::class],
-        Comment::class => [NewCommentOnYourPost::class]
-    ];*/
 }

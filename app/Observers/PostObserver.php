@@ -3,6 +3,9 @@
 namespace App\Observers;
 
 use App\Models\Post;
+use App\Models\User;
+use App\Notifications\PostCreated;
+use Illuminate\Support\Facades\Notification;
 
 class PostObserver
 {
@@ -12,9 +15,14 @@ class PostObserver
      * @param  \App\Models\Post  $post
      * @return void
      */
+
+    public Post $post;
+
     public function created(Post $post)
     {
+        $users = User::query()->get('id');
 
+        Notification::send($users, new PostCreated($post));
     }
 
     /**
