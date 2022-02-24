@@ -2290,16 +2290,16 @@
         },
         {
             "name": "laravel/vapor-core",
-            "version": "v2.20.0",
+            "version": "v2.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-core.git",
-                "reference": "517704ac71aa15ad26687fd1ffbc0d0e1919cc49"
+                "reference": "9cf2d32fcb2cb34ea18f509ad2f2bda11b9dd348"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/517704ac71aa15ad26687fd1ffbc0d0e1919cc49",
-                "reference": "517704ac71aa15ad26687fd1ffbc0d0e1919cc49",
+                "url": "https://api.github.com/repos/laravel/vapor-core/zipball/9cf2d32fcb2cb34ea18f509ad2f2bda11b9dd348",
+                "reference": "9cf2d32fcb2cb34ea18f509ad2f2bda11b9dd348",
                 "shasum": ""
             },
             "require": {
@@ -2355,9 +2355,9 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-core/tree/v2.20.0"
+                "source": "https://github.com/laravel/vapor-core/tree/v2.21.0"
             },
-            "time": "2022-02-14T17:02:28+00:00"
+            "time": "2022-02-23T20:13:26+00:00"
         },
         {
             "name": "league/commonmark",
