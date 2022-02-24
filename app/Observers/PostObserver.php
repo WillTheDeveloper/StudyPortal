@@ -3,12 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Post;
-use App\Models\Subject;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Notification;
 
-class NewPostOnYourSubject
+class PostObserver
 {
     /**
      * Handle the Post "created" event.
@@ -18,9 +14,7 @@ class NewPostOnYourSubject
      */
     public function created(Post $post)
     {
-        $subject = $post->subject_id;
-//        $users =
-//        Notification::send();
+
     }
 
     /**

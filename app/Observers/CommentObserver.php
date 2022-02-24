@@ -3,11 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Comment;
-use App\Models\User;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Notification;
 
-class NewCommentOnYourPost
+class CommentObserver
 {
     /**
      * Handle the Comment "created" event.
@@ -17,7 +14,7 @@ class NewCommentOnYourPost
      */
     public function created(Comment $comment)
     {
-        Notification::send(auth()->user()->id, new \App\Notifications\NewCommentOnYourPost($comment));
+        //
     }
 
     /**
