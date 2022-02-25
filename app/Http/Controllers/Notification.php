@@ -8,7 +8,7 @@ class Notification extends Controller
 {
     public function show() {
         return view('notifications', [
-            'notify' => auth()->user()->unreadNotifications(),
+            'notify' => auth()->user()->notifications()->get(),
         ]);
     }
 
@@ -21,7 +21,7 @@ class Notification extends Controller
     }
 
     public function markAllAsRead() {
-        auth()->user()->unreadNotifications()->update(['read_at' => now()]);
+        auth()->user()->notifications()->update(['read_at' => now()]);
 
         return view('notifications');
     }

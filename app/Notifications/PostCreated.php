@@ -18,10 +18,12 @@ class PostCreated extends Notification
      */
 
     public $title;
+    public $body;
 
     public function __construct($post)
     {
         $this->title = $post->title;
+        $this->body = $post->body;
     }
 
     /**
@@ -65,6 +67,7 @@ class PostCreated extends Notification
     public function toDatabase($notifiable) {
         return [
             'title' => $this->title,
+            'body' => $this->body,
         ];
     }
 }
