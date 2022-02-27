@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Notification extends Controller
 {
     public function show() {
         return view('notifications', [
-            'notify' => auth()->user()->notifications()->get(),
+            'notify' => Auth::user()->unreadNotifications()->orderByDesc('notifications.created_at')->get(),
         ]);
     }
 
@@ -21,7 +22,7 @@ class Notification extends Controller
     }
 
     public function markAllAsRead() {
-        auth()->user()->notifications()->update(['read_at' => now()]);
+        Auth::user()->unreadNotifications()->update(['read_at' => now()]);
 
         return view('notifications');
     }

@@ -103,39 +103,34 @@
                         </h1>
                     </div>
                     <div class="mt-4 flex sm:mt-0 sm:ml-4">
-                        @empty($notify->get('id'))
-                            <form method="post" action="{{ route('notifications.markallasread') }}">
-                                @csrf
-                                <button type="submit"
-                                        class="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">
-                                    Mark all as read
-                                </button>
-                            </form>
-                        @endempty()
+                        <form method="post" action="{{ route('notifications.markallasread') }}">
+                            @csrf
+                            <button type="submit"
+                                    class="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">
+                                Mark all as read
+                            </button>
+                        </form>
                     </div>
                 </div>
 
                 <ul role="list" class="divide-y divide-gray-200">
-                    @forelse($notify as $n)
-
-                            <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
-                                <div class="flex justify-between space-x-3">
-                                    <div class="min-w-0 flex-1">
-                                        <a href="#" class="block focus:outline-none">
-                                            <span class="absolute inset-0" aria-hidden="true"></span>
-                                            <p class="text-sm font-medium text-gray-900 truncate">{{$n->data}}</p>
-                                            <p class="text-sm text-gray-500 truncate">{{$n}}</p>
-                                        </a>
-                                    </div>
-                                    <time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">
-                                        {{$n->created_at->diffForHumans()}}</time>
+                    @forelse($notify as $notification)
+                        <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                            <div class="flex justify-between space-x-3">
+                                <div class="min-w-0 flex-1">
+                                    <a href="#" class="block focus:outline-none">
+                                        <span class="absolute inset-0" aria-hidden="true"></span>
+                                        <p class="text-sm font-medium text-gray-900 truncate">{{json_encode($notification->data['title'])}}</p>
+                                        <p class="text-sm text-gray-500 truncate">{{json_encode($notification->data['user'], true)}}</p>
+                                    </a>
                                 </div>
-                                <div class="mt-1">
-                                    <p class="line-clamp-2 text-sm text-gray-600">{{$n}}</p>
-                                </div>
-                            </li>
-
-
+                                <time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">
+                                    {{$notification->created_at->diffForHumans()}}</time>
+                            </div>
+                            <div class="mt-1">
+                                <p class="line-clamp-2 text-sm text-gray-600">{{json_encode($notification->data['body'])}}</p>
+                            </div>
+                        </li>
                     @empty
                         <div class="text-center pt-4">
                             <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
