@@ -19,11 +19,14 @@ class PostCreated extends Notification
 
     public $title;
     public $body;
+    public $user;
+    public $route;
 
     public function __construct($post)
     {
         $this->title = $post->title;
         $this->body = $post->body;
+        $this->user = $post->User->name;
     }
 
     /**
@@ -68,6 +71,7 @@ class PostCreated extends Notification
         return [
             'title' => $this->title,
             'body' => $this->body,
+            'user' => $this->user,
         ];
     }
 }

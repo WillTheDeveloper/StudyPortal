@@ -123,7 +123,7 @@
                                     <div class="min-w-0 flex-1">
                                         <a href="#" class="block focus:outline-none">
                                             <span class="absolute inset-0" aria-hidden="true"></span>
-                                            <p class="text-sm font-medium text-gray-900 truncate">{{$n}}</p>
+                                            <p class="text-sm font-medium text-gray-900 truncate">{{$n->data}}</p>
                                             <p class="text-sm text-gray-500 truncate">{{$n}}</p>
                                         </a>
                                     </div>
