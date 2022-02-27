@@ -8,6 +8,7 @@ use App\Http\Controllers\Kanban;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
+use App\Http\Controllers\Notification;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -107,6 +108,12 @@ Route::get('/kanban/{id}', [Kanban::class, 'view'])
 Route::get('/kanban/board/create', [Kanban::class, 'renderCreate'])
     ->middleware('auth')
     ->name('kanban.create');
+Route::get('/notifications', [Notification::class, 'show'])
+    ->middleware('auth')
+    ->name('notifications.view');
+//Route::get('/testerror', function () {
+//    abort(203, "This should show an error page");
+//});
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -165,6 +172,8 @@ Route::post('/profile/institution/join', [User::class, 'joinInstitution'])
     ->name('institution.join');
 Route::post('/contact/submit', [Contact::class, 'SendContactForm'])
     ->name('contact.submitform');
+Route::post('/notifications/markallasread', [Notification::class, 'markAllAsRead'])
+    ->name('notifications.markallasread');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
