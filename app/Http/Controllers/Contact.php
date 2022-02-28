@@ -9,9 +9,9 @@ use Mail;
 
 class Contact extends Controller
 {
-    public function SendContactForm(validation $form, Request $request) {
+    public function SendContactForm(validation $contactForm) {
         Mail::to('willthedeveloper13@gmail.com')
-            ->send(new ContactFormRequest());
+            ->send(new ContactFormRequest($contactForm));
 
         return view('contact');
     }

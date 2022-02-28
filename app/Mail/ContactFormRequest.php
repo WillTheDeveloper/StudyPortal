@@ -12,15 +12,25 @@ class ContactFormRequest extends Mailable
     use Queueable, SerializesModels;
 
     public $firstname;
+    public $lastname;
+    public $email;
+    public $phone;
+    public $help;
+    public $how;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($contactForm)
     {
-        $this->firstname = request()->input('first-name');
+        $this->firstname = $contactForm->input('first-name');
+        $this->lastname = $contactForm->input('last-name');
+        $this->email = $contactForm->input('email');
+        $this->phone = $contactForm->input('phone');
+        $this->help = $contactForm->input('how-can-we-help');
+        $this->how = $contactForm->input('how-did-you-hear-about-us');
     }
 
     /**
@@ -31,6 +41,13 @@ class ContactFormRequest extends Mailable
     public function build()
     {
         return $this->view('mail.contactform')
-            ->with($this->firstname);
+            ->with([
+                $this->firstname,
+                $this->lastname,
+                $this->email,
+                $this->phone,
+                $this->help,
+                $this->how
+            ]);
     }
 }
