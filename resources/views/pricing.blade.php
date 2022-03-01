@@ -276,7 +276,7 @@
                             <div>
                                 <h3 class="text-white text-sm font-semibold uppercase tracking-wide">Institution</h3>
                                 <div class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start">
-                                    <a href="#" class="bg-white text-indigo-600 hover:bg-indigo-50 mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full">Contact Sales Team</a>
+                                    <a href="{{route('contact')}}" class="bg-white text-indigo-600 hover:bg-indigo-50 mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full">Contact Sales Team</a>
                                 </div>
                             </div>
                             <h4 class="sr-only">Features</h4>
@@ -431,7 +431,7 @@
                             </div>
                         </div>
 
-                        <h4 class="mt-10 text-sm font-bold text-gray-900">Other perks</h4>
+                        {{--<h4 class="mt-10 text-sm font-bold text-gray-900">Other perks</h4>
 
                         <div class="mt-6 relative">
                             <!-- Fake card background -->
@@ -524,7 +524,7 @@
                             <div aria-hidden="true" class="hidden absolute inset-0 pointer-events-none sm:block">
                                 <div class="ring-1 ring-black ring-opacity-5 absolute right-0 w-1/2 h-full rounded-lg"></div>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
 
                     <div class="border-t border-gray-200">
@@ -619,7 +619,7 @@
                             </div>
                         </div>
 
-                        <h4 class="mt-10 text-sm font-bold text-gray-900">Other perks</h4>
+                        {{--<h4 class="mt-10 text-sm font-bold text-gray-900">Other perks</h4>
 
                         <div class="mt-6 relative">
                             <!-- Fake card background -->
@@ -712,7 +712,7 @@
                             <div aria-hidden="true" class="hidden absolute inset-0 pointer-events-none sm:block">
                                 <div class="ring-2 ring-indigo-600 absolute right-0 w-1/2 h-full rounded-lg"></div>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
 
                     <div class="border-t border-gray-200">
@@ -807,7 +807,7 @@
                             </div>
                         </div>
 
-                        <h4 class="mt-10 text-sm font-bold text-gray-900">Other perks</h4>
+                        {{--<h4 class="mt-10 text-sm font-bold text-gray-900">Other perks</h4>
 
                         <div class="mt-6 relative">
                             <!-- Fake card background -->
@@ -900,7 +900,7 @@
                             <div aria-hidden="true" class="hidden absolute inset-0 pointer-events-none sm:block">
                                 <div class="ring-1 ring-black ring-opacity-5 absolute right-0 w-1/2 h-full rounded-lg"></div>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
             </section>
@@ -1206,7 +1206,7 @@
                         </div>
                     </div>
 
-                    <h3 class="mt-10 text-sm font-bold text-gray-900">Other perks</h3>
+                    {{--<h3 class="mt-10 text-sm font-bold text-gray-900">Other perks</h3>
 
                     <div class="mt-6 relative">
                         <!-- Fake card backgrounds -->
@@ -1500,7 +1500,7 @@
                                 <div class="w-full h-full rounded-lg ring-1 ring-black ring-opacity-5"></div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                 </div>
             </section>
         </div>
@@ -1533,16 +1533,43 @@
                     <h2 id="faq-heading" class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                         Frequently asked questions
                     </h2>
-                    <p class="mt-4 text-gray-400">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec. Urna, sed a lectus elementum blandit et.</p>
+                    <p class="mt-4 text-gray-400">Some of the most common questions that we get asked, answered here.</p>
                 </div>
                 <div class="mt-20">
                     <dl class="space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
                         <div>
                             <dt class="font-semibold text-white">
-                                What&#039;s the best thing about Switzerland?
+                                Do I need to subscribe to be able to use Study Portal?
                             </dt>
                             <dd class="mt-3 text-gray-400">
-                                I don&#039;t know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
+                                Nope. At the moment, during the public beta phase, you don't need to pay anything. The pricing may or may not be removed in the future.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt class="font-semibold text-white">
+                                Am I limited to how much I can post/comment?
+                            </dt>
+                            <dd class="mt-3 text-gray-400">
+                                Not at all. You are free to post as many as you like.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt class="font-semibold text-white">
+                                Can I cancel my subscription at anytime?
+                            </dt>
+                            <dd class="mt-3 text-gray-400">
+                                Yes. Please remember that it will only fully end at the end of that month.
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt class="font-semibold text-white">
+                                Will all the content be moderated?
+                            </dt>
+                            <dd class="mt-3 text-gray-400">
+                                Ensuring that the platform is used properly is important, and we have moderators and admins monitoring content at all times.
                             </dd>
                         </div>
 
