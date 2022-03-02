@@ -125,10 +125,10 @@
 </nav>
 
 
-<div class="min-h-screen bg-white">
+<div class="min-h-screen bg-gray-300">
     <main>
         <!-- Contact Section -->
-        <div class="relative bg-white">
+        <div class="relative bg-gradient-to-b from-white to-gray-300">
             <div class="lg:absolute lg:inset-0">
                 <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
                     <img class="h-56 w-full object-cover lg:absolute lg:h-full" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="">
@@ -203,7 +203,7 @@
 </div>
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<footer class="bg-white">
+<footer class="bg-gradient-to-b from-gray-300 to-gray-400">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div class="flex justify-center space-x-6 md:order-2">
 

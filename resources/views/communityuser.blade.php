@@ -19,6 +19,15 @@
                     <div class="sm:hidden md:block mt-6 min-w-0 flex-1">
                         <h1 class="text-2xl font-bold text-gray-900 truncate">
                             {{$user->name}}
+                            @if ($user->is_moderator)
+                                (Moderator)
+                            @endif
+                            @if ($user->is_admin)
+                                (Admin)
+                            @endif
+                            @if ($user->is_tutor)
+                                (Tutor)
+                            @endif
                         </h1>
                     </div>
                     <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">

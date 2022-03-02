@@ -149,7 +149,7 @@
 </main>
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-white pt-16 pb-32 overflow-hidden">
+<div class="relative bg-white pt-16 pb-32 overflow-hidden bg-gradient-to-b from-white to-grape-300">
     <div class="relative">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
             <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
@@ -241,7 +241,7 @@
 
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white">
+<div class="bg-gradient-to-b from-grape-300 to-green-300">
     <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
         <div class="max-w-3xl mx-auto text-center">
             <h2 class="text-3xl font-extrabold text-gray-900">Students all-in-one platform</h2>
@@ -355,7 +355,7 @@
     </div>
 </div>
 
-<div class="bg-white">
+<div class="bg-gradient-to-b from-green-300 to-gray-300">
     <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
         <div class="lg:w-0 lg:flex-1">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -390,7 +390,7 @@
 
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<footer class="bg-white">
+<footer class="bg-gray-300">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div class="flex justify-center space-x-6 md:order-2">
 

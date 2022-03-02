@@ -148,7 +148,7 @@
     </div>
 </main>
 
-<div class="relative bg-gray-50 pt-4 overflow-hidden sm:pt-24 lg:pt-8">
+<div class="relative bg-gray-50 pt-4 overflow-hidden sm:pt-24 lg:pt-8 bg-gradient-to-t from-grape-300 to-white">
     <div class="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
         <div class="mt-12 -mb-10 sm:-mb-24 lg:-mb-80">
             <img class="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5" src="images/dashboard01.png" alt="">
@@ -158,7 +158,7 @@
 
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<section class="py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24">
+<section class="py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24 bg-gradient-to-t from-purple-400 to-grape-300">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <svg class="absolute top-full right-full transform translate-x-1/3 -translate-y-1/4 lg:translate-x-1/2 xl:-translate-y-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" role="img" aria-labelledby="svg-workcation">
             <title id="svg-workcation">Workcation</title>
@@ -198,18 +198,18 @@
 
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-white pt-16 pb-32 overflow-hidden">
+<div class="relative bg-white pt-16 pb-32 overflow-hidden bg-gradient-to-b from-purple-400 to-blue-300">
     <div class="relative">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
             <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
                 <div>
                     <div>
-            <span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
+            {{--<span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
               <!-- Heroicon name: outline/inbox -->
               <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
               </svg>
-            </span>
+            </span>--}}
                     </div>
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
@@ -257,12 +257,12 @@
             <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
                 <div>
                     <div>
-            <span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
+            {{--<span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
               <!-- Heroicon name: outline/sparkles -->
               <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
-            </span>
+            </span>--}}
                     </div>
                     <div class="mt-6">
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
@@ -290,13 +290,13 @@
 
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="relative bg-white py-16 sm:py-24 lg:py-32">
+<div class="relative bg-white py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-blue-300 to-green-300">
     <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
         <h2 class="text-base font-semibold tracking-wider text-indigo-600 uppercase">Collaborate</h2>
         <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
             Everything you need to support yourself and others
         </p>
-        <p class="mt-5 max-w-prose mx-auto text-xl text-gray-500">
+        <p class="mt-5 max-w-prose mx-auto text-xl text-gray-600">
             Here at Study Portal, we believe that collaboration is important. Below are all the features that you have access to when you join this platform.
         </p>
         <div class="mt-12">
@@ -314,7 +314,7 @@
                             </div>
                             <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Easy to use</h3>
                             <p class="mt-5 text-base text-gray-500">
-                                We support students from colleges all the way up to universities. Not everyone is technical so we made it easy to use for everyone.
+                                We support students from colleges all the way up to universities. Not everyone is technical, so we made it easy to use for everyone.
                             </p>
                         </div>
                     </div>
@@ -422,7 +422,7 @@
 
 
 
-<div class="bg-white">
+<div class="bg-gradient-to-b from-green-300 to-gray-300">
     <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
         <div class="lg:w-0 lg:flex-1">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -457,7 +457,7 @@
 
 
 <!-- This example requires Tailwind CSS v2.0+ -->
-<footer class="bg-white">
+<footer class="bg-gray-300">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div class="flex justify-center space-x-6 md:order-2">
 

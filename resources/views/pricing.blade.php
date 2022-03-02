@@ -144,17 +144,17 @@
 <div class="bg-white">
     <main>
         <!-- Pricing section -->
-        <div>
-            <div class="relative bg-indigo-600">
+        <div class="bg-indigo-300">
+            <div class="relative bg-gradient-to-b from-white to-indigo-300">
                 <!-- Overlapping background -->
-                <div aria-hidden="true" class="hidden absolute bg-gray-50 w-full h-6 bottom-0 lg:block"></div>
+                <div aria-hidden="true" class="hidden absolute bg-indigo-300 w-full h-6 bottom-0 lg:block"></div>
 
                 <div class="relative max-w-2xl mx-auto pt-16 px-4 text-center sm:pt-32 sm:px-6 lg:max-w-7xl lg:px-8">
-                    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
+                    <h1 class="text-4xl font-extrabold tracking-tight text-gray-800 sm:text-6xl">
                         <span class="block lg:inline">Pricing made,</span>
                         <span class="block lg:inline">simple.</span>
                     </h1>
-                    <p class="mt-4 text-xl text-indigo-100">Everything you need, nothing you don't.</p>
+                    <p class="mt-4 text-xl text-gray-600">Everything you need, nothing you don't.</p>
                 </div>
 
                 <h2 class="sr-only">Plans</h2>
@@ -162,10 +162,10 @@
                 <!-- Cards -->
                 <div class="relative mt-8 max-w-2xl mx-auto px-4 pb-8 sm:mt-12 sm:px-6 lg:max-w-7xl lg:px-8 lg:pb-0">
                     <!-- Decorative background -->
-                    <div aria-hidden="true" class="hidden absolute top-4 bottom-6 left-8 right-8 inset-0 bg-indigo-700 rounded-tl-lg rounded-tr-lg lg:block"></div>
+                    <div aria-hidden="true" class="hidden absolute top-4 bottom-6 left-8 right-8 inset-0 bg-gradient-to-b from-indigo-600 to-indigo-300 rounded-tl-lg rounded-tr-lg lg:block"></div>
 
                     <div class="relative space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3">
-                        <div class="bg-indigo-700 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12">
+                        <div class="bg-indigo-300 lg:bg-transparent pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12">
                             <div>
                                 <h3 class="text-white text-sm font-semibold uppercase tracking-wide">Standard</h3>
                                 <div class="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start">
@@ -1506,7 +1506,7 @@
         </div>
 
         <!-- Logo cloud -->
-        <div class="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:max-w-7xl lg:py-32 lg:px-8">
+        <div class="max-w-full mx-auto py-12 px-4 sm:px-6 lg:max-w-full lg:py-32 lg:px-8 bg-gradient-to-b from-indigo-300 to-purple-300">
             <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
                 <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
                     <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">
@@ -1527,7 +1527,7 @@
         </div>
 
         <!-- FAQs -->
-        <section aria-labelledby="faq-heading" class="bg-gray-900">
+        <section aria-labelledby="faq-heading" class="bg-purple-300">
             <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div class="max-w-2xl lg:mx-auto lg:text-center">
                     <h2 id="faq-heading" class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
@@ -1579,7 +1579,7 @@
             </div>
         </section>
 
-        <div class="bg-white">
+        <div class="bg-gradient-to-b from-purple-300 to-gray-300">
             <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:py-32 lg:px-8 lg:flex lg:items-center">
                 <div class="lg:w-0 lg:flex-1">
                     <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -1614,7 +1614,7 @@
 
 
         <!-- This example requires Tailwind CSS v2.0+ -->
-        <footer class="bg-white">
+        <footer class="bg-gray-300">
             <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
                 <div class="flex justify-center space-x-6 md:order-2">
 
