@@ -976,7 +976,7 @@
                             </thead>
                             <tbody class="divide-y divide-gray-100">
                             <tr key="Tax Savings">
-                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Tax Savings</th>
+                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Access to Study Portal</th>
 
                                 <td class="px-4 relative w-1/4 py-0 text-center">
                     <span class="relative w-full h-full py-3">
@@ -1010,7 +1010,7 @@
                             </tr>
 
                             <tr key="Easy to use accounting">
-                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Easy to use accounting</th>
+                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Your own timetable</th>
 
                                 <td class="px-4 relative w-1/4 py-0 text-center">
                     <span class="relative w-full h-full py-3">
@@ -1044,7 +1044,7 @@
                             </tr>
 
                             <tr key="Multi-accounts">
-                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Multi-accounts</th>
+                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Institution integration</th>
 
                                 <td class="px-4 relative w-1/4 py-0 text-center">
                     <span class="relative w-full h-full py-3">
@@ -1066,7 +1066,7 @@
                             </tr>
 
                             <tr key="Invoicing">
-                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Invoicing</th>
+                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Dedicated assignments area</th>
 
                                 <td class="px-4 relative w-1/4 py-0 text-center">
                     <span class="relative w-full h-full py-3">
@@ -1088,7 +1088,7 @@
                             </tr>
 
                             <tr key="Exclusive offers">
-                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Exclusive offers</th>
+                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Access to the community</th>
 
                                 <td class="px-4 relative w-1/4 py-0 text-center">
                     <span class="relative w-full h-full py-3">
@@ -1122,7 +1122,7 @@
                             </tr>
 
                             <tr key="6 months free advisor">
-                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">6 months free advisor</th>
+                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Personal kanban</th>
 
                                 <td class="px-4 relative w-1/4 py-0 text-center">
                     <span class="relative w-full h-full py-3">
@@ -1156,7 +1156,7 @@
                             </tr>
 
                             <tr key="Mobile and web access">
-                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Mobile and web access</th>
+                                <th scope="row" class="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">Direct support</th>
 
                                 <td class="px-4 relative w-1/4 py-0 text-center">
                     <span class="relative w-full h-full py-3">
