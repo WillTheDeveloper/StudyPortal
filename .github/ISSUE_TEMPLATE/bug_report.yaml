@@ -1,0 +1,38 @@
+name: Bug Report
+description: File a new bug report
+title: "[BUG]: "
+labels: ["bug"]
+assignees:
+  - WillTheDeveloper
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report. We will review it as soon as possible and get it fixed!
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: Tell us what happened and where possible, give details on how this bug can be reciprocated to help us find out more!
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: What browser are you using?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      description: Can you provide us with a date and time this happened? Only one instance of the event is sufficient.
+      label: When did it occur?
+      placeholder: DD/MM/YYYY - HH:MM
+    validations:
+      required: false
