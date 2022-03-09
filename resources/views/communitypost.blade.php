@@ -193,6 +193,32 @@
             </div>
 
             <div class="flow-root lg:col-span-8">
+
+                <!-- This example requires Tailwind CSS v2.0+ -->
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">{{$post->title}}</h3>
+                        <p class="mt-1 max-w-2xl text-sm text-gray-500">{{$post->User->name}}'s post.</p>
+                    </div>
+                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                        <dl class="sm:divide-y sm:divide-gray-200">
+                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt class="text-sm font-medium text-gray-500">Subject</dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$post->Subject->subject}}</dd>
+                            </div>
+                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt class="text-sm font-medium text-gray-500">Posted at</dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$post->created_at->diffForHumans()}}</dd>
+                            </div>
+                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt class="text-sm font-medium text-gray-500">Message</dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$post->body}}</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+
+
                 <ul role="list" class="-mb-8">
                     @foreach($post->Comments->sortByDesc('created_at') as $p)
                     <li>
