@@ -94,185 +94,244 @@
                     </div>
                 </div>
             </div>
-            <main class="flex-1">
-                <!-- Page title & actions -->
-                <div class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
-                    <div class="flex-1 min-w-0">
-                        <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
-                            Dashboard
-                        </h1>
-                    </div>
-                    {{--<div class="mt-4 flex sm:mt-0 sm:ml-4">
-                        <button type="button"
-                                class="order-1 ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-0 sm:ml-0">
-                            Share
-                        </button>
-                        <button type="button"
-                                class="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">
-                            Create
-                        </button>
-                    </div>--}}
-                </div>
-                <!-- Pinned projects -->
-                <div class="px-4 mt-6 sm:px-6 lg:px-8">
-                    <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">Pinned Projects</h2>
-                    <ul role="list" class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-4 mt-3">
-                        <li class="relative col-span-1 flex shadow-sm rounded-md">
-                            <div class="flex-shrink-0 flex items-center justify-center w-16 bg-pink-600 text-white text-sm font-medium rounded-l-md">
-                                GA
-                            </div>
-                            <div class="flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate">
-                                <div class="flex-1 px-4 py-2 text-sm truncate">
-                                    <a href="#" class="text-gray-900 font-medium hover:text-gray-600">
-                                        GraphQL API
-                                    </a>
-                                    <p class="text-gray-500">12 Members</p>
+            <main class="flex-1 pb-8">
+                <!-- Page header -->
+                <div class="bg-white shadow">
+                    <div class="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
+                        <div class="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
+                            <div class="flex-1 min-w-0">
+                                <!-- Profile -->
+                                <div class="flex items-center">
+                                    <img class="hidden h-16 w-16 rounded-full sm:block" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80" alt="">
+                                    <div>
+                                        <div class="flex items-center">
+                                            <img class="h-16 w-16 rounded-full sm:hidden" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80" alt="">
+                                            <h1 class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">Hey, {{auth()->user()->name}}!</h1>
+                                        </div>
+                                        <dl class="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
+                                            @if(auth()->user()->Institution()->exists())
+                                                <dt class="sr-only">Institution</dt>
+                                                <dd class="flex items-center text-sm text-gray-500 font-medium capitalize sm:mr-6">
+                                                    <!-- Heroicon name: solid/office-building -->
+                                                    <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd" />
+                                                    </svg>
+                                                    {{auth()->user()->Institution()->first()->pluck('institutions.institution')}}
+                                                </dd>
+                                            @endif
+                                            @if(auth()->user()->hasVerifiedEmail())
+                                                <dt class="sr-only">Account status</dt>
+                                                <dd class="mt-3 flex items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize">
+                                                    <!-- Heroicon name: solid/check-circle -->
+                                                    <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                                    </svg>
+                                                    Verified account
+                                                </dd>
+                                                @endif
+                                        </dl>
+                                    </div>
                                 </div>
-                                <div class="flex-shrink-0 pr-2">
-                                    <button @click="projects = true" type="button"
-                                            class="w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
-                                            id="pinned-project-options-menu-0-button" aria-expanded="false"
-                                            aria-haspopup="true">
-                                        <span class="sr-only">Open options</span>
-                                        <!-- Heroicon name: solid/dots-vertical -->
-                                        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                             fill="currentColor" aria-hidden="true">
-                                            <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/>
+                            </div>
+                            {{--<div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
+                                <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">Add money</button>
+                                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500">Send money</button>
+                            </div>--}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 class="text-lg leading-6 font-medium text-gray-900">Overview</h2>
+                        <div class="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                            <!-- Card -->
+
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <!-- Heroicon name: outline/scale -->
+                                            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt class="text-sm font-medium text-gray-500 truncate">Attendance</dt>
+                                                <dd>
+                                                    <div class="text-lg font-medium text-gray-900">(Coming Soon)</div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-5 py-3">
+                                    <div class="text-sm">
+                                        <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View details </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <!-- Heroicon name: outline/scale -->
+                                            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt class="text-sm font-medium text-gray-500 truncate">Assignments due</dt>
+                                                <dd>
+                                                    <div class="text-lg font-medium text-gray-900">{{auth()->user()->Assignment()->count()}}</div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-5 py-3">
+                                    <div class="text-sm">
+                                        <a href="{{route('assignments')}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View assignments </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <!-- Heroicon name: outline/scale -->
+                                            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt class="text-sm font-medium text-gray-500 truncate">Community contributions</dt>
+                                                <dd>
+                                                    <div class="text-lg font-medium text-gray-900">{{auth()->user()->Post()->count() + auth()->user()->Comment()->count()}}</div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-5 py-3">
+                                    <div class="text-sm">
+                                        <a href="{{route('community.profile', auth()->id())}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View my contributions </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- More items... -->
+                        </div>
+                    </div>
+
+                    <h2 class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">Recent activity</h2>
+
+                    <!-- Activity list (smallest breakpoint only) -->
+                    <div class="shadow sm:hidden">
+                        <ul role="list" class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
+                            <li>
+                                <a href="#" class="block px-4 py-4 bg-white hover:bg-gray-50">
+                                    <span class="flex items-center space-x-4">
+                                      <span class="flex-1 flex space-x-2 truncate">
+                                        <!-- Heroicon name: solid/cash -->
+                                        <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                                         </svg>
-                                    </button>
+                                        <span class="flex flex-col text-gray-500 text-sm truncate">
+                                          <span class="truncate">Payment to Molly Sanders</span>
+                                          <span><span class="text-gray-900 font-medium">$20,000</span> USD</span>
+                                          <time datetime="2020-07-11">July 11, 2020</time>
+                                        </span>
+                                      </span>
+                                        <!-- Heroicon name: solid/chevron-right -->
+                                      <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                      </svg>
+                                    </span>
+                                </a>
+                            </li>
 
-                                    <!--
-                                      Dropdown menu, show/hide based on menu state.
+                            <!-- More transactions... -->
+                        </ul>
 
-                                      Entering: "transition ease-out duration-100"
-                                        From: "transform opacity-0 scale-95"
-                                        To: "transform opacity-100 scale-100"
-                                      Leaving: "transition ease-in duration-75"
-                                        From: "transform opacity-100 scale-100"
-                                        To: "transform opacity-0 scale-95"
-                                    -->
-                                    <div x-show="projects" @click.away="projects = false" x-cloak
-                                         class="z-10 mx-3 origin-top-right absolute right-10 top-3 w-48 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none"
-                                         role="menu" aria-orientation="vertical"
-                                         aria-labelledby="pinned-project-options-menu-0-button" tabindex="-1">
-                                        <div class="py-1" role="none">
-                                            <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
-                                               tabindex="-1" id="pinned-project-options-menu-0-item-0">View</a>
+                        <nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200" aria-label="Pagination">
+                            <div class="flex-1 flex justify-between">
+                                <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"> Previous </a>
+                                <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"> Next </a>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!-- Activity table (small breakpoint and up) -->
+                    <div class="hidden sm:block">
+                        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex flex-col mt-2">
+                                <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                        <thead>
+                                        <tr>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transaction</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                            <th class="hidden px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider md:block">Status</th>
+                                            <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="bg-white divide-y divide-gray-200">
+                                        @foreach(auth()->user()->notifications()->get('*') as $notif)
+                                        <tr class="bg-white">
+                                            <td class="max-w-0 w-full px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                <div class="flex">
+                                                    <a href="#" class="group inline-flex space-x-2 truncate text-sm">
+                                                        <!-- Heroicon name: solid/cash -->
+                                                        <svg class="flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                                        </svg>
+                                                        <p class="text-gray-500 truncate group-hover:text-gray-900">
+                                                            {{json_encode($notif->data['user'])}} posted {{json_encode($notif->data['title'])}}</p>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                                <span class="text-gray-900 font-medium">$20,000 </span>
+                                                USD
+                                            </td>
+                                            <td class="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500 md:block">
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 capitalize"> success </span>
+                                            </td>
+                                            <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
+                                                <time datetime="2020-07-11">{{$notif->created_at->format('D n M')}}</time>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        <!-- More transactions... -->
+                                        </tbody>
+                                    </table>
+                                    <!-- Pagination -->
+                                    <nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6" aria-label="Pagination">
+                                        <div class="hidden sm:block">
+                                            <p class="text-sm text-gray-700">
+                                                Showing
+                                                <span class="font-medium">1</span>
+                                                to
+                                                <span class="font-medium">10</span>
+                                                of
+                                                <span class="font-medium">20</span>
+                                                results
+                                            </p>
                                         </div>
-                                        <div class="py-1" role="none">
-                                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
-                                               tabindex="-1" id="pinned-project-options-menu-0-item-1">Removed from
-                                                pinned</a>
-                                            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
-                                               tabindex="-1" id="pinned-project-options-menu-0-item-2">Share</a>
+                                        <div class="flex-1 flex justify-between sm:justify-end">
+                                            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"> Previous </a>
+                                            <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"> Next </a>
                                         </div>
-                                    </div>
+                                    </nav>
                                 </div>
                             </div>
-                        </li>
-
-                        <!-- More items... -->
-                    </ul>
-                </div>
-
-                <!-- Projects list (only on smallest breakpoint) -->
-                <div class="mt-10 sm:hidden">
-                    <div class="px-4 sm:px-6">
-                        <h2 class="text-gray-500 text-xs font-medium uppercase tracking-wide">Projects</h2>
-                    </div>
-                    <ul role="list" class="mt-3 border-t border-gray-200 divide-y divide-gray-100">
-                        <li>
-                            <a href="#"
-                               class="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6">
-              <span class="flex items-center truncate space-x-3">
-                <span class="w-2.5 h-2.5 flex-shrink-0 rounded-full bg-pink-600" aria-hidden="true"></span>
-                <span class="font-medium truncate text-sm leading-6">
-                  GraphQL API
-                  <span class="truncate font-normal text-gray-500">in Engineering</span>
-                </span>
-              </span>
-                                <!-- Heroicon name: solid/chevron-right -->
-                                <svg class="ml-4 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                     aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                            </a>
-                        </li>
-
-                        <!-- More projects... -->
-                    </ul>
-                </div>
-
-                <!-- Projects table (small breakpoint and up) -->
-                <div class="hidden mt-8 sm:block">
-                    <div class="align-middle inline-block min-w-full border-b border-gray-200">
-                        <table class="min-w-full">
-                            <thead>
-                            <tr class="border-t border-gray-200">
-                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    <span class="lg:pl-2">Project</span>
-                                </th>
-                                <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Members
-                                </th>
-                                <th class="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Last updated
-                                </th>
-                                <th class="pr-6 py-3 border-b border-gray-200 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-                            </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-100">
-                            <tr>
-                                <td class="px-6 py-3 max-w-0 w-full whitespace-nowrap text-sm font-medium text-gray-900">
-                                    <div class="flex items-center space-x-3 lg:pl-2">
-                                        <div class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-pink-600"
-                                             aria-hidden="true"></div>
-                                        <a href="#" class="truncate hover:text-gray-600">
-                      <span>
-                        GraphQL API
-                        <span class="text-gray-500 font-normal">in Engineering</span>
-                      </span>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-3 text-sm text-gray-500 font-medium">
-                                    <div class="flex items-center space-x-2">
-                                        <div class="flex flex-shrink-0 -space-x-1">
-                                            <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white"
-                                                 src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                 alt="Dries Vincent">
-
-                                            <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white"
-                                                 src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                 alt="Lindsay Walton">
-
-                                            <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white"
-                                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                 alt="Courtney Henry">
-
-                                            <img class="max-w-none h-6 w-6 rounded-full ring-2 ring-white"
-                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                 alt="Tom Cook">
-                                        </div>
-
-                                        <span class="flex-shrink-0 text-xs leading-5 font-medium">+8</span>
-                                    </div>
-                                </td>
-                                <td class="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-right">
-                                    March 17, 2020
-                                </td>
-                                <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                </td>
-                            </tr>
-
-                            <!-- More projects... -->
-                            </tbody>
-                        </table>
+                        </div>
                     </div>
                 </div>
             </main>
