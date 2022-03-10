@@ -122,7 +122,7 @@
 
 
                                     <a @click="newpost = true"
-                                       class="bg-blue-500 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
+                                       class="bg-blue-500 text-gray font-medium group flex items-center px-3 py-2 text-sm font-medium rounded-md cursor-pointer"
                                        aria-current="page">
                                         <!-- Heroicon name: outline/home -->
                                         <span class="truncate">
