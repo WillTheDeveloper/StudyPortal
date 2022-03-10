@@ -5,6 +5,95 @@
         </h2>
     </x-slot>
 
+    <div class="min-h-full">
+
+        <!-- Main column -->
+        <div class="lg:pl-64 flex flex-col">
+            <!-- Search header -->
+            <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
+                <!-- Sidebar toggle, controls the 'sidebarOpen' sidebar state. -->
+                <button @click="menu = true" type="button"
+                        class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 lg:hidden">
+                    <span class="sr-only">Open sidebar</span>
+                    <!-- Heroicon name: outline/menu-alt-1 -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h8m-8 6h16"/>
+                    </svg>
+                </button>
+                <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
+                    <div class="flex-1 flex">
+                        <form class="w-full flex md:ml-0" action="#" method="GET">
+                            <label for="search-field" class="sr-only">Search</label>
+                            <div class="relative w-full text-gray-400 focus-within:text-gray-600">
+                                <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                                    <!-- Heroicon name: solid/search -->
+                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                         fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                              clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <input id="search-field" name="search-field"
+                                       class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400 sm:text-sm"
+                                       placeholder="Search" type="search">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="flex items-center">
+                        <!-- Profile dropdown -->
+                        <div class="ml-3 relative">
+                            <div>
+                                <button @click="profile = true" type="button"
+                                        class="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                    <span class="sr-only">Open user menu</span>
+                                    <img class="h-8 w-8 rounded-full"
+                                         src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                         alt="">
+                                </button>
+                            </div>
+
+                            <!--
+                              Dropdown menu, show/hide based on menu state.
+
+                              Entering: "transition ease-out duration-100"
+                                From: "transform opacity-0 scale-95"
+                                To: "transform opacity-100 scale-100"
+                              Leaving: "transition ease-in duration-75"
+                                From: "transform opacity-100 scale-100"
+                                To: "transform opacity-0 scale-95"
+                            -->
+                            <div x-show="profile" x-cloak
+                                 class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none"
+                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
+                                 tabindex="-1">
+                                <div class="py-1" role="none">
+                                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                       tabindex="-1" id="user-menu-item-0">View profile</a>
+                                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                       tabindex="-1" id="user-menu-item-1">Settings</a>
+                                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                       tabindex="-1" id="user-menu-item-2">Notifications</a>
+                                </div>
+                                <div class="py-1" role="none">
+                                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                       tabindex="-1" id="user-menu-item-3">Get desktop app</a>
+                                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                       tabindex="-1" id="user-menu-item-4">Support</a>
+                                </div>
+                                <div class="py-1" role="none">
+                                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem"
+                                       tabindex="-1" id="user-menu-item-5">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div>
         <div>
@@ -88,59 +177,58 @@
     </div>
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="bg-white">
-        <div class="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
+    <div class="bg-gray-100">
+        <div class="max-w-2xl py-3 px-4 grid  gap-y-2 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 ">
 
-            <!-- This example requires Tailwind CSS v2.0+ -->
-            <div>
-
-
-                <div class="flow-root">
-                    <ul role="list" class="-mb-8">
-                        @foreach($user->Post as $post)
-                        <li>
-                            <div class="relative pb-8">
-                                <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-                                <div class="relative flex items-start space-x-3">
-                                    <div class="relative">
-                                        <img class="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="">
-
-                                        <span class="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
-              <!-- Heroicon name: solid/chat-alt -->
-              <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
-              </svg>
-            </span>
-                                    </div>
-                                    <div class="min-w-0 flex-1">
-                                        <div>
-                                            {{--<div class="text-sm">
-                                                <a href="#" class="font-medium text-gray-900">Eduardo Benz</a>
-                                            </div>--}}
-                                            <p class="mt-0.5 text-sm text-gray-500">
-                                                Posted {{$post->created_at->DiffForHumans()}}
-                                            </p>
-                                        </div>
-                                        <div class="mt-2 text-sm text-gray-700">
-                                            <a href="{{ route('community.post', $post->id) }}">
-                                                {{$post->title}}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="bg-gradient-to-b from-gray-300 to-gray-100 px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Posts</h3>
+                <ul role="list" class="divide-y divide-gray-200">
+                    @foreach($user->Post()->get('*') as $post)
+                    <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                        <div class="flex justify-between space-x-3">
+                            <div class="min-w-0 flex-1">
+                                <a href="{{route('community.post', $post->id)}}" class="block focus:outline-none">
+                                    <span class="absolute inset-0" aria-hidden="true"></span>
+                                    <p class="text-sm font-medium text-gray-900 truncate">{{$post->title}}</p>
+                                    <p class="text-sm text-gray-500 truncate">{{$post->Subject->subject}}</p>
+                                </a>
                             </div>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-
+                            <time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{$post->created_at->diffForHumans()}}</time>
+                        </div>
+                        <div class="mt-1">
+                            <p class="line-clamp-2 text-sm text-gray-600">{{$post->body}}</p>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
 
-
-
+            <div class="bg-gradient-to-b from-gray-300 to-gray-100 px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3>
+                <ul role="list" class="divide-y divide-gray-200">
+                    @foreach($user->Comment()->get('*') as $comment)
+                    <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                        <div class="flex justify-between space-x-3">
+                            <div class="min-w-0 flex-1">
+                                <a href="{{route('community.post', $comment->Post->id)}}" class="block focus:outline-none">
+                                    <span class="absolute inset-0" aria-hidden="true"></span>
+                                    <p class="text-sm font-medium text-gray-900 truncate">From "{{$comment->Post->title}}"</p>
+{{--                                    <p class="text-sm text-gray-500 truncate">Velit placeat sit ducimus non sed</p>--}}
+                                </a>
+                            </div>
+                            <time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{$comment->created_at->diffForHumans()}}</time>
+                        </div>
+                        <div class="mt-1">
+                            <p class="line-clamp-2 text-sm text-gray-600">{{$comment->comment}}</p>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
 
         </div>
     </div>
-
+        </div>
+    </div>
 
 </x-app-layout>
