@@ -181,9 +181,9 @@
         <div class="max-w-2xl py-3 px-4 grid  gap-y-2 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 ">
 
             <div class="bg-gradient-to-b from-gray-300 to-gray-100 px-4 py-5 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Posts</h3>
+                <h3 class="text-lg leading-6 font-medium text-gray-900">{{$user->name}}'s posts</h3>
                 <ul role="list" class="divide-y divide-gray-200">
-                    @foreach($user->Post()->get('*') as $post)
+                    @foreach($posts as $post)
                     <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                         <div class="flex justify-between space-x-3">
                             <div class="min-w-0 flex-1">
@@ -201,12 +201,13 @@
                     </li>
                     @endforeach
                 </ul>
+                {{$posts->links()}}
             </div>
 
             <div class="bg-gradient-to-b from-gray-300 to-gray-100 px-4 py-5 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Comments</h3>
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Most recent comments</h3>
                 <ul role="list" class="divide-y divide-gray-200">
-                    @foreach($user->Comment()->get('*') as $comment)
+                    @foreach($comments as $comment)
                     <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
                         <div class="flex justify-between space-x-3">
                             <div class="min-w-0 flex-1">

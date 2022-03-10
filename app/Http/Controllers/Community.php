@@ -25,7 +25,9 @@ class Community extends Controller
     public function profile($id)
     {
         return view('communityuser', [
-            'user' => User::query()->where('users.id', $id)->findOrFail($id)
+            'user' => User::query()->where('users.id', $id)->findOrFail($id),
+            'posts' => Post::query()->where('posts.user_id', $id)->orderByDesc('created_at')->paginate(5),
+            'comments' => Comment::query()->where('comments.user_id', $id)->orderByDesc('created_at')->limit(5)->get('*'),
         ]);
     }
 
