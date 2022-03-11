@@ -48,4 +48,80 @@ class User extends Controller
 
         return redirect(route('profile'));
     }
+
+    public function manageUser($id)
+    {
+        return view('manageuser', [
+            'user' => \App\Models\User::query()->where('users.id', $id)->find($id),
+        ]);
+    }
+
+    public function updateUser($id, Request $request)
+    {
+//        dd($request->all());
+        if ($request->input('moderator') == 'on') {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_moderator' => 1
+                ]
+            );
+        }
+        else
+        {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_moderator' => 0
+                ]
+            );
+        }
+        if ($request->input('tutor') == 'on') {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_tutor' => 1
+                ]
+            );
+        }
+        else
+        {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_tutor' => 0
+                ]
+            );
+        }
+        if ($request->input('admin') == 'on') {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_admin' => 1
+                ]
+            );
+        }
+        else
+        {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_admin' => 0
+                ]
+            );
+        }
+        if ($request->input('banned') == 'on') {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_banned' => 1,
+                    'is_admin' => 0,
+                    'is_tutor' => 0,
+                    'is_moderator' => 0
+                ]
+            );
+        }
+        else
+        {
+            \App\Models\User::query()->where('id', $id)->update(
+                [
+                    'is_banned' => 0
+                ]
+            );
+        }
+        return redirect(route('user.manage', $id));
+    }
 }

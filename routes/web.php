@@ -111,9 +111,9 @@ Route::get('/kanban/board/create', [Kanban::class, 'renderCreate'])
 Route::get('/notifications', [Notification::class, 'show'])
     ->middleware('auth')
     ->name('notifications.view');
-//Route::get('/testerror', function () {
-//    abort(203, "This should show an error page");
-//});
+Route::get('/users/{id}/manage', [User::class, 'manageUser'])
+    ->middleware(['auth', 'admin'])
+    ->name('user.manage');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -174,6 +174,9 @@ Route::post('/contact/submit', [Contact::class, 'SendContactForm'])
     ->name('contact.submitform');
 Route::post('/notifications/markallasread', [Notification::class, 'markAllAsRead'])
     ->name('notifications.markallasread');
+Route::post('/users/{id}/update', [User::class, 'updateUser'])
+    ->middleware(['auth', 'admin'])
+    ->name('user.update');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
