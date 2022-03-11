@@ -256,7 +256,7 @@
                                 <ul role="list" class="space-y-4">
                                     @forelse($posts as $post)
                                         <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg"
-                                            x-data="{dropdown: false}">
+                                            x-data="{dropdown: false, edit: false, content: true}">
                                             <article aria-labelledby="question-title-81614">
                                                 <div>
                                                     <div class="flex space-x-3">
@@ -318,7 +318,7 @@
                                                                     <div class="py-1" role="none">
                                                                         <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                                                         @if ($post->user_id == auth()->id())
-                                                                            <a href="#"
+                                                                            <a href="#" x-on:click="edit = true; content = false"
                                                                                class="text-gray-700 flex px-4 py-2 text-sm"
                                                                                role="menuitem" tabindex="-1"
                                                                                id="options-menu-0-item-0">
@@ -374,14 +374,35 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <h2 id="question-title-81614"
+                                                    <h2 id="question-title-81614" x-show="content"
                                                         class="mt-4 text-base font-medium text-gray-900">
                                                         {{$post->title}}
                                                     </h2>
                                                 </div>
                                                 <div class="mt-2 text-sm text-gray-700 space-y-4">
-                                                    <p>{{$post->body}}</p>
+                                                    <p x-show="content">{{$post->body}}</p>
                                                 </div>
+
+                                                <div x-show="edit" x-cloak>
+                                                    <form method="post" action="{{ route('community.post.update', $post->id) }}">
+                                                        @csrf
+                                                        <div>
+                                                            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                                                            <div class="mt-1">
+                                                                <input type="text" name="title" id="title" value="{{$post->title}}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <label for="body" class="block text-sm font-medium text-gray-700">Add your comment</label>
+                                                            <div class="mt-1">
+                                                                <textarea rows="4" name="body" id="body" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{$post->body}}</textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <button type="submit" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                                                    </form>
+                                                </div>
+
                                                 <div class="mt-6 flex justify-between space-x-8">
                                                     <div class="flex space-x-6">
                     <span class="inline-flex items-center text-sm">

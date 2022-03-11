@@ -177,6 +177,9 @@ Route::post('/notifications/markallasread', [Notification::class, 'markAllAsRead
 Route::post('/users/{id}/update', [User::class, 'updateUser'])
     ->middleware(['auth', 'admin'])
     ->name('user.update');
+Route::post('/community/post/{id}/update', [Community::class, 'updatePost'])
+    ->middleware('auth')
+    ->name('community.post.update');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

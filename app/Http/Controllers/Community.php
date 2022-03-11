@@ -137,4 +137,21 @@ class Community extends Controller
 
         return redirect(route('community'));
     }
+
+    public function updatePost($id, Request $request)
+    {
+        $post = Post::query()->where('posts.id', $id);
+
+        $title = $request->input('title');
+        $body = $request->input('body');
+
+        $post->update(
+            [
+                'title' => $title,
+                'body' => $body
+            ]
+        );
+
+        return redirect(route('community'));
+    }
 }
