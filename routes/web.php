@@ -180,6 +180,12 @@ Route::post('/users/{id}/update', [User::class, 'updateUser'])
 Route::post('/community/post/{id}/update', [Community::class, 'updatePost'])
     ->middleware('auth')
     ->name('community.post.update');
+Route::post('/community/comment/{id}/update', [Community::class, 'updateComment'])
+    ->middleware('auth')
+    ->name('community.comment.update');
+Route::post('/community/comment/{id}/delete', [Community::class, 'deleteComment'])
+    ->middleware('auth')
+    ->name('community.comment.delete');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

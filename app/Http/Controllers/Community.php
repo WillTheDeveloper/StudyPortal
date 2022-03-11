@@ -154,4 +154,26 @@ class Community extends Controller
 
         return redirect(route('community'));
     }
+
+    public function updateComment($id, Request $request)
+    {
+        $comment = Comment::query()->where('comments.id', $id);
+
+        $comment->update(
+            [
+                'comment' => $request->input('comment')
+            ]
+        );
+
+        return back();
+    }
+
+    public function deleteComment($id)
+    {
+        $comment = Comment::query()->where('comments.id', $id);
+
+        $comment->delete();
+
+        return back();
+    }
 }

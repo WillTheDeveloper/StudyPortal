@@ -220,9 +220,9 @@
 
                 <ul role="list" class="divide-y divide-gray-200 py-5">
                     @foreach($post->Comments->sortByDesc('created_at') as $p)
-                    <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
+                    <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600" x-data="{menu: false, edit: false, content: true}" x-on:click="menu=true" x-on:click.away="menu=false">
                         <div class="flex justify-between space-x-3">
-                            <div class="min-w-0 flex-1">
+                            <div class="min-w-0 flex-1" x-show="content">
                                 <a href="#" class="block focus:outline-none">
                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                     <p class="text-sm font-medium text-gray-900 truncate">{{$p->comment}}</p>
@@ -234,6 +234,27 @@
                        {{-- <div class="mt-1">
                             <p class="line-clamp-2 text-sm text-gray-600">{{$p->body}}</p>
                         </div>--}}
+
+                        <span x-show="menu" x-cloak class="relative z-0 inline-flex shadow-sm rounded-md">
+                          <button x-on:click="content=false; edit=true; menu=false" type="button" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Edit</button>
+                            <form method="post" action="{{ route('community.comment.delete', $p->id) }}">
+                                @csrf
+                                <button type="submit" class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Delete</button>
+                            </form>
+                        </span>
+
+                        <div x-show="edit" x-cloak>
+                            <form method="post" action="{{ route('community.comment.update', $p->id) }}">
+                                @csrf
+                                <div>
+                                    <label for="comment" class="block text-sm font-medium text-gray-700">Edit your comment</label>
+                                    <div class="mt-1">
+                                        <textarea rows="4" name="comment" id="comment" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{$p->comment}}</textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                            </form>
+                        </div>
                     </li>
                     @endforeach
 
