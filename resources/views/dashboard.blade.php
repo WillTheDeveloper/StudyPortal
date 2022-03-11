@@ -234,6 +234,7 @@
                     <!-- Activity list (smallest breakpoint only) -->
                     <div class="shadow sm:hidden">
                         <ul role="list" class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
+                            @foreach(auth()->user()->notifications()->get('*') as $notif)
                             <li>
                                 <a href="#" class="block px-4 py-4 bg-white hover:bg-gray-50">
                                     <span class="flex items-center space-x-4">
@@ -243,9 +244,9 @@
                                           <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                                         </svg>
                                         <span class="flex flex-col text-gray-500 text-sm truncate">
-                                          <span class="truncate">Payment to Molly Sanders</span>
-                                          <span><span class="text-gray-900 font-medium">$20,000</span> USD</span>
-                                          <time datetime="2020-07-11">July 11, 2020</time>
+                                          <span class="truncate">{{json_encode($notif->data['user'])}} posted {{json_encode($notif->data['title'])}}</span>
+{{--                                          <span><span class="text-gray-900 font-medium">$20,000</span> USD</span>--}}
+                                          <time datetime="2020-07-11">{{$notif->created_at->format('h:m - D n M')}}</time>
                                         </span>
                                       </span>
                                         <!-- Heroicon name: solid/chevron-right -->
@@ -255,6 +256,7 @@
                                     </span>
                                 </a>
                             </li>
+                        @endforeach
 
                             <!-- More transactions... -->
                         </ul>
