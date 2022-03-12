@@ -227,6 +227,18 @@
                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                     <p class="text-sm font-medium text-gray-900 truncate">{{$p->comment}}</p>
                                     <p class="text-sm text-gray-500 truncate">{{$p->User->name}}</p>
+                                    @if ($post->user_id == $p->user_id)
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> Original Poster </span>
+                                    @endif
+                                    @if ($p->User->is_admin)
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800"> Admin </span>
+                                    @endif
+                                    @if($p->User->is_moderator)
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"> Moderator </span>
+                                    @endif
+                                    @if ($p->User->is_tutor)
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Tutor </span>
+                                    @endif
                                 </a>
                             </div>
                             <time datetime="2021-01-27T16:35" class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">{{$p->created_at->diffForHumans()}}</time>
