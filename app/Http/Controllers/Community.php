@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateNewComment;
 use App\Http\Requests\CreateNewPost;
+use App\Http\Requests\UpdateUserComment;
+use App\Http\Requests\UpdateUserPost;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Subject;
@@ -138,7 +140,7 @@ class Community extends Controller
         return redirect(route('community'));
     }
 
-    public function updatePost($id, Request $request)
+    public function updatePost($id, UpdateUserPost $request)
     {
         $post = Post::query()->where('posts.id', $id);
 
@@ -155,7 +157,7 @@ class Community extends Controller
         return redirect(route('community'));
     }
 
-    public function updateComment($id, Request $request)
+    public function updateComment($id, UpdateUserComment $request)
     {
         $comment = Comment::query()->where('comments.id', $id);
 
