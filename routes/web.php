@@ -9,6 +9,7 @@ use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
+use App\Http\Controllers\Note;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -114,6 +115,21 @@ Route::get('/notifications', [Notification::class, 'show'])
 Route::get('/users/{id}/manage', [User::class, 'manageUser'])
     ->middleware(['auth', 'admin'])
     ->name('user.manage');
+Route::get('/notes', [Note::class, 'show'])
+    ->middleware('auth')
+    ->name('note.show');
+Route::get('/notes/create', [Note::class, 'create'])
+    ->middleware('auth')
+    ->name('note.create');
+Route::get('/notes/{id}/edit', [Note::class, 'edit'])
+    ->middleware('auth')
+    ->name('note.edit');
+Route::get('/notes/{id}/view', [Note::class, 'view'])
+    ->middleware('auth')
+    ->name('note.render');
+Route::get('/notes/{id}/delete', [Note::class, 'confirmDelete'])
+    ->middleware('auth')
+    ->name('note.confirm-delete');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -186,6 +202,15 @@ Route::post('/community/comment/{id}/update', [Community::class, 'updateComment'
 Route::post('/community/comment/{id}/delete', [Community::class, 'deleteComment'])
     ->middleware('auth')
     ->name('community.comment.delete');
+Route::post('/notes/create/new', [Note::class, 'newNote'])
+    ->middleware('auth')
+    ->name('notes.create.new');
+Route::post('/notes/{id}/save', [Note::class, 'save'])
+    ->middleware('auth')
+    ->name('notes.save');
+Route::post('/notes/{id}/delete/confirmed', [Note::class, 'deleteConfirmed'])
+    ->middleware('auth')
+    ->name('note.confirmed-delete');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
