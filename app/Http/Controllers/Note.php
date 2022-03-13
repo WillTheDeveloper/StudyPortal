@@ -8,6 +8,8 @@ class Note extends Controller
 {
     public function show()
     {
-        return view('note');
+        return view('note', [
+            'list' => \App\Models\Note::query()->where('notes.user_id', auth()->id())->get('*')
+        ]);
     }
 }
