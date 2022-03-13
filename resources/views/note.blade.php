@@ -133,18 +133,17 @@
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white">
-
-
-                                        <tr>
-                                            <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">Lindsay Walton</td>
-                                            <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">Front-end Developer</td>
-{{--                                            <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">lindsay.walton@example.com</td>--}}
-                                            <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">Member</td>
-                                            <td class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">View<span class="sr-only">, Lindsay Walton</span></a>
-                                            </td>
-                                        </tr>
-
+                                        @foreach($list as $l)
+                                            <tr>
+                                                <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">{{$l->name}}</td>
+                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">{{$l->description}}</td>
+    {{--                                            <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">lindsay.walton@example.com</td>--}}
+                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">{{$l->created_at->format('d m Y')}}</td>
+                                                <td class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
+                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">View<span class="sr-only">, {{$l->name}}</span></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                         <!-- More people... -->
                                         </tbody>
                                     </table>
