@@ -166,11 +166,11 @@
                                     <textarea rows="5" name="comment" id="comment" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Add your comment...">{{$notes->notes}}</textarea>
                                 </div>
                             </div>
-                            <div id="tabs-1-panel-2" class="p-0.5 -m-0.5 rounded-lg" aria-labelledby="tabs-1-tab-2" role="tabpanel" tabindex="0">
+                            {{--<div id="tabs-1-panel-2" class="p-0.5 -m-0.5 rounded-lg" aria-labelledby="tabs-1-tab-2" role="tabpanel" tabindex="0">
                                 <div class="border-b">
                                     <div class="mx-px mt-px px-3 pt-2 pb-12 text-sm leading-5 text-gray-800">Preview content will render here.</div>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
                     <div class="mt-2 flex justify-end">
