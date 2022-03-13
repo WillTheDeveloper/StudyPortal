@@ -52,8 +52,6 @@ class Note extends Controller
 
     public function edit($id)
     {
-//        dd(\App\Models\Note::query()->where('notes.id', $id)->get('*'));
-
         return view('editnote', [
             'notes' => \App\Models\Note::query()->where('id', $id)->find($id)
         ]);
