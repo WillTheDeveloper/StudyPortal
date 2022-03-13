@@ -129,6 +129,7 @@
                                             <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter">Created</th>
                                             <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pr-4 pl-3 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8">
                                                 <span class="sr-only">Edit</span>
+                                                <span class="sr-only">View</span>
                                             </th>
                                         </tr>
                                         </thead>
@@ -140,6 +141,7 @@
     {{--                                            <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">lindsay.walton@example.com</td>--}}
                                                 <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">{{$l->created_at->format('d m Y')}}</td>
                                                 <td class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
+                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{$l->name}}</span></a>
                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">View<span class="sr-only">, {{$l->name}}</span></a>
                                                 </td>
                                             </tr>
