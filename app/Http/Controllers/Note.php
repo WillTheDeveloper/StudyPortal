@@ -56,4 +56,18 @@ class Note extends Controller
             'notes' => \App\Models\Note::query()->where('id', $id)->find($id)
         ]);
     }
+
+    public function confirmDelete($id)
+    {
+        return view('deletenote', [
+            'confirm' => \App\Models\Note::query()->find($id)
+        ]);
+    }
+
+    public function deleteConfirmed($id)
+    {
+        \App\Models\Note::query()->find($id)->delete();
+
+        return redirect(route('note.show'));
+    }
 }

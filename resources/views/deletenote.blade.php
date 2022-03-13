@@ -95,66 +95,61 @@
                 </div>
             </div>
             <main class="flex-1">
-                <!-- Page title & actions -->
-                <div class="border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
-                    <div class="flex-1 min-w-0">
-                        <h1 class="text-lg font-medium leading-6 text-gray-900 sm:truncate">
-                            Notes
-                        </h1>
-                    </div>
-                    <div class="mt-4 flex sm:mt-0 sm:ml-4">
-                        {{--<button type="button"
-                                class="order-1 ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-0 sm:ml-0">
-                            Share
-                        </button>--}}
-                        <a type="button" href="{{ route('note.create') }}"
-                                class="order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3">
-                            Create Note
-                        </a>
-                    </div>
-                </div>
 
                 <!-- This example requires Tailwind CSS v2.0+ -->
-                <div class="px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col">
-                        <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
-                            <div class="inline-block min-w-full py-2 align-middle">
-                                <div class="shadow-sm ring-1 ring-black ring-opacity-5">
-                                    <table class="min-w-full border-separate" style="border-spacing: 0">
-                                        <thead class="bg-gray-50">
-                                        <tr>
-                                            <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Title</th>
-                                            <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Description</th>
-{{--                                            <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Placeholder</th>--}}
-                                            <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter">Created</th>
-                                            <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pr-4 pl-3 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8">
-                                                <span class="sr-only">Edit</span>
-                                                <span class="sr-only">View</span>
-                                                <span class="sr-only">Delete</span>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody class="bg-white">
-                                        @foreach($list as $l)
-                                            <tr>
-                                                <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">{{$l->name}}</td>
-                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">{{$l->description}}</td>
-    {{--                                            <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">lindsay.walton@example.com</td>--}}
-                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">{{$l->created_at->format('d.m.Y')}}</td>
-                                                <td class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
-                                                    <a href="{{route('note.edit', $l->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{$l->name}}</span></a><br>
-                                                    <a href="{{route('note.render', $l->id)}}" class="text-indigo-600 hover:text-indigo-900">View<span class="sr-only">, {{$l->name}}</span></a><br>
-                                                    <a href="{{route('note.confirm-delete', $l->id)}}" class="text-indigo-600 hover:text-indigo-900">Delete<span class="sr-only">, {{$l->name}}</span></a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
+                <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <!--
+                          Background overlay, show/hide based on modal state.
+
+                          Entering: "ease-out duration-300"
+                            From: "opacity-0"
+                            To: "opacity-100"
+                          Leaving: "ease-in duration-200"
+                            From: "opacity-100"
+                            To: "opacity-0"
+                        -->
+                        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+                        <!-- This element is to trick the browser into centering the modal contents. -->
+                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+                        <!--
+                          Modal panel, show/hide based on modal state.
+
+                          Entering: "ease-out duration-300"
+                            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            To: "opacity-100 translate-y-0 sm:scale-100"
+                          Leaving: "ease-in duration-200"
+                            From: "opacity-100 translate-y-0 sm:scale-100"
+                            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                        -->
+                        <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                            <div class="sm:flex sm:items-start">
+                                <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                    <!-- Heroicon name: outline/exclamation -->
+                                    <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
                                 </div>
+                                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Delete this note</h3>
+                                    <div class="mt-2">
+                                        <p class="text-sm text-gray-500">Are you sure you want to delete this note called "{{$confirm->name}}"? <b>This action is permanent and can't be reverted.</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-5 sm:mt-4 sm:ml-10 sm:pl-4 sm:flex">
+                                <form method="post" action="{{ route('note.confirmed-delete', $confirm->id) }}">
+                                    @csrf
+                                    <button type="submit" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:w-auto sm:text-sm">Delete</button>
+                                </form>
+                                <a href="{{route('note.show')}}" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
 
             </main>

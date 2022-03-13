@@ -127,6 +127,9 @@ Route::get('/notes/{id}/edit', [Note::class, 'edit'])
 Route::get('/notes/{id}/view', [Note::class, 'view'])
     ->middleware('auth')
     ->name('note.render');
+Route::get('/notes/{id}/delete', [Note::class, 'confirmDelete'])
+    ->middleware('auth')
+    ->name('note.confirm-delete');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -205,6 +208,9 @@ Route::post('/notes/create/new', [Note::class, 'newNote'])
 Route::post('/notes/{id}/save', [Note::class, 'save'])
     ->middleware('auth')
     ->name('notes.save');
+Route::post('/notes/{id}/delete/confirmed', [Note::class, 'deleteConfirmed'])
+    ->middleware('auth')
+    ->name('note.confirmed-delete');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
