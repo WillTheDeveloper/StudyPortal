@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('note', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
+            $table->string('description')->nullable(true);
             $table->text('note');
             $table->integer('user_id')->nullable(false);
             $table->timestamps();
