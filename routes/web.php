@@ -199,6 +199,9 @@ Route::post('/community/comment/{id}/delete', [Community::class, 'deleteComment'
 Route::post('/notes/create/new', [Note::class, 'newNote'])
     ->middleware('auth')
     ->name('notes.create.new');
+Route::post('/notes/{id}/save', [Note::class, 'save'])
+    ->middleware('auth')
+    ->name('notes.save');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

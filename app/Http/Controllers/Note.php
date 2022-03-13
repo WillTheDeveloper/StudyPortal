@@ -33,8 +33,22 @@ class Note extends Controller
         return redirect(route('note.edit', $note->id));
     }
 
+    public function save($id, Request $request) {
+        $note = \App\Models\Note::query()->where('notes.id', $id)->update(
+            [
+                'notes' => $request->input('comment'),
+            ]
+        );
+
+        return redirect(route('note.show', $id));
+    }
+
     public function edit($id)
     {
-        return view('editnote');
+//        dd(\App\Models\Note::query()->where('notes.id', $id)->get('*'));
+
+        return view('editnote', [
+            'notes' => \App\Models\Note::query()->where('id', $id)->find($id)
+        ]);
     }
 }
