@@ -225,16 +225,37 @@
                                     </button>
                                 </div>
 
-                                <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                                    <div class="px-4 sm:px-6">
-                                        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Panel title</h2>
-                                    </div>
-                                    <div class="relative mt-6 flex-1 px-4 sm:px-6">
-                                        <!-- Replace with your content -->
-                                        <div class="absolute inset-0 px-4 sm:px-6">
-                                            <div class="h-full border-2 border-dashed border-gray-200" aria-hidden="true"></div>
+                                <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                    <div class="bg-gray-50">
+                                        <div class="max-w-7xl mx-auto py-12 px-4 divide-y divide-gray-200 sm:px-6 lg:py-16 lg:px-8">
+                                            <h2 class="text-3xl font-extrabold text-gray-900">Markdown support</h2>
+                                            <div class="mt-8">
+                                                <dl class="divide-y divide-gray-200">
+                                                    <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
+                                                        <dt class="text-base font-medium text-gray-900 md:col-span-5">What is markdown?</dt>
+                                                        <dd class="mt-2 md:mt-0 md:col-span-7">
+                                                            <p class="text-base text-gray-500">Markdown is really easy way to nicely format content!</p>
+                                                        </dd>
+                                                    </div>
+
+                                                    <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
+                                                        <dt class="text-base font-medium text-gray-900 md:col-span-5">How do you do a header?</dt>
+                                                        <dd class="mt-2 md:mt-0 md:col-span-7">
+                                                            <p class="text-base text-gray-500">An example: "# Header name".</p>
+                                                        </dd>
+                                                    </div>
+
+                                                    <div class="pt-6 pb-8 md:grid md:grid-cols-12 md:gap-8">
+                                                        <dt class="text-base font-medium text-gray-900 md:col-span-5">Do you have use markdown?</dt>
+                                                        <dd class="mt-2 md:mt-0 md:col-span-7">
+                                                            <p class="text-base text-gray-500">Nope, it's totally optional. You can just write plain text.</p>
+                                                        </dd>
+                                                    </div>
+
+                                                    <!-- More questions... -->
+                                                </dl>
+                                            </div>
                                         </div>
-                                        <!-- /End replace -->
                                     </div>
                                 </div>
                             </div>
