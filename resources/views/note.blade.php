@@ -139,7 +139,7 @@
                                                 <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">{{$l->name}}</td>
                                                 <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell">{{$l->description}}</td>
     {{--                                            <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">lindsay.walton@example.com</td>--}}
-                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">{{$l->created_at->format('d m Y')}}</td>
+                                                <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">{{$l->created_at->format('d.m.Y')}}</td>
                                                 <td class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
                                                     <a href="{{route('note.edit', $l->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{$l->name}}</span></a><br>
                                                     <a href="{{route('note.render', $l->id)}}" class="text-indigo-600 hover:text-indigo-900">View<span class="sr-only">, {{$l->name}}</span></a>
