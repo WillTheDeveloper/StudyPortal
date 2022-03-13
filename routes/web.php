@@ -9,6 +9,7 @@ use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
+use App\Http\Controllers\Note;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -114,6 +115,9 @@ Route::get('/notifications', [Notification::class, 'show'])
 Route::get('/users/{id}/manage', [User::class, 'manageUser'])
     ->middleware(['auth', 'admin'])
     ->name('user.manage');
+Route::get('/notes', [Note::class, 'show'])
+    ->middleware('auth')
+    ->name('note.show');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class Note extends Controller
 {
-    //
+    public function show()
+    {
+        return view('note');
+    }
 }

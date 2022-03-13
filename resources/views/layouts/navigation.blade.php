@@ -68,7 +68,7 @@
                         {{ __('Kanban') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
+                    <x-responsive-nav-link :href="route('note.show')" :active="request()->routeIs('note.show')">
                         {{ __('Notes') }}
                     </x-responsive-nav-link>
 
@@ -235,7 +235,7 @@
                     {{ __('Kanban') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
+                <x-responsive-nav-link :href="route('note.show')" :active="request()->routeIs('note.show')">
                     {{ __('Notes') }}
                 </x-responsive-nav-link>
 
