@@ -18,8 +18,23 @@ class Note extends Controller
         return view('newnote');
     }
 
-    public function newNote()
+    public function newNote(Request $request)
     {
-        
+        $note = \App\Models\Note::query()->create(
+            [
+                'name' => $request->input('title'),
+                'description' => $request->input('description'),
+                'user_id' => $request->user()->id,
+            ]
+        );
+
+        $note->save();
+
+        return redirect(route('note.edit', $note->id));
+    }
+
+    public function edit($id)
+    {
+        return view('editnote');
     }
 }
