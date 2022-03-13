@@ -118,6 +118,9 @@ Route::get('/users/{id}/manage', [User::class, 'manageUser'])
 Route::get('/notes', [Note::class, 'show'])
     ->middleware('auth')
     ->name('note.show');
+Route::get('/notes/create', [Note::class, 'create'])
+    ->middleware('auth')
+    ->name('note.create');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -190,6 +193,9 @@ Route::post('/community/comment/{id}/update', [Community::class, 'updateComment'
 Route::post('/community/comment/{id}/delete', [Community::class, 'deleteComment'])
     ->middleware('auth')
     ->name('community.comment.delete');
+Route::post('/notes/create/new', [Note::class, 'newNote'])
+    ->middleware('auth')
+    ->name('notes.create.new');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

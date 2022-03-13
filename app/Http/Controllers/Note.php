@@ -12,4 +12,14 @@ class Note extends Controller
             'list' => \App\Models\Note::query()->where('notes.user_id', auth()->id())->get('*')
         ]);
     }
+
+    public function create()
+    {
+        return view('newnote');
+    }
+
+    public function newNote()
+    {
+        
+    }
 }
