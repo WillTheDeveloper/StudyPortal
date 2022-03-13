@@ -100,11 +100,11 @@
                     <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
                         <div class="pr-16 sm:text-center sm:px-16">
                             <p class="font-medium text-white">
-                                <span class="md:hidden"> We announced a new product! </span>
-                                <span class="hidden md:inline"> Big news! We're excited to announce a brand new product. </span>
+                                <span class="md:hidden"> Notes is getting an upgrade </span>
+                                <span class="hidden md:inline"> Big news! We're excited to announce markdown support! </span>
                                 <span class="block sm:ml-2 sm:inline-block">
-          <a href="#" class="text-white font-bold underline"> Learn more <span aria-hidden="true">&rarr;</span></a>
-        </span>
+                                  <a href="#" class="text-white font-bold underline"> Learn more <span aria-hidden="true">&rarr;</span></a>
+                                </span>
                             </p>
                         </div>
                         <div class="absolute inset-y-0 right-0 pt-1 pr-1 flex items-start sm:pt-1 sm:pr-2 sm:items-start">

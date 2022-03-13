@@ -43,6 +43,13 @@ class Note extends Controller
         return redirect(route('note.show', $id));
     }
 
+    public function view($id)
+    {
+        return view('viewnote', [
+            'render' => \App\Models\Note::query()->where('id', $id)->find($id)
+        ]);
+    }
+
     public function edit($id)
     {
 //        dd(\App\Models\Note::query()->where('notes.id', $id)->get('*'));

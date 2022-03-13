@@ -124,6 +124,9 @@ Route::get('/notes/create', [Note::class, 'create'])
 Route::get('/notes/{id}/edit', [Note::class, 'edit'])
     ->middleware('auth')
     ->name('note.edit');
+Route::get('/notes/{id}/view', [Note::class, 'view'])
+    ->middleware('auth')
+    ->name('note.render');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

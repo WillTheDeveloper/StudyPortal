@@ -96,8 +96,7 @@
             </div>
             <main class="flex-1">
 
-
-
+            {!! Str::of($render->notes)->markdown() !!}
 
             </main>
         </div>
