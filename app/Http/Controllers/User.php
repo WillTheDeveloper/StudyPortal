@@ -10,6 +10,20 @@ use Illuminate\Pagination;
 
 class User extends Controller
 {
+    public function confirmDelete()
+    {
+        return view('confirmdeleteaccount', [
+            'name' => auth()->id(),
+            'posts' => auth()->user()->Post()->count(),
+            'comments' => auth()->user()->Comment()->count()
+        ]);
+    }
+
+    public function DeleteAccount()
+    {
+
+    }
+
     public function showAll()
     {
         if (auth()->user()->is_admin) {
@@ -38,7 +52,7 @@ class User extends Controller
 
         if (Institution::query()->where('joincode', $code)->exists()) {
             $id = Institution::query()->where('joincode', $code)->get('id')->first();
-            
+
             $user = auth()->user();
 
             $user->Institution()->associate($id);
