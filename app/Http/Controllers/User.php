@@ -54,7 +54,6 @@ class User extends Controller
 
     public function updateSettings()
     {
-
     }
 
     public function showAll()
@@ -112,9 +111,7 @@ class User extends Controller
                     'is_moderator' => 1
                 ]
             );
-        }
-        else
-        {
+        } else {
             \App\Models\User::query()->where('id', $id)->update(
                 [
                     'is_moderator' => 0
@@ -127,9 +124,7 @@ class User extends Controller
                     'is_tutor' => 1
                 ]
             );
-        }
-        else
-        {
+        } else {
             \App\Models\User::query()->where('id', $id)->update(
                 [
                     'is_tutor' => 0
@@ -142,9 +137,7 @@ class User extends Controller
                     'is_admin' => 1
                 ]
             );
-        }
-        else
-        {
+        } else {
             \App\Models\User::query()->where('id', $id)->update(
                 [
                     'is_admin' => 0
@@ -160,9 +153,7 @@ class User extends Controller
                     'is_moderator' => 0
                 ]
             );
-        }
-        else
-        {
+        } else {
             \App\Models\User::query()->where('id', $id)->update(
                 [
                     'is_banned' => 0
