@@ -26,7 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function Timetable()
     {
-        return $this->morphOne(Timetable::class, 'timetableable');
+        return $this->hasMany(Timetable::class);
     }
 
     public function Assignment()

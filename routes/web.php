@@ -139,6 +139,9 @@ Route::get('/settings', [User::class, 'settings'])
 Route::get('/community/search', [Community::class, 'search'])
     ->middleware('auth', 'verified')
     ->name('community.search');
+Route::get('/timetable/add', [Timetable::class, 'add'])
+    ->middleware('auth')
+    ->name('timetable.add');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -223,6 +226,9 @@ Route::post('/notes/{id}/delete/confirmed', [Note::class, 'deleteConfirmed'])
 Route::post('/settings/delete/confirmed', [User::class, 'DeleteAccount'])
     ->middleware('auth')
     ->name('delete.confirmed');
+Route::post('/timetable/create', [Timetable::class, 'create'])
+    ->middleware('auth')
+    ->name('timetable.create');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

@@ -9,10 +9,15 @@ class Timetable extends Model
 {
     use HasFactory;
 
-    public function timetableable()
-    {
-        return $this->morphTo();
-    }
+    protected $fillable = [
+        'start',
+        'end',
+        'subject_id',
+        'user_id',
+        'institution_id',
+        'weekday',
+        'room'
+    ];
 
     public function Subject()
     {

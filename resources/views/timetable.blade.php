@@ -94,7 +94,10 @@
                     </div>
                 </div>
             </div>
+
             <main class="flex-1">
+
+
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -108,7 +111,7 @@
                                     <div class="flex items-center">
                                         <div class="hidden md:ml-4 md:flex md:items-center">
                                             <div class="ml-6 h-6 w-px bg-gray-300"></div>
-                                            <button type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add event</button>
+                                            <a href="{{route('timetable.add')}}" type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add lesson</a>
                                         </div>
                                         <div class="relative ml-6 md:hidden">
                                             <button type="button" class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
@@ -121,129 +124,112 @@
                                         </div>
                                     </div>
                                 </header>
-                                <div class="flex flex-auto flex-col overflow-auto bg-white">
-                                    <div style="width: 165%" class="flex max-w-full flex-none flex-col sm:max-w-none md:max-w-full">
-                                        <div class="sticky top-0 z-10 flex-none bg-white shadow ring-1 ring-black ring-opacity-5 sm:pr-8">
-                                            <div class="grid grid-cols-7 text-sm leading-6 text-gray-500 sm:hidden">
-                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">M <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">10</span></button>
-                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">T <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">11</span></button>
-                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">W <span class="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white">12</span></button>
-                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">T <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">13</span></button>
-                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">F <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">14</span></button>
-                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">S <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">15</span></button>
-                                                <button type="button" class="flex flex-col items-center pt-2 pb-3">S <span class="mt-1 flex h-8 w-8 items-center justify-center font-semibold text-gray-900">16</span></button>
-                                            </div>
+                                <div class="px-4 sm:px-6 lg:px-8">
+                                    <div class="mt-8 flex flex-col">
+                                        <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                                                    <table class="min-w-full">
+                                                        <thead class="bg-white">
+                                                        <tr>
+                                                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Subject</th>
+                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Room</th>
+                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Tutor</th>
+                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Start/End</th>
+                                                            <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                                                                <span class="sr-only">Edit</span>
+                                                            </th>
+                                                        </tr>
+                                                        </thead>
 
-                                            <div class="-mr-px hidden grid-cols-7 divide-x divide-gray-100 border-r border-gray-100 text-sm leading-6 text-gray-500 sm:grid">
-                                                <div class="col-end-1 w-14"></div>
-                                                <div class="flex items-center justify-center py-3">
-                                                    <span>Monday</span>
-                                                </div>
-                                                <div class="flex items-center justify-center py-3">
-                                                    <span>Tuesday</span>
-                                                </div>
-                                                <div class="flex items-center justify-center py-3">
-                                                    <span class="flex items-baseline">Wednesday</span>
-                                                </div>
-                                                <div class="flex items-center justify-center py-3">
-                                                    <span>Thursday</span>
-                                                </div>
-                                                <div class="flex items-center justify-center py-3">
-                                                    <span>Friday</span>
-                                                </div>
-                                                <div class="flex items-center justify-center py-3">
-                                                    <span>Saturday</span>
-                                                </div>
-                                                <div class="flex items-center justify-center py-3">
-                                                    <span>Sunday</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-auto">
-                                            <div class="sticky left-0 w-14 flex-none bg-white ring-1 ring-gray-100"></div>
-                                            <div class="grid flex-auto grid-cols-1 grid-rows-1">
-                                                <!-- Horizontal lines -->
-                                                <div class="col-start-1 col-end-2 row-start-1 grid divide-y divide-gray-100" style="grid-template-rows: repeat(21, minmax(3.5rem, 1fr))">
-                                                    <div class="row-end-1 h-7"></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">7AM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">8AM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">9AM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">10AM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">11AM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">12PM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">1PM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">2PM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">3PM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">4PM</div>
-                                                    </div>
-                                                    <div></div>
-                                                    <div>
-                                                        <div class="sticky left-0 -mt-2.5 -ml-14 w-14 pr-2 text-right text-xs leading-5 text-gray-400">5PM</div>
-                                                    </div>
-                                                    <div></div>
-                                                </div>
 
-                                                <!-- Vertical lines -->
-                                                <div class="col-start-1 col-end-2 row-start-1 hidden grid-cols-7 grid-rows-1 divide-x divide-gray-100 sm:grid sm:grid-cols-7">
-                                                    <div class="col-start-1 row-span-full"></div>
-                                                    <div class="col-start-2 row-span-full"></div>
-                                                    <div class="col-start-3 row-span-full"></div>
-                                                    <div class="col-start-4 row-span-full"></div>
-                                                    <div class="col-start-5 row-span-full"></div>
-                                                    <div class="col-start-6 row-span-full"></div>
-                                                    <div class="col-start-7 row-span-full"></div>
-                                                    <div class="col-start-8 row-span-full w-8"></div>
-                                                </div>
+                                                        <tbody class="bg-white">
+                                                        <tr class="border-t border-gray-200">
+                                                            <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Monday</th>
+                                                        </tr>
 
-                                                <!-- Events -->
-                                                <ol class="col-start-1 col-end-2 row-start-1 grid grid-cols-1 sm:grid-cols-7 sm:pr-8" style="grid-template-rows: 1rem repeat(288, minmax(0, 1fr)) auto">
-                                                    <li class="relative mt-px flex sm:col-start-1" style="grid-row: 4 / span 56">
-                                                        <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-pink-50 p-2 text-xs leading-5 hover:bg-pink-100">
-                                                            <p class="order-1 font-semibold text-pink-700">Cognitive Computing</p>
-                                                            <p class="text-pink-500 group-hover:text-pink-700"><time datetime="2022-01-12T07:30">7:00 AM</time></p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="relative mt-px flex sm:col-start-1" style="grid-row: 58 / span 56">
-                                                        <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-green-50 p-2 text-xs leading-5 hover:bg-green-100">
-                                                            <p class="order-1 font-semibold text-green-700">Cloud Computing</p>
-                                                            <p class="text-green-500 group-hover:text-green-700"><time datetime="2022-01-12T07:30">7:00 AM</time></p>
-                                                        </a>
-                                                    </li>
-                                                    <li class="relative mt-px flex sm:col-start-1" style="grid-row: 113 / span 15">
-                                                        <a href="#" class="group absolute inset-1 flex flex-col overflow-y-auto rounded-lg bg-red-50 p-2 text-xs leading-5 hover:bg-red-100">
-                                                            <p class="order-1 font-semibold text-red-700">Cloud Computing</p>
-                                                            <p class="text-red-500 group-hover:text-red-700"><time datetime="2022-01-12T07:30">7:00 AM</time></p>
-                                                        </a>
-                                                    </li>
-                                                </ol>
+                                                        @foreach($monday->sortBy('start') as $m)
+                                                            <tr class="border-t border-gray-300">
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
+                                                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+
+
+                                                        <tr class="border-t border-gray-200">
+                                                            <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Tuesday</th>
+                                                        </tr>
+
+                                                        @foreach($tuesday->sortBy('start') as $tu)
+                                                            <tr class="border-t border-gray-300">
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$tu->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$tu->room}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$tu->start->format('h')}} - {{$tu->end->format('h')}}</td>
+                                                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+
+                                                        <tr class="border-t border-gray-200">
+                                                            <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Wednesday</th>
+                                                        </tr>
+
+                                                        @foreach($wednesday->sortBy('start') as $w)
+                                                            <tr class="border-t border-gray-300">
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$w->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$w->room}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$w->start->format('h')}} - {{$w->end->format('h')}}</td>
+                                                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+
+
+                                                        <tr class="border-t border-gray-200">
+                                                            <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Thursday</th>
+                                                        </tr>
+
+                                                        @foreach($thursday->sortBy('start') as $th)
+                                                            <tr class="border-t border-gray-300">
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$th->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$th->room}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$th->start->format('h')}} - {{$th->end->format('h')}}</td>
+                                                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+
+
+                                                        <tr class="border-t border-gray-200">
+                                                            <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Friday</th>
+                                                        </tr>
+
+                                                        @foreach($friday->sortBy('start') as $f)
+                                                            <tr class="border-t border-gray-300">
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$f->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$f->room}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$f->start->format('h')}} - {{$f->end->format('h')}}</td>
+                                                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -254,9 +240,8 @@
                         </div>
                     </div>
                 </div>
-
+            </main>
         </div>
     </div>
-    </div>
-    </div>
+
 </x-app-layout>
