@@ -211,7 +211,52 @@
                                 </div>
                             </nav>
                         </div>
-                        <main class="lg:col-span-9 xl:col-span-6">
+                        <main class="lg:col-span-9 xl:col-span-6" x-data="{look: false}" @keyup.shift.enter.window="look = true" @keyup.esc.window="look = false">
+
+
+
+
+
+                            <div x-cloak x-show="look">
+                                <div class="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
+                                    <!--
+                                      Background overlay, show/hide based on modal state.
+
+                                      Entering: "ease-out duration-300"
+                                        From: "opacity-0"
+                                        To: "opacity-100"
+                                      Leaving: "ease-in duration-200"
+                                        From: "opacity-100"
+                                        To: "opacity-0"
+                                    -->
+                                    <div class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" aria-hidden="true"></div>
+
+                                    <!--
+                                      Command palette, show/hide based on modal state.
+
+                                      Entering: "ease-out duration-300"
+                                        From: "opacity-0 scale-95"
+                                        To: "opacity-100 scale-100"
+                                      Leaving: "ease-in duration-200"
+                                        From: "opacity-100 scale-100"
+                                        To: "opacity-0 scale-95"
+                                    -->
+                                    <div class="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
+                                        <form action="{{route('community.search')}}" method="get">
+                                            <div class="relative">
+                                                <!-- Heroicon name: solid/search -->
+                                                <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                                </svg>
+                                                <input id="search" name="search" type="search" class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm" placeholder="Search..." role="combobox" aria-expanded="false" aria-controls="options">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                             <div class="px-4 sm:px-0">
                                 <div class="sm:hidden">
                                     <label for="question-tabs" class="sr-only">Select a tab</label>
