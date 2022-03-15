@@ -19,7 +19,7 @@ class Community extends Controller
     public function search(Request $request)
     {
         return view('communitysearch', [
-            'results' => Post::search($request->input('search'))->get()
+            'results' => Post::search($request->input('search'))->paginate(10)
         ]);
     }
 

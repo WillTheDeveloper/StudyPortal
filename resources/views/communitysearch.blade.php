@@ -1,3 +1,3 @@
-@foreach($search as $s)
+@foreach($results as $s)
     <p>{{$s}}</p>
 @endforeach

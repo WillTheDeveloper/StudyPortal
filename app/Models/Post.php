@@ -17,6 +17,13 @@ class Post extends Model
         'subject_id'
     ];
 
+    public function toSearchableArray()
+    {
+        return[
+            'title' => $this->title,
+        ];
+    }
+
     public function Comments()
     {
         return $this->hasMany(Comment::class);
