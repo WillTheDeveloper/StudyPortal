@@ -198,7 +198,7 @@
             </div>
         </div>
         <!-- Sidebar Search -->
-        div class="px-3 mt-5">
+        <div class="px-3 mt-5">
             <form action="{{route('community.search')}}" method="get">
                 <label for="search" class="sr-only">Search</label>
                 <div class="mt-1 relative rounded-md shadow-sm">
