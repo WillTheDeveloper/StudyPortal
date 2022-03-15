@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'title',
@@ -15,6 +16,13 @@ class Post extends Model
         'user_id',
         'subject_id'
     ];
+
+    public function toSearchableArray()
+    {
+        return[
+            'title' => $this->title,
+        ];
+    }
 
     public function Comments()
     {

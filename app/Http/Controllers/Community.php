@@ -16,6 +16,13 @@ use Illuminate\Pagination;
 
 class Community extends Controller
 {
+    public function search(Request $request)
+    {
+        return view('communitysearch', [
+            'results' => Post::search($request->input('search'))->paginate(10)
+        ]);
+    }
+
     public function view()
     {
         return view('community', [
