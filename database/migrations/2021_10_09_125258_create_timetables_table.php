@@ -15,8 +15,6 @@ class CreateTimetablesTable extends Migration
     {
         Schema::create('timetables', function (Blueprint $table) {
             $table->id();
-            $table->integer('timetableable_id');
-            $table->string('timetableable_type');
             $table->time('start');
             $table->time('end');
             $table->integer('subject_id')->nullable(false);

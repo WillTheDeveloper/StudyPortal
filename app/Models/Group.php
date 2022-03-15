@@ -22,9 +22,4 @@ class Group extends Model
     public function Subject() {
         return $this->belongsTo(Subject::class);
     }
-
-    public function Timetable()
-    {
-        return $this->morphOne(Timetable::class, 'timetableable');
-    }
 }

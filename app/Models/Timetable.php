@@ -9,11 +9,6 @@ class Timetable extends Model
 {
     use HasFactory;
 
-    public function timetableable()
-    {
-        return $this->morphTo();
-    }
-
     public function Subject()
     {
         return $this->belongsTo(Subject::class);
