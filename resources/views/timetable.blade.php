@@ -167,10 +167,10 @@
 
                                                         @foreach($tuesday->sortBy('start') as $tu)
                                                             <tr class="border-t border-gray-300">
-                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$tu->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$tu->room}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$tu->start->format('h')}} - {{$tu->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                                 </td>
@@ -183,10 +183,10 @@
 
                                                         @foreach($wednesday->sortBy('start') as $w)
                                                             <tr class="border-t border-gray-300">
-                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$w->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$w->room}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$w->start->format('h')}} - {{$w->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                                 </td>
@@ -200,10 +200,10 @@
 
                                                         @foreach($thursday->sortBy('start') as $th)
                                                             <tr class="border-t border-gray-300">
-                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$th->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$th->room}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$th->start->format('h')}} - {{$th->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                                 </td>
@@ -217,10 +217,10 @@
 
                                                         @foreach($friday->sortBy('start') as $f)
                                                             <tr class="border-t border-gray-300">
-                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
+                                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$f->Subject->subject}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$f->room}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$f->start->format('h')}} - {{$f->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                                 </td>

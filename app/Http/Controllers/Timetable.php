@@ -26,6 +26,17 @@ class Timetable extends Controller
 
     public function create(Request $request)
     {
+        \App\Models\Timetable::query()->create(
+            [
+                'start' => $request->input('start'),
+                'end' => $request->input('end'),
+                'subject_id' => $request->input('subject'),
+                'user_id' => auth()->id(),
+                'weekday' => $request->input('weekday'),
+                'room' => $request->input('room')
+            ]
+        );
 
+        return redirect(route('timetable'));
     }
 }
