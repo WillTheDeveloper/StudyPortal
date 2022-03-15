@@ -34,4 +34,3 @@ class Timetable extends Model
         'end' => 'datetime:h-i-s'
     ];
 }
-
