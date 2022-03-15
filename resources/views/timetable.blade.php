@@ -108,7 +108,7 @@
                                     <div class="flex items-center">
                                         <div class="hidden md:ml-4 md:flex md:items-center">
                                             <div class="ml-6 h-6 w-px bg-gray-300"></div>
-                                            <button type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add event</button>
+                                            <a type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add lesson</a>
                                         </div>
                                         <div class="relative ml-6 md:hidden">
                                             <button type="button" class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
@@ -131,7 +131,7 @@
                                                         <tr>
                                                             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Subject</th>
                                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Room</th>
-                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email</th>
+                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Tutor</th>
                                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Start/End</th>
                                                             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                                                 <span class="sr-only">Edit</span>
@@ -145,11 +145,11 @@
                                                             <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Monday</th>
                                                         </tr>
 
-                                                        @foreach($monday->sortByDesc('start') as $m)
+                                                        @foreach($monday->sortBy('start') as $m)
                                                             <tr class="border-t border-gray-300">
                                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -162,11 +162,11 @@
                                                             <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Tuesday</th>
                                                         </tr>
 
-                                                        @foreach($tuesday->sortByDesc('start') as $tu)
+                                                        @foreach($tuesday->sortBy('start') as $tu)
                                                             <tr class="border-t border-gray-300">
                                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -178,11 +178,11 @@
                                                             <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Wednesday</th>
                                                         </tr>
 
-                                                        @foreach($wednesday->sortByDesc('start') as $w)
+                                                        @foreach($wednesday->sortBy('start') as $w)
                                                             <tr class="border-t border-gray-300">
                                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -195,11 +195,11 @@
                                                             <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Thursday</th>
                                                         </tr>
 
-                                                        @foreach($thursday->sortByDesc('start') as $th)
+                                                        @foreach($thursday->sortBy('start') as $th)
                                                             <tr class="border-t border-gray-300">
                                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -212,11 +212,11 @@
                                                             <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Friday</th>
                                                         </tr>
 
-                                                        @foreach($friday->sortByDesc('start') as $f)
+                                                        @foreach($friday->sortBy('start') as $f)
                                                             <tr class="border-t border-gray-300">
                                                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$m->Subject->subject}}</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->room}}</td>
-                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
+                                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#</td>
                                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$m->start->format('h')}} - {{$m->end->format('h')}}</td>
                                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
