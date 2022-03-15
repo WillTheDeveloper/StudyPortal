@@ -94,7 +94,10 @@
                     </div>
                 </div>
             </div>
+
             <main class="flex-1">
+
+
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -108,7 +111,7 @@
                                     <div class="flex items-center">
                                         <div class="hidden md:ml-4 md:flex md:items-center">
                                             <div class="ml-6 h-6 w-px bg-gray-300"></div>
-                                            <a type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add lesson</a>
+                                            <a href="{{route('timetable.add')}}" type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add lesson</a>
                                         </div>
                                         <div class="relative ml-6 md:hidden">
                                             <button type="button" class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
@@ -237,9 +240,8 @@
                         </div>
                     </div>
                 </div>
-
+            </main>
         </div>
     </div>
-    </div>
-    </div>
+
 </x-app-layout>

@@ -16,4 +16,16 @@ class Timetable extends Controller
             'friday' => \App\Models\Timetable::query()->where('timetables.weekday', 'Friday')->get('*'),
         ]);
     }
+
+    public function add()
+    {
+        return view('addlesson', [
+            'subjects' => auth()->user()->Subject()->get(),
+        ]);
+    }
+
+    public function create(Request $request)
+    {
+
+    }
 }
