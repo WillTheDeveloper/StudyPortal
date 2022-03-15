@@ -19,6 +19,7 @@ class CreateTimetablesTable extends Migration
             $table->time('end');
             $table->integer('subject_id')->nullable(false);
             $table->integer('institution_id')->nullable(true);
+//            $table->string('tutor')->nullable(true);
             $table->integer('user_id');
             $table->tinyText('weekday');
             $table->tinyText('room');
