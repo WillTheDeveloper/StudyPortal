@@ -13,6 +13,7 @@
         "laravel/fortify": "^1.8",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.11",
+        "laravel/scout": "^9.4",
         "laravel/socialite": "^5.2",
         "laravel/telescope": "^4.6",
         "laravel/tinker": "^2.5",

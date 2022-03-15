@@ -25,7 +25,7 @@
                 </button>
                 <div class="flex-1 flex justify-between px-4 sm:px-6 lg:px-8">
                     <div class="flex-1 flex">
-                        <form class="w-full flex md:ml-0" action="#" method="GET">
+                        <form class="w-full flex md:ml-0" action="{{route('community.search')}}" method="GET">
                             <label for="search-field" class="sr-only">Search</label>
                             <div class="relative w-full text-gray-400 focus-within:text-gray-600">
                                 <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
@@ -37,9 +37,9 @@
                                               clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <input id="search-field" name="search-field"
+                                <input id="search" name="search"
                                        class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400 sm:text-sm"
-                                       placeholder="Search" type="search">
+                                       placeholder="Search" type="submit">
                             </div>
                         </form>
                     </div>

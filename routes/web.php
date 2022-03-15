@@ -136,6 +136,9 @@ Route::get('/settings/delete/confirm', [User::class, 'confirmDelete'])
 Route::get('/settings', [User::class, 'settings'])
     ->middleware('auth')
     ->name('settings');
+Route::get('/community/search', [Community::class, 'search'])
+    ->middleware('auth', 'verified')
+    ->name('community.search');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
