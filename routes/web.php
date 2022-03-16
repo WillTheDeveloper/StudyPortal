@@ -3,6 +3,7 @@
 use App\Http\Controllers\Assignment;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
+use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\ThirdPartyAuthentication;
@@ -32,9 +33,12 @@ Route::get('/contact', function () {
 })->name('contact');
 
 // Dashboard routes
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');*/
+Route::get('/dashboard', [Dashboard::class, 'show'])
+    ->middleware('auth')
+    ->name('dashboard');
 
 Route::get('/assignments', function () {
     return view('assignments');
