@@ -18,11 +18,11 @@ class AssignmentObserver
      */
     public function created(Assignment $assignment)
     {
-        $users = DB::table('assignment_user')->where('assignment_user.id', $assignment->getKey())->get('user_id')->toArray();
-
-//        dd($users);
-
-        Notification::send($users, new AssignmentCreated($assignment));
+//        $users = DB::table('assignment_user')->where('assignment_user.id', $assignment->getKey())->get('user_id')->toArray();
+//
+////        dd($users);
+//
+//        Notification::send($users, new AssignmentCreated($assignment));
     }
 
     /**
@@ -33,9 +33,9 @@ class AssignmentObserver
      */
     public function updated(Assignment $assignment)
     {
-        $users = $assignment->User()->id;
-
-        Notification::send($users, new AssignmentUpdated($assignment));
+//        $users = $assignment->User()->id;
+//
+//        Notification::send($users, new AssignmentUpdated($assignment));
     }
 
     /**
