@@ -72,7 +72,7 @@ The versioning has been introduced into the repository a bit late but has now be
 
 - [X] Alpha (Not part of versioning)
 - [ ] Beta (Currently in Beta)
-- [ ] Public Beta Testing
+- [X] Public Beta Testing
 - [ ] Initial release (Date TBD)
 
 ## Testing
