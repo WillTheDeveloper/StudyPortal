@@ -47,6 +47,11 @@ Install NPM packages
 npm install
 ```
 
+to set the APP_KEY value in your .env file run the following command:
+```
+php artisan key:generate
+```
+
 If you have setup the .ENV then run the migrations command:
 ```
 php artisan migrate
