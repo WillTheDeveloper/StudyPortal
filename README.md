@@ -17,52 +17,58 @@ Before we get into the nitty gritty of the project and my plans for the future, 
 Anyway, if we fast forward 12 months, I am finishing my work placement with over 700 hours of industry experience in the bag. At the time of writing this I can't remember what triggered it but I had this idea to create a platform that allowed students to work together in one way or another. Teams is cool but I feel like it's tailored more towards a business environment compared to a student environment which is one of the problems I was aiming to solve by developing this application.
 
 But, long explaination, cut short, my primary goals were as follows;
-* Create a platform that students could work together in some way to get work done more effeciently.
-* Enable collaboration accross all levels of study, ranging from college to universtity.
-* Implement additional tools that other applications don't have to ensure that it tailors for students.
-* Have something that is open source so it can be developed over a long time.
+
+-   Create a platform that students could work together in some way to get work done more effeciently.
+-   Enable collaboration accross all levels of study, ranging from college to universtity.
+-   Implement additional tools that other applications don't have to ensure that it tailors for students.
+-   Have something that is open source so it can be developed over a long time.
 
 ## Study Portal features
 
-*Tick means it has been finished*
+_Tick means it has been finished_
 
-- [ ] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
-- [X] Assignments - This is where students can keep track of assignment work that they are doing.
-- [X] Dashboard - Overview of all the stats that matter to students.
-- [X] Community - Place where students can talk to each other with posts and support each other.
-- [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
-- [X] ~~Calendar - This idea is still **provisional** but it will be a calendar where events can be created for things such as meetings.~~
+-   [ ] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
+-   [x] Assignments - This is where students can keep track of assignment work that they are doing.
+-   [x] Dashboard - Overview of all the stats that matter to students.
+-   [x] Community - Place where students can talk to each other with posts and support each other.
+-   [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
+-   [x] ~~Calendar - This idea is still **provisional** but it will be a calendar where events can be created for things such as meetings.~~
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
 ## How to install/run server
 
 Install composer packages
+
 ```
 composer install
 ```
 
 Install NPM packages
+
 ```
 npm install
 ```
 
 to set the APP_KEY value in your .env file run the following command:
+
 ```
 php artisan key:generate
 ```
 
 If you have setup the .ENV then run the migrations command:
+
 ```
 php artisan migrate
 ```
 
 Run the server
+
 ```
 ./vendor/bin/sail up
 ```
 
-*You may get an error about a missing .env file which I do not source control since it has credentials in it.*
+_You may get an error about a missing .env file which I do not source control since it has credentials in it._
 
 ## Versioning
 
@@ -70,10 +76,10 @@ This repository follows semantic versioning: MAJOR . MINOR . PATCH.
 
 The versioning has been introduced into the repository a bit late but has now been implemented and will be used from now on.
 
-- [X] Alpha (Not part of versioning)
-- [ ] Beta (Currently in Beta)
-- [ ] Public Beta Testing
-- [ ] Initial release (Date TBD)
+-   [x] Alpha (Not part of versioning)
+-   [ ] Beta (Currently in Beta)
+-   [ ] Public Beta Testing
+-   [ ] Initial release (Date TBD)
 
 ## Testing
 
@@ -85,7 +91,7 @@ Tests can be run via the command line using the following command in the root di
 php artisan test
 ```
 
-Tests can be located inside ```/tests/feature/``` directory.
+Tests can be located inside `/tests/feature/` directory.
 
 ## Notifications
 
@@ -93,17 +99,17 @@ Study Portal will have a lot of cross application notification integration that 
 
 Below are a list of methods that you will be able to receive notifications:
 
-- [ ] Microsoft Teams - This has been requested upon some feedback that I received and made it clear that it would be quite a good idea and an alternative way to get into contact with students regarding any new assignments that they may have.
-- [ ] Email - This would be one of the main ways of notifying students of updates on the platform that would be targetted towards them.
-- [ ] Text message - I aim for this to be one of the other notifying channels that most of the students would use since I am assumuming that most students would have phones that they can check when they get a notification.
-- [X] Discord - This is the main notification channel for testing initially but could be used on a wider scope on a per person basis but would require webhook relationships with users which is not a thing yet. Further investigation is required for this.
-- [ ] Twitter - This might not make it to the final release since I cannot see it being used.
+-   [ ] Microsoft Teams - This has been requested upon some feedback that I received and made it clear that it would be quite a good idea and an alternative way to get into contact with students regarding any new assignments that they may have.
+-   [ ] Email - This would be one of the main ways of notifying students of updates on the platform that would be targetted towards them.
+-   [ ] Text message - I aim for this to be one of the other notifying channels that most of the students would use since I am assumuming that most students would have phones that they can check when they get a notification.
+-   [x] Discord - This is the main notification channel for testing initially but could be used on a wider scope on a per person basis but would require webhook relationships with users which is not a thing yet. Further investigation is required for this.
+-   [ ] Twitter - This might not make it to the final release since I cannot see it being used.
 
-*Suggestions are welcome for other notification channels but would need some sort of justification.*
+_Suggestions are welcome for other notification channels but would need some sort of justification._
 
 ## Issue tracking
 
-*I am still yet to create the templates for issues*
+_I am still yet to create the templates for issues_
 
 If you come across any issues on the website that is causing you problems, please take a moment to either email me if you do not have a Github account and choose not to create one or feel free to create an issue on this repository which will be reviewed and looked into resolving. You may be asked for further details on it or how to recreate the issue so please make sure to check your Github notifications a few days after you submit the issue. You can email me at: *willthedeveloper13@gmail.com*.
 
@@ -111,8 +117,8 @@ You can do this in the issues tab. If you are not sure of where this is then her
 
 ## Feature suggestions
 
-- If you have the skills to build it yourself then you should create a pull request with it. If you need some information or anything that is database related then contact me directly.
-- If you would just like to suggest something then, create a discussions page, and we can look into implementing it.
+-   If you have the skills to build it yourself then you should create a pull request with it. If you need some information or anything that is database related then contact me directly.
+-   If you would just like to suggest something then, create a discussions page, and we can look into implementing it.
 
 ## Contribute to Study Portal
 
