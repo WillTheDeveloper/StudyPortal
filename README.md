@@ -8,6 +8,17 @@ Official Discord server - https://discord.gg/ZEkX2NPWVs
 
 The idea behind Study Portal is to have one platform where students are able to work together on work where other people are doing similar subjects and help each other out.
 
+## Project Roadmap
+
+The full public roadmap is available to everyone. The link to it can be found here. [Study Portal Public Roadmap](https://github.com/Study-Portal/roadmap/projects/1)
+
+| Q/Year | Status |
+|--------|--------|
+| Q1 2022 | ✔️ On track |
+| Q2 2022 | ❔ Planned |
+| Q3 2022 | ❔ Planning |
+| Q4 2022 | ❔ Planning |
+
 ## My goal and original idea
 
 **Extracted from my [blog post](https://blog.willthedeveloper.co.uk/2022/02/20/an-ecosystem-for-students.html)**
