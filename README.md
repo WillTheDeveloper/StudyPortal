@@ -14,8 +14,8 @@ The full public roadmap is available to everyone. The link to it can be found he
 
 | Q/Year | Status |
 |--------|--------|
-| Q1 2022 | ✔️ On track |
-| Q2 2022 | ❔ Planned |
+| Q1 2022 | ✔️ Completed |
+| Q2 2022 | ✔️ Pending |
 | Q3 2022 | ❔ Planning |
 | Q4 2022 | ❔ Planning |
 
