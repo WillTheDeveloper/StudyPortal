@@ -206,6 +206,8 @@
                     </div>
                 </div>--}}
 
+
+
                 <div class="mt-8">
                     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <h2 class="text-lg leading-6 font-medium text-gray-900">Overview</h2>
@@ -225,7 +227,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Total reports</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">(Coming Soon)</div>
+                                                    <div class="text-lg font-medium text-gray-900">Null</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -233,7 +235,7 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3">
                                     <div class="text-sm">
-                                        <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View details </a>
+                                        <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900"> View all reports </a>
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +253,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Reports unresolved</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">{{auth()->user()->Assignment()->count()}}</div>
+                                                    <div class="text-lg font-medium text-gray-900">Null</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -259,7 +261,7 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3">
                                     <div class="text-sm">
-                                        <a href="{{route('assignments')}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View assignments </a>
+                                        <a href="{{route('assignments')}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all unresolved </a>
                                     </div>
                                 </div>
                             </div>
@@ -277,7 +279,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Reports resolved</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">{{auth()->user()->Post()->count() + auth()->user()->Comment()->count()}}</div>
+                                                    <div class="text-lg font-medium text-gray-900">Null</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -285,7 +287,7 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3">
                                     <div class="text-sm">
-                                        <a href="{{route('community.profile', auth()->id())}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View my contributions </a>
+                                        <a href="{{route('community.profile', auth()->id())}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all resolved </a>
                                     </div>
                                 </div>
                             </div>
