@@ -16,11 +16,15 @@ class Report extends Controller
 
     public function resolved()
     {
-
+        return view('resolved', [
+            'reports' => \App\Models\Report::query()->where('reports.resolved', true)->paginate(10)
+        ]);
     }
 
     public function unresolved()
     {
-
+        return view('unresolved', [
+            'reports' => \App\Models\Report::query()->where('reports.resolved', false)->paginate(10)
+        ]);
     }
 }

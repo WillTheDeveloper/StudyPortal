@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->boolean('resolved');
+            $table->boolean('resolved')->default(0);
             $table->integer('post_id');
             $table->integer('user_id');
-            $table->string('reason');
+            $table->string('reason')->nullable(false);
             $table->string('comment');
             $table->string('severity');
             $table->timestamps();
