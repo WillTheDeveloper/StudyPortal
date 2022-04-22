@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('reason');
             $table->string('comment');
+            $table->string('severity');
             $table->timestamps();
         });
     }
