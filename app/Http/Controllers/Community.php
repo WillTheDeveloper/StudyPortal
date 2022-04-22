@@ -7,6 +7,7 @@ use App\Http\Requests\CreateNewPost;
 use App\Http\Requests\UpdateUserComment;
 use App\Http\Requests\UpdateUserPost;
 use App\Models\Comment;
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
@@ -21,6 +22,17 @@ class Community extends Controller
         return view('communitysearch', [
             'results' => Post::search($request->input('search'))->paginate(10)
         ]);
+    }
+
+    public function like($id)
+    {
+        Like::query()->firstOrCreate(
+            [
+                'post_id' => $id,
+                'user_id' => auth()->id()
+            ]
+        )->save();
+        return redirect('community');
     }
 
     public function view()

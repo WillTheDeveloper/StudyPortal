@@ -233,6 +233,9 @@ Route::post('/settings/delete/confirmed', [User::class, 'DeleteAccount'])
 Route::post('/timetable/create', [Timetable::class, 'create'])
     ->middleware('auth')
     ->name('timetable.create');
+Route::post('/community/like/{id}', [Community::class, 'like'])
+    ->middleware(['auth', 'verified'])
+    ->name('community.like');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
