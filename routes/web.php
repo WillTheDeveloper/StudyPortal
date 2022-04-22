@@ -6,6 +6,7 @@ use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Kanban;
+use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
@@ -146,6 +147,9 @@ Route::get('/community/search', [Community::class, 'search'])
 Route::get('/timetable/add', [Timetable::class, 'add'])
     ->middleware('auth')
     ->name('timetable.add');
+Route::get('/reports/overview', [Report::class, 'overview'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('reports.overview');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
