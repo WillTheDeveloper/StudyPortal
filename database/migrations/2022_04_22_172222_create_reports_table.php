@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('post_id');
             $table->integer('user_id');
             $table->string('reason')->nullable(false);
-            $table->string('comment');
+            $table->string('comment')->nullable(true);
             $table->string('severity');
             $table->timestamps();
         });
