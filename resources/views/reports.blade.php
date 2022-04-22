@@ -227,7 +227,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Total reports</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">Null</div>
+                                                    <div class="text-lg font-medium text-gray-900">{{$stats->count()}}</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -253,7 +253,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Reports unresolved</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">Null</div>
+                                                    <div class="text-lg font-medium text-gray-900">{{$stats->where('reports.resolved', false)->count()}}</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -279,7 +279,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Reports resolved</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">Null</div>
+                                                    <div class="text-lg font-medium text-gray-900">{{$stats->where('reports.resolved', true)->count()}}</div>
                                                 </dd>
                                             </dl>
                                         </div>
