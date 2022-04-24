@@ -253,7 +253,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Reports unresolved</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">{{$stats->where('reports.resolved', false)->count()}}</div>
+                                                    <div class="text-lg font-medium text-gray-900">{{$stats->where('reports.resolved', 0)->count()}}</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -261,7 +261,7 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3">
                                     <div class="text-sm">
-                                        <a href="{{route('assignments')}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all unresolved </a>
+                                        <a href="{{route('reports.unresolved')}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all unresolved </a>
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +279,7 @@
                                             <dl>
                                                 <dt class="text-sm font-medium text-gray-500 truncate">Reports resolved</dt>
                                                 <dd>
-                                                    <div class="text-lg font-medium text-gray-900">{{$stats->where('reports.resolved', true)->count()}}</div>
+                                                    <div class="text-lg font-medium text-gray-900">{{$stats->where('reports.resolved', 1)->count()}}</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -287,7 +287,7 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3">
                                     <div class="text-sm">
-                                        <a href="{{route('community.profile', auth()->id())}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all resolved </a>
+                                        <a href="{{route('reports.resolved'}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all resolved </a>
                                     </div>
                                 </div>
                             </div>
@@ -298,10 +298,10 @@
 
                     <h2 class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">Recent reports</h2>
 
-                    <!-- Activity list (smallest breakpoint only) -->
+                    {{--<!-- Activity list (smallest breakpoint only) -->
                     <div class="shadow sm:hidden">
                         <ul role="list" class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
-{{--                            @foreach($notifications as $notif)
+                            @foreach($notifications as $notif)
                                 <li>
                                     <a href="#" class="block px-4 py-4 bg-white hover:bg-gray-50">
                                     <span class="flex items-center space-x-4">
@@ -329,13 +329,13 @@
                         </ul>
 
                         <nav class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200" aria-label="Pagination">
-{{--                            {{$notifications->links()}}--}}
-                            {{--<div class="flex-1 flex justify-between">
+                            {{$notifications->links()}}
+                            <div class="flex-1 flex justify-between">
                                 <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"> Previous </a>
                                 <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"> Next </a>
-                            </div>--}}
+                            </div>
                         </nav>
-                    </div>
+                    </div>--}}
 
                     <!-- Activity table (small breakpoint and up) -->
                     <div class="hidden sm:block">

@@ -32,7 +32,7 @@ class Report extends Controller
     {
         return view('reports', [
             'reports' => \App\Models\Report::query()->orderByDesc('created_at')->paginate(10),
-            'stats' => \App\Models\Report::query(),
+            'stats' => \App\Models\Report::query()->select('reports.resolved'),
         ]);
     }
 

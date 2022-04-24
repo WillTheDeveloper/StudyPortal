@@ -153,6 +153,12 @@ Route::get('/reports/overview', [Report::class, 'overview'])
 Route::get('/community/report/{id}', [Report::class, 'view'])
     ->middleware(['auth', 'verified'])
     ->name('community.report');
+Route::get('/reports/resolved', [Report::class, 'resolved'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.resolved');
+Route::get('/reports/unresolved', [Report::class, 'unresolved'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.unresolved');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
