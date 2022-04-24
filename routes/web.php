@@ -150,6 +150,9 @@ Route::get('/timetable/add', [Timetable::class, 'add'])
 Route::get('/reports/overview', [Report::class, 'overview'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('reports.overview');
+Route::get('/community/report/{id}', [Report::class, 'view'])
+    ->middleware(['auth', 'verified'])
+    ->name('community.report');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -240,6 +243,9 @@ Route::post('/timetable/create', [Timetable::class, 'create'])
 Route::post('/community/like/{id}', [Community::class, 'like'])
     ->middleware(['auth', 'verified'])
     ->name('community.like');
+Route::post('/community/report/{id}/submit', [Report::class, 'submit'])
+    ->middleware(['auth', 'verified'])
+    ->name('community.report.submit');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

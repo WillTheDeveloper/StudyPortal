@@ -2,10 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class Report extends Controller
 {
+    public function view($id)
+    {
+        return view('filereport', [
+            'post' => Post::query()->find($id)
+        ]);
+    }
+
+    public function submit($id, Request $request)
+    {
+        \App\Models\Report::query()->create(
+            [
+                'comment' => $request->input('info'),
+                'reason' => $request->input('content'),
+                'post_id' => $id,
+                'user_id' => $request->user()->id
+            ]
+        )->save();
+
+        return redirect(route('community', ['post' => $id]));
+    }
+
     public function overview()
     {
         return view('reports', [
