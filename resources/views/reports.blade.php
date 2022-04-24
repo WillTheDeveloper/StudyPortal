@@ -287,7 +287,7 @@
                                 </div>
                                 <div class="bg-gray-50 px-5 py-3">
                                     <div class="text-sm">
-                                        <a href="{{route('reports.resolved'}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all resolved </a>
+                                        <a href="{{route('reports.resolved')}}" class="font-medium text-cyan-700 hover:text-cyan-900"> View all resolved </a>
                                     </div>
                                 </div>
                             </div>
