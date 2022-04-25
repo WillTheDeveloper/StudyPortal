@@ -13,7 +13,7 @@ class ReportPost extends FormRequest
      */
     public function authorize()
     {
-        return auth()->check();
+        return auth()->check() && !auth()->user()->is_banned || auth()->user()->is_admin;
     }
 
     /**
