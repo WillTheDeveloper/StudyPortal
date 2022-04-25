@@ -6,6 +6,7 @@ use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Kanban;
+use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
@@ -146,6 +147,21 @@ Route::get('/community/search', [Community::class, 'search'])
 Route::get('/timetable/add', [Timetable::class, 'add'])
     ->middleware('auth')
     ->name('timetable.add');
+Route::get('/reports/overview', [Report::class, 'overview'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('reports.overview');
+Route::get('/community/report/{id}', [Report::class, 'view'])
+    ->middleware(['auth', 'verified'])
+    ->name('community.report');
+Route::get('/reports/resolved', [Report::class, 'resolved'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.resolved');
+Route::get('/reports/unresolved', [Report::class, 'unresolved'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.unresolved');
+Route::get('/reports/details/{id}', [Report::class, 'details'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('report.details');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -236,6 +252,15 @@ Route::post('/timetable/create', [Timetable::class, 'create'])
 Route::post('/community/like/{id}', [Community::class, 'like'])
     ->middleware(['auth', 'verified'])
     ->name('community.like');
+Route::post('/community/report/{id}/submit', [Report::class, 'submit'])
+    ->middleware(['auth', 'verified'])
+    ->name('community.report.submit');
+Route::post('/reports/resolve/{id}', [Report::class, 'resolve'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.resolve.id');
+Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.unresolve.id');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

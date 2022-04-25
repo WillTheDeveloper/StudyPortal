@@ -84,6 +84,12 @@
                         </x-responsive-nav-link>
                     @endif
 
+                    @if (auth()->user()->is_admin)
+                        <x-responsive-nav-link :href="route('reports.overview')" :active="request()->routeIs('reports.overview')">
+                            {{ __('Reports') }}
+                        </x-responsive-nav-link>
+                    @endif
+
                     <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
                         {{ __('Community') }}
                     </x-responsive-nav-link>
@@ -251,6 +257,12 @@
                         <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
                             {{ __('Users') }}
                         </x-responsive-nav-link>
+                @endif
+
+                @if (auth()->user()->is_admin)
+                    <x-responsive-nav-link :href="route('reports.overview')" :active="request()->routeIs('reports.overview')">
+                        {{ __('Reports') }}
+                    </x-responsive-nav-link>
                 @endif
 
                 <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
