@@ -269,7 +269,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
-                                                    <span class="text-gray-900 font-medium">{{$notif->Post->title}} </span>
+                                                    <span class="text-gray-900 font-medium"><a href="{{route('community.post', $notif->Post->id)}}">{{$notif->Post->title}}</a></span>
                                                 </td>
                                                 @switch($notif->resolved)
                                                     @case(1)
