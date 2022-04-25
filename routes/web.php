@@ -159,6 +159,9 @@ Route::get('/reports/resolved', [Report::class, 'resolved'])
 Route::get('/reports/unresolved', [Report::class, 'unresolved'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('reports.unresolved');
+Route::get('/reports/details/{id}', [Report::class, 'details'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('report.details');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -252,6 +255,12 @@ Route::post('/community/like/{id}', [Community::class, 'like'])
 Route::post('/community/report/{id}/submit', [Report::class, 'submit'])
     ->middleware(['auth', 'verified'])
     ->name('community.report.submit');
+Route::post('/reports/resolve/{id}', [Report::class, 'resolve'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.resolve.id');
+Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('reports.unresolve.id');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

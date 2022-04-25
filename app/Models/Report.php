@@ -14,7 +14,8 @@ class Report extends Model
         'user_id',
         'post_id',
         'reason',
-        'severity'
+        'severity',
+        'resolved'
     ];
 
     public function Post()

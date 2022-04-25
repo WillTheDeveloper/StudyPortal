@@ -14,6 +14,35 @@ class Report extends Controller
         ]);
     }
 
+    public function resolve($id)
+    {
+        $resolve = \App\Models\Report::query()->find($id)->update(
+            [
+                'resolved' => 1
+            ]
+        );
+
+        return redirect(route('report.details', $id));
+    }
+
+    public function unresolve($id)
+    {
+        \App\Models\Report::query()->find($id)->update(
+            [
+                'resolved' => 0
+            ]
+        );
+
+        return redirect(route('report.details', $id));
+    }
+
+    public function details($id)
+    {
+        return view('reportdetails', [
+            'data' => \App\Models\Report::query()->find($id)
+        ]);
+    }
+
     public function submit($id, Request $request)
     {
         \App\Models\Report::query()->create(
