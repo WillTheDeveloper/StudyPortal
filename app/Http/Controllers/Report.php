@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReportPost;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,7 @@ class Report extends Controller
         ]);
     }
 
-    public function submit($id, Request $request)
+    public function submit($id, ReportPost $request)
     {
         \App\Models\Report::query()->create(
             [
