@@ -9,11 +9,26 @@ class Timetable extends Controller
     public function view()
     {
         return view('timetable', [
-            'monday' => \App\Models\Timetable::query()->where('timetables.user_id', auth()->id())->where('timetables.weekday', 'Monday')->get('*'),
-            'tuesday' => \App\Models\Timetable::query()->where('timetables.user_id', auth()->id())->where('timetables.weekday', 'Tuesday')->get('*'),
-            'wednesday' => \App\Models\Timetable::query()->where('timetables.user_id', auth()->id())->where('timetables.weekday', 'Wednesday')->get('*'),
-            'thursday' => \App\Models\Timetable::query()->where('timetables.user_id', auth()->id())->where('timetables.weekday', 'Thursday')->get('*'),
-            'friday' => \App\Models\Timetable::query()->where('timetables.user_id', auth()->id())->where('timetables.weekday', 'Friday')->get('*'),
+            'monday' => \App\Models\Timetable::query()
+                ->where('timetables.user_id', auth()->id())
+                ->where('timetables.weekday', 'Monday')
+                ->get('*'),
+            'tuesday' => \App\Models\Timetable::query()
+                ->where('timetables.user_id', auth()->id())
+                ->where('timetables.weekday', 'Tuesday')
+                ->get('*'),
+            'wednesday' => \App\Models\Timetable::query()
+                ->where('timetables.user_id', auth()->id())
+                ->where('timetables.weekday', 'Wednesday')
+                ->get('*'),
+            'thursday' => \App\Models\Timetable::query()
+                ->where('timetables.user_id', auth()->id())
+                ->where('timetables.weekday', 'Thursday')
+                ->get('*'),
+            'friday' => \App\Models\Timetable::query()
+                ->where('timetables.user_id', auth()->id())
+                ->where('timetables.weekday', 'Friday')
+                ->get('*'),
         ]);
     }
 
