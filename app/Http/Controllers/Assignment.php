@@ -14,8 +14,21 @@ class Assignment extends Controller
 {
     public function manage($id)
     {
+        $hasseen = Assign::query()->find($id);
+
+        if (! $hasseen->has_seen == "1") {
+            DB::table('assignment_user')
+                ->where('assignment_id', $id)
+                ->where('user_id', auth()->id())
+                ->update(
+                    [
+                        'has_seen' => '1'
+                    ]
+                );
+        }
+
         return view('manageassignment', [
-            'assignment' => Assign::all()->where('id', $id)->find($id)
+            'assignment' => Assign::all()->find($id)
         ]);
     }
 

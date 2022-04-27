@@ -172,13 +172,13 @@
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    @switch($user->has_seen)
-                                        @case(false)
+                                    @switch($user->pivot->has_seen)
+                                        @case('0')
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                             Not seen
                                         </span>
                                         @break
-                                        @case(true)
+                                        @case('1')
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                             Seen
                                         </span>
