@@ -128,22 +128,36 @@
     <div class="text-center">
         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span class="block xl:inline">Enabling students to</span>
-            <span class="block text-indigo-600 xl:inline">collaborate</span>
+            <span class="block text-grape-600 xl:inline">collaborate</span>
         </h1>
         <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
             We are passionate to enable students to collaborate on work and be able to support each other all the time in one place.
         </p>
         <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-            <div class="rounded-md shadow">
-                <a href="{{route('register')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-                    Register
-                </a>
-            </div>
-            <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <a href="{{route('pricing')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                    Pricing
-                </a>
-            </div>
+            @guest()
+                <div class="rounded-md shadow">
+                    <a href="{{route('register')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                        Register
+                    </a>
+                </div>
+                <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                    <a href="{{route('pricing')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-grape-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                        Pricing
+                    </a>
+                </div>
+            @endguest
+            @auth()
+                    <div class="rounded-md shadow">
+                        <a href="{{route('dashboard')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-grape-600 hover:bg-grape-700 md:py-4 md:text-lg md:px-10">
+                            Dashboard
+                        </a>
+                    </div>
+                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                        <a href="{{route('settings')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-purple-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                            Settings
+                        </a>
+                    </div>
+            @endauth
         </div>
     </div>
 </main>
@@ -166,18 +180,18 @@
         </svg>
 
         <div class="relative">
-            <img class="mx-auto h-8" src="https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg" alt="Workcation">
+{{--            <img class="mx-auto h-8" src="https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg" alt="Workcation">--}}
             <blockquote class="mt-10">
-                <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900">
+                <div class="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-600">
                     <p>
                         &ldquo;My new favourite platform to get support on. Everyone is super helpful and the platform just works really well since its aimed at students.&rdquo;
                     </p>
                 </div>
                 <footer class="mt-8">
                     <div class="md:flex md:items-center md:justify-center">
-                        <div class="md:flex-shrink-0">
+                        {{--<div class="md:flex-shrink-0">
                             <img class="mx-auto h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                        </div>
+                        </div>--}}
                         <div class="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
                             <div class="text-base font-medium text-gray-900">William Burton</div>
 
@@ -185,7 +199,7 @@
                                 <path d="M11 0h3L9 20H6l5-20z" />
                             </svg>
 
-                            <div class="text-base font-medium text-gray-500">Student, College</div>
+                            <div class="text-base font-medium text-gray-600">Student, College</div>
                         </div>
                     </div>
                 </footer>
@@ -215,7 +229,7 @@
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
                             Collaboration leads to success
                         </h2>
-                        <p class="mt-4 text-lg text-gray-500">
+                        <p class="mt-4 text-lg text-white">
                             Enabling students to talk to each other and support one another with work while having the resources they need to support them during there studying years will be very beneficial for them and people yet to join the platform.
                         </p>
                         <div class="mt-6">
@@ -268,11 +282,11 @@
                         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
                             Gain access to basic tools
                         </h2>
-                        <p class="mt-4 text-lg text-gray-500">
+                        <p class="mt-4 text-lg text-white">
                             You can't have a massive platform based around collaboration if you don't have the basic needs of a student implemented alongside it. This is a platform that has it all and does it all right. Students need to know when there lessons are, so we implemented timetables.
                         </p>
                         <div class="mt-6">
-                            <a href="{{route('pricing')}}" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                            <a href="{{route('register')}}" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
                                 Register
                             </a>
                         </div>
