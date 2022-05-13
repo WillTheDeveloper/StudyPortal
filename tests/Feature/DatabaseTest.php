@@ -6,6 +6,7 @@ use App\Models\Assignment;
 use App\Models\Comment;
 use App\Models\Group;
 use App\Models\Institution;
+use App\Models\Note;
 use App\Models\Post;
 use App\Models\Report;
 use App\Models\Subject;
@@ -126,5 +127,19 @@ class DatabaseTest extends TestCase
         $this->assertModelExists($report);
         $report->delete();
         $this->assertModelMissing($report);
+    }
+
+    public function test_note_can_be_created()
+    {
+        $note = Note::factory()->create();
+        $this->assertModelExists($note);
+    }
+
+    public function test_note_can_be_deleted()
+    {
+        $note = Note::factory()->create();
+        $this->assertModelExists($note);
+        $note->delete();
+        $this->assertModelMissing($note);
     }
 }
