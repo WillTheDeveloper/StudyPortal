@@ -65,7 +65,7 @@ class AdminTest extends TestCase
         $view->assertStatus(200);
     }
 
-    /*public function test_admin_can_see_list_of_reports()
+    public function test_admin_can_see_list_of_reports()
     {
         $user = User::factory()->create(
             [
@@ -77,12 +77,12 @@ class AdminTest extends TestCase
         $post = Post::factory()->create();
         $report = Report::factory()->create(
             [
-                'post_id' => $post->get('id'),
-                'user_id' => $user->get('id')
+                'post_id' => $post->id,
+                'user_id' => $user->id,
             ]
         );
         $view = $this->get(route('reports.overview'));
         $view->assertStatus(200);
-        $view->assertSeeText($report->get('reports.reason'));
-    }*/
+        $view->assertSeeText($report->reason);
+    }
 }

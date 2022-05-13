@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Group;
 use App\Models\Institution;
 use App\Models\Post;
+use App\Models\Report;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -104,5 +105,11 @@ class DatabaseTest extends TestCase
         $institution = Institution::factory()->create();
         $institution->delete();
         $this->assertModelMissing($institution);
+    }
+
+    public function test_report_can_be_created()
+    {
+        $report = Report::factory()->create();
+        $this->assertModelExists($report);
     }
 }
