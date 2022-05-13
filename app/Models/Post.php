@@ -43,4 +43,9 @@ class Post extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
+    public function Report()
+    {
+        return $this->hasMany(Report::class);
+    }
 }

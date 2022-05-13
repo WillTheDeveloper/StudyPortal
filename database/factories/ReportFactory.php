@@ -7,9 +7,6 @@ use App\Models\Report;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Report>
- */
 class ReportFactory extends Factory
 {
 
@@ -23,12 +20,12 @@ class ReportFactory extends Factory
     public function definition()
     {
         return [
-            'resolved' => $this->faker->boolean,
+            'resolved' => $this->faker->boolean(),
             'post_id' => Post::query()->get('id')->random(),
             'user_id' => User::query()->get('id')->random(),
             'reason' => 'Testing Only',
             'severity' => 'High',
-            'comment' => $this->faker->text(25)
+            'comment' => $this->faker->unique()->text(),
         ];
     }
 }
