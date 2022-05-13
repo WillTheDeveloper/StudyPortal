@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Assignment;
 use App\Models\Comment;
 use App\Models\Group;
+use App\Models\Note;
 use App\Models\Post;
 use App\Models\Report;
 use App\Models\Subject;
@@ -260,5 +261,51 @@ class StudentTest extends TestCase
         $this->assertAuthenticated();
         $view = $this->post(route('reports.unresolve.id', $report->id));
         $view->assertUnauthorized();
+    }
+
+    public function test_student_can_see_notes()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('note.show'));
+        $view->assertStatus(200);
+    }
+
+    public function test_student_can_create_notes()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('note.create'));
+        $view->assertStatus(200);
+    }
+
+    public function test_student_can_edit_notes()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $note = Note::factory()->create(
+            [
+                'user_id' => $user->id,
+            ]
+        );
+        $view = $this->get(route('note.edit', $note->id));
+        $view->assertStatus(200);
+    }
+
+    public function test_student_can_list_notes()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $note = Note::factory()->create(
+            [
+                'user_id' => $user->id,
+            ]
+        );
+        $view = $this->get(route('note.show'));
+        $view->assertSeeText($note->name);
     }
 }

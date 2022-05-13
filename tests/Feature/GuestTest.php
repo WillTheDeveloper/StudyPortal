@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Note;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -97,6 +98,51 @@ class GuestTest extends TestCase
     public function test_guest_cant_see_users()
     {
         $render = $this->get(route('users'));
+        $render->assertRedirect('/login');
+    }
+
+    public function test_guest_cant_see_report_overview()
+    {
+        $render = $this->get(route('reports.overview'));
+        $render->assertRedirect('/login');
+    }
+
+    public function test_guest_cant_see_unresolved_reports()
+    {
+        $render = $this->get(route('reports.unresolved'));
+        $render->assertRedirect('/login');
+    }
+
+    public function test_guest_cant_see_resolved_reports()
+    {
+        $render = $this->get(route('reports.resolved'));
+        $render->assertRedirect('/login');
+    }
+
+    public function test_guest_cant_see_notes()
+    {
+        $render = $this->get(route('note.show'));
+        $render->assertRedirect('/login');
+    }
+
+    public function test_guest_cant_see_user_note()
+    {
+        $note = Note::factory()->create();
+        $render = $this->get(route('note.render', $note->id));
+        $render->assertRedirect('/login');
+    }
+
+    public function test_guest_cant_edit_user_note()
+    {
+        $note = Note::factory()->create();
+        $render = $this->get(route('note.edit', $note->id));
+        $render->assertRedirect('/login');
+    }
+
+    public function test_guest_cant_create_note()
+    {
+        $note = Note::factory()->create();
+        $render = $this->get(route('note.create'));
         $render->assertRedirect('/login');
     }
 }
