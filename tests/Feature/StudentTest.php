@@ -6,6 +6,7 @@ use App\Models\Assignment;
 use App\Models\Comment;
 use App\Models\Group;
 use App\Models\Post;
+use App\Models\Report;
 use App\Models\Subject;
 use App\Models\User;
 use Database\Factories\SubjectFactory;
@@ -212,5 +213,52 @@ class StudentTest extends TestCase
         $this->assertAuthenticated();
         $post = $this->post(route('groups.delete', $group->id));
         $post->assertUnauthorized();
+    }
+
+    public function test_student_can_not_overview_reports()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('reports.overview'));
+        $view->assertUnauthorized();
+    }
+
+    public function test_student_can_not_see_unresolved_reports()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('reports.unresolved'));
+        $view->assertUnauthorized();
+    }
+
+    public function test_student_can_not_see_resolved_reports()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->get(route('reports.resolved'));
+        $view->assertUnauthorized();
+    }
+
+    public function test_student_can_not_resolve_report()
+    {
+        $user = User::factory()->create();
+        $report = Report::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->post(route('reports.resolve.id', $report->id));
+        $view->assertUnauthorized();
+    }
+
+    public function test_student_can_not_unresolve_report()
+    {
+        $user = User::factory()->create();
+        $report = Report::factory()->create();
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $view = $this->post(route('reports.unresolve.id', $report->id));
+        $view->assertUnauthorized();
     }
 }
