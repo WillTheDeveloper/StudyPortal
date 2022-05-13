@@ -25,6 +25,7 @@ class DatabaseTest extends TestCase
     public function test_users_can_be_deleted()
     {
         $user = User::factory()->create();
+        $this->assertModelExists($user);
         $user->delete();
         $this->assertModelMissing($user);
     }
@@ -38,6 +39,7 @@ class DatabaseTest extends TestCase
     public function test_subjects_can_be_deleted()
     {
         $subject = Subject::factory()->create();
+        $this->assertModelExists($subject);
         $subject->delete();
         $this->assertModelMissing($subject);
     }
@@ -51,6 +53,7 @@ class DatabaseTest extends TestCase
     public function test_posts_can_be_deleted()
     {
         $post = Post::factory()->create();
+        $this->assertModelExists($post);
         $post->delete();
         $this->assertModelMissing($post);
     }
@@ -64,6 +67,7 @@ class DatabaseTest extends TestCase
     public function test_groups_can_be_deleted()
     {
         $group = Group::factory()->create();
+        $this->assertModelExists($group);
         $group->delete();
         $this->assertModelMissing($group);
     }
@@ -77,6 +81,7 @@ class DatabaseTest extends TestCase
     public function test_assignment_can_be_deleted()
     {
         $assignment = Assignment::factory()->create();
+        $this->assertModelExists($assignment);
         $assignment->delete();
         $this->assertModelMissing($assignment);
     }
@@ -90,6 +95,7 @@ class DatabaseTest extends TestCase
     public function test_comment_can_be_deleted()
     {
         $comment = Comment::factory()->create();
+        $this->assertModelExists($comment);
         $comment->delete();
         $this->assertModelMissing($comment);
     }
@@ -103,6 +109,7 @@ class DatabaseTest extends TestCase
     public function test_institution_can_be_deleted()
     {
         $institution = Institution::factory()->create();
+        $this->assertModelExists($institution);
         $institution->delete();
         $this->assertModelMissing($institution);
     }
@@ -111,5 +118,13 @@ class DatabaseTest extends TestCase
     {
         $report = Report::factory()->create();
         $this->assertModelExists($report);
+    }
+
+    public function test_report_can_be_deleted()
+    {
+        $report = Report::factory()->create();
+        $this->assertModelExists($report);
+        $report->delete();
+        $this->assertModelMissing($report);
     }
 }
