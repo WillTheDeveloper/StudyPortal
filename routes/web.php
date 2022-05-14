@@ -14,6 +14,7 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 
+use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\UserPostResource;
 use App\Http\Resources\UserResource;
@@ -282,10 +283,10 @@ Route::prefix('api')->group(function () {
         return new PostResource(Post::query()->findOrFail($id));
     })->middleware('auth:sanctum');
     Route::get('/posts', function () {
-        return new \App\Http\Resources\PostCollection(Post::all());
+        return new PostCollection(Post::all());
     })->middleware('auth:sanctum');
     Route::get('/user/posts', function () {
-        return new \App\Http\Resources\PostCollection(Post::all()->where('user_id', auth()->id()));
+        return new PostCollection(Post::all()->where('user_id', auth()->id()));
     })->middleware('auth:sanctum');
 });
 
