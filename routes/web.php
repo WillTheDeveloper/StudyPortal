@@ -14,6 +14,10 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 
+use App\Http\Resources\PostResource;
+use App\Http\Resources\UserPostResource;
+use App\Http\Resources\UserResource;
+use App\Models\Post;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -269,8 +273,23 @@ Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('reports.unresolve.id');
 
-//API POST ROUTES
+//API GET ROUTES
+Route::prefix('api')->group(function () {
+    Route::get('/user', function () {
+        return new UserResource(\App\Models\User::query()->findOrFail(auth()->id()));
+    })->middleware('auth:sanctum');
+    Route::get('/post/{id}', function ($id) {
+        return new PostResource(Post::query()->findOrFail($id));
+    })->middleware('auth:sanctum');
+    Route::get('/posts', function () {
+        return new \App\Http\Resources\PostCollection(Post::all());
+    })->middleware('auth:sanctum');
+    Route::get('/user/posts', function () {
+        return new \App\Http\Resources\PostCollection(Post::all()->where('user_id', auth()->id()));
+    })->middleware('auth:sanctum');
+});
 
+//API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
     $token = $request->user()->createToken($request->token_name);
 
