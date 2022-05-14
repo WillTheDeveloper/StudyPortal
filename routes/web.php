@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api;
 use App\Http\Controllers\Assignment;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
@@ -162,6 +163,12 @@ Route::get('/reports/unresolved', [Report::class, 'unresolved'])
 Route::get('/reports/details/{id}', [Report::class, 'details'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('report.details');
+Route::get('/keys', [Api::class, 'view'])
+    ->middleware(['auth', 'verified'])
+    ->name('keys.view');
+Route::get('/keys/new', [Api::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('keys.new');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -262,6 +269,14 @@ Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('reports.unresolve.id');
 
+//API POST ROUTES
+
+Route::post('/keys/create', function (Request $request) {
+    $token = $request->user()->createToken($request->token_name);
+
+    return ['token' => $token->plainTextToken];
+});
+
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
     return $request->user()->redirectToBillingPortal(route('dashboard'));
@@ -294,12 +309,10 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
-
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
