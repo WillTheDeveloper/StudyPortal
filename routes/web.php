@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api;
 use App\Http\Controllers\Assignment;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
@@ -13,6 +14,11 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 
+use App\Http\Resources\PostCollection;
+use App\Http\Resources\PostResource;
+use App\Http\Resources\UserPostResource;
+use App\Http\Resources\UserResource;
+use App\Models\Post;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -162,6 +168,12 @@ Route::get('/reports/unresolved', [Report::class, 'unresolved'])
 Route::get('/reports/details/{id}', [Report::class, 'details'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('report.details');
+Route::get('/keys', [Api::class, 'view'])
+    ->middleware(['auth', 'verified'])
+    ->name('keys.view');
+Route::get('/keys/new', [Api::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('keys.new');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -262,6 +274,29 @@ Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('reports.unresolve.id');
 
+//API GET ROUTES
+Route::prefix('api')->group(function () {
+    Route::get('/user', function () {
+        return new UserResource(\App\Models\User::query()->findOrFail(auth()->id()));
+    })->middleware('auth:sanctum');
+    Route::get('/post/{id}', function ($id) {
+        return new PostResource(Post::query()->findOrFail($id));
+    })->middleware('auth:sanctum');
+    Route::get('/posts', function () {
+        return new PostCollection(Post::all());
+    })->middleware('auth:sanctum');
+    Route::get('/user/posts', function () {
+        return new PostCollection(Post::all()->where('user_id', auth()->id()));
+    })->middleware('auth:sanctum');
+});
+
+//API POST ROUTES
+Route::post('/keys/create', function (Request $request) {
+    $token = $request->user()->createToken($request->token_name);
+
+    return ['token' => $token->plainTextToken];
+})->name('keys.create');
+
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {
     return $request->user()->redirectToBillingPortal(route('dashboard'));
@@ -294,12 +329,10 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
-
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
