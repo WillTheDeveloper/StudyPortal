@@ -275,7 +275,7 @@ Route::post('/keys/create', function (Request $request) {
     $token = $request->user()->createToken($request->token_name);
 
     return ['token' => $token->plainTextToken];
-});
+})->name('keys.create');
 
 //STRIPE
 Route::get('/billing-portal', function (Request $request) {

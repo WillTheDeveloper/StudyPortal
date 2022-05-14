@@ -10,7 +10,7 @@ class Api extends Controller
     {
         return view('apikeys',
         [
-            'token' => auth()->user()->tokens(),
+            'token' => auth()->user()->tokens()->get(),
         ]);
     }
 
