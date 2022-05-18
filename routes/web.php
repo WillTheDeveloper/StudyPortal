@@ -173,7 +173,7 @@ Route::get('/keys/new', [Api::class, 'new'])
     ->middleware(['auth', 'verified'])
     ->name('keys.new');
 Route::get('/blog', [Blog::class, 'all'])
-    ->name('blog.all');
+    ->name('blog');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
 Route::get('/blog/create', [Blog::class, 'make'])
