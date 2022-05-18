@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api;
 use App\Http\Controllers\Assignment;
+use App\Http\Controllers\Blog;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
@@ -32,9 +33,6 @@ Route::get('/', function () {
 Route::get('/features', function () {
     return view('features');
 })->name('features');
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
@@ -174,6 +172,13 @@ Route::get('/keys', [Api::class, 'view'])
 Route::get('/keys/new', [Api::class, 'new'])
     ->middleware(['auth', 'verified'])
     ->name('keys.new');
+Route::get('/blog', [Blog::class, 'all'])
+    ->name('blog.all');
+Route::get('/blog/{slug}', [Blog::class, 'show'])
+    ->name('blog.show');
+Route::get('/blog/create', [Blog::class, 'make'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('blog.create');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
