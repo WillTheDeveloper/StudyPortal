@@ -32,9 +32,9 @@ Route::get('/', function () {
 Route::get('/features', function () {
     return view('features');
 })->name('features');
-Route::get('/pricing', function () {
-    return view('pricing');
-})->name('pricing');
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
