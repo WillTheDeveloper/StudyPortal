@@ -98,11 +98,11 @@
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
 
-                    @if (!auth()->user()->subscribed('default'))
+                    {{--@if (!auth()->user()->subscribed('default'))
                         <x-responsive-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
                             {{ __('Subscribe') }}
                         </x-responsive-nav-link>
-                    @endif
+                    @endif--}}
                 </div>
                 <div class="mt-8">
                     <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
@@ -273,11 +273,11 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                @if (!auth()->user()->subscribed('default'))
+                {{--@if (!auth()->user()->subscribed('default'))
                     <x-responsive-nav-link :href="route('subscribe')" :active="request()->routeIs('subscribe')">
                         {{ __('Subscribe') }}
                     </x-responsive-nav-link>
-                @endif
+                @endif--}}
             </div>
             <div class="mt-8">
                 <!-- Secondary navigation -->
