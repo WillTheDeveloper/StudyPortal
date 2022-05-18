@@ -174,11 +174,11 @@ Route::get('/keys/new', [Api::class, 'new'])
     ->name('keys.new');
 Route::get('/blog', [Blog::class, 'all'])
     ->name('blog');
-Route::get('/blog/{slug}', [Blog::class, 'show'])
-    ->name('blog.show');
 Route::get('/blog/create', [Blog::class, 'make'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('blog.create');
+Route::get('/blog/{slug}', [Blog::class, 'show'])
+    ->name('blog.show');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -278,6 +278,9 @@ Route::post('/reports/resolve/{id}', [Report::class, 'resolve'])
 Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('reports.unresolve.id');
+Route::post('/blog/save', [Blog::class, 'postit'])
+    ->middleware(['admin', 'auth'])
+    ->name('blog.save');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {

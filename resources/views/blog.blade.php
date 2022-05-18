@@ -152,7 +152,7 @@
                 <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div class="flex-1">
                         <p class="text-sm font-medium text-indigo-600">
-                            <a href="#" class="hover:underline"> {{Str::upper($a->content_type)}} </a>
+                            <a href="?type={{$a->content_type}}" class="hover:underline"> {{Str::upper($a->content_type)}} </a>
                         </p>
                         <a href="{{route('blog.show', $a->slug)}}" class="block mt-2">
                             <p class="text-xl font-semibold text-gray-900">{{$a->title}}</p>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="ml-3">
                             <p class="text-sm font-medium text-gray-900">
-                                <a href="#" class="hover:underline"> {{$a->User->name}} </a>
+                                <a href="{{route('community.profile', $a->User->id)}}" class="hover:underline"> {{$a->User->name}} </a>
                             </p>
                             <div class="flex space-x-1 text-sm text-gray-500">
                                 <time datetime="2020-03-16"> {{$a->created_at->format('n M Y')}} </time>
