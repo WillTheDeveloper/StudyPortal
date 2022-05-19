@@ -78,7 +78,10 @@ class Blog extends Controller
     public function hidden() //GET
     {
         return view('bloghidden', [
-
+            'articles' => \App\Models\Blog::query()
+                ->where('blogs.visible', 0)
+                ->orderByDesc('blogs.created_at')
+                ->paginate(6)
         ]);
     }
 
@@ -112,11 +115,29 @@ class Blog extends Controller
 
     public function enableReplies($slug) //POST
     {
-
+        \App\Models\Blog::query()
+            ->where('blogs.slug', $slug)
+            ->where('blogs.replies', 0)
+            ->select('replies')
+            ->update(
+                [
+                    'replies' => 1
+                ]
+            );
+        return redirect(route('blog.show', $slug));
     }
 
     public function disableReplies($slug) //POST
     {
-
+        \App\Models\Blog::query()
+            ->where('blogs.slug', $slug)
+            ->where('blogs.replies', 1)
+            ->select('replies')
+            ->update(
+                [
+                    'replies' => 0
+                ]
+            );
+        return redirect(route('blog.show', $slug));
     }
 }

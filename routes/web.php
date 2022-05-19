@@ -177,11 +177,11 @@ Route::get('/blog', [Blog::class, 'all'])
 Route::get('/blog/create', [Blog::class, 'make'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('blog.create');
-Route::get('/blog/{slug}', [Blog::class, 'show'])
-    ->name('blog.show');
 Route::get('/blog/hidden', [Blog::class, 'hidden'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('blog.hidden');
+Route::get('/blog/{slug}', [Blog::class, 'show'])
+    ->name('blog.show');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -290,6 +290,12 @@ Route::post('/blog/hidden/{slug}/visible', [Blog::class, 'makeVisible'])
 Route::post('/blog/hidden/{slug}/hide', [Blog::class, 'makeHidden'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.make-hidden');
+Route::post('/blog/hidden/{slug}/enable', [Blog::class, 'enableReplies'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('blog.enable-replies');
+Route::post('/blog/hidden/{slug}/disable', [Blog::class, 'disableReplies'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('blog.disable-replies');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
