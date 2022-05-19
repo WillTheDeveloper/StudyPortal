@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api;
 use App\Http\Controllers\Assignment;
+use App\Http\Controllers\Blog;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
@@ -32,9 +33,6 @@ Route::get('/', function () {
 Route::get('/features', function () {
     return view('features');
 })->name('features');
-Route::get('/pricing', function () {
-    return view('pricing');
-})->name('pricing');
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
@@ -174,6 +172,16 @@ Route::get('/keys', [Api::class, 'view'])
 Route::get('/keys/new', [Api::class, 'new'])
     ->middleware(['auth', 'verified'])
     ->name('keys.new');
+Route::get('/blog', [Blog::class, 'all'])
+    ->name('blog');
+Route::get('/blog/create', [Blog::class, 'make'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('blog.create');
+Route::get('/blog/hidden', [Blog::class, 'hidden'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('blog.hidden');
+Route::get('/blog/{slug}', [Blog::class, 'show'])
+    ->name('blog.show');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -273,6 +281,21 @@ Route::post('/reports/resolve/{id}', [Report::class, 'resolve'])
 Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('reports.unresolve.id');
+Route::post('/blog/save', [Blog::class, 'postit'])
+    ->middleware(['admin', 'auth'])
+    ->name('blog.save');
+Route::post('/blog/{slug}/visible', [Blog::class, 'makeVisible'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('blog.make-visible');
+Route::post('/blog/{slug}/hide', [Blog::class, 'makeHidden'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('blog.make-hidden');
+Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('blog.enable-replies');
+Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('blog.disable-replies');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {

@@ -52,8 +52,8 @@
                     <a href="{{route('features')}}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Features
                     </a>
-                    <a href="{{route('pricing')}}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Pricing
+                    <a href="{{route('blog')}}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Blog
                     </a>
                     <a href="{{route('contact')}}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Contact
@@ -118,7 +118,7 @@
             <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
             <a href="{{route('home')}}" class="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
             <a href="{{route('features')}}" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Features</a>
-            <a href="{{route('pricing')}}" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Pricing</a>
+            <a href="{{route('blog')}}" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Blog</a>
             <a href="{{route('contact')}}" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Contact</a>
         </div>
     </div>
@@ -141,8 +141,8 @@
                     </a>
                 </div>
                 <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                    <a href="{{route('pricing')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-grape-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                        Pricing
+                    <a href="{{route('blog')}}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-grape-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                        Blog
                     </a>
                 </div>
             @endguest
@@ -233,7 +233,7 @@
                             Enabling students to talk to each other and support one another with work while having the resources they need to support them during there studying years will be very beneficial for them and people yet to join the platform.
                         </p>
                         <div class="mt-6">
-                            <a href="{{route('pricing')}}" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                            <a href="{{route('features')}}" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
                                 Read more!
                             </a>
                         </div>
