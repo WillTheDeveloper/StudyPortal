@@ -74,4 +74,49 @@ class Blog extends Controller
 
         return redirect(route('blog.show', $slug));
     }
+
+    public function hidden() //GET
+    {
+        return view('bloghidden', [
+
+        ]);
+    }
+
+    public function makeVisible($slug) //POST
+    {
+        \App\Models\Blog::query()
+            ->where('blogs.slug', $slug)
+            ->where('blogs.visible', 0)
+            ->select('visible')
+            ->update(
+                [
+                    'visible' => 1
+                ]
+            );
+        return redirect(route('blog.show', $slug));
+    }
+
+    public function makeHidden($slug) //POST
+    {
+        \App\Models\Blog::query()
+            ->where('blogs.slug', $slug)
+            ->where('blogs.visible', 1)
+            ->select('visible')
+            ->update(
+                [
+                    'visible' => 0
+                ]
+            );
+        return redirect(route('blog.hidden'));
+    }
+
+    public function enableReplies($slug) //POST
+    {
+
+    }
+
+    public function disableReplies($slug) //POST
+    {
+
+    }
 }

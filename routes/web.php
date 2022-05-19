@@ -179,6 +179,9 @@ Route::get('/blog/create', [Blog::class, 'make'])
     ->name('blog.create');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
+Route::get('/blog/hidden', [Blog::class, 'hidden'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('blog.hidden');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -281,6 +284,12 @@ Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
 Route::post('/blog/save', [Blog::class, 'postit'])
     ->middleware(['admin', 'auth'])
     ->name('blog.save');
+Route::post('/blog/hidden/{slug}/visible', [Blog::class, 'makeVisible'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('blog.make-visible');
+Route::post('/blog/hidden/{slug}/hide', [Blog::class, 'makeHidden'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('blog.make-hidden');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
