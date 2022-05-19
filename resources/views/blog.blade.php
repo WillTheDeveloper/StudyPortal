@@ -182,26 +182,25 @@
             @endforeach
 
         </div>
-    </div>
-</div>
 
-<div class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <div class="lg:grid lg:grid-cols-2 lg:gap-8">
-            <h2 class="max-w-md mx-auto text-3xl font-extrabold text-indigo-900 text-center lg:max-w-xl lg:text-left">The world's most innovative companies use Workflow</h2>
-            <div class="flow-root self-center mt-8 lg:mt-0">
-                <div class="-mt-4 -ml-8 flex flex-wrap justify-between lg:-ml-4">
-                    <div class="mt-4 ml-8 flex flex-grow flex-shrink-0 justify-center lg:flex-grow-0 lg:ml-4">
-                        <img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-indigo-900.svg" alt="Workcation">
+        {{--<div class="bg-white sm:rounded-lg pt-16">
+            <div class="px-4 py-5 sm:p-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900" id="renew-subscription-label">Receive notifications for new blog posts</h3>
+                <div class="mt-2 sm:flex sm:items-start sm:justify-between">
+                    <div class="max-w-xl text-sm text-gray-500">
+                        <p id="renew-subscription-description">Enable this if you want to retrieve direct notifications of when a new blog post is created.</p>
                     </div>
-                    <div class="mt-4 ml-8 flex flex-grow flex-shrink-0 justify-center lg:flex-grow-0 lg:ml-4">
-                        <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-indigo-900.svg" alt="Tuple">
-                    </div>
-                    <div class="mt-4 ml-8 flex flex-grow flex-shrink-0 justify-center lg:flex-grow-0 lg:ml-4">
-                        <img class="h-12" src="https://tailwindui.com/img/logos/level-logo-indigo-900.svg" alt="Level">
+                    <div class="mt-5 sm:mt-0 sm:ml-6 sm:flex-shrink-0 sm:flex sm:items-center">
+                        <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+                        <button type="button" class="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" role="switch" aria-checked="false" aria-labelledby="renew-subscription-label" aria-describedby="renew-subscription-description">
+                            <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                            <span aria-hidden="true" class="translate-x-0 inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>
+
+
