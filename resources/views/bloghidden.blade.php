@@ -161,24 +161,28 @@
                         </div>
                         @switch($a->visible)
                             @case(1)
-                                <form>
+                                <form method="post" action="{{route('blog.make-hidden', $a->slug)}}">
+                                    @csrf
                                     <x-button>Make Hidden</x-button>
                                 </form>
                                 @break(1)
                             @case(0)
-                                <form>
+                                <form method="post" action="{{route('blog.make-visible', $a->slug)}}">
+                                    @csrf
                                     <x-button>Make visible</x-button>
                                 </form>
                                 @break(0)
                         @endswitch
                         @switch($a->replies)
                             @case(0)
-                                <form>
+                                <form method="post" action="{{route('blog.enable-replies', $a->slug)}}">
+                                    @csrf
                                     <x-button>Enable replies</x-button>
                                 </form>
                                 @break(0)
                             @case(1)
-                                <form>
+                                <form method="post" action="{{route('blog.disable-replies', $a->slug)}}">
+                                    @csrf
                                     <x-button>Disable replies</x-button>
                                 </form>
                                 @break(1)
