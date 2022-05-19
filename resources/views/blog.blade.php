@@ -156,7 +156,7 @@
                         </p>
                         <a href="{{route('blog.show', $a->slug)}}" class="block mt-2">
                             <p class="text-xl font-semibold text-gray-900">{{$a->title}}</p>
-                            <p class="mt-3 text-base text-gray-500 line-clamp-4">{{$a->body}}</p>
+                            <p class="mt-3 text-base text-gray-500 line-clamp-2">{{$a->body}}</p>
                         </a>
                     </div>
                     <div class="mt-6 flex items-center">
