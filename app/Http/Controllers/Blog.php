@@ -42,14 +42,14 @@ class Blog extends Controller
         $v = $request->input('visible');
         $r = $request->input('responses');
 
-        if($v = !null){
+        if($v == !null){
             $x = 1;
         }
         else {
             $x = 0;
         }
 
-        if ($r = !null) {
+        if ($r == !null) {
             $y = 1;
         }
         else {
