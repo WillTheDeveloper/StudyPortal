@@ -133,26 +133,28 @@
                 <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{$content->title}}</h3>
             </div>
         </div>
-        @if (auth()->user()->is_admin)
-            <form method="post" action="{{route('blog.make-hidden', $content->slug)}}">
-                @csrf
-                <x-button>Hide</x-button>
-            </form>
-            @switch($content->replies)
-                @case(0)
-                    <form method="post" action="{{route('blog.enable-replies', $content->slug)}}">
-                        @csrf
-                        <x-button>Enable</x-button>
-                    </form>
-                @break(0)
-                @case(1)
-                    <form method="post" action="{{route('blog.disable-replies', $content->slug)}}">
-                        @csrf
-                        <x-button>Disable</x-button>
-                    </form>
-                @break(1)
-            @endswitch
-        @endif
+        @auth()
+            @if (auth()->user()->is_admin)
+                <form method="post" action="{{route('blog.make-hidden', $content->slug)}}">
+                    @csrf
+                    <x-button>Hide</x-button>
+                </form>
+                @switch($content->replies)
+                    @case(0)
+                        <form method="post" action="{{route('blog.enable-replies', $content->slug)}}">
+                            @csrf
+                            <x-button>Enable</x-button>
+                        </form>
+                    @break(0)
+                    @case(1)
+                        <form method="post" action="{{route('blog.disable-replies', $content->slug)}}">
+                            @csrf
+                            <x-button>Disable</x-button>
+                        </form>
+                    @break(1)
+                @endswitch
+            @endif
+        @endauth()
         <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
             <div class="relative lg:row-start-1 lg:col-start-2">
                 <svg class="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
