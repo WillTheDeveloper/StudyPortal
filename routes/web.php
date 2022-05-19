@@ -284,16 +284,16 @@ Route::post('/reports/unresolve/{id}', [Report::class, 'unresolve'])
 Route::post('/blog/save', [Blog::class, 'postit'])
     ->middleware(['admin', 'auth'])
     ->name('blog.save');
-Route::post('/blog/hidden/{slug}/visible', [Blog::class, 'makeVisible'])
+Route::post('/blog/{slug}/visible', [Blog::class, 'makeVisible'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.make-visible');
-Route::post('/blog/hidden/{slug}/hide', [Blog::class, 'makeHidden'])
+Route::post('/blog/{slug}/hide', [Blog::class, 'makeHidden'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.make-hidden');
-Route::post('/blog/hidden/{slug}/enable', [Blog::class, 'enableReplies'])
+Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('blog.enable-replies');
-Route::post('/blog/hidden/{slug}/disable', [Blog::class, 'disableReplies'])
+Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.disable-replies');
 

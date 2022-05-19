@@ -124,7 +124,7 @@ class Blog extends Controller
                     'replies' => 1
                 ]
             );
-        return redirect(route('blog.show', $slug));
+        return redirect(route('blog.hidden'));
     }
 
     public function disableReplies($slug) //POST
@@ -138,6 +138,6 @@ class Blog extends Controller
                     'replies' => 0
                 ]
             );
-        return redirect(route('blog.show', $slug));
+        return redirect(route('blog.hidden'));
     }
 }
