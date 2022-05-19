@@ -143,7 +143,7 @@
     </div>
     <div class="relative max-w-7xl mx-auto">
         <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-            @foreach($articles as $a)
+            @forelse($articles as $a)
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div class="flex-shrink-0">
 {{--                    https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80--}}
@@ -179,7 +179,16 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+
+            @empty
+                <div class="text-center">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                    </svg>
+                    <h3 class="mt-2 text-sm font-medium text-gray-900">No blog posts</h3>
+                    <p class="mt-1 text-sm text-gray-500">Check back later to see if anything has been posted!</p>
+                </div>
+            @endforelse
 
         </div>
 
