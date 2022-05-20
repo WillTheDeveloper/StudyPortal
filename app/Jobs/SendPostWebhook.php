@@ -26,10 +26,9 @@ class SendPostWebhook implements ShouldQueue
 
     protected $post;
 
-    public function __construct(Webhook $webhook, $post)
+    public function __construct()
     {
-        $this->webhook = $webhook;
-        $this->post = $post;
+        //
     }
 
     /**
@@ -37,7 +36,7 @@ class SendPostWebhook implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle($post)
     {
         foreach (\Auth::user()->Webhook()->get() as $w)
         {
@@ -45,10 +44,10 @@ class SendPostWebhook implements ShouldQueue
                 'content' => "New post!",
                 'embeds' => [
                     [
-                        'title' => $this->post->title,
-                        'description' => $this->post->body,
+                        'title' => $post->title,
+                        'description' => $post->body,
                         'color' => '7506394',
-                        'url' => route('community.post', $this->post->id),
+                        'url' => route('community.post', $post->id),
                     ]
                 ],
             ]);
