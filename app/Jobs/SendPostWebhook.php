@@ -39,16 +39,19 @@ class SendPostWebhook implements ShouldQueue
      */
     public function handle()
     {
-        Http::post($this->webhook->url, [
-            'content' => "New post!",
-            'embeds' => [
-                [
-                    'title' => $this->post->title,
-                    'description' => $this->post->body,
-                    'color' => '7506394',
-                    'url' => route('community.post', $this->post->id),
-                ]
-            ],
-        ]);
+        foreach (\Auth::user()->Webhook()->get() as $w)
+        {
+            Http::post($w->url, [
+                'content' => "New post!",
+                'embeds' => [
+                    [
+                        'title' => $this->post->title,
+                        'description' => $this->post->body,
+                        'color' => '7506394',
+                        'url' => route('community.post', $this->post->id),
+                    ]
+                ],
+            ]);
+        }
     }
 }

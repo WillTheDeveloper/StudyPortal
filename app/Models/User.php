@@ -63,6 +63,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Report::class);
     }
 
+    public function Webhook()
+    {
+        return $this->hasMany(Webhook::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
