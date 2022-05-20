@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Http\Request;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
@@ -23,9 +24,12 @@ class SendPostWebhook implements ShouldQueue
 
     protected $webhook;
 
-    public function __construct(Webhook $webhook)
+    protected $post;
+
+    public function __construct(Webhook $webhook, $post)
     {
         $this->webhook = $webhook;
+        $this->post = $post;
     }
 
     /**
@@ -35,16 +39,16 @@ class SendPostWebhook implements ShouldQueue
      */
     public function handle()
     {
-        Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
-//            'content' => "New post!",
-//            'embeds' => [
-//                [
-//                    'title' => ,
-//                    'description' => ,
-//                    'color' => '7506394',
-//                    'url' => ,
-//                ]
-//            ],
+        Http::post($this->webhook->url, [
+            'content' => "New post!",
+            'embeds' => [
+                [
+                    'title' => $this->post->title,
+                    'description' => $this->post->body,
+                    'color' => '7506394',
+                    'url' => route('community.post', $this->post->id),
+                ]
+            ],
         ]);
     }
 }

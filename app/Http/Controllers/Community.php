@@ -6,6 +6,7 @@ use App\Http\Requests\CreateNewComment;
 use App\Http\Requests\CreateNewPost;
 use App\Http\Requests\UpdateUserComment;
 use App\Http\Requests\UpdateUserPost;
+use App\Jobs\SendPostWebhook;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Post;
@@ -99,17 +100,7 @@ class Community extends Controller
 
         $post->save();
 
-        Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
-            'content' => "New post!",
-            'embeds' => [
-                [
-                    'title' => $request->input('title'),
-                    'description' => $request->input('text'),
-                    'color' => '7506394',
-                    'url' => route('community.post', $post->id),
-                ]
-            ],
-        ]);
+        SendPostWebhook::dispatch($post);
 
         return redirect(route('community.post', $post->id));
     }
