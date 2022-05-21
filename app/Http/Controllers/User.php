@@ -13,6 +13,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Pagination;
 use Illuminate\Support\Facades\DB;
+use Str;
 
 class User extends Controller
 {
@@ -71,7 +72,7 @@ class User extends Controller
     {
         auth()->user()->update(
             [
-                'username' => $request->input('username'),
+                'username' => Str::slug($request->input('username')),
                 'bio' => $request->input('about'),
             ]
         );
