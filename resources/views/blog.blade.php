@@ -192,6 +192,10 @@
 
         </div>
 
+        <div class="pt-3">
+            {{$articles->links()}}
+        </div>
+
         {{--<div class="bg-white sm:rounded-lg pt-16">
             <div class="px-4 py-5 sm:p-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900" id="renew-subscription-label">Receive notifications for new blog posts</h3>
