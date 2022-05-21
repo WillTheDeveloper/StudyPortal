@@ -11,8 +11,7 @@ use Tests\TestCase;
 
 class AdminTest extends TestCase
 {
-//  Test if admins can do what they need to do.
-    public function test_admin_can_see_users()
+    public function admin()
     {
         $user = User::factory()->create(
             [
@@ -21,19 +20,20 @@ class AdminTest extends TestCase
         );
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
+    }
+
+
+//  Test if admins can do what they need to do.
+    public function test_admin_can_see_users()
+    {
+        $this->admin();
         $view = $this->get(route('users'));
         $view->assertStatus(200);
     }
 
     public function test_admin_can_see_reports()
     {
-        $user = User::factory()->create(
-            [
-                'is_admin' => '1'
-            ]
-        );
-        $response = $this->actingAs($user);
-        $response->assertAuthenticated();
+        $this->admin();
         $view = $this->get(route('reports.overview'));
         $view->assertStatus(200);
         $view->assertSeeText("Recent reports");
@@ -41,39 +41,21 @@ class AdminTest extends TestCase
 
     public function test_admin_can_see_unresolved_reports()
     {
-        $user = User::factory()->create(
-            [
-                'is_admin' => '1'
-            ]
-        );
-        $response = $this->actingAs($user);
-        $response->assertAuthenticated();
+        $this->admin();
         $view = $this->get(route('reports.unresolved'));
         $view->assertStatus(200);
     }
 
     public function test_admin_can_see_resolved_reports()
     {
-        $user = User::factory()->create(
-            [
-                'is_admin' => '1'
-            ]
-        );
-        $response = $this->actingAs($user);
-        $response->assertAuthenticated();
+        $this->admin();
         $view = $this->get(route('reports.resolved'));
         $view->assertStatus(200);
     }
 
     public function test_admin_can_see_list_of_reports()
     {
-        $user = User::factory()->create(
-            [
-                'is_admin' => '1'
-            ]
-        );
-        $response = $this->actingAs($user);
-        $response->assertAuthenticated();
+        $this->admin();
         $post = Post::factory()->create();
         $report = Report::factory()->create(
             [
