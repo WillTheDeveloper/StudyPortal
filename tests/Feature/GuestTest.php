@@ -233,4 +233,16 @@ class GuestTest extends TestCase
         $post = $this->post(route('blog.disable-replies', $blog->slug));
         $post->assertRedirect(route('login'));
     }
+
+    public function test_guest_cant_see_hidden_blog_post()
+    {
+        $this->assertGuest();
+        $blog = Blog::factory()->create(
+            [
+                'visible' => 0
+            ]
+        );
+        $get = $this->get(route('blog.show', $blog->slug));
+        $get->assertNotFound();
+    }
 }
