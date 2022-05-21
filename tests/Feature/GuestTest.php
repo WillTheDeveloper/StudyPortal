@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Blog;
 use App\Models\Note;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -144,5 +145,20 @@ class GuestTest extends TestCase
         $note = Note::factory()->create();
         $render = $this->get(route('note.create'));
         $render->assertRedirect('/login');
+    }
+
+    public function test_guest_can_see_blog()
+    {
+        $render = $this->get(route('blog'));
+        $render->assertStatus(200);
+    }
+
+    public function test_guest_can_view_blog_post()
+    {
+        $blog = Blog::factory()->create();
+        $this->assertModelExists($blog);
+        $render = $this->get(route('blog.show', $blog->slug));
+        $render->assertStatus(200);
+        $render->assertSeeText($blog->title);
     }
 }
