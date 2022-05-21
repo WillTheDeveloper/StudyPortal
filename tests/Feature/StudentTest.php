@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Assignment;
+use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\Group;
 use App\Models\Note;
@@ -19,6 +20,15 @@ use Tests\TestCase;
 class StudentTest extends TestCase
 {
 //  This test it to see if students can access all the pages that they need to.
+
+    public function new_student()
+    {
+        $user = User::factory()->create();
+        $response = $this->actingAs($user);
+        $response->assertAuthenticated();
+
+        return $user;
+    }
 
     public function test_student_can_see_dashboard()
     {
@@ -307,5 +317,83 @@ class StudentTest extends TestCase
         );
         $view = $this->get(route('note.show'));
         $view->assertSeeText($note->name);
+    }
+
+    public function new_blog()
+    {
+        $b = Blog::factory()->create(
+            [
+                'visible' => 1,
+                'replies' => 0
+            ]
+        );
+        $this->assertModelExists($b);
+        return $b;
+    }
+
+    public function test_student_can_see_blog()
+    {
+        $this->new_student();
+        $b = $this->new_blog();
+        $render = $this->get(route('blog'));
+        $render->assertStatus(200);
+        $render->assertSeeText($b->title);
+    }
+
+    public function test_student_can_see_blog_post()
+    {
+        $this->new_student();
+        $b = $this->new_blog();
+        $render = $this->get(route('blog.show', $b->slug));
+        $render->assertStatus(200);
+        $render->assertSeeText($b->title);
+    }
+
+    public function test_student_cant_create_blog_post()
+    {
+        $this->new_student();
+        $render = $this->get(route('blog.create'));
+        $render->assertUnauthorized();
+    }
+
+    public function test_student_cant_see_hidden_blog_posts()
+    {
+        $this->new_student();
+        $render = $this->get(route('blog.hidden'));
+        $render->assertUnauthorized();
+    }
+
+    public function update_blog_post(string $route, $blog)
+    {
+        $post = $this->post(route($route, $blog->slug));
+        $post->assertUnauthorized();
+    }
+
+    public function test_guest_cant_make_blog_public()
+    {
+        $b = $this->new_blog();
+        $this->new_student();
+        $this->update_blog_post('blog.make-visible', $b);
+    }
+
+    public function test_guest_cant_make_blog_hidden()
+    {
+        $b = $this->new_blog();
+        $this->new_student();
+        $this->update_blog_post('blog.make-hidden', $b);
+    }
+
+    public function test_guest_cant_enable_replies_blog()
+    {
+        $b = $this->new_blog();
+        $this->new_student();
+        $this->update_blog_post('blog.enable-replies', $b);
+    }
+
+    public function test_guest_cant_disable_replies_blog()
+    {
+        $b = $this->new_blog();
+        $this->new_student();
+        $this->update_blog_post('blog.disable-replies', $b);
     }
 }
