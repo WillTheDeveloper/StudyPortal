@@ -301,16 +301,16 @@ Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
 Route::prefix('api')->group(function () {
     Route::get('/user', function () {
         return new UserResource(\App\Models\User::query()->findOrFail(auth()->id()));
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.user');
     Route::get('/post/{id}', function ($id) {
         return new PostResource(Post::query()->findOrFail($id));
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.post.id');
     Route::get('/posts', function () {
         return new PostCollection(Post::all());
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.post.collection');
     Route::get('/user/posts', function () {
         return new PostCollection(Post::all()->where('user_id', auth()->id()));
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.post.user');
 });
 
 //API POST ROUTES
