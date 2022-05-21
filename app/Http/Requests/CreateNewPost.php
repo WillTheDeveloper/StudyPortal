@@ -29,4 +29,13 @@ class CreateNewPost extends FormRequest
             'subject' => 'required|integer'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => "Enter a post title",
+            'text.required' => "Enter a body for your post",
+            'subject.required' => "Select a subject for this post"
+        ];
+    }
 }
