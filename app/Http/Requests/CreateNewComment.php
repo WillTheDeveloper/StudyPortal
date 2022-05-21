@@ -27,4 +27,13 @@ class CreateNewComment extends FormRequest
             'comment' => 'required|string|min:3|max:35'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'comment.required' => "A comment is required",
+            'comment.min' => "Comments must be more than 3 characters",
+            'comment.max' => "Comments must be less than 35 characters"
+        ];
+    }
 }
