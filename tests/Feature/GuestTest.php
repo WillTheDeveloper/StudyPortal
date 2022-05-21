@@ -23,17 +23,17 @@ class GuestTest extends TestCase
         $view->assertStatus(200);
     }
 
-    public function test_guest_can_see_pricing()
-    {
-        $view = $this->get(route('pricing'));
-        $view->assertStatus(200);
-    }
-
-    public function test_guest_can_see_contact()
-    {
-        $view = $this->get(route('pricing'));
-        $view->assertStatus(200);
-    }
+//    public function test_guest_can_see_pricing()
+//    {
+//        $view = $this->get(route('pricing'));
+//        $view->assertStatus(200);
+//    }
+//
+//    public function test_guest_can_see_contact()
+//    {
+//        $view = $this->get(route('pricing'));
+//        $view->assertStatus(200);
+//    }
 
     public function test_guest_can_see_login()
     {
