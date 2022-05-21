@@ -61,7 +61,7 @@ class AdminTest extends TestCase
         $report = Report::factory()->create(
             [
                 'post_id' => $post->id,
-                'user_id' => $user->id,
+                'user_id' => auth()->id(),
             ]
         );
         $view = $this->get(route('reports.overview'));
@@ -108,7 +108,7 @@ class AdminTest extends TestCase
         $b = $this->new_blog(1, 0);
         $this->admin();
         $post = $this->post(route('blog.make-hidden', $b->slug));
-        $post->assertRedirect(route('blog.show', $b->slug));
+        $post->assertRedirect(route('blog.hidden'));
     }
 
     public function test_admin_can_enable_replies_blog()
