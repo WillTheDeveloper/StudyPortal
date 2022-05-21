@@ -50,6 +50,38 @@ class ApiTest extends TestCase
                 'tutor' => $user->is_tutor,
                 'banned' => $user->is_banned,
             ]
-        ]);
+        ])->isValidateable();
+        $this->assertModelExists($user);
+    }
+
+    public function test_get_post_collection()
+    {
+        $this->new_user();
+        $user = auth()->user();
+        $response = $this->getJson(route('api.post.collection'));
+        $response->assertOk();
+    }
+
+    public function test_user_can_retrieve_posts()
+    {
+        $this->new_user();
+        $user = auth()->user();
+        $response = $this->getJson(route('api.post.user'));
+        $response->assertOk();
+    }
+
+    public function test_guest_cannot_retrieve_posts()
+    {
+        $this->assertGuest();
+        $response = $this->getJson(route('api.post.user'));
+        $response->assertUnauthorized();
+    }
+
+    public function test_guest_cannot_get_post_collection()
+    {
+        $this->assertGuest();
+        $this->assertModelExists(Post::factory()->create());
+        $response = $this->getJson(route('api.post.collection'));
+        $response->assertUnauthorized();
     }
 }
