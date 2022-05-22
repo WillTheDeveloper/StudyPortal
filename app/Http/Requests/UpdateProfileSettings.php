@@ -28,4 +28,12 @@ class UpdateProfileSettings extends FormRequest
             'bio' => 'string|nullable|min:2|max:60'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'username.min' => "Username must be more than 2 characters",
+            'username.max' => "Username cannot be more than 20 characters"
+        ];
+    }
 }
