@@ -91,6 +91,7 @@
     <div class="mt-4">
         <h1 class="sr-only">Recent questions</h1>
         <ul role="list" class="space-y-4">
+            @foreach($board as $d)
             <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
                 <article aria-labelledby="question-title-81614">
                     <div>
@@ -213,7 +214,7 @@
                     </div>
                 </article>
             </li>
-
+            @endforeach
             <!-- More questions... -->
         </ul>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateNewGroup;
+use App\Models\Discussion;
 use App\Models\Subject;
 use App\Models\Group as UserGroup;
 use Illuminate\Http\Request;
@@ -86,6 +87,8 @@ class Group extends Controller
 
     public function discussion($id)
     {
-        return view('groupdiscussions');
+        return view('groupdiscussions', [
+            'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->get()
+        ]);
     }
 }
