@@ -88,7 +88,7 @@ class Group extends Controller
     public function discussion($id)
     {
         return view('groupdiscussions', [
-            'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->get()
+            'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->paginate()
         ]);
     }
 }

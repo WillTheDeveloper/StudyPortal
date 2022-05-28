@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('message');
             $table->integer('group_id');
+            $table->integer('discussion_id');
             $table->timestamps();
         });
     }
