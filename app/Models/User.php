@@ -63,6 +63,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Report::class);
     }
 
+    public function Discussion()
+    {
+        return $this->hasMany(Discussion::class);
+    }
+
+    public function Reply()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
