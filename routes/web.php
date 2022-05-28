@@ -182,6 +182,9 @@ Route::get('/blog/hidden', [Blog::class, 'hidden'])
     ->name('blog.hidden');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
+Route::get('/group/{id}/discussions', [Group::class, 'discussion'])
+    ->middleware(['auth', 'verified'])
+    ->name('group.discussion');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

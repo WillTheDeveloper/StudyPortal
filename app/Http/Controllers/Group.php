@@ -83,4 +83,9 @@ class Group extends Controller
 
         return redirect(route('groups.manage', $id));
     }
+
+    public function discussion($id)
+    {
+        return view('groupdiscussions');
+    }
 }

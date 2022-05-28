@@ -287,7 +287,7 @@
                 </h3>
                 <div class="mt-1 space-y-1" role="group" aria-labelledby="desktop-teams-headline">
                     @foreach(auth()->user()->Group()->get() as $group)
-                        <a href="#"
+                        <a href="{{route('group.discussion', $group->id)}}"
                            class="group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50">
                             <span class="w-2.5 h-2.5 mr-4 bg-indigo-500 rounded-full" aria-hidden="true"></span>
                             <span class="truncate">
