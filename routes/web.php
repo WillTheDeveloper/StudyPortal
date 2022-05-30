@@ -7,6 +7,7 @@ use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Group;
+use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
@@ -182,6 +183,9 @@ Route::get('/blog/hidden', [Blog::class, 'hidden'])
     ->name('blog.hidden');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
+Route::get('/institutions', [Institution::class, 'view'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.manage');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
