@@ -18,4 +18,9 @@ class Institution extends Controller
     {
 
     }
+
+    public function create()
+    {
+
+    }
 }

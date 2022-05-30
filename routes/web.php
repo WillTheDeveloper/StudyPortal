@@ -189,6 +189,9 @@ Route::get('/institutions', [Institution::class, 'view'])
 Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.edit');
+Route::get('/institutions/new', [Institution::class, 'create'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.create');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
