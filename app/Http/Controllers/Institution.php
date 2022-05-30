@@ -10,7 +10,7 @@ class Institution extends Controller
     {
         return view('institutions',
         [
-            'all' => \App\Models\Institution::query()->orderByDesc('institutions.institution')->paginate(10),
+            'all' => \App\Models\Institution::query()->orderByDesc('institutions.institution')->paginate(25),
         ]);
     }
 }
