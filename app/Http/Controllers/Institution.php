@@ -25,4 +25,11 @@ class Institution extends Controller
     {
         return view('institutionnew');
     }
+
+    public function users($joincode)
+    {
+        return view('institutionusers', [
+            'users' => \App\Models\Institution::query()->where('institutions.joincode', $joincode)->firstOrFail()
+        ]);
+    }
 }

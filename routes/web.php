@@ -192,6 +192,9 @@ Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
 Route::get('/institutions/new', [Institution::class, 'create'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.create');
+Route::get('/institutions/{joincode}/users', [Institution::class, 'users'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.users');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
