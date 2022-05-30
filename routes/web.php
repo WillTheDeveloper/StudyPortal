@@ -299,6 +299,9 @@ Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
 Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.disable-replies');
+Route::post('/group/{id}/discussions/new', [Group::class, 'newdiscussion'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('group.new.discussion');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {

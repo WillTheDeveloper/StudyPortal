@@ -88,8 +88,38 @@
                     </div>
                 </div>
             </div>
-    <div class="mt-4">
-        <h1 class="sr-only">Recent questions</h1>
+
+            @if (auth()->user()->is_tutor)
+                <div class="pt-5 px-5">
+                    <form action="{{route('group.new.discussion', $board)}}" method="post" class="relative">
+                        <div class="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+                            <label for="title" class="sr-only">Title</label>
+                            <input type="text" name="title" id="title" class="block w-full border-0 pt-2.5 text-lg font-medium placeholder-gray-500 focus:ring-0" placeholder="Title">
+                            <label for="description" class="sr-only">Description</label>
+                            <textarea rows="2" name="description" id="description" class="block w-full border-0 py-0 resize-none placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Write a description..."></textarea>
+
+                            <!-- Spacer element to match the height of the toolbar -->
+                            <div aria-hidden="true">
+                                <div class="py-2">
+                                    <div class="h-9"></div>
+                                </div>
+                                <div class="h-px"></div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-0 inset-x-px">
+                            <div class="border-t border-gray-200 px-2 py-2 flex justify-between items-center space-x-3 sm:px-3">
+                                <div class="flex-shrink-0">
+                                    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Create</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            @endif
+
+    <div class="mt-4 px-5">
+        <h1 class="sr-only">Recent discussions</h1>
         <ul role="list" class="space-y-4">
             @foreach($board as $d)
             <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
@@ -105,7 +135,7 @@
                                 </p>
                                 <p class="text-sm text-gray-500">
                                     <a href="#" class="hover:underline">
-                                        <time datetime="2020-12-09T11:43:00">December 9 at 11:43 AM</time>
+                                        <time datetime="{{$d->created_at}}">{{$d->created_at->format('N D M Y')}}</time>
                                     </a>
                                 </p>
                             </div>
@@ -168,17 +198,17 @@
                     <div>
                         <div class="flow-root mt-6">
                             <ul role="list" class="-my-5 divide-y divide-gray-200">
-                                @foreach($d->Reply->latest()->limit(3) as $r)
+                                @foreach($d->Reply as $r)
                                 <li class="py-5">
                                     <div class="relative focus-within:ring-2 focus-within:ring-indigo-500">
                                         <h3 class="text-sm font-semibold text-gray-800">
                                             <a href="#" class="hover:underline focus:outline-none">
                                                 <!-- Extend touch target to entire panel -->
                                                 <span class="absolute inset-0" aria-hidden="true"></span>
-                                                Office closed on July 2nd
+                                                {{$r->User->name}} replied:
                                             </a>
                                         </h3>
-                                        <p class="mt-1 text-sm text-gray-600 line-clamp-2">Cum qui rem deleniti. Suscipit in dolor veritatis sequi aut. Vero ut earum quis deleniti. Ut a sunt eum cum ut repudiandae possimus. Nihil ex tempora neque cum consectetur dolores.</p>
+                                        <p class="mt-1 text-sm text-gray-600 line-clamp-2">{{$r->message}}</p>
                                     </div>
                                 </li>
                                 @endforeach

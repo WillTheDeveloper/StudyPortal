@@ -91,4 +91,9 @@ class Group extends Controller
             'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->paginate()
         ]);
     }
+
+    public function newdiscussion($id)
+    {
+
+    }
 }
