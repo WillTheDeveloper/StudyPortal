@@ -91,7 +91,7 @@
             <aside class="hidden xl:order-first xl:flex xl:flex-col flex-shrink-0 border-r border-gray-200">
                 <div class="px-6 pt-6 pb-4">
                     <h2 class="text-lg font-medium text-gray-900">All members</h2>
-                    <p class="mt-1 text-sm text-gray-600">Search directory of {{$users->count()}} members.</p>
+                    <p class="mt-1 text-sm text-gray-600">Search directory of {{$users->User->count()}} members.</p>
                     <form class="mt-6 flex space-x-4" action="#">
                         <div class="flex-1 min-w-0">
                             <label for="search" class="sr-only">Search</label>
