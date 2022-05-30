@@ -16,11 +16,11 @@ class Institution extends Controller
 
     public function manage($joincode)
     {
-
+        return view('institutionmanage');
     }
 
     public function create()
     {
-
+        return view('institutionnew');
     }
 }
