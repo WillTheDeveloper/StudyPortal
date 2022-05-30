@@ -90,6 +90,12 @@
                         </x-responsive-nav-link>
                     @endif
 
+                    @if (auth()->user()->is_admin)
+                        <x-responsive-nav-link :href="route('institution.manage')" :active="request()->routeIs('institution.manage')">
+                            {{ __('Institutions') }}
+                        </x-responsive-nav-link>
+                    @endif
+
                     <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
                         {{ __('Community') }}
                     </x-responsive-nav-link>
@@ -262,6 +268,12 @@
                 @if (auth()->user()->is_admin)
                     <x-responsive-nav-link :href="route('reports.overview')" :active="request()->routeIs('reports.overview')">
                         {{ __('Reports') }}
+                    </x-responsive-nav-link>
+                @endif
+
+                @if (auth()->user()->is_admin)
+                    <x-responsive-nav-link :href="route('institution.manage')" :active="request()->routeIs('institution.manage')">
+                        {{ __('Institutions') }}
                     </x-responsive-nav-link>
                 @endif
 
