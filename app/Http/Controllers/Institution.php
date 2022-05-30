@@ -13,4 +13,9 @@ class Institution extends Controller
             'all' => \App\Models\Institution::query()->orderByDesc('institutions.institution')->paginate(25),
         ]);
     }
+
+    public function manage($joincode)
+    {
+
+    }
 }

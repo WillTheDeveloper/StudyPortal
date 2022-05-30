@@ -186,6 +186,9 @@ Route::get('/blog/{slug}', [Blog::class, 'show'])
 Route::get('/institutions', [Institution::class, 'view'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.manage');
+Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.edit');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

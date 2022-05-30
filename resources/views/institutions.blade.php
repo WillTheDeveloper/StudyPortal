@@ -122,7 +122,7 @@
                                     <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">{{$i->joincode}}</td>
                                     <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">{{$i->User->where('is_tutor', 1)->count()}}</td>
                                     <td class="relative whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Manage<span class="sr-only">, Lindsay Walton</span></a>
+                                        <a href="{{route('institution.edit', $i->joincode)}}" class="text-indigo-600 hover:text-indigo-900">Manage<span class="sr-only">, Lindsay Walton</span></a>
                                     </td>
                                 </tr>
                             @endforeach
