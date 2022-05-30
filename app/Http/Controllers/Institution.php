@@ -8,6 +8,9 @@ class Institution extends Controller
 {
     public function view()
     {
-        return view('institutions');
+        return view('institutions',
+        [
+            'all' => \App\Models\Institution::query()->orderByDesc('institutions.institution')->paginate(10),
+        ]);
     }
 }
