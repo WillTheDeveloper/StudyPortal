@@ -16,7 +16,9 @@ class Institution extends Controller
 
     public function manage($joincode)
     {
-        return view('institutionmanage');
+        return view('institutionmanage', [
+            'institution' => \App\Models\Institution::query()->where('institutions.joincode', $joincode)->firstOrFail()
+        ]);
     }
 
     public function create()
