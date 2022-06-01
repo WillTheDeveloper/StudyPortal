@@ -143,6 +143,12 @@
                             </div>
                         </div>
                     </form>
+                    <a href="{{route('institutions.add', $institution->joincode)}}">
+                        <x-button>Add user</x-button>
+                    </a>
+                    <a href="{{route('institution.users', $institution->joincode)}}">
+                        <x-button>View users</x-button>
+                    </a>
                 </div>
             </div>
         </div>
