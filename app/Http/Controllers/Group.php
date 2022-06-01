@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateNewGroup;
 use App\Models\Discussion;
+use App\Models\Reply;
 use App\Models\Subject;
 use App\Models\Group as UserGroup;
 use Illuminate\Http\Request;
@@ -125,6 +126,7 @@ class Group extends Controller
     public function deletediscussion($id)
     {
         Discussion::query()->where('id', $id)->delete();
+        Reply::query()->where('discussion_id', $id)->delete();
 
         return redirect(route('group.discussion', $id));
     }
