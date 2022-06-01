@@ -50,4 +50,23 @@ class Institution extends Controller
     {
         return view('institutionadduser');
     }
+
+    public function process($joincode, Request $request)
+    {
+        $email = $request->input('email');
+
+        $user = \App\Models\User::query()->where('email', $email);
+
+        $id = \App\Models\Institution::query()->where('joincode', $joincode)->get('id');
+
+        if ($user->exists() and $user->get('users.institution_id') == null) {
+            $user = \App\Models\User::all()->where('email', $email)->all();
+            $user->Institution()->associate($id);
+            $user->save();
+        }
+        else {
+            abort(404, 'User not found');
+        }
+        return view(route('institution.users', $joincode));
+    }
 }

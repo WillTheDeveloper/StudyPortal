@@ -318,6 +318,9 @@ Route::post('/institutions/create', [Institution::class, 'create'])
 Route::post('/institutions/{joincode}/update', [Institution::class, 'update'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('institution.update');
+Route::post('/institutions/{joincode}/process', [Institution::class, 'process'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.process');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
