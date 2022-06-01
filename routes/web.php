@@ -186,12 +186,12 @@ Route::get('/blog/{slug}', [Blog::class, 'show'])
 Route::get('/institutions', [Institution::class, 'view'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.manage');
-Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
-    ->middleware(['auth', 'verified', 'admin'])
-    ->name('institution.edit');
 Route::get('/institutions/new', [Institution::class, 'create'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.create');
+Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.edit');
 Route::get('/institutions/{joincode}/users', [Institution::class, 'users'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.users');
