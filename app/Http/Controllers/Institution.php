@@ -28,13 +28,15 @@ class Institution extends Controller
 
     public function update($joincode, Request $request)
     {
+        $new = $request->input('joincode');
+
         $n = \App\Models\Institution::query()->where('joincode', $joincode)
             ->update([
                 'institution' => $request->input('institution'),
-                'joincode' => $request->input('joincode')
+                'joincode' => $new
             ]);
 
-        return redirect(route('institution.manage', $n->joincode));
+        return redirect(route('institution.manage'));
     }
 
     public function users($joincode)
