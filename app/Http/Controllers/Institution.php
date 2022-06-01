@@ -99,6 +99,8 @@ class Institution extends Controller
             $u->save();
         }
 
+        \App\Models\Institution::query()->where('joincode', $joincode)->delete();
+
         return redirect(route('institution.manage'));
     }
 }
