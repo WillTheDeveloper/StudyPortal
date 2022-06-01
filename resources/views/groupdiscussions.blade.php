@@ -118,6 +118,8 @@
                     </form>
                 </div>
             @endif
+        </div>
+    </div>
 
     <div class="mt-4 px-5">
         <h1 class="sr-only">Recent discussions</h1>
