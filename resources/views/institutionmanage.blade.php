@@ -89,7 +89,7 @@
                 </div>
             </div>
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div>
+    <div class="px-20">
         <dl class="mt-5 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
             <div class="px-4 py-5 sm:p-6">
                 <dt class="text-base font-normal text-gray-900">Students</dt>
