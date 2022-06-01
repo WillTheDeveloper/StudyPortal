@@ -195,6 +195,9 @@ Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
 Route::get('/institutions/{joincode}/users', [Institution::class, 'users'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.users');
+Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institutions.add');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -309,6 +312,9 @@ Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
 Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.disable-replies');
+Route::post('/institutions/create', [Institution::class, 'create'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institutions.create');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {

@@ -123,7 +123,8 @@
                 <div class="max-w-3xl mx-auto py-10 px-4 sm:px-6 lg:py-12 lg:px-8">
                     <h1 class="text-3xl font-extrabold text-blue-gray-900">{{$institution->institution}}'s settings</h1>
 
-                    <form class="mt-6 space-y-8 divide-y divide-y-blue-gray-200">
+                    <form class="mt-6 space-y-8 divide-y divide-y-blue-gray-200" method="post" action="{{--{{route()}}--}}">
+                        @csrf
                         <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6">
 
                             <div class="sm:col-span-3">

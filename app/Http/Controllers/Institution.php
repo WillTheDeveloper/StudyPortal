@@ -43,4 +43,9 @@ class Institution extends Controller
             'users' => \App\Models\Institution::query()->where('institutions.joincode', $joincode)->firstOrFail()
         ]);
     }
+
+    public function addUser($joincode)
+    {
+        return view('institutionadduser');
+    }
 }
