@@ -7,6 +7,7 @@ use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Group;
+use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
@@ -17,14 +18,12 @@ use App\Http\Controllers\Note;
 
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
-use App\Http\Resources\UserPostResource;
 use App\Http\Resources\UserResource;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
 
 // Normal routes
 Route::get('/', function () {
@@ -182,6 +181,24 @@ Route::get('/blog/hidden', [Blog::class, 'hidden'])
     ->name('blog.hidden');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
+Route::get('/institutions', [Institution::class, 'view'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.manage');
+Route::get('/institutions/new', [Institution::class, 'create'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.create');
+Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.edit');
+Route::get('/institutions/{joincode}/users', [Institution::class, 'users'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.users');
+Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institutions.add');
+Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institution.request-delete');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -296,6 +313,21 @@ Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
 Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.disable-replies');
+Route::post('/institutions/create', [Institution::class, 'create'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institutions.create');
+Route::post('/institutions/submit', [Institution::class, 'submit'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.submit');
+Route::post('/institutions/{joincode}/update', [Institution::class, 'update'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.update');
+Route::post('/institutions/{joincode}/process', [Institution::class, 'process'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.process');
+Route::post('/institutions/{joincode}/deletenow', [Institution::class, 'deletedelete'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.deletedelete');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
