@@ -185,6 +185,9 @@ Route::get('/blog/{slug}', [Blog::class, 'show'])
 Route::get('/group/{id}/discussions', [Group::class, 'discussion'])
     ->middleware(['auth', 'verified'])
     ->name('group.discussion');
+Route::get('/group/{id}/discussions/replies', [Group::class, 'replies'])
+    ->middleware(['auth', 'verified'])
+    ->name('discussions.replies');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

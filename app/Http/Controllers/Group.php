@@ -130,4 +130,9 @@ class Group extends Controller
 
         return redirect(route('group.discussion', $id));
     }
+
+    public function replies($id)
+    {
+        return view('discussionschat');
+    }
 }
