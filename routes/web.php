@@ -18,14 +18,12 @@ use App\Http\Controllers\Note;
 
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
-use App\Http\Resources\UserPostResource;
 use App\Http\Resources\UserResource;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
 
 // Normal routes
 Route::get('/', function () {
