@@ -90,9 +90,7 @@
             </div>
 
 
-            <ul role="list" class="space-y-4 px-10 pt-10">
-                <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
-                    <article aria-labelledby="question-title-81614">
+                    <article aria-labelledby="question-title-81614" class="bg-white px-10 shadow sm:p-6 sm:rounded-lg space-y-4 px-10 pt-10">
                         <div>
                             <div class="flex space-x-3">
                                 <div class="flex-shrink-0">
@@ -100,7 +98,7 @@
                                 </div>
                                 <div class="min-w-0 flex-1">
                                     <p class="text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:underline">Dries Vincent</a>
+                                        <a href="#" class="hover:underline">{{$main->User->name}}</a>
                                     </p>
                                     <p class="text-sm text-gray-500">
                                         <a href="#" class="hover:underline">
@@ -159,18 +157,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <h2 id="question-title-81614" class="mt-4 text-base font-medium text-gray-900">What would you have done differently if you ran Jurassic Park?</h2>
+                            <h2 id="question-title-81614" class="mt-4 text-base font-medium text-gray-900">{{$main->title}}</h2>
                         </div>
                         <div class="mt-2 text-sm text-gray-700 space-y-4">
-                            <p>Jurassic Park was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.</p>
-                            <p>Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be&hellip;</p>
+                            <p>{{$main->body}}</p>
                         </div>
                     </article>
-                </li>
-
-                <!-- More questions... -->
-            </ul>
-
 
                 <div class="pt-5 px-10 pb-5">
                     <form action="" method="post" class="relative">
@@ -202,32 +194,26 @@
 
 
             <ul role="list" class="space-y-4 px-10 ">
+                @foreach($replies as $r)
                 <li class="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
                     <article aria-labelledby="question-title-81614">
                         <div>
                             <div class="flex space-x-3">
                                 <div class="min-w-0 flex-1">
                                     <p class="text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:underline">Dries Vincent</a>
-                                    </p>
-                                    <p class="text-sm text-gray-500">
-                                        <a href="#" class="hover:underline">
-                                            <time datetime="2020-12-09T11:43:00">December 9 at 11:43 AM</time>
-                                        </a>
+                                        <a href="#" class="hover:underline">{{$r->User->name}}</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="mt-2 text-sm text-gray-700 space-y-4">
-                            <p>Jurassic Park was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.</p>
-                            <p>Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be&hellip;</p>
+                            <p>{{$r->message}}</p>
                         </div>
                     </article>
                 </li>
-
+                @endforeach
                 <!-- More questions... -->
             </ul>
-
-
-
+        </div>
+    </div>
 </x-app-layout>
