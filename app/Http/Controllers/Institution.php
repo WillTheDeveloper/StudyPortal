@@ -8,10 +8,12 @@ class Institution extends Controller
 {
     public function view()
     {
-        return view('institutions',
-        [
+        return view(
+            'institutions',
+            [
             'all' => \App\Models\Institution::query()->orderByDesc('institutions.institution')->paginate(25),
-        ]);
+        ]
+        );
     }
 
     public function manage($joincode)
@@ -75,8 +77,7 @@ class Institution extends Controller
             $user = \App\Models\User::all()->where('email', $email)->all();
             $user->Institution()->associate($id);
             $user->save();
-        }
-        else {
+        } else {
             abort(404, 'User not found');
         }
         return view(route('institution.users', $joincode));
@@ -93,8 +94,7 @@ class Institution extends Controller
     {
         $institution = \App\Models\Institution::query()->where('joincode', $joincode)->get('id');
 
-        foreach (\App\Models\User::query()->where('institution_id', $institution)->get('id') as $u)
-        {
+        foreach (\App\Models\User::query()->where('institution_id', $institution)->get('id') as $u) {
             $u->Instituion->dissociate($u);
             $u->save();
         }
