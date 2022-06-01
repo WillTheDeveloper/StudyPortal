@@ -81,4 +81,16 @@ class Institution extends Controller
         }
         return view(route('institution.users', $joincode));
     }
+
+    public function requestDelete($joincode)
+    {
+        return view('requestinstitutiondelete', [
+            'joincode' => $joincode
+        ]);
+    }
+
+    public function deletedelete($joincode)
+    {
+        return redirect(route('institution.manage'));
+    }
 }

@@ -198,6 +198,9 @@ Route::get('/institutions/{joincode}/users', [Institution::class, 'users'])
 Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('institutions.add');
+Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institution.request-delete');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -324,6 +327,9 @@ Route::post('/institutions/{joincode}/update', [Institution::class, 'update'])
 Route::post('/institutions/{joincode}/process', [Institution::class, 'process'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('institution.process');
+Route::post('/institutions/{joincode}/deletenow', [Institution::class, 'deletedelete'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.deletedelete');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
