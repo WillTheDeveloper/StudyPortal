@@ -315,6 +315,9 @@ Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
 Route::post('/institutions/create', [Institution::class, 'create'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('institutions.create');
+Route::post('/institutions/submit', [Institution::class, 'submit'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.submit');
 Route::post('/institutions/{joincode}/update', [Institution::class, 'update'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('institution.update');

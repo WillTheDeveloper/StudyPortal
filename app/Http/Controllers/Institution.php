@@ -26,6 +26,18 @@ class Institution extends Controller
         return view('institutionnew');
     }
 
+    public function submit(Request $request)
+    {
+        \App\Models\Institution::query()->create(
+            [
+                'joincode' => $request->input('joincode'),
+                'institution' => $request->input('name')
+            ]
+        )->save();
+
+        return redirect(route('institution.edit', $request->input('joincode')));
+    }
+
     public function update($joincode, Request $request)
     {
         $new = $request->input('joincode');
