@@ -91,6 +91,14 @@ class Institution extends Controller
 
     public function deletedelete($joincode)
     {
+        $institution = \App\Models\Institution::query()->where('joincode', $joincode)->get('id');
+
+        foreach (\App\Models\User::query()->where('institution_id', $institution)->get('id') as $u)
+        {
+            $u->Instituion->dissociate($u);
+            $u->save();
+        }
+
         return redirect(route('institution.manage'));
     }
 }
