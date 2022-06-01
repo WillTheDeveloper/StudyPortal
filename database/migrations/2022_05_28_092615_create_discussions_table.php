@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('title');
             $table->text('body');
             $table->integer('group_id');
+            $table->boolean('locked')->default(0);
             $table->integer('user_id');
             $table->timestamps();
         });

@@ -9,6 +9,13 @@ class Discussion extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'body',
+        'group_id',
+        'user_id'
+    ];
+
     public function Reply()
     {
         return $this->hasMany(Reply::class);

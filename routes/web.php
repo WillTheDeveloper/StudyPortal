@@ -302,6 +302,15 @@ Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
 Route::post('/group/{id}/discussions/new', [Group::class, 'newdiscussion'])
     ->middleware(['auth', 'verified', 'tutor'])
     ->name('group.new.discussion');
+Route::post('/group/{id}/discussions/lock', [Group::class, 'lock'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('discussions.lock');
+Route::post('/group/{id}/discussions/unlock', [Group::class, 'unlock'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('discussions.unlock');
+Route::post('/group/{id}/discussions/delete', [Group::class,'deletediscussion'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('discussions.delete');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {

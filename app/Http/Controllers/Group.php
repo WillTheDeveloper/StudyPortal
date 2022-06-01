@@ -88,12 +88,44 @@ class Group extends Controller
     public function discussion($id)
     {
         return view('groupdiscussions', [
-            'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->paginate()
+            'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->paginate(),
+            'id' => $id
         ]);
     }
 
-    public function newdiscussion($id)
+    public function newdiscussion($id, Request $request)
     {
+        Discussion::query()->create(
+            [
+                'title' => $request->input('title'),
+                'body' => $request->input('description'),
+                'user_id' => auth()->id(),
+                'locked' => 0,
+                'group_id' => $id
+            ]
+        )->save();
 
+        return redirect(route('group.discussion', $id));
+    }
+
+    public function lock($id)
+    {
+        Discussion::query()->where('id', $id)->update(['locked' => 1]);
+
+        return redirect(route('group.discussion', $id));
+    }
+
+    public function unlock($id)
+    {
+        Discussion::query()->where('id', $id)->update(['locked' => 0]);
+
+        return redirect(route('group.discussion', $id));
+    }
+
+    public function deletediscussion($id)
+    {
+        Discussion::query()->where('id', $id)->delete();
+
+        return redirect(route('group.discussion', $id));
     }
 }
