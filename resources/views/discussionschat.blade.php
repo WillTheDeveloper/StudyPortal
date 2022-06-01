@@ -98,11 +98,11 @@
                                 </div>
                                 <div class="min-w-0 flex-1">
                                     <p class="text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:underline">{{$main->User->name}}</a>
+                                        <a href="{{route('community.profile', $main->User->id)}}" class="hover:underline">{{$main->User->name}}</a>
                                     </p>
                                     <p class="text-sm text-gray-500">
                                         <a href="#" class="hover:underline">
-                                            <time datetime="2020-12-09T11:43:00">December 9 at 11:43 AM</time>
+                                            <time datetime="{{$main->created_at}}">{{$main->created_at->format('d D M Y')}}</time>
                                         </a>
                                     </p>
                                 </div>
@@ -201,7 +201,7 @@
                             <div class="flex space-x-3">
                                 <div class="min-w-0 flex-1">
                                     <p class="text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:underline">{{$r->User->name}}</a>
+                                        <a href="{{route('community.profile', $r->User->id)}}" class="hover:underline">{{$r->User->name}}</a>
                                     </p>
                                 </div>
                             </div>
