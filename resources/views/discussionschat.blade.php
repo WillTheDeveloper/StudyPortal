@@ -89,8 +89,8 @@
                 </div>
             </div>
 
-
-                    <article aria-labelledby="question-title-81614" class="bg-white px-10 shadow sm:p-6 sm:rounded-lg space-y-4 px-10 pt-10">
+                <div class="pr-10 pl-10 pt-7">
+                    <article aria-labelledby="question-title-81614" class="bg-white px-10 shadow sm:p-6 sm:rounded-lg space-y-4">
                         <div>
                             <div class="flex space-x-3">
                                 <div class="flex-shrink-0">
@@ -163,7 +163,7 @@
                             <p>{{$main->body}}</p>
                         </div>
                     </article>
-
+                </div>
                 @if($main->locked == 0)
                     <div class="pt-5 px-10 pb-5">
                         <form action="" method="post" class="relative">
