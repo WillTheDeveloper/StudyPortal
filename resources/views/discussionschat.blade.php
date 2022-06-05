@@ -168,8 +168,8 @@
                     <form action="" method="post" class="relative">
                         @csrf
                         <div class="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
-                            <label for="description" class="sr-only">Description</label>
-                            <textarea rows="2" name="description" id="description" class="block w-full border-0 py-0 pt-2 resize-none placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Write a description..."></textarea>
+                            <label for="message" class="sr-only">Description</label>
+                            <textarea rows="2" name="message" id="message" class="block w-full border-0 py-0 pt-2 resize-none placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Write a description..."></textarea>
 
                             <!-- Spacer element to match the height of the toolbar -->
                             <div aria-hidden="true">

@@ -314,6 +314,9 @@ Route::post('/group/{id}/discussions/unlock', [Group::class, 'unlock'])
 Route::post('/group/{id}/discussions/delete', [Group::class,'deletediscussion'])
     ->middleware(['auth', 'verified', 'tutor'])
     ->name('discussions.delete');
+Route::post('/group/{id}/discussions/reply', [Group::class, 'reply'])
+    ->middleware(['auth', 'verified'])
+    ->name('discussions.reply');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {

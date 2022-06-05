@@ -138,4 +138,16 @@ class Group extends Controller
             'replies' => Reply::query()->where('replies.group_id', $id)->orderByDesc('created_at')->get()
         ]);
     }
+
+    public function reply($id, Request $request)
+    {
+        Reply::query()->create(
+            [
+                'user_id' => auth()->id(),
+                'message' => $request->input('message'),
+                'discussion_id' => $id,
+
+            ]
+        );
+    }
 }
