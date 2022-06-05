@@ -106,10 +106,10 @@
                                         </a>
                                     </p>
                                 </div>
-                                <div class="flex-shrink-0 self-center flex">
+                                <div class="flex-shrink-0 self-center flex" x-data="{drop:false}">
                                     <div class="relative inline-block text-left">
                                         <div>
-                                            <button type="button" class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600" id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
+                                            <button @click="drop = true" @click.away="drop = false" type="button" class="-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600" id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
                                                 <span class="sr-only">Open options</span>
                                                 <!-- Heroicon name: solid/dots-vertical -->
                                                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -128,7 +128,7 @@
                                             From: "transform opacity-100 scale-100"
                                             To: "transform opacity-0 scale-95"
                                         -->
-                                        <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
+                                        <div x-show="drop" x-cloak class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
                                             <div class="py-1" role="none">
                                                 <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                                 <a href="#" class="text-gray-700 flex px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="options-menu-0-item-0">
