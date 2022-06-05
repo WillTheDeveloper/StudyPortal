@@ -145,8 +145,8 @@ class Group extends Controller
             [
                 'user_id' => auth()->id(),
                 'message' => $request->input('message'),
-                'discussion_id' => $id,
+                'group_id' => $id,
             ]
-        );
+        )->save();
     }
 }
