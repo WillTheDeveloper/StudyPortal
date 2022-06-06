@@ -166,7 +166,7 @@
                 </div>
                 @if($main->locked == 0)
                     <div class="pt-5 px-10 pb-5">
-                        <form action="" method="post" class="relative">
+                        <form action="{{route('discussions.reply', $main->group_id)}}" method="post" class="relative">
                             @csrf
                             <div class="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
                                 <label for="message" class="sr-only">Description</label>

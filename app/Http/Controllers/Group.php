@@ -141,12 +141,14 @@ class Group extends Controller
 
     public function reply($id, Request $request)
     {
+        $d = Discussion::query()->where('discussions.group_id', $id)->get('id')->first()->id;
+
         Reply::query()->create(
             [
                 'user_id' => auth()->id(),
                 'message' => $request->input('message'),
                 'group_id' => $id,
-                'discussion_id' => Discussion::query()->where('discussions.group_id', $id)->get('id'),
+                'discussion_id' => $d
             ]
         )->save();
 
