@@ -134,7 +134,7 @@ class Group extends Controller
     public function replies($id)
     {
         return view('discussionschat', [
-            'main' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('created_at')->firstOrFail(),
+            'main' => Discussion::query()->where('discussions.id', $id)->orderByDesc('created_at')->firstOrFail(),
             'replies' => Reply::query()->where('replies.group_id', $id)->orderByDesc('created_at')->get()
         ]);
     }
