@@ -128,7 +128,7 @@ class Group extends Controller
         Discussion::query()->where('id', $id)->delete();
         Reply::query()->where('discussion_id', $id)->delete();
 
-        return redirect(route('group.discussion', $id));
+        return redirect(route('dashboard'));
     }
 
     public function replies($id)
