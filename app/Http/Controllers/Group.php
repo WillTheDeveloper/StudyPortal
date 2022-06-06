@@ -146,7 +146,10 @@ class Group extends Controller
                 'user_id' => auth()->id(),
                 'message' => $request->input('message'),
                 'group_id' => $id,
+                'discussion_id' => Discussion::query()->where('discussions.group_id', $id)->get('id'),
             ]
         )->save();
+
+        return redirect(route('discussions.replies', $id));
     }
 }
