@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Http;
 
 class SendPostWebhook implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new job instance.
@@ -38,8 +41,7 @@ class SendPostWebhook implements ShouldQueue
      */
     public function handle($post)
     {
-        foreach (\Auth::user()->Webhook()->get() as $w)
-        {
+        foreach (\Auth::user()->Webhook()->get() as $w) {
             Http::post($w->url, [
                 'content' => "New post!",
                 'embeds' => [
