@@ -135,50 +135,80 @@
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             @switch($h->posts)
                                                 @case(1)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </span>
+                                                    <form action="{{route('webhooks.posts.disable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </button>
+                                                    </form>
                                                 @break(1)
                                                 @case(0)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </span>
+                                                    <form action="{{route('webhooks.posts.enable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </button>
+                                                    </form>
                                                 @break(0)
                                             @endswitch
                                         </td>
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             @switch($h->comments)
                                                 @case(1)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </span>
+                                                    <form action="{{route('webhooks.comments.disable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </button>
+                                                    </form>
                                                     @break(1)
                                                 @case(0)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </span>
+                                                    <form action="{{route('webhooks.comments.enable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </button>
+                                                    </form>
                                                     @break(0)
                                             @endswitch
                                         </td>
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             @switch($h->assignments)
                                                 @case(1)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </span>
+                                                    <form action="{{route('webhooks.assignments.disable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </button>
+                                                    </form>
                                                     @break(1)
                                                 @case(0)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </span>
+                                                    <form action="{{route('webhooks.assignments.enable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </button>
+                                                    </form>
                                                     @break(0)
                                             @endswitch
                                         </td>
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             @switch($h->blog)
                                                 @case(1)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </span>
+                                                    <form action="{{route('webhooks.blog.disable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Enabled </button>
+                                                    </form>
                                                     @break(1)
                                                 @case(0)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </span>
+                                                    <form action="{{route('webhooks.blog.enable', $h->id)}}" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Disabled </button>
+                                                    </form>
                                                     @break(0)
                                             @endswitch
                                         </td>
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             @switch($h->active)
                                                 @case(1)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </span>
+                                                    <form action="#" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </button>
+                                                    </form>
                                                     @break(1)
                                                 @case(0)
-                                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Inactive </span>
+                                                    <form action="#" method="post">
+                                                        @csrf
+                                                        <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Inactive </button>
+                                                    </form>
                                                     @break(0)
                                             @endswitch
                                         </td>
