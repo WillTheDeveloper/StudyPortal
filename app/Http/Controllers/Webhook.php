@@ -13,6 +13,11 @@ class Webhook extends Controller
         ]);
     }
 
+    public function new()
+    {
+        return view('webhooknew');
+    }
+
     public function createWebhook(Request $request)
     {
         \App\Models\Webhook::query()->create([

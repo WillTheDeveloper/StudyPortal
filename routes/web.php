@@ -186,6 +186,9 @@ Route::get('/blog/{slug}', [Blog::class, 'show'])
 Route::get('/webhooks', [Webhook::class, 'all'])
     ->middleware(['auth', 'verified'])
     ->name('webhook.all');
+Route::get('/webhooks/new', [Webhook::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhook.new');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -333,6 +336,9 @@ Route::post('/webhooks/{id}/disable', [Webhook::class, 'disableWebhook'])
 Route::post('/webhooks/{id}/delete', [Webhook::class, 'deleteWebhook'])
     ->middleware(['auth', 'verified'])
     ->name('webhooks.delete');
+Route::post('/webhooks/create', [Webhook::class, 'createWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.create');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
