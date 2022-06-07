@@ -18,6 +18,10 @@ return new class extends Migration
             $table->integer('user_id');
             $table->longText('url');
             $table->string('name');
+            $table->boolean('posts');
+            $table->boolean('comments');
+            $table->boolean('assignments');
+            $table->boolean('blog');
             $table->timestamps();
         });
     }
