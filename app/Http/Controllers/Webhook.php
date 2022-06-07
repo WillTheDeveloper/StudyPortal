@@ -13,13 +13,24 @@ class Webhook extends Controller
         ]);
     }
 
-    public function createWebhook()
+    public function createWebhook(Request $request)
     {
+        \App\Models\Webhook::query()->create([
+            'user_id' => auth()->id(),
+            'url' => $request->input('url'),
+            'name' => $request->input('name'),
+            'posts' => 0,
+            'comments' => 0,
+            'assignments' => 0,
+            'blog' => 0,
+            'active' => 0
+        ])->save();
         return redirect(route('webhook.all'));
     }
 
-    public function deleteWebhook()
+    public function deleteWebhook($id)
     {
+        \App\Models\Webhook::query()->find($id)->delete();
         return redirect(route('webhook.all'));
     }
 
