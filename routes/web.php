@@ -16,6 +16,7 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 
+use App\Http\Controllers\Webhook;
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\UserResource;
@@ -181,6 +182,12 @@ Route::get('/blog/hidden', [Blog::class, 'hidden'])
     ->name('blog.hidden');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
+Route::get('/webhooks', [Webhook::class, 'all'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhook.all');
+Route::get('/webhooks/new', [Webhook::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhook.new');
 Route::get('/institutions', [Institution::class, 'view'])
     ->middleware(['auth', 'verified', 'admin'])
     ->name('institution.manage');
@@ -313,6 +320,42 @@ Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
 Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.disable-replies');
+Route::post('/webhooks/{id}/posts/enable', [Webhook::class, 'enablePost'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.posts.enable');
+Route::post('/webhooks/{id}/posts/disable', [Webhook::class, 'disablePost'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.posts.disable');
+Route::post('/webhooks/{id}/comments/enable', [Webhook::class, 'enableComments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.comments.enable');
+Route::post('/webhooks/{id}/comments/disable', [Webhook::class, 'disableComments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.comments.disable');
+Route::post('/webhooks/{id}/assignments/enable', [Webhook::class, 'enableAssignments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.assignments.enable');
+Route::post('/webhooks/{id}/assignments/disable', [Webhook::class, 'disableAssignments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.assignments.disable');
+Route::post('/webhooks/{id}/blog/enable', [Webhook::class, 'enableBlog'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.blog.enable');
+Route::post('/webhooks/{id}/blog/disable', [Webhook::class, 'disableBlog'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.blog.disable');
+Route::post('/webhooks/{id}/enable', [Webhook::class, 'enableWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.enable');
+Route::post('/webhooks/{id}/disable', [Webhook::class, 'disableWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.disable');
+Route::post('/webhooks/{id}/delete', [Webhook::class, 'deleteWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.delete');
+Route::post('/webhooks/create', [Webhook::class, 'createWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.create');
 Route::post('/institutions/create', [Institution::class, 'create'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('institutions.create');

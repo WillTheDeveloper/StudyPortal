@@ -1,10 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Webhooks') }}
         </h2>
     </x-slot>
 
+    {{--<div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
     <div class="min-h-full">
 
         <!-- Main column -->
@@ -95,33 +98,51 @@
                 </div>
             </div>
 
-            <div class="px-5 py-5">
-                <div class="bg-white shadow sm:rounded-lg">
-                    <div class="px-4 py-5 sm:p-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Manage your webhooks</h3>
-                        <div class="mt-2 max-w-xl text-sm text-gray-500">
-                            <p>Here you can create and manage your {{auth()->user()->Webhook()->count()}} webhooks.</p>
+            <main class="max-w-lg mx-auto pt-10 pb-12 px-4 lg:pb-16">
+                <form action="{{route('webhooks.create')}}" method="post">
+                    @csrf
+                    <div class="space-y-6">
+                        <div>
+                            <h1 class="text-lg leading-6 font-medium text-gray-900">Webhook details</h1>
+                            <p class="mt-1 text-sm text-gray-500">Enter the details of the webhook that you want to create.</p>
                         </div>
-                        <div class="mt-5">
-                            <a href="{{route('webhook.all')}}" type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">Manage webhooks</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="px-5">
-                <div class="bg-white shadow sm:rounded-lg">
-                    <div class="px-4 py-5 sm:p-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Delete your account</h3>
-                        <div class="mt-2 max-w-xl text-sm text-gray-500">
-                            <p>Once you delete your account, you will lose all data associated with it.</p>
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700"> Name </label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border-gray-300 rounded-md">
+                            </div>
                         </div>
-                        <div class="mt-5">
-                            <a href="{{route('user.confirm-delete')}}" type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent font-medium rounded-md text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">Delete account</a>
+
+                        <div>
+                            <label for="url" class="block text-sm font-medium text-gray-700"> URL </label>
+                            <div class="mt-1">
+                                <textarea id="url" name="url" rows="3" class="block w-full shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Cancel</button>
+                            <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">Create webhook</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="rounded-md bg-blue-50 p-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <!-- Heroicon name: solid/information-circle -->
+                            <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3 flex-1 md:flex md:justify-between">
+                            <p class="text-sm text-blue-700">All the settings for this webhook will be disabled by default. You can enable these features in the webhooks page.</p>
                         </div>
                     </div>
                 </div>
-            </div>
+
+            </main>
 
 
         </div>
