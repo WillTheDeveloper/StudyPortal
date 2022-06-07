@@ -155,7 +155,7 @@
                             <a href="?type={{$a->content_type}}" class="hover:underline"> {{Str::upper($a->content_type)}} </a>
                         </p>
                         <a href="{{route('blog.show', $a->slug)}}" class="block mt-2">
-                            <p class="text-xl font-semibold text-gray-900">{{$a->title}}</p>
+                            <p class="text-xl font-semibold text-gray-900 line-clamp-3">{{$a->title}}</p>
                             <p class="mt-3 text-base text-gray-500 line-clamp-2">{{$a->body}}</p>
                         </a>
                     </div>
@@ -190,6 +190,10 @@
                 </div>
             @endforelse
 
+        </div>
+
+        <div class="pt-3">
+            {{$articles->links()}}
         </div>
 
         {{--<div class="bg-white sm:rounded-lg pt-16">

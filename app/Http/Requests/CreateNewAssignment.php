@@ -28,4 +28,13 @@ class CreateNewAssignment extends FormRequest
             'description' => 'nullable|string',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => "A title is required to create an assignment",
+            'title.min' => "Title must be at least 2 characters",
+            'title.max' => "Title must be less than 40 characters",
+        ];
+    }
 }

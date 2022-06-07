@@ -7,6 +7,7 @@ use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Group;
+use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
@@ -18,14 +19,12 @@ use App\Http\Controllers\Note;
 use App\Http\Controllers\Webhook;
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
-use App\Http\Resources\UserPostResource;
 use App\Http\Resources\UserResource;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
 
 // Normal routes
 Route::get('/', function () {
@@ -189,6 +188,24 @@ Route::get('/webhooks', [Webhook::class, 'all'])
 Route::get('/webhooks/new', [Webhook::class, 'new'])
     ->middleware(['auth', 'verified'])
     ->name('webhook.new');
+Route::get('/institutions', [Institution::class, 'view'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.manage');
+Route::get('/institutions/new', [Institution::class, 'create'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.create');
+Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.edit');
+Route::get('/institutions/{joincode}/users', [Institution::class, 'users'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.users');
+Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institutions.add');
+Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institution.request-delete');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -339,21 +356,36 @@ Route::post('/webhooks/{id}/delete', [Webhook::class, 'deleteWebhook'])
 Route::post('/webhooks/create', [Webhook::class, 'createWebhook'])
     ->middleware(['auth', 'verified'])
     ->name('webhooks.create');
+Route::post('/institutions/create', [Institution::class, 'create'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institutions.create');
+Route::post('/institutions/submit', [Institution::class, 'submit'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.submit');
+Route::post('/institutions/{joincode}/update', [Institution::class, 'update'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.update');
+Route::post('/institutions/{joincode}/process', [Institution::class, 'process'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.process');
+Route::post('/institutions/{joincode}/deletenow', [Institution::class, 'deletedelete'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.deletedelete');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
     Route::get('/user', function () {
         return new UserResource(\App\Models\User::query()->findOrFail(auth()->id()));
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.user');
     Route::get('/post/{id}', function ($id) {
         return new PostResource(Post::query()->findOrFail($id));
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.post.id');
     Route::get('/posts', function () {
         return new PostCollection(Post::all());
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.post.collection');
     Route::get('/user/posts', function () {
         return new PostCollection(Post::all()->where('user_id', auth()->id()));
-    })->middleware('auth:sanctum');
+    })->middleware('auth:sanctum')->name('api.post.user');
 });
 
 //API POST ROUTES

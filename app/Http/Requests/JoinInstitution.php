@@ -27,4 +27,13 @@ class JoinInstitution extends FormRequest
             'joincode' => 'required|max:12|min:3|string'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'joincode.required' => "You must enter a join code",
+            'joincode.min' => "Join codes are at least 3 characters",
+            'joincode.max' => "Join codes are less than 12 characters",
+        ];
+    }
 }
