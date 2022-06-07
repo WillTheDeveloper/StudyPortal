@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('comments');
             $table->boolean('assignments');
             $table->boolean('blog');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

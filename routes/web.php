@@ -15,6 +15,7 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 
+use App\Http\Controllers\Webhook;
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\UserPostResource;
@@ -182,6 +183,9 @@ Route::get('/blog/hidden', [Blog::class, 'hidden'])
     ->name('blog.hidden');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
+Route::get('/webhooks', [Webhook::class, 'all'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhook.all');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
