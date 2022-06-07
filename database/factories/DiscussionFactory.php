@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Group;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,11 @@ class DiscussionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->title,
+            'body' => $this->faker->paragraph,
+            'group_id' => Group::query()->get('id')->random(),
+            'user_id' => User::query()->get('id')->random(),
+            'locked' => $this->faker->boolean
         ];
     }
 }
