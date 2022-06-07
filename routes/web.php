@@ -330,6 +330,9 @@ Route::post('/webhooks/{id}/enable', [Webhook::class, 'enableWebhook'])
 Route::post('/webhooks/{id}/disable', [Webhook::class, 'disableWebhook'])
     ->middleware(['auth', 'verified'])
     ->name('webhooks.disable');
+Route::post('/webhooks/{id}/delete', [Webhook::class, 'deleteWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.delete');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
