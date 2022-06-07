@@ -300,6 +300,36 @@ Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
 Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.disable-replies');
+Route::post('/webhooks/{id}/posts/enable', [Webhook::class, 'enablePost'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.posts.enable');
+Route::post('/webhooks/{id}/posts/disable', [Webhook::class, 'disablePost'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.posts.disable');
+Route::post('/webhooks/{id}/comments/enable', [Webhook::class, 'enableComments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.comments.enable');
+Route::post('/webhooks/{id}/comments/disable', [Webhook::class, 'disableComments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.comments.disable');
+Route::post('/webhooks/{id}/assignments/enable', [Webhook::class, 'enableAssignments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.assignments.enable');
+Route::post('/webhooks/{id}/assignments/disable', [Webhook::class, 'disableAssignments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.assignments.disable');
+Route::post('/webhooks/{id}/blog/enable', [Webhook::class, 'enableBlog'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.blog.enable');
+Route::post('/webhooks/{id}/blog/disable', [Webhook::class, 'disableBlog'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.blog.disable');
+Route::post('/webhooks/{id}/enable', [Webhook::class, 'enableWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.enable');
+Route::post('/webhooks/{id}/disable', [Webhook::class, 'disableWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.disable');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
