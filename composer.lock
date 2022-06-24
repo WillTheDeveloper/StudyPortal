@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00787fb9d916c7cb0b4ae64647fa0188",
+    "content-hash": "ca37a04d212a476f83f0559e097fa605",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.228.1",
+            "version": "3.228.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "53b7f43945b19bb0700c75d4c5f130055096e817"
+                "reference": "e7c4d70aef99e71f9114a302ec576dc2689df283"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/53b7f43945b19bb0700c75d4c5f130055096e817",
-                "reference": "53b7f43945b19bb0700c75d4c5f130055096e817",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/e7c4d70aef99e71f9114a302ec576dc2689df283",
+                "reference": "e7c4d70aef99e71f9114a302ec576dc2689df283",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 "ext-json": "*",
                 "ext-pcre": "*",
                 "ext-simplexml": "*",
-                "guzzlehttp/guzzle": "^6.5.7 || ^7.4.4",
+                "guzzlehttp/guzzle": "^6.5.8 || ^7.4.5",
                 "guzzlehttp/promises": "^1.4.0",
                 "guzzlehttp/psr7": "^1.8.5 || ^2.3",
                 "mtdowling/jmespath.php": "^2.6",
@@ -199,9 +199,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.228.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.228.2"
             },
-            "time": "2022-06-22T18:16:48+00:00"
+            "time": "2022-06-23T18:17:44+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -2118,16 +2118,16 @@
         },
         {
             "name": "laravel/vapor-cli",
-            "version": "v1.39.0",
+            "version": "v1.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-cli.git",
-                "reference": "f1e33625d25ded9428dec238933bd330f3c52ac3"
+                "reference": "d6342089379a27c7efca84738f93631fb9c302c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-cli/zipball/f1e33625d25ded9428dec238933bd330f3c52ac3",
-                "reference": "f1e33625d25ded9428dec238933bd330f3c52ac3",
+                "url": "https://api.github.com/repos/laravel/vapor-cli/zipball/d6342089379a27c7efca84738f93631fb9c302c5",
+                "reference": "d6342089379a27c7efca84738f93631fb9c302c5",
                 "shasum": ""
             },
             "require": {
@@ -2180,9 +2180,9 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-cli/tree/v1.39.0"
+                "source": "https://github.com/laravel/vapor-cli/tree/v1.40.0"
             },
-            "time": "2022-05-23T08:25:55+00:00"
+            "time": "2022-06-23T14:05:36+00:00"
         },
         {
             "name": "laravel/vapor-core",
@@ -4526,16 +4526,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v8.7.0",
+            "version": "v8.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "07e92daf7bc4635f34542966bddaf48c2777d48d"
+                "reference": "06bfb65639cfecae7c2b57d340f740599c548753"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/07e92daf7bc4635f34542966bddaf48c2777d48d",
-                "reference": "07e92daf7bc4635f34542966bddaf48c2777d48d",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/06bfb65639cfecae7c2b57d340f740599c548753",
+                "reference": "06bfb65639cfecae7c2b57d340f740599c548753",
                 "shasum": ""
             },
             "require": {
@@ -4580,9 +4580,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v8.7.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v8.8.0"
             },
-            "time": "2022-06-17T19:22:08+00:00"
+            "time": "2022-06-23T16:42:38+00:00"
         },
         {
             "name": "symfony/console",
@@ -10143,7 +10143,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0",
+        "php": "8.1.*",
         "ext-pdo": "*"
     },
     "platform-dev": [],
