@@ -21,6 +21,7 @@ use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\UserResource;
 use App\Models\Post;
+use App\Models\Kanban as KanbanModel;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -239,7 +240,7 @@ Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
     ->middleware('auth')
     ->name('community.delete');
 Route::post('/kanban/delete/{id}', [Kanban::class, 'delete'])
-    ->middleware('auth')
+    ->middleware('auth')->middleware("owner:" . \App\Models\Kanban::class)
     ->name('kanban.delete');
 Route::post('/community/post/{id}/comment/new', [Community::class, 'CreateNewComment'])
     ->middleware('auth')
