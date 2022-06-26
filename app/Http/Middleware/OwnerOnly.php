@@ -16,7 +16,7 @@ class OwnerOnly
      */
     public function handle(Request $request, Closure $next, $model=null)
     {
-        if ((new $model)->query()->where('user_id', auth()->id())->exists()) {
+        if ((new $model())->query()->where('user_id', auth()->id())->exists()) {
             return $next($request);
         }
         $modelName = explode('\\', $model);
