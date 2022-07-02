@@ -435,3 +435,32 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// SUPPORT PAGES
+Route::get('/support', function () {
+    return view('support');
+})->name('support')->middleware('auth');
+Route::get('/support/timetable', function () {
+    return view('supporttimetable');
+})->name('support.timetable')->middleware('auth');
+Route::get('/support/assignments', function () {
+    return view('supportassignments');
+})->name('support.assignements')->middleware('auth');
+Route::get('/support/kanban', function () {
+    return view('supportkanban');
+})->name('support.kanban')->middleware('auth');
+Route::get('/support/notes', function () {
+    return view('supportnotes');
+})->name('support.notes')->middleware('auth');
+Route::get('/support/groups', function () {
+    return view('supportgroups');
+})->name('support.groups')->middleware('auth');
+Route::get('/support/community', function () {
+    return view('supportcommunity');
+})->name('support.community')->middleware('auth');
+Route::get('/support/users', function () {
+    return view('supportusers');
+})->name('support.users')->middleware('auth');
+Route::get('/support/profile', function () {
+    return view('supportprofile');
+})->name('support.profile')->middleware('auth');
