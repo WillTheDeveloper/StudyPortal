@@ -445,7 +445,7 @@ Route::get('/support/timetable', function () {
 })->name('support.timetable')->middleware('auth');
 Route::get('/support/assignments', function () {
     return view('supportassignments');
-})->name('support.assignements')->middleware('auth');
+})->name('support.assignments')->middleware('auth');
 Route::get('/support/kanban', function () {
     return view('supportkanban');
 })->name('support.kanban')->middleware('auth');
