@@ -100,8 +100,6 @@ class Community extends Controller
 
         $post->save();
 
-        SendPostWebhook::dispatch($post);
-
         return redirect(route('community.post', $post->id));
     }
 
