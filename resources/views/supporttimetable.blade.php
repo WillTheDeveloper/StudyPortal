@@ -93,7 +93,7 @@
                 <div class="max-w-7xl mx-auto py-24 sm:px-2 lg:px-4">
                     <div class="max-w-2xl mx-auto px-4 lg:max-w-none">
                         <div class="max-w-3xl">
-                            <h2 class="font-semibold text-gray-500">Timetables</h2>
+                            <h2 class="font-semibold text-gray-500">Support</h2>
                             <p class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">How to use timetables</p>
                             <p class="mt-4 text-gray-500">Timetables allow for students and tutors to store the lessons that they will have throughout the day.</p>
                         </div>
