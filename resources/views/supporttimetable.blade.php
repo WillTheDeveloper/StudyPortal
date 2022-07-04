@@ -89,6 +89,59 @@
                 </div>
             </div>
 
+            <div class="bg-white">
+                <div class="max-w-7xl mx-auto py-24 sm:px-2 lg:px-4">
+                    <div class="max-w-2xl mx-auto px-4 lg:max-w-none">
+                        <div class="max-w-3xl">
+                            <h2 class="font-semibold text-gray-500">Timetables</h2>
+                            <p class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">How to use timetables</p>
+                            <p class="mt-4 text-gray-500">Timetables allow for students and tutors to store the lessons that they will have throughout the day.</p>
+                        </div>
+
+                        <div class="space-y-16 pt-10 mt-10 border-t border-gray-200 sm:pt-16 sm:mt-16">
+                            <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center">
+                                <div class="mt-6 lg:mt-0 lg:col-span-5 xl:col-span-4">
+                                    <h3 class="text-lg font-medium text-gray-900">1. Visit the timetable section</h3>
+                                    <p class="mt-2 text-sm text-gray-500">When you are on your dashboard, you will have an option on the left called "timetable" pressing on this will take you to where you need to be for step 2.</p>
+                                    <a href="{{route('timetable')}}"><x-button>Visit timetable section</x-button></a>
+                                </div>
+                                <div class="flex-auto lg:col-span-7 xl:col-span-8">
+                                    <div class="aspect-w-5 aspect-h-2 rounded-lg bg-gray-100 overflow-hidden">
+                                        <img src="{{asset('images/timetable_support01.png')}}" alt="Printed photo of bag being tossed into the sky on top of grass." class="object-center object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center">
+                                <div class="mt-6 lg:mt-0 lg:col-span-5 xl:col-span-4">
+                                    <h3 class="text-lg font-medium text-gray-900">2. Press "Add lesson"</h3>
+                                    <p class="mt-2 text-sm text-gray-500">This will open a blank timetable if you have no lessons already. Press "Add lesson" located in the top right to visit the form to add a lesson to your timetable.</p>
+                                    <a href="{{route('timetable.add')}}"><x-button>Add lesson here</x-button></a>
+                                </div>
+                                <div class="flex-auto lg:col-span-7 xl:col-span-8">
+                                    <div class="aspect-w-5 aspect-h-2 rounded-lg bg-gray-100 overflow-hidden">
+                                        <img src="{{asset('images/timetable_support02.png')}}" alt="Double stitched black canvas hook loop." class="object-center object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-center">
+                                <div class="mt-6 lg:mt-0 lg:col-span-5 xl:col-span-4">
+                                    <h3 class="text-lg font-medium text-gray-900">3. Fill in the details and select a subject.</h3>
+                                    <p class="mt-2 text-sm text-gray-500">Fill in the form with the information that is required and when its completed, hit add lesson to view it appear on your timetable. <b>If no subjects are available, you can add these <a class="text-indigo-500" href="{{route('community.communities')}}">here</a></b>.</p>
+                                    <a href="{{route('timetable')}}"><x-button>See your timetable!</x-button></a>
+                                </div>
+                                <div class="flex-auto lg:col-span-7 xl:col-span-8">
+                                    <div class="aspect-w-5 aspect-h-2 rounded-lg bg-gray-100 overflow-hidden">
+                                        <img src="{{asset('images/timetable_support03.png')}}" alt="Black canvas body with chrome zipper and key ring." class="object-center object-cover">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </x-app-layout>
