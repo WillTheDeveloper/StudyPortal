@@ -100,7 +100,7 @@
 
                         @switch(auth()->user()->is_tutor)
                             @case(1)
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800">Support switched for tutors</span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800">Support adapted for tutors</span>
 
 
                                 <div class="space-y-16 pt-10 mt-10 border-t border-gray-200 sm:pt-16 sm:mt-16">
@@ -146,7 +146,7 @@
 
                                 @break(1)
                             @case(0)
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800">Support switched for students</span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-blue-100 text-blue-800">Support adapted for students</span>
 
 
 
