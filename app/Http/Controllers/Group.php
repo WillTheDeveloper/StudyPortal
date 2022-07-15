@@ -102,7 +102,7 @@ class Group extends Controller
                 'body' => $request->input('description'),
                 'user_id' => auth()->id(),
                 'locked' => 0,
-                'group_id' => $id
+                'group_id' => $id //This is wrong, should be group id, this ID is the discussion id.
             ]
         )->save();
 
@@ -135,19 +135,19 @@ class Group extends Controller
     {
         return view('discussionschat', [
             'main' => Discussion::query()->where('discussions.id', $id)->orderByDesc('created_at')->firstOrFail(),
-            'replies' => Reply::query()->where('replies.group_id', $id)->orderByDesc('created_at')->get()
+            'replies' => Reply::query()->where('replies.discussion_id', $id)->orderByDesc('created_at')->get()
         ]);
     }
 
     public function reply($id, Request $request)
     {
-        $d = Discussion::query()->where('discussions.group_id', $id)->get('id')->first()->id;
+        $d = Discussion::query()->where('discussions.id', $id)->get('id')->first()->id;
 
         Reply::query()->create(
             [
                 'user_id' => auth()->id(),
                 'message' => $request->input('message'),
-                'group_id' => $id,
+                'group_id' => $id, // furthermore this is incorrect.
                 'discussion_id' => $d
             ]
         )->save();
