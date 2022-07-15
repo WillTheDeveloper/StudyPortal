@@ -16,9 +16,16 @@ class CommentAdded extends Notification
      *
      * @return void
      */
-    public function __construct()
+
+    public $comment;
+    public $user;
+    public $post;
+
+    public function __construct($comment)
     {
-        //
+        $this->comment = $comment->comment;
+        $this->user = $comment->User->name;
+        $this->post = $comment->Post->title;
     }
 
     /**
@@ -29,7 +36,7 @@ class CommentAdded extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database', 'mail'];
     }
 
     /**
@@ -56,6 +63,14 @@ class CommentAdded extends Notification
     {
         return [
             //
+        ];
+    }
+
+    public function toDatabase($notifiable) {
+        return [
+            'comment' => $this->comment,
+            'user' => $this->user,
+            'post' => $this->post
         ];
     }
 }
