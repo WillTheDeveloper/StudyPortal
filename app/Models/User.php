@@ -12,7 +12,11 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, Billable, TwoFactorAuthenticatable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+    use Billable;
+    use TwoFactorAuthenticatable;
 
     public function Institution()
     {
@@ -54,7 +58,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Note::class);
     }
 
-    public function Like() {
+    public function Like()
+    {
         return $this->hasMany(Like::class);
     }
 

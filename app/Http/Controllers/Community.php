@@ -79,7 +79,8 @@ class Community extends Controller
         return view('trending');
     }
 
-    public function showSubject($id) {
+    public function showSubject($id)
+    {
         return view('communitysubject', [
             'posts' => Post::all()->where('subject_id', $id)
         ]);
