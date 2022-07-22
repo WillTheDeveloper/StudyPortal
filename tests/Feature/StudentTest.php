@@ -19,7 +19,7 @@ use Tests\TestCase;
 
 class StudentTest extends TestCase
 {
-//  This test it to see if students can access all the pages that they need to.
+    //  This test it to see if students can access all the pages that they need to.
 
     public function new_student()
     {
