@@ -109,13 +109,13 @@
                         <h1 class="text-2xl font-bold text-gray-900 truncate">
                             {{$user->name}}
                             @if ($user->is_moderator)
-                                (Moderator)
+                                <span class="text-grape-500">(Moderator)</span>
                             @endif
                             @if ($user->is_admin)
-                                (Admin)
+                                <span class="text-red-500">(Admin)</span>
                             @endif
                             @if ($user->is_tutor)
-                                (Tutor)
+                                <span class="text-green-500">(Tutor)</span>
                             @endif
                         </h1>
                     </div>
