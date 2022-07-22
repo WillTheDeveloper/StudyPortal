@@ -7,6 +7,7 @@ use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Group;
+use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
@@ -15,16 +16,16 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 
+use App\Http\Controllers\Webhook;
 use App\Http\Resources\PostCollection;
 use App\Http\Resources\PostResource;
-use App\Http\Resources\UserPostResource;
 use App\Http\Resources\UserResource;
 use App\Models\Post;
+use App\Models\Kanban as KanbanModel;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
 
 // Normal routes
 Route::get('/', function () {
@@ -188,6 +189,30 @@ Route::get('/group/{id}/discussions', [Group::class, 'discussion'])
 Route::get('/group/{id}/discussions/replies', [Group::class, 'replies'])
     ->middleware(['auth', 'verified'])
     ->name('discussions.replies');
+Route::get('/webhooks', [Webhook::class, 'all'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhook.all');
+Route::get('/webhooks/new', [Webhook::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhook.new');
+Route::get('/institutions', [Institution::class, 'view'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.manage');
+Route::get('/institutions/new', [Institution::class, 'create'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.create');
+Route::get('/institutions/{joincode}', [Institution::class, 'manage'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.edit');
+Route::get('/institutions/{joincode}/users', [Institution::class, 'users'])
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('institution.users');
+Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institutions.add');
+Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institution.request-delete');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -221,7 +246,7 @@ Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
     ->middleware('auth')
     ->name('community.delete');
 Route::post('/kanban/delete/{id}', [Kanban::class, 'delete'])
-    ->middleware('auth')
+    ->middleware('auth')->middleware("owner:" . \App\Models\Kanban::class)
     ->name('kanban.delete');
 Route::post('/community/post/{id}/comment/new', [Community::class, 'CreateNewComment'])
     ->middleware('auth')
@@ -317,6 +342,60 @@ Route::post('/group/{id}/discussions/delete', [Group::class,'deletediscussion'])
 Route::post('/group/{id}/discussions/reply', [Group::class, 'reply'])
     ->middleware(['auth', 'verified'])
     ->name('discussions.reply');
+Route::post('/webhooks/{id}/posts/enable', [Webhook::class, 'enablePost'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.posts.enable');
+Route::post('/webhooks/{id}/posts/disable', [Webhook::class, 'disablePost'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.posts.disable');
+Route::post('/webhooks/{id}/comments/enable', [Webhook::class, 'enableComments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.comments.enable');
+Route::post('/webhooks/{id}/comments/disable', [Webhook::class, 'disableComments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.comments.disable');
+Route::post('/webhooks/{id}/assignments/enable', [Webhook::class, 'enableAssignments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.assignments.enable');
+Route::post('/webhooks/{id}/assignments/disable', [Webhook::class, 'disableAssignments'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.assignments.disable');
+Route::post('/webhooks/{id}/blog/enable', [Webhook::class, 'enableBlog'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.blog.enable');
+Route::post('/webhooks/{id}/blog/disable', [Webhook::class, 'disableBlog'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.blog.disable');
+Route::post('/webhooks/{id}/enable', [Webhook::class, 'enableWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.enable');
+Route::post('/webhooks/{id}/disable', [Webhook::class, 'disableWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.disable');
+Route::post('/webhooks/{id}/delete', [Webhook::class, 'deleteWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.delete');
+Route::post('/webhooks/create', [Webhook::class, 'createWebhook'])
+    ->middleware(['auth', 'verified'])
+    ->name('webhooks.create');
+Route::post('/institutions/create', [Institution::class, 'create'])
+    ->middleware(['admin', 'auth', 'verified'])
+    ->name('institutions.create');
+Route::post('/institutions/submit', [Institution::class, 'submit'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.submit');
+Route::post('/institutions/{joincode}/update', [Institution::class, 'update'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.update');
+Route::post('/institutions/{joincode}/process', [Institution::class, 'process'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.process');
+Route::post('/institutions/{joincode}/deletenow', [Institution::class, 'deletedelete'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('institution.deletedelete');
+Route::post('/community/user/{id}/privacy', [Community::class, 'updatePrivacy'])
+    ->middleware(['auth', 'verified'])
+    ->name('community.update-privacy');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
@@ -380,3 +459,32 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// SUPPORT PAGES
+Route::get('/support', function () {
+    return view('support');
+})->name('support')->middleware('auth');
+Route::get('/support/timetable', function () {
+    return view('supporttimetable');
+})->name('support.timetable')->middleware('auth');
+Route::get('/support/assignments', function () {
+    return view('supportassignments');
+})->name('support.assignments')->middleware('auth');
+Route::get('/support/kanban', function () {
+    return view('supportkanban');
+})->name('support.kanban')->middleware('auth');
+Route::get('/support/notes', function () {
+    return view('supportnotes');
+})->name('support.notes')->middleware('auth');
+Route::get('/support/groups', function () {
+    return view('supportgroups');
+})->name('support.groups')->middleware('auth');
+Route::get('/support/community', function () {
+    return view('supportcommunity');
+})->name('support.community')->middleware('auth');
+Route::get('/support/users', function () {
+    return view('supportusers');
+})->name('support.users')->middleware('auth');
+Route::get('/support/profile', function () {
+    return view('supportprofile');
+})->name('support.profile')->middleware('auth');

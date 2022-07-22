@@ -70,5 +70,8 @@ class Kernel extends HttpKernel
         'subscribed' => EnsureUserIsSubscribed::class,
         'tutor' => EnsureUserIsTutor::class,
         'admin' => EnsureUserIsAdmin::class,
+
+        'owner' => \App\Http\Middleware\OwnerOnly::class,
+
     ];
 }

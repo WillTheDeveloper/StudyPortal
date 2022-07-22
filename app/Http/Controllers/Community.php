@@ -6,6 +6,7 @@ use App\Http\Requests\CreateNewComment;
 use App\Http\Requests\CreateNewPost;
 use App\Http\Requests\UpdateUserComment;
 use App\Http\Requests\UpdateUserPost;
+use App\Jobs\SendPostWebhook;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Post;
@@ -47,8 +48,8 @@ class Community extends Controller
     {
         return view('communityuser', [
             'user' => User::query()->where('users.id', $id)->findOrFail($id),
-            'posts' => Post::query()->where('posts.user_id', $id)->orderByDesc('created_at')->paginate(5),
-            'comments' => Comment::query()->where('comments.user_id', $id)->orderByDesc('created_at')->limit(5)->get('*'),
+            'posts' => Post::query()->where('posts.user_id', $id)->orderByDesc('created_at')->limit(5)->get(),
+            'comments' => Comment::query()->where('comments.user_id', $id)->orderByDesc('created_at')->limit(5)->get(),
         ]);
     }
 
@@ -99,18 +100,6 @@ class Community extends Controller
 
         $post->save();
 
-        Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
-            'content' => "New post!",
-            'embeds' => [
-                [
-                    'title' => $request->input('title'),
-                    'description' => $request->input('text'),
-                    'color' => '7506394',
-                    'url' => route('community.post', $post->id),
-                ]
-            ],
-        ]);
-
         return redirect(route('community.post', $post->id));
     }
 
@@ -118,8 +107,7 @@ class Community extends Controller
     {
         $post = Post::all()->find($id);
         $post->delete();
-        $comments = Comment::all()->where('post_id', $id)->find($id);
-        $comments->delete();
+        $comments = Comment::query()->where('post_id', $id)->delete();
 
         return redirect(route('community'));
     }
@@ -196,5 +184,25 @@ class Community extends Controller
         $comment->delete();
 
         return back();
+    }
+
+    public function updatePrivacy(Request $request, $id)
+    {
+        $bio = $request->input('bio');
+        $privacy = $request->input('privacy');
+        $contact = $request->input('contact');
+
+//        dd([$bio, $privacy, $contact]);
+
+        User::query()->findOrFail($id)
+            ->update(
+                [
+                    'bio' => $bio,
+                    'private' => $privacy,
+                    'contact' => $contact,
+                ]
+            );
+
+        return redirect(route('community.profile', $id));
     }
 }

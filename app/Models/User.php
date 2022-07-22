@@ -72,6 +72,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Reply::class);
     }
+    
+    public function Webhook()
+    {
+        return $this->hasMany(Webhook::class);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -109,6 +114,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_tutor' => 'boolean',
         'is_admin' => 'boolean',
         'is_moderator' => 'boolean',
-        'is_banned' => 'boolean'
+        'is_banned' => 'boolean',
+        'private' => 'boolean',
+        'contact' => 'boolean'
     ];
 }

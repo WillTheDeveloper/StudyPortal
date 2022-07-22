@@ -90,6 +90,12 @@
                         </x-responsive-nav-link>
                     @endif
 
+                    @if (auth()->user()->is_admin)
+                        <x-responsive-nav-link :href="route('institution.manage')" :active="request()->routeIs('institution.manage')">
+                            {{ __('Institutions') }}
+                        </x-responsive-nav-link>
+                    @endif
+
                     <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
                         {{ __('Community') }}
                     </x-responsive-nav-link>
@@ -194,7 +200,7 @@
                 <div class="py-1" role="none">
                     <a href="{{route('keys.view')}}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                        id="options-menu-item-3">API Keys</a>
-                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                    <a href="{{route('support')}}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                        id="options-menu-item-4">Support</a>
                 </div>
                 <div class="py-1" role="none">
@@ -262,6 +268,12 @@
                 @if (auth()->user()->is_admin)
                     <x-responsive-nav-link :href="route('reports.overview')" :active="request()->routeIs('reports.overview')">
                         {{ __('Reports') }}
+                    </x-responsive-nav-link>
+                @endif
+
+                @if (auth()->user()->is_admin)
+                    <x-responsive-nav-link :href="route('institution.manage')" :active="request()->routeIs('institution.manage')">
+                        {{ __('Institutions') }}
                     </x-responsive-nav-link>
                 @endif
 

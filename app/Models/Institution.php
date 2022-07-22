@@ -9,6 +9,11 @@ class Institution extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'institution',
+        'joincode'
+    ];
+
     public function User()
     {
         return $this->hasMany(User::class);
