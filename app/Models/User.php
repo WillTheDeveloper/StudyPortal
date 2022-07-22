@@ -104,6 +104,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_tutor' => 'boolean',
         'is_admin' => 'boolean',
         'is_moderator' => 'boolean',
-        'is_banned' => 'boolean'
+        'is_banned' => 'boolean',
+        'private' => 'boolean',
+        'contact' => 'boolean'
     ];
 }

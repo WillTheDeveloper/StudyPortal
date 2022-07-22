@@ -372,6 +372,9 @@ Route::post('/institutions/{joincode}/process', [Institution::class, 'process'])
 Route::post('/institutions/{joincode}/deletenow', [Institution::class, 'deletedelete'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('institution.deletedelete');
+Route::post('/community/user/{id}/privacy', [Community::class, 'updatePrivacy'])
+    ->middleware(['auth', 'verified'])
+    ->name('community.update-privacy');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {
