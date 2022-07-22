@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateNewGroup;
+use App\Models\Discussion;
+use App\Models\Reply;
 use App\Models\Subject;
 use App\Models\Group as UserGroup;
 use Illuminate\Http\Request;
@@ -82,5 +84,74 @@ class Group extends Controller
         );
 
         return redirect(route('groups.manage', $id));
+    }
+
+    public function discussion($id)
+    {
+        return view('groupdiscussions', [
+            'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->paginate(),
+            'id' => $id
+        ]);
+    }
+
+    public function newdiscussion($id, Request $request)
+    {
+        Discussion::query()->create(
+            [
+                'title' => $request->input('title'),
+                'body' => $request->input('description'),
+                'user_id' => auth()->id(),
+                'locked' => 0,
+                'group_id' => $id //This is wrong, should be group id, this ID is the discussion id.
+            ]
+        )->save();
+
+        return redirect(route('group.discussion', $id));
+    }
+
+    public function lock($id)
+    {
+        Discussion::query()->where('id', $id)->update(['locked' => 1]);
+
+        return redirect(route('group.discussion', $id));
+    }
+
+    public function unlock($id)
+    {
+        Discussion::query()->where('id', $id)->update(['locked' => 0]);
+
+        return redirect(route('group.discussion', $id));
+    }
+
+    public function deletediscussion($id)
+    {
+        Discussion::query()->where('id', $id)->delete();
+        Reply::query()->where('discussion_id', $id)->delete();
+
+        return redirect(route('dashboard'));
+    }
+
+    public function replies($id)
+    {
+        return view('discussionschat', [
+            'main' => Discussion::query()->where('discussions.id', $id)->orderByDesc('created_at')->firstOrFail(),
+            'replies' => Reply::query()->where('replies.discussion_id', $id)->orderByDesc('created_at')->get()
+        ]);
+    }
+
+    public function reply($id, Request $request)
+    {
+        $d = Discussion::query()->where('discussions.id', $id)->get('id')->first()->id;
+
+        Reply::query()->create(
+            [
+                'user_id' => auth()->id(),
+                'message' => $request->input('message'),
+                'group_id' => $id, // furthermore this is incorrect.
+                'discussion_id' => $d
+            ]
+        )->save();
+
+        return redirect(route('discussions.replies', $id));
     }
 }

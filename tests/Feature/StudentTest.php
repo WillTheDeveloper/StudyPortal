@@ -369,28 +369,28 @@ class StudentTest extends TestCase
         $post->assertUnauthorized();
     }
 
-    public function test_guest_cant_make_blog_public()
+    public function test_student_cant_make_blog_public()
     {
         $b = $this->new_blog();
         $this->new_student();
         $this->update_blog_post('blog.make-visible', $b);
     }
 
-    public function test_guest_cant_make_blog_hidden()
+    public function test_student_cant_make_blog_hidden()
     {
         $b = $this->new_blog();
         $this->new_student();
         $this->update_blog_post('blog.make-hidden', $b);
     }
 
-    public function test_guest_cant_enable_replies_blog()
+    public function test_student_cant_enable_replies_blog()
     {
         $b = $this->new_blog();
         $this->new_student();
         $this->update_blog_post('blog.enable-replies', $b);
     }
 
-    public function test_guest_cant_disable_replies_blog()
+    public function test_student_cant_disable_replies_blog()
     {
         $b = $this->new_blog();
         $this->new_student();

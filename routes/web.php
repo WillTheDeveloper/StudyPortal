@@ -183,6 +183,12 @@ Route::get('/blog/hidden', [Blog::class, 'hidden'])
     ->name('blog.hidden');
 Route::get('/blog/{slug}', [Blog::class, 'show'])
     ->name('blog.show');
+Route::get('/group/{id}/discussions', [Group::class, 'discussion'])
+    ->middleware(['auth', 'verified'])
+    ->name('group.discussion');
+Route::get('/group/{id}/discussions/replies', [Group::class, 'replies'])
+    ->middleware(['auth', 'verified'])
+    ->name('discussions.replies');
 Route::get('/webhooks', [Webhook::class, 'all'])
     ->middleware(['auth', 'verified'])
     ->name('webhook.all');
@@ -321,6 +327,21 @@ Route::post('/blog/{slug}/enable', [Blog::class, 'enableReplies'])
 Route::post('/blog/{slug}/disable', [Blog::class, 'disableReplies'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('blog.disable-replies');
+Route::post('/group/{id}/discussions/new', [Group::class, 'newdiscussion'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('group.new.discussion');
+Route::post('/group/{id}/discussions/lock', [Group::class, 'lock'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('discussions.lock');
+Route::post('/group/{id}/discussions/unlock', [Group::class, 'unlock'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('discussions.unlock');
+Route::post('/group/{id}/discussions/delete', [Group::class,'deletediscussion'])
+    ->middleware(['auth', 'verified', 'tutor'])
+    ->name('discussions.delete');
+Route::post('/group/{id}/discussions/reply', [Group::class, 'reply'])
+    ->middleware(['auth', 'verified'])
+    ->name('discussions.reply');
 Route::post('/webhooks/{id}/posts/enable', [Webhook::class, 'enablePost'])
     ->middleware(['auth', 'verified'])
     ->name('webhooks.posts.enable');
