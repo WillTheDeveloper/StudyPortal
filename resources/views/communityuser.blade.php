@@ -357,7 +357,7 @@
                                                     <div class="space-y-5 sm:mt-0">
                                                         <div class="relative flex items-start">
                                                             <div class="absolute flex h-5 items-center">
-                                                                <input id="public-access" name="contact" @checked(old('contact')) value="true" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                                <input id="public-access" name="contact" @checked('contact') value="true" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                             </div>
                                                             <div class="pl-7 text-sm">
                                                                 <label for="public-access" class="font-medium text-gray-900"> Public visibility </label>
@@ -366,7 +366,7 @@
                                                         </div>
                                                         <div class="relative flex items-start">
                                                             <div class="absolute flex h-5 items-center">
-                                                                <input id="private-access" name="contact" @checked(old('contact')) value="false" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                                <input id="private-access" name="contact" @checked('contact') value="false" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                             </div>
                                                             <div class="pl-7 text-sm">
                                                                 <label for="private-access" class="font-medium text-gray-900"> Hidden visibility </label>
