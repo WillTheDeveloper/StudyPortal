@@ -185,4 +185,24 @@ class Community extends Controller
 
         return back();
     }
+
+    public function updatePrivacy(Request $request, $id)
+    {
+        $bio = $request->input('bio');
+        $privacy = $request->input('privacy');
+        $contact = $request->input('contact');
+
+//        dd([$bio, $privacy, $contact]);
+
+        User::query()->findOrFail($id)
+            ->update(
+                [
+                    'bio' => $bio,
+                    'private' => $privacy,
+                    'contact' => $contact,
+                ]
+            );
+
+        return redirect(route('community.profile', $id));
+    }
 }

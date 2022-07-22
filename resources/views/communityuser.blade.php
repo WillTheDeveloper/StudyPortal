@@ -289,7 +289,8 @@
                                 To: "translate-x-full"
                             -->
                             <div class="pointer-events-auto w-screen max-w-2xl">
-                                <form class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                <form class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl" method="post" action="{{route('community.update-privacy', auth()->id())}}">
+                                    @csrf
                                     <div class="flex-1">
                                         <!-- Header -->
                                         <div class="bg-gray-50 px-4 py-6 sm:px-6">
@@ -314,35 +315,35 @@
                                             <!-- Project description -->
                                             <div class="space-y-1 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
                                                 <div>
-                                                    <label for="project-description" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2"> Bio </label>
+                                                    <label for="bio" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2"> Bio </label>
                                                 </div>
                                                 <div class="sm:col-span-2">
-                                                    <textarea id="project-description" name="project-description" rows="3" class="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{$user->bio}}</textarea>
+                                                    <textarea id="bio" name="bio" rows="3" class="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{$user->bio}}</textarea>
                                                 </div>
                                             </div>
 
                                             <!-- Privacy -->
                                             <fieldset class="space-y-2 px-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
-                                                <legend class="sr-only">Privacy</legend>
-                                                <div class="text-sm font-medium text-gray-900" aria-hidden="true">Privacy</div>
+                                                <legend class="sr-only">Account Privacy</legend>
+                                                <div class="text-sm font-medium text-gray-900" aria-hidden="true">Account Privacy</div>
                                                 <div class="space-y-5 sm:col-span-2">
                                                     <div class="space-y-5 sm:mt-0">
                                                         <div class="relative flex items-start">
                                                             <div class="absolute flex h-5 items-center">
-                                                                <input id="public-access" name="privacy" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                                                <input id="private-access" @checked('private') value="true" name="privacy" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
                                                             </div>
                                                             <div class="pl-7 text-sm">
-                                                                <label for="public-access" class="font-medium text-gray-900"> Public access </label>
-                                                                <p id="public-access-description" class="text-gray-500">Everyone with the link will see this project</p>
+                                                                <label for="public-access" class="font-medium text-gray-900"> Public </label>
+                                                                <p id="public-access-description" class="text-gray-500">People will be able to see an overview of your account on your profile</p>
                                                             </div>
                                                         </div>
                                                         <div class="relative flex items-start">
                                                             <div class="absolute flex h-5 items-center">
-                                                                <input id="private-access" name="privacy" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                                <input id="private-access" @checked('private') value="false" name="privacy" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                             </div>
                                                             <div class="pl-7 text-sm">
-                                                                <label for="private-access" class="font-medium text-gray-900"> Private to you </label>
-                                                                <p id="private-access-description" class="text-gray-500">You are the only one able to access this project</p>
+                                                                <label for="private-access" class="font-medium text-gray-900"> Private </label>
+                                                                <p id="private-access-description" class="text-gray-500">Only you will be able to see an overview of your account</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -351,25 +352,25 @@
 
                                             <fieldset class="space-y-2 px-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
                                                 <legend class="sr-only">Contact buttons</legend>
-                                                <div class="text-sm font-medium text-gray-900" aria-hidden="true">Privacy</div>
+                                                <div class="text-sm font-medium text-gray-900" aria-hidden="true">Contact Privacy</div>
                                                 <div class="space-y-5 sm:col-span-2">
                                                     <div class="space-y-5 sm:mt-0">
                                                         <div class="relative flex items-start">
                                                             <div class="absolute flex h-5 items-center">
-                                                                <input id="public-access" name="contact" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                                                <input id="public-access" name="contact" @checked(old('contact')) value="true" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                             </div>
                                                             <div class="pl-7 text-sm">
-                                                                <label for="public-access" class="font-medium text-gray-900"> Public access </label>
-                                                                <p id="public-access-description" class="text-gray-500">Everyone with the link will see this project</p>
+                                                                <label for="public-access" class="font-medium text-gray-900"> Public visibility </label>
+                                                                <p id="public-access-description" class="text-gray-500">People will be able to obtain your email and contact you via your profile</p>
                                                             </div>
                                                         </div>
                                                         <div class="relative flex items-start">
                                                             <div class="absolute flex h-5 items-center">
-                                                                <input id="private-access" name="contact" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                                <input id="private-access" name="contact" @checked(old('contact')) value="false" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                                                             </div>
                                                             <div class="pl-7 text-sm">
-                                                                <label for="private-access" class="font-medium text-gray-900"> Private to you </label>
-                                                                <p id="private-access-description" class="text-gray-500">You are the only one able to access this project</p>
+                                                                <label for="private-access" class="font-medium text-gray-900"> Hidden visibility </label>
+                                                                <p id="private-access-description" class="text-gray-500">Your email will be hidden from your profile from anyone.</p>
                                                             </div>
                                                         </div>
                                                     </div>
