@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="min-h-full">
+    <div class="min-h-full" x-data="{settings: false}">
 
         <!-- Main column -->
         <div class="lg:pl-64 flex flex-col">
@@ -121,7 +121,7 @@
                     </div>
                     @if($user->id == auth()->id())
                         <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-                            <button type="button" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                            <button @click="settings = true" type="button" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
                                 <!-- Heroicon name: solid/mail -->
                                 <svg class="-ml-1 mr-2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
@@ -267,7 +267,138 @@
 
         </div>
     </div>
+
+            {{--THIS IS THE SETTINGS SLIDEOUT--}}
+            @if(auth()->id() == $user->id)
+
+            <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true" x-cloak x-show="settings">
+                <!-- Background backdrop, show/hide based on slide-over state. -->
+                <div class="fixed inset-0"></div>
+
+                <div class="fixed inset-0 overflow-hidden">
+                    <div class="absolute inset-0 overflow-hidden">
+                        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+                            <!--
+                              Slide-over panel, show/hide based on slide-over state.
+
+                              Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+                                From: "translate-x-full"
+                                To: "translate-x-0"
+                              Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+                                From: "translate-x-0"
+                                To: "translate-x-full"
+                            -->
+                            <div class="pointer-events-auto w-screen max-w-2xl">
+                                <form class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                    <div class="flex-1">
+                                        <!-- Header -->
+                                        <div class="bg-gray-50 px-4 py-6 sm:px-6">
+                                            <div class="flex items-start justify-between space-x-3">
+                                                <div class="space-y-1">
+                                                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Profile settings</h2>
+                                                </div>
+                                                <div class="flex h-7 items-center">
+                                                    <button @click="settings = false" type="button" class="text-gray-400 hover:text-gray-500">
+                                                        <span class="sr-only">Close panel</span>
+                                                        <!-- Heroicon name: outline/x -->
+                                                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Divider container -->
+                                        <div class="space-y-6 py-6 sm:space-y-0 sm:divide-y sm:divide-gray-200 sm:py-0">
+                                            <!-- Project description -->
+                                            <div class="space-y-1 px-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
+                                                <div>
+                                                    <label for="project-description" class="block text-sm font-medium text-gray-900 sm:mt-px sm:pt-2"> Bio </label>
+                                                </div>
+                                                <div class="sm:col-span-2">
+                                                    <textarea id="project-description" name="project-description" rows="3" class="block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{$user->bio}}</textarea>
+                                                </div>
+                                            </div>
+
+                                            <!-- Privacy -->
+                                            <fieldset class="space-y-2 px-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
+                                                <legend class="sr-only">Privacy</legend>
+                                                <div class="text-sm font-medium text-gray-900" aria-hidden="true">Privacy</div>
+                                                <div class="space-y-5 sm:col-span-2">
+                                                    <div class="space-y-5 sm:mt-0">
+                                                        <div class="relative flex items-start">
+                                                            <div class="absolute flex h-5 items-center">
+                                                                <input id="public-access" name="privacy" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                                            </div>
+                                                            <div class="pl-7 text-sm">
+                                                                <label for="public-access" class="font-medium text-gray-900"> Public access </label>
+                                                                <p id="public-access-description" class="text-gray-500">Everyone with the link will see this project</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="relative flex items-start">
+                                                            <div class="absolute flex h-5 items-center">
+                                                                <input id="private-access" name="privacy" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                            </div>
+                                                            <div class="pl-7 text-sm">
+                                                                <label for="private-access" class="font-medium text-gray-900"> Private to you </label>
+                                                                <p id="private-access-description" class="text-gray-500">You are the only one able to access this project</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <fieldset class="space-y-2 px-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:space-y-0 sm:px-6 sm:py-5">
+                                                <legend class="sr-only">Contact buttons</legend>
+                                                <div class="text-sm font-medium text-gray-900" aria-hidden="true">Privacy</div>
+                                                <div class="space-y-5 sm:col-span-2">
+                                                    <div class="space-y-5 sm:mt-0">
+                                                        <div class="relative flex items-start">
+                                                            <div class="absolute flex h-5 items-center">
+                                                                <input id="public-access" name="contact" aria-describedby="public-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500" checked>
+                                                            </div>
+                                                            <div class="pl-7 text-sm">
+                                                                <label for="public-access" class="font-medium text-gray-900"> Public access </label>
+                                                                <p id="public-access-description" class="text-gray-500">Everyone with the link will see this project</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="relative flex items-start">
+                                                            <div class="absolute flex h-5 items-center">
+                                                                <input id="private-access" name="contact" aria-describedby="private-access-description" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                                            </div>
+                                                            <div class="pl-7 text-sm">
+                                                                <label for="private-access" class="font-medium text-gray-900"> Private to you </label>
+                                                                <p id="private-access-description" class="text-gray-500">You are the only one able to access this project</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action buttons -->
+                                    <div class="flex-shrink-0 border-t border-gray-200 px-4 py-5 sm:px-6">
+                                        <div class="flex justify-end space-x-3">
+                                            <a href="?preview" class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Preview</a>
+                                            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Create</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+
         </div>
     </div>
+
+
+
+
 
 </x-app-layout>
