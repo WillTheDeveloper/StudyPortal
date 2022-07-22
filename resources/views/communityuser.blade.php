@@ -202,8 +202,10 @@
     <div class="bg-gray-100">
         <div class="max-w-2xl py-3 px-4 grid  gap-y-2 gap-x-8 sm:px-6 lg:max-w-7xl lg:px-8 ">
 
-            <div class="bg-gradient-to-b from-gray-300 to-gray-100 px-4 py-5 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">{{$user->name}}'s posts</h3>
+            <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Recent posts</h3>
+                <p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>
+            </div>
                 <ul role="list" class="divide-y divide-gray-200">
                     @foreach($posts as $post)
                     <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
@@ -223,11 +225,12 @@
                     </li>
                     @endforeach
                 </ul>
-                {{$posts->links()}}
-            </div>
+{{--                {{$posts->links()}}--}}
 
-            <div class="bg-gradient-to-b from-gray-300 to-gray-100 px-4 py-5 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Most recent comments</h3>
+            <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Recent comments</h3>
+                <p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>
+            </div>
                 <ul role="list" class="divide-y divide-gray-200">
                     @foreach($comments as $comment)
                     <li class="relative bg-white py-5 px-4 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
@@ -247,7 +250,6 @@
                     </li>
                     @endforeach
                 </ul>
-            </div>
 
         </div>
     </div>

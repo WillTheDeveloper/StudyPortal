@@ -48,8 +48,8 @@ class Community extends Controller
     {
         return view('communityuser', [
             'user' => User::query()->where('users.id', $id)->findOrFail($id),
-            'posts' => Post::query()->where('posts.user_id', $id)->orderByDesc('created_at')->paginate(5),
-            'comments' => Comment::query()->where('comments.user_id', $id)->orderByDesc('created_at')->limit(5)->get('*'),
+            'posts' => Post::query()->where('posts.user_id', $id)->orderByDesc('created_at')->limit(5)->get(),
+            'comments' => Comment::query()->where('comments.user_id', $id)->orderByDesc('created_at')->limit(5)->get(),
         ]);
     }
 
