@@ -180,7 +180,7 @@
             @isset($user->bio)
             <!-- This example requires Tailwind CSS v2.0+ -->
             <section class="overflow-hidden">
-                <div class="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
+                <div class="relative max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8 lg:pt-20">
                     <div class="relative lg:flex lg:items-center">
                         <div class="relative lg:ml-10">
                             <svg class="absolute top-0 left-0 transform -translate-x-8 -translate-y-24 h-36 w-36 text-indigo-200 opacity-50" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
@@ -200,7 +200,7 @@
 
             <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="bg-gray-100">
-        <div class="max-w-2xl py-3 px-4 grid  gap-y-2 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 ">
+        <div class="max-w-2xl py-3 px-4 grid  gap-y-2 gap-x-8 sm:px-6 lg:max-w-7xl lg:px-8 ">
 
             <div class="bg-gradient-to-b from-gray-300 to-gray-100 px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">{{$user->name}}'s posts</h3>
