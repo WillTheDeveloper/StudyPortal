@@ -50,6 +50,7 @@ class Report extends Controller
             [
                 'comment' => $request->input('info'),
                 'reason' => $request->input('content'),
+                'severity' => 'Low',
                 'post_id' => $id,
                 'user_id' => $request->user()->id
             ]
