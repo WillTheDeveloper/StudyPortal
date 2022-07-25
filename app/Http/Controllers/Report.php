@@ -17,7 +17,7 @@ class Report extends Controller
 
     public function resolve($id)
     {
-        $resolve = \App\Models\Report::query()->find($id)->update(
+        \App\Models\Report::query()->find($id)->update(
             [
                 'resolved' => 1
             ]
