@@ -9,6 +9,12 @@ class Response extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'blog_id',
+        'response'
+    ];
+
     public function Blog()
     {
         return $this->belongsTo(Blog::class);

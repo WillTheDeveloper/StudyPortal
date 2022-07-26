@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
+            $table->text('response');
+            $table->integer('user_id');
+            $table->integer('blog_id');
             $table->timestamps();
         });
     }
