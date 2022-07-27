@@ -193,19 +193,21 @@
                 <h2 class="sr-only">Responses</h2>
 
                 <div class="-my-10">
+                    @foreach($content->Response()->get() as $r)
                     <div class="flex text-sm text-gray-500 space-x-4">
                         <div class="flex-none py-10">
                             <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="" class="w-10 h-10 bg-gray-100 rounded-full">
                         </div>
-                        <div class="flex-1 py-10">
-                            <h3 class="font-medium text-gray-900">Emily Selman</h3>
-                            <p><time datetime="2021-07-16">July 16, 2021</time></p>
+                        <div class="flex-1 py-3">
+                            <h3 class="font-medium text-gray-900">{{$r->User->name}}</h3>
+                            <p><time datetime="2021-07-16">{{$r->created_at->diffForHumans()}}</time></p>
 
                             <div class="mt-4 prose prose-sm max-w-none text-gray-500">
-                                <p>This icon pack is just what I need for my latest project. There's an icon for just about anything I could ever need. Love the playful look!</p>
+                                <p>{{$r->response}}</p>
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
                 </div>
             </div>
