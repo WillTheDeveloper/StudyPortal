@@ -3,7 +3,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Home | Study Portal</title>
+    <title>Study Portal</title>
+    <meta name="description" content="Study Portal is a platform, built for students, by students. Giving students the tools they need to get through education."/>
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
