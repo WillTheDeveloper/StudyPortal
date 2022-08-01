@@ -140,4 +140,9 @@ class Blog extends Controller
             );
         return redirect(route('blog.hidden'));
     }
+
+    public function response($slug)
+    {
+
+    }
 }
