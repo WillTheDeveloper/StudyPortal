@@ -195,6 +195,7 @@
                 </div>
                 <div class="min-w-0 flex-1">
                     <form action="{{route('blog.response.create', $content->slug)}}" class="relative" method="post">
+                        @csrf
                         <div class="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
                             <label for="comment" class="sr-only">Add your comment</label>
                             <textarea rows="3" name="comment" id="comment" class="block w-full py-3 border-0 resize-none focus:ring-0 sm:text-sm" placeholder="Add your comment..."></textarea>

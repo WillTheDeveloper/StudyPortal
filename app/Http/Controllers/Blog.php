@@ -146,7 +146,7 @@ class Blog extends Controller
     {
         $id = \App\Models\Blog::query()
             ->where('slug', $slug)
-            ->first('id');
+            ->first()->id;
 
         Response::query()
             ->create(
