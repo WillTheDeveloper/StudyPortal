@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Response;
 use Illuminate\Http\Request;
 use Str;
 
@@ -139,5 +140,23 @@ class Blog extends Controller
                 ]
             );
         return redirect(route('blog.hidden'));
+    }
+
+    public function response($slug, Request $request) // POST REQUEST
+    {
+        $id = \App\Models\Blog::query()
+            ->where('slug', $slug)
+            ->first()->id;
+
+        Response::query()
+            ->create(
+                [
+                    'user_id' => auth()->id(),
+                    'blog_id' => $id,
+                    'response' => $request->input('comment')
+                ]
+            );
+
+        return redirect(route('blog.show', $slug));
     }
 }

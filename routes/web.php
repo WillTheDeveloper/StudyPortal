@@ -396,6 +396,9 @@ Route::post('/institutions/{joincode}/deletenow', [Institution::class, 'deletede
 Route::post('/community/user/{id}/privacy', [Community::class, 'updatePrivacy'])
     ->middleware(['auth', 'verified'])
     ->name('community.update-privacy');
+Route::post('/blog/{slug}/response/create', [Blog::class, 'response'])
+    ->middleware(['auth', 'verified'])
+    ->name('blog.response.create');
 
 //API GET ROUTES
 Route::prefix('api')->group(function () {

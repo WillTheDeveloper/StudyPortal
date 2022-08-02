@@ -188,24 +188,77 @@
         </div>
 
         @if ($content->replies)
-        <div class="bg-white pt-16">
+
+            @auth()
+            <div class="flex items-start space-x-4 pt-4">
+                <div class="flex-shrink-0">
+                    <img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                </div>
+                <div class="min-w-0 flex-1">
+                    <form action="{{route('blog.response.create', $content->slug)}}" class="relative" method="post">
+                        @csrf
+                        <div class="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+                            <label for="comment" class="sr-only">Add your comment</label>
+                            <textarea rows="3" name="comment" id="comment" class="block w-full py-3 border-0 resize-none focus:ring-0 sm:text-sm" placeholder="Add your comment..."></textarea>
+
+                            <!-- Spacer element to match the height of the toolbar -->
+                            <div class="py-2" aria-hidden="true">
+                                <!-- Matches height of button in toolbar (1px border + 36px content height) -->
+                                <div class="py-px">
+                                    <div class="h-9"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0">
+                                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @endauth()
+
+            @guest()
+                    <!-- This example requires Tailwind CSS v2.0+ -->
+                <div class="pt-4">
+                    <div class="rounded-md bg-yellow-50 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <!-- Heroicon name: solid/exclamation -->
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-yellow-800">Authentication required</h3>
+                                <div class="mt-2 text-sm text-yellow-700">
+                                    <p>Responses for this blog post are enabled but require authentication in order to respond to it. <a href="{{route('login')}}" class="underline">You can login here.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endguest()
+
+                    <div class="bg-white pt-16">
             <div>
                 <h2 class="sr-only">Responses</h2>
 
                 <div class="-my-10">
+                    @foreach($content->Response()->get() as $r)
                     <div class="flex text-sm text-gray-500 space-x-4">
                         <div class="flex-none py-10">
                             <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="" class="w-10 h-10 bg-gray-100 rounded-full">
                         </div>
-                        <div class="flex-1 py-10">
-                            <h3 class="font-medium text-gray-900">Emily Selman</h3>
-                            <p><time datetime="2021-07-16">July 16, 2021</time></p>
+                        <div class="flex-1 py-3">
+                            <h3 class="font-medium text-gray-900">{{$r->User->name}}</h3>
+                            <p><time datetime="2021-07-16">{{$r->created_at->diffForHumans()}}</time></p>
 
                             <div class="mt-4 prose prose-sm max-w-none text-gray-500">
-                                <p>This icon pack is just what I need for my latest project. There's an icon for just about anything I could ever need. Love the playful look!</p>
+                                <p>{{$r->response}}</p>
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
                 </div>
             </div>
