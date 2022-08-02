@@ -1,6 +1,6 @@
 # Study Portal
 
-![GitHub](https://img.shields.io/github/license/WillTheDeveloper/StudyPortal) ![Codecov](https://img.shields.io/codecov/c/github/WillTheDeveloper/StudyPortal) ![GitHub issues](https://img.shields.io/github/issues/WillTheDeveloper/StudyPortal) ![GitHub pull requests](https://img.shields.io/github/issues-pr/WillTheDeveloper/StudyPortal) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/WillTheDeveloper/StudyPortal)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/WillTheDeveloper/StudyPortal) ![GitHub](https://img.shields.io/github/license/WillTheDeveloper/StudyPortal) ![Codecov](https://img.shields.io/codecov/c/github/WillTheDeveloper/StudyPortal) ![GitHub issues](https://img.shields.io/github/issues/WillTheDeveloper/StudyPortal) ![GitHub pull requests](https://img.shields.io/github/issues-pr/WillTheDeveloper/StudyPortal) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/WillTheDeveloper/StudyPortal)
 
 Official Discord server - https://discord.gg/ZEkX2NPWVs
 
