@@ -48,25 +48,46 @@ If you want to see what is happening in more detail than follow this link: https
 
 ## How to install/run server
 
+### Prerequisites
+
+- We recommend using [docker](https://www.docker.com/products/docker-desktop/) for hosting a local database.
+- Have PHP 8 or later installed and setup.
+- A database of some kind to develop on.
+- Your favourite IDE
+
+### Easy to follow guide
+
+Setup [postgres](https://hub.docker.com/_/postgres) on docker
+
+```
+docker pull postgres
+```
+
 Install composer packages
 ```
 composer install
 ```
 
-Install NPM packages
+Install npm packages
 ```
 npm install
 ```
 
-To set the APP_KEY value in your .env file run the following command:
+To set the ```APP_KEY``` value in your ```.env``` file run the following command:
 ```
 php artisan key:generate
 ```
 
-If you have set up the .ENV then run the migrations command:
+Copy ```.env.example``` and paste in the same place with the name ```.env```
+
+Setup your database connection in the ```.env```
+
+If you have set up the ```.env``` then run the migrations command:
 ```
 php artisan migrate
 ```
+
+*If you do not have the correct php package for database interactions then it will cause weird errors. There are extensions available for both ```mysql``` and ```postgres```.*
 
 Run the server
 ```
