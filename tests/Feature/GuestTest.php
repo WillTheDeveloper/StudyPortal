@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Blog;
+use App\Models\Institution;
 use App\Models\Note;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -245,4 +246,61 @@ class GuestTest extends TestCase
         $get = $this->get(route('blog.show', $blog->slug));
         $get->assertNotFound();
     }
+
+    public function test_guest_cant_see_institutions()
+    {
+        $this->assertGuest();
+
+        $view = $this->get(route('institution.manage'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_create_institution()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('institution.create'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_manage_institution()
+    {
+        $this->assertGuest();
+        $institution = Institution::factory()->create()->joincode;
+        $view = $this->get(route('institution.edit', $institution));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_institution_users()
+    {
+        $this->assertGuest();
+        $institution = Institution::factory()->create()->joincode;
+        $view = $this->get(route('institution.users', $institution));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_add_users_to_institution()
+    {
+        $this->assertGuest();
+        $institution = Institution::factory()->create()->joincode;
+        $view = $this->get(route('institutions.add', $institution));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_request_deletion_institution()
+    {
+        $this->assertGuest();
+        $institution = Institution::factory()->create()->joincode;
+        $view = $this->get(route('institution.request-delete', $institution));
+        $view->assertRedirect(route('login'));
+    }
+
+    /*public function test_guest_cant_post_new_institution()
+    {
+
+    }
+
+    public function test_guest_cant_submit_new_institution()
+    {
+
+    }*/
 }
