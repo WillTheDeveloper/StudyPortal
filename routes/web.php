@@ -15,16 +15,10 @@ use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
-
 use App\Http\Controllers\Webhook;
-use App\Http\Resources\PostCollection;
-use App\Http\Resources\PostResource;
-use App\Http\Resources\UserResource;
-use App\Models\Post;
-use App\Models\Kanban as KanbanModel;
+
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
-
 use Illuminate\Http\Request;
 
 // Normal routes
