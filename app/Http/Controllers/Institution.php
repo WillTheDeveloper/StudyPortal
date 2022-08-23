@@ -58,7 +58,7 @@ class Institution extends Controller
         ]);
     }
 
-    public function addUser($joincode)
+    public function addUser($joincode) //🦆
     {
         return view('institutionadduser');
     }
