@@ -94,15 +94,7 @@ class Assignment extends Controller
             Assign::query()->where('assignments.id', $id)->findOrFail($id)->delete();
             DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->select('*')->delete();
 
-            Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
-                'embeds' => [
-                    [
-                        'title' => 'Assignment deleted',
-                        'color' => '7506394',
-                        'url' => route('assignments'),
-                    ]
-                ],
-            ]);
+
         }
         else {
             abort(401);
@@ -130,17 +122,7 @@ class Assignment extends Controller
 
         $assignment = \App\Models\Assignment::query()->where('assignments.id', $id)->find($id);
 
-        Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
-            'content' => "Assignment updated.",
-            'embeds' => [
-                [
-                    'title' => $assignment->title,
-                    'description' => $assignment->details,
-                    'color' => '7506394',
-                    'url' => route('assignments.manage', $assignment->id),
-                ]
-            ],
-        ]);
+
 
         return redirect(route('assignments.manage', $id));
     }
