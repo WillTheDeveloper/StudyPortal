@@ -1,12 +1,18 @@
 @component('mail::message')
-# Introduction
+# You have a new assignment
 
-The body of your message.
+You have a new assignment for {{$data->Subject->subject}}.
 
-@component('mail::button', ['url' => ''])
-Button Text
+Due date: {{$data->duedate->format('d/m/y')}} ({{$data->duedate->diffForHumans()}})
+
+Task: {{$data->title}}
+
+Details: {{$data->details}}
+
+@component('mail::button', ['url' => route('assignments.manage', $data->id)])
+View Assignment
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Study Portal Assignment Management Team
 @endcomponent

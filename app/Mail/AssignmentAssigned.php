@@ -13,10 +13,12 @@ class AssignmentAssigned extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
+    public $user;
 
     public function __construct(Assignment $assignment)
     {
-        //
+        $this->data = $assignment;
+        $this->user = $assignment->User;
     }
 
     /**
