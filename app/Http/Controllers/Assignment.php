@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateNewAssignment;
 use App\Mail\AssignmentAssigned;
+use App\Mail\AssignmentDeleted;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\Assignment as Assign;
@@ -92,8 +93,14 @@ class Assignment extends Controller
     {
         if ($request->user()->is_tutor) {
             Assign::query()->where('assignments.id', $id)->findOrFail($id)->delete();
-            DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->select('*')->delete();
 
+            $users = DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->get('email');
+
+            $object = \App\Models\Assignment::query()->findOrFail($id)->get();
+
+            Mail::to($users)->send(new AssignmentDeleted($object));
+
+            DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->select('*')->delete();
 
         }
         else {
