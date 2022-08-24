@@ -67,9 +67,13 @@ class Assignment extends Controller
 
         $assign->User()->attach($users);
 
-        Mail::to($users)->send(new AssignmentAssigned($assign));
+//        dd($users);
 
-        Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
+        $email = User::query()->where('id', [$users])->get('email');
+
+        Mail::to($email)->send(new AssignmentAssigned($assignment));
+
+        /*Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
             'content' => "Assignment created.",
             'embeds' => [
                 [
@@ -79,7 +83,7 @@ class Assignment extends Controller
                     'url' => route('assignments.manage', $assignment->id),
                 ]
             ],
-        ]);
+        ]);*/
 
         return redirect('assignments');
     }
