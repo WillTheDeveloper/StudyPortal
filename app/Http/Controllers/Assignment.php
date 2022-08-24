@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateNewAssignment;
+use App\Mail\AssignmentAssigned;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use App\Models\Assignment as Assign;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class Assignment extends Controller
 {
@@ -64,6 +66,8 @@ class Assignment extends Controller
             ->where('group_id', $array)->get('user_id')->keyBy('user_id')->keys()->toArray();
 
         $assign->User()->attach($users);
+
+        Mail::to($users)->send(new AssignmentAssigned($assign));
 
         Http::post('https://discord.com/api/webhooks/914187384835420211/aUjMOW2HNugOC163Rf3ziggluhvTtzROxAoku9AWR258sGTf6Ec6u2DaOKTzx-G6hhTC', [
             'content' => "Assignment created.",
