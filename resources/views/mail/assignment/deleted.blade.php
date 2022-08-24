@@ -1,12 +1,14 @@
 @component('mail::message')
-# Introduction
+# An assignment has been deleted
 
-The body of your message.
+The assignment titled "*{{$data->title}}*" has been deleted.
 
-@component('mail::button', ['url' => ''])
-Button Text
+It was created {{$data->created_at->diffForHumans()}} and has now been deleted.
+
+@component('mail::button', ['url' => route('assignments')])
+My assignments
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Study Portal Assignment Management Team
 @endcomponent

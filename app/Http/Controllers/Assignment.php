@@ -94,11 +94,12 @@ class Assignment extends Controller
         if ($request->user()->is_tutor) {
             Assign::query()->where('assignments.id', $id)->findOrFail($id)->delete();
 
-            $users = DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->get('email');
+            $users = DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->get('id');
+            $array = User::query()->where('id', $users)->get('email');
 
             $object = \App\Models\Assignment::query()->findOrFail($id)->get();
 
-            Mail::to($users)->send(new AssignmentDeleted($object));
+            Mail::to($array)->send(new AssignmentDeleted($object));
 
             DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->select('*')->delete();
 
