@@ -16,7 +16,7 @@ class AssignmentUpdated extends Mailable
 
     public function __construct(Assignment $assignment)
     {
-        //
+        $this->data = $assignment;
     }
 
     /**

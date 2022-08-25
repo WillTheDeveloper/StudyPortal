@@ -120,7 +120,9 @@ class Assignment extends Controller
 
     public function update(Request $request, $id)
     {
-        Assign::all()->find($id)->update(
+        $old = $request->all();
+
+        $new = Assign::all()->find($id)->update(
             [
                 'subject_id' => $request->input('subject-select'),
                 'title' => $request->input('title'),

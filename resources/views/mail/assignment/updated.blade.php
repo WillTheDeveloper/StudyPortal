@@ -1,12 +1,12 @@
 @component('mail::message')
-# Introduction
+# Assignment has been updated
 
-The body of your message.
+This is a notification that one of your assignments has been updated.
 
 @component('mail::button', ['url' => ''])
 Button Text
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Study Portal Assignment Management Team
 @endcomponent
