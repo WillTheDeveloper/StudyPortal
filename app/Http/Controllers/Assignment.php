@@ -97,7 +97,7 @@ class Assignment extends Controller
             $users = DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->get('id');
             $array = User::query()->where('id', $users)->get('email');
 
-            $object = \App\Models\Assignment::query()->findOrFail($id)->get();
+            $object = \App\Models\Assignment::query()->find($id)->get();
 
             Mail::to($array)->send(new AssignmentDeleted($object));
 
