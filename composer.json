@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.5",
         "laravel/vapor-cli": "^1.25",
         "laravel/vapor-core": "^2.13",
-        "livewire/livewire": "^2.6"
+        "livewire/livewire": "^2.6",
+        "predis/predis": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
