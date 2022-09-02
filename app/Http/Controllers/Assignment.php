@@ -102,9 +102,7 @@ class Assignment extends Controller
 //            Mail::to($array)->send(new AssignmentDeleted($object));
 
             DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->select('*')->delete();
-
-        }
-        else {
+        } else {
             abort(401);
         }
         return redirect('assignments');
