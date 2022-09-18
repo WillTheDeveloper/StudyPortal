@@ -68,6 +68,10 @@
                         {{ __('Kanban') }}
                     </x-responsive-nav-link>
 
+                    <x-responsive-nav-link :href="route('todo.all')" :active="request()->routeIs('todo.all')">
+                        {{ __('Todo') }}
+                    </x-responsive-nav-link>
+
                     <x-responsive-nav-link :href="route('note.show')" :active="request()->routeIs('note.show')">
                         {{ __('Notes') }}
                     </x-responsive-nav-link>
@@ -247,6 +251,10 @@
 
                 <x-responsive-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
                     {{ __('Kanban') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('todo.all')" :active="request()->routeIs('todo.all')">
+                    {{ __('Todo') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('note.show')" :active="request()->routeIs('note.show')">

@@ -207,6 +207,9 @@ Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
 Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('institution.request-delete');
+Route::get('/todo/all', [\App\Http\Controllers\Todo::class, 'all'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.all');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
