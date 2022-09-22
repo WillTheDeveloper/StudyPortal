@@ -15,6 +15,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination;
+use Illuminate\Support\Str;
 
 class Community extends Controller
 {
@@ -95,6 +96,7 @@ class Community extends Controller
                 'body' => $request->input('text'),
                 'user_id' => $request->user()->id,
                 'subject_id' => $request->input('subject'),
+                'slug' => Str::slug($request->input('title'))
             ]
         );
 
