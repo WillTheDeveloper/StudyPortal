@@ -78,6 +78,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Webhook::class);
     }
 
+    public function Tag()
+    {
+        return $this->hasMany(Tag::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

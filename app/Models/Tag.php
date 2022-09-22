@@ -13,4 +13,13 @@ class Tag extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    protected $fillable = [
+        'tag'
+    ];
 }
