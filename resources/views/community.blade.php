@@ -421,7 +421,7 @@
                                                     </div>
 
                                                     <div>
-                                                        @foreach($post->Tag() as $t)
+                                                        @foreach($post->Tag()->get() as $t)
                                                             <span class="mt-2 inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">{{$t->tag}}</span>
                                                         @endforeach
                                                     </div>
@@ -743,6 +743,26 @@
                                                                     class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                                                 @foreach(auth()->user()->Subject()->get() as $subject)
                                                                     <option value="{{$subject->id}}">{{$subject->subject}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- Team members -->
+                                                    <div class="space-y-2 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:px-6 sm:py-5">
+                                                        <div>
+                                                            <h3 class="text-sm font-medium text-gray-900">
+                                                                Tag
+                                                            </h3>
+                                                        </div>
+
+                                                        <div>
+                                                            <select id="tag" name="tag"
+                                                                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                                                    <option selected value="">None</option>
+                                                                @foreach(auth()->user()->Tag()->get() as $tag)
+                                                                    <option value="{{$tag->id}}">{{$tag->tag}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>

@@ -95,6 +95,7 @@ class Community extends Controller
                 'body' => $request->input('text'),
                 'user_id' => $request->user()->id,
                 'subject_id' => $request->input('subject'),
+                'tag_id' => $request->input('tag')
             ]
         );
 

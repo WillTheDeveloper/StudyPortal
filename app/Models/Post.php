@@ -14,7 +14,8 @@ class Post extends Model
         'title',
         'body',
         'user_id',
-        'subject_id'
+        'subject_id',
+        'tag_id'
     ];
 
     public function toSearchableArray()
