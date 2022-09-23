@@ -17,6 +17,7 @@ class Post extends Model
         'user_id',
         'subject_id',
         'tag_id'
+        'slug'
     ];
 
     public function toSearchableArray()

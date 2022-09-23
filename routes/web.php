@@ -15,16 +15,10 @@ use App\Http\Controllers\Timetable;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
-
 use App\Http\Controllers\Webhook;
-use App\Http\Resources\PostCollection;
-use App\Http\Resources\PostResource;
-use App\Http\Resources\UserResource;
-use App\Models\Post;
-use App\Models\Kanban as KanbanModel;
+
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
-
 use Illuminate\Http\Request;
 
 // Normal routes
@@ -74,7 +68,7 @@ Route::get('/users', [User::class, 'showAll'])
 Route::get('/community/user/{id}', [Community::class, 'profile'])
     ->middleware('auth')
     ->name('community.profile');
-Route::get('/community/post/{id}', [Community::class, 'post'])
+Route::get('/community/post/{slug}', [Community::class, 'post'])
     ->middleware('auth')
     ->name('community.post');
 Route::get('/assignments/create', [Assignment::class, 'create'])
@@ -239,13 +233,13 @@ Route::post('/groups/updating/{id}', [Group::class, 'updatename'])
 Route::post('/community/post/create', [Community::class, 'createNewPost'])
     ->middleware('auth')
     ->name('community.new');
-Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
+Route::post('/community/post/delete/{slug}', [Community::class, 'deletePost'])
     ->middleware('auth')
     ->name('community.delete');
 Route::post('/kanban/delete/{id}', [Kanban::class, 'delete'])
     ->middleware('auth')->middleware("owner:" . \App\Models\Kanban::class)
     ->name('kanban.delete');
-Route::post('/community/post/{id}/comment/new', [Community::class, 'CreateNewComment'])
+Route::post('/community/post/{slug}/comment/new', [Community::class, 'CreateNewComment'])
     ->middleware('auth')
     ->name('community.comment.new');
 Route::post('/kanban/board/new', [Kanban::class, 'create'])
@@ -273,7 +267,7 @@ Route::post('/notifications/markallasread', [Notification::class, 'markAllAsRead
 Route::post('/users/{id}/update', [User::class, 'updateUser'])
     ->middleware(['auth', 'admin'])
     ->name('user.update');
-Route::post('/community/post/{id}/update', [Community::class, 'updatePost'])
+Route::post('/community/post/{slug}/update', [Community::class, 'updatePost'])
     ->middleware('auth')
     ->name('community.post.update');
 Route::post('/community/comment/{id}/update', [Community::class, 'updateComment'])
@@ -297,7 +291,7 @@ Route::post('/settings/delete/confirmed', [User::class, 'DeleteAccount'])
 Route::post('/timetable/create', [Timetable::class, 'create'])
     ->middleware('auth')
     ->name('timetable.create');
-Route::post('/community/like/{id}', [Community::class, 'like'])
+Route::post('/community/like/{slug}', [Community::class, 'like'])
     ->middleware(['auth', 'verified'])
     ->name('community.like');
 Route::post('/community/report/{id}/submit', [Report::class, 'submit'])
@@ -396,22 +390,6 @@ Route::post('/community/user/{id}/privacy', [Community::class, 'updatePrivacy'])
 Route::post('/blog/{slug}/response/create', [Blog::class, 'response'])
     ->middleware(['auth', 'verified'])
     ->name('blog.response.create');
-
-//API GET ROUTES
-Route::prefix('api')->group(function () {
-    Route::get('/user', function () {
-        return new UserResource(\App\Models\User::query()->findOrFail(auth()->id()));
-    })->middleware('auth:sanctum')->name('api.user');
-    Route::get('/post/{id}', function ($id) {
-        return new PostResource(Post::query()->findOrFail($id));
-    })->middleware('auth:sanctum')->name('api.post.id');
-    Route::get('/posts', function () {
-        return new PostCollection(Post::all());
-    })->middleware('auth:sanctum')->name('api.post.collection');
-    Route::get('/user/posts', function () {
-        return new PostCollection(Post::all()->where('user_id', auth()->id()));
-    })->middleware('auth:sanctum')->name('api.post.user');
-});
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {

@@ -21,7 +21,7 @@ class Institution extends Controller
         ]);
     }
 
-    public function create()
+    public function create() // Why does this exist? It's a post request.... stop being a silly billy.
     {
         return view('institutionnew');
     }
@@ -58,7 +58,7 @@ class Institution extends Controller
         ]);
     }
 
-    public function addUser($joincode)
+    public function addUser($joincode) //🦆
     {
         return view('institutionadduser');
     }

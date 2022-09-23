@@ -10,12 +10,6 @@ class UserResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'email' => $this->email,
-            'admin' => $this->is_admin,
-            'moderator' => $this->is_moderator,
-            'tutor' => $this->is_tutor,
-            'banned' => $this->is_banned,
-            'created_at' => $this->created_at->diffForHumans()
         ];
     }
 }

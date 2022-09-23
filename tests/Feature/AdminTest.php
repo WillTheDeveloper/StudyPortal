@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Blog;
+use App\Models\Institution;
 use App\Models\Post;
 use App\Models\Report;
 use App\Models\User;
@@ -125,5 +126,55 @@ class AdminTest extends TestCase
         $this->admin();
         $post = $this->post(route('blog.disable-replies', $b->slug));
         $post->assertRedirect(route('blog.hidden'));
+    }
+
+    public function test_admin_can_see_institutions()
+    {
+        $this->admin();
+        $get = $this->get(route('institution.manage'));
+        $get->assertOk();
+    }
+
+    public function test_admin_can_create_new_institution()
+    {
+        $this->admin();
+        $get = $this->get(route('institution.create'));
+        $get->assertOk();
+    }
+
+    public function test_admin_can_manage_a_institution()
+    {
+        $this->admin();
+        $org = Institution::factory()->create()->joincode;
+        $this->assertModelExists($org);
+        $get = $this->get(route('institution.edit', $org));
+        $get->assertOk();
+    }
+
+    public function test_admin_can_user_for_institution()
+    {
+        $this->admin();
+        $org = Institution::factory()->create()->joincode;
+        $this->assertModelExists($org);
+        $get = $this->get(route('institution.users', $org));
+        $get->assertOk();
+    }
+
+    public function test_admin_can_add_user_to_institution()
+    {
+        $this->admin();
+        $org = Institution::factory()->create()->joincode;
+        $this->assertModelExists($org);
+        $get = $this->get(route('institutions.add', $org));
+        $get->assertOk();
+    }
+
+    public function test_admin_can_request_deletion_institution()
+    {
+        $this->admin();
+        $org = Institution::factory()->create()->joincode;
+        $this->assertModelExists($org);
+        $get = $this->get(route('institution.request-delete', $org));
+        $get->assertOk();
     }
 }

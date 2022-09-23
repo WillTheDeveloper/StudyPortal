@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->integer('subject_id')->nullable(false);
             $table->integer('views')->default(0);
             $table->integer('tag_id')->nullable();
+            $table->text('slug')->nullable(false);
             $table->timestamps();
         });
     }

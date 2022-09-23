@@ -316,7 +316,7 @@
                                                                    class="hover:underline">{{$post->User->name}}</a>
                                                             </p>
                                                             <p class="text-sm text-gray-500">
-                                                                <a href="{{ route('community.post', $post->id) }}"
+                                                                <a href="{{ route('community.post', $post->slug) }}"
                                                                    class="hover:underline">
                                                                     <time datetime="{{$post->created_at}}">
                                                                         Posted {{$post->created_at->diffForHumans()}} on
@@ -436,7 +436,7 @@
                                                 </div>
 
                                                 <div x-show="edit" x-cloak>
-                                                    <form method="post" action="{{ route('community.post.update', $post->id) }}">
+                                                    <form method="post" action="{{ route('community.post.update', $post->slug) }}">
                                                         @csrf
                                                         <div>
                                                             <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
@@ -458,7 +458,7 @@
                                                 <div class="mt-6 flex justify-between space-x-8">
                                                     <div class="flex space-x-6">
                     <span class="inline-flex items-center text-sm">
-                        <form method="post" action="{{ route('community.like', $post->id) }}">
+                        <form method="post" action="{{ route('community.like', $post->slug) }}">
                             @csrf
                           <button type="submit" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                             <!-- Heroicon name: solid/thumb-up -->
@@ -472,7 +472,7 @@
                         </form>
                     </span>
                                                         <span class="inline-flex items-center text-sm">
-                      <a href="{{route('community.post', $post->id)}}" type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                      <a href="{{route('community.post', $post->slug)}}" type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                         <!-- Heroicon name: solid/chat-alt -->
                         <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                              aria-hidden="true">
