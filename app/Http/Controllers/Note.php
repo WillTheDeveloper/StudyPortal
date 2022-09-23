@@ -25,6 +25,7 @@ class Note extends Controller
                 'name' => $request->input('title'),
                 'description' => $request->input('description'),
                 'user_id' => $request->user()->id,
+                'private' => $request->input('private')
             ]
         );
 
