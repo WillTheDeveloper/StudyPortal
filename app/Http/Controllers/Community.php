@@ -106,7 +106,7 @@ class Community extends Controller
 
         $post->save();
 
-        return redirect(route('community.post', $post->id));
+        return redirect(route('community.post', $post->slug));
     }
 
     public function deletePost($id)
