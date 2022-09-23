@@ -218,7 +218,7 @@
 
             <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">Recent posts</h3>
-                <p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>
+                {{--<p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>--}}
             </div>
                 <ul role="list" class="divide-y divide-gray-200">
                     @foreach($posts as $post)
@@ -243,7 +243,7 @@
 
             <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">Recent comments</h3>
-                <p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>
+                {{--<p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>--}}
             </div>
                 <ul role="list" class="divide-y divide-gray-200">
                     @foreach($comments as $comment)
