@@ -211,14 +211,13 @@
                                 </div>
                             </nav>
                         </div>
-                        <main class="lg:col-span-9 xl:col-span-6" x-data="{look: false}" @keyup.shift.enter.window="look = true" @keyup.esc.window="look = false">
-
-
-
+                        <main class="lg:col-span-9 xl:col-span-6" x-data="{look: false}"
+                              @keyup.shift.enter.window="look = true" @keyup.esc.window="look = false">
 
 
                             <div x-cloak x-show="look">
-                                <div class="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog" aria-modal="true">
+                                <div class="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20" role="dialog"
+                                     aria-modal="true">
                                     <!--
                                       Background overlay, show/hide based on modal state.
 
@@ -229,7 +228,8 @@
                                         From: "opacity-100"
                                         To: "opacity-0"
                                     -->
-                                    <div class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" aria-hidden="true"></div>
+                                    <div class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity"
+                                         aria-hidden="true"></div>
 
                                     <!--
                                       Command palette, show/hide based on modal state.
@@ -245,16 +245,22 @@
                                         <form action="{{route('community.search')}}" method="get">
                                             <div class="relative">
                                                 <!-- Heroicon name: solid/search -->
-                                                <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                                <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                     fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                                          clip-rule="evenodd"/>
                                                 </svg>
-                                                <input id="search" name="search" type="search" class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm" placeholder="Search..." role="combobox" aria-expanded="false" aria-controls="options">
+                                                <input id="search" name="search" type="search"
+                                                       class="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                                                       placeholder="Search..." role="combobox" aria-expanded="false"
+                                                       aria-controls="options">
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-
 
 
                             <div class="px-4 sm:px-0">
@@ -363,7 +369,8 @@
                                                                     <div class="py-1" role="none">
                                                                         <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
                                                                         @if ($post->user_id == auth()->id())
-                                                                            <a href="#" x-on:click="edit = true; content = false"
+                                                                            <a href="#"
+                                                                               x-on:click="edit = true; content = false"
                                                                                class="text-gray-700 flex px-4 py-2 text-sm"
                                                                                role="menuitem" tabindex="-1"
                                                                                id="options-menu-0-item-0">
@@ -371,7 +378,8 @@
                                                                                 <svg class="mr-3 h-5 w-5 text-gray-400"
                                                                                      xmlns="http://www.w3.org/2000/svg"
                                                                                      viewBox="0 0 20 20"
-                                                                                     fill="currentColor" aria-hidden="true">
+                                                                                     fill="currentColor"
+                                                                                     aria-hidden="true">
                                                                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                                                                 </svg>
                                                                                 <span>Edit</span>
@@ -395,7 +403,8 @@
                                                                                               d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
                                                                                               clip-rule="evenodd"/>
                                                                                     </svg>
-                                                                                    <button type="submit">Delete</button>
+                                                                                    <button type="submit">Delete
+                                                                                    </button>
                                                                                 </a>
                                                                             </form>
                                                                         @endif
@@ -436,22 +445,33 @@
                                                 </div>
 
                                                 <div x-show="edit" x-cloak>
-                                                    <form method="post" action="{{ route('community.post.update', $post->slug) }}">
+                                                    <form method="post"
+                                                          action="{{ route('community.post.update', $post->slug) }}">
                                                         @csrf
                                                         <div>
-                                                            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                                                            <label for="title"
+                                                                   class="block text-sm font-medium text-gray-700">Title</label>
                                                             <div class="mt-1">
-                                                                <input type="text" name="title" id="title" value="{{$post->title}}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">
+                                                                <input type="text" name="title" id="title"
+                                                                       value="{{$post->title}}"
+                                                                       class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                                       placeholder="you@example.com">
                                                             </div>
                                                         </div>
                                                         <div>
-                                                            <label for="body" class="block text-sm font-medium text-gray-700">Add your comment</label>
+                                                            <label for="body"
+                                                                   class="block text-sm font-medium text-gray-700">Add
+                                                                your comment</label>
                                                             <div class="mt-1">
-                                                                <textarea rows="4" name="body" id="body" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{$post->body}}</textarea>
+                                                                <textarea rows="4" name="body" id="body"
+                                                                          class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">{{$post->body}}</textarea>
                                                             </div>
                                                         </div>
 
-                                                        <button type="submit" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                                                        <button type="submit"
+                                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                                            Update
+                                                        </button>
                                                     </form>
                                                 </div>
 
@@ -462,7 +482,8 @@
                             @csrf
                           <button type="submit" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                             <!-- Heroicon name: solid/thumb-up -->
-                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                 fill="currentColor"
                                  aria-hidden="true">
                               <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
                             </svg>
@@ -472,7 +493,8 @@
                         </form>
                     </span>
                                                         <span class="inline-flex items-center text-sm">
-                      <a href="{{route('community.post', $post->slug)}}" type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                      <a href="{{route('community.post', $post->slug)}}" type="button"
+                         class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                         <!-- Heroicon name: solid/chat-alt -->
                         <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                              aria-hidden="true">
@@ -514,8 +536,8 @@
                                                 </div>
                                             </article>
                                         </li>
-                                @empty
-                                    <!-- This example requires Tailwind CSS v2.0+ -->
+                                    @empty
+                                        <!-- This example requires Tailwind CSS v2.0+ -->
                                         <button @click="newpost = true" type="button"
                                                 class="relative block w-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             <svg class="mx-auto h-12 w-12 text-gray-400"
@@ -529,11 +551,9 @@
                               </span>
                                         </button>
 
+                                    @endforelse
 
-
-                                @endforelse
-
-                                <!-- More questions... -->
+                                    <!-- More questions... -->
                                 </ul>
                             </div>
 
@@ -585,9 +605,9 @@
                                                                 </button>
                                                             </div>
                                                         </li>
-                                                @endforeach
+                                                    @endforeach
 
-                                                <!-- More people... -->
+                                                    <!-- More people... -->
                                                 </ul>
                                             </div>
 
@@ -760,7 +780,7 @@
                                                         <div>
                                                             <select id="tag" name="tag"
                                                                     class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                                                                    <option selected value="">None</option>
+                                                                <option selected value="">None</option>
                                                                 @foreach(auth()->user()->Tag()->get() as $tag)
                                                                     <option value="{{$tag->id}}">{{$tag->tag}}</option>
                                                                 @endforeach
@@ -774,14 +794,24 @@
                                                             <div class="flex">
                                                                 <div class="flex-shrink-0">
                                                                     <!-- Heroicon name: solid/exclamation -->
-                                                                    <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                                    <svg class="h-5 w-5 text-yellow-400"
+                                                                         xmlns="http://www.w3.org/2000/svg"
+                                                                         viewBox="0 0 20 20" fill="currentColor"
+                                                                         aria-hidden="true">
+                                                                        <path fill-rule="evenodd"
+                                                                              d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                                                              clip-rule="evenodd"/>
                                                                     </svg>
                                                                 </div>
                                                                 <div class="ml-3">
-                                                                    <h3 class="text-sm font-medium text-yellow-800">Join a community.</h3>
+                                                                    <h3 class="text-sm font-medium text-yellow-800">Join
+                                                                        a community.</h3>
                                                                     <div class="mt-2 text-sm text-yellow-700">
-                                                                        <p>It looks like you are not part of any communities, please join one in order to send a post! <a class="font-bold underline" href="{{route('community.communities')}}">Visit communities page.</a></p>
+                                                                        <p>It looks like you are not part of any
+                                                                            communities, please join one in order to
+                                                                            send a post! <a class="font-bold underline"
+                                                                                            href="{{route('community.communities')}}">Visit
+                                                                                communities page.</a></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -791,26 +821,32 @@
                                             </div>
 
                                             @if($errors->all())
-                                            <div class="rounded-md bg-red-50 p-4">
-                                                <div class="flex">
-                                                    <div class="flex-shrink-0">
-                                                        <!-- Heroicon name: solid/x-circle -->
-                                                        <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                                        </svg>
-                                                    </div>
-                                                    <div class="ml-3">
-                                                        <h3 class="text-sm font-medium text-red-800">There were {{$errors->count()}} errors with your submission</h3>
-                                                        <div class="mt-2 text-sm text-red-700">
-                                                            <ul role="list" class="list-disc pl-5 space-y-1">
-                                                                @foreach($errors->all() as $e)
-                                                                    <li>{{$e}}</li>
-                                                                @endforeach
-                                                            </ul>
+                                                <div class="rounded-md bg-red-50 p-4">
+                                                    <div class="flex">
+                                                        <div class="flex-shrink-0">
+                                                            <!-- Heroicon name: solid/x-circle -->
+                                                            <svg class="h-5 w-5 text-red-400"
+                                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                                 fill="currentColor" aria-hidden="true">
+                                                                <path fill-rule="evenodd"
+                                                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                                                      clip-rule="evenodd"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="ml-3">
+                                                            <h3 class="text-sm font-medium text-red-800">There
+                                                                were {{$errors->count()}} errors with your
+                                                                submission</h3>
+                                                            <div class="mt-2 text-sm text-red-700">
+                                                                <ul role="list" class="list-disc pl-5 space-y-1">
+                                                                    @foreach($errors->all() as $e)
+                                                                        <li>{{$e}}</li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             @endif
 
                                             <!-- Action buttons -->
@@ -835,6 +871,8 @@
 
 
                 </div>
-
+            </main>
+        </div>
+    </div>
 
 </x-app-layout>
