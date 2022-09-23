@@ -71,4 +71,26 @@ class Note extends Controller
 
         return redirect(route('note.show'));
     }
+
+    public function makePrivate($id)
+    {
+        \App\Models\Note::findOrFail($id)->update(
+            [
+                'private' => true
+            ]
+        );
+
+        return redirect(route('note.show', $id));
+    }
+
+    public function makePublic($id)
+    {
+        \App\Models\Note::findOrFail($id)->update(
+            [
+                'private' => false
+            ]
+        );
+
+        return redirect(route('note.show', $id));
+    }
 }

@@ -199,7 +199,7 @@
                                                             <div class="py-1" role="none">
                                                                 @switch($l->private)
                                                                     @case(1)
-                                                                        <a href="#" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                                                        <a href="{{route('note.make-public', $l->id)}}" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
                                                                             <!-- Heroicon name: mini/archive-box -->
                                                                             <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                                                 <path d="M2 3a1 1 0 00-1 1v1a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1H2z" />
@@ -209,7 +209,7 @@
                                                                         </a>
                                                                     @break(1)
                                                                     @case(0)
-                                                                        <a href="#" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                                                        <a href="{{route('note.make-private', $l->id)}}" class="text-gray-700 group flex items-center px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
                                                                             <!-- Heroicon name: mini/archive-box -->
                                                                             <svg class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                                                 <path d="M2 3a1 1 0 00-1 1v1a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1H2z" />
