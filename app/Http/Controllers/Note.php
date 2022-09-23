@@ -25,6 +25,7 @@ class Note extends Controller
                 'name' => $request->input('title'),
                 'description' => $request->input('description'),
                 'user_id' => $request->user()->id,
+                'private' => $request->input('private')
             ]
         );
 
@@ -69,5 +70,27 @@ class Note extends Controller
         \App\Models\Note::query()->find($id)->delete();
 
         return redirect(route('note.show'));
+    }
+
+    public function makePrivate($id)
+    {
+        \App\Models\Note::findOrFail($id)->update(
+            [
+                'private' => true
+            ]
+        );
+
+        return redirect(route('note.show', $id));
+    }
+
+    public function makePublic($id)
+    {
+        \App\Models\Note::findOrFail($id)->update(
+            [
+                'private' => false
+            ]
+        );
+
+        return redirect(route('note.show', $id));
     }
 }

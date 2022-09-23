@@ -390,6 +390,12 @@ Route::post('/community/user/{id}/privacy', [Community::class, 'updatePrivacy'])
 Route::post('/blog/{slug}/response/create', [Blog::class, 'response'])
     ->middleware(['auth', 'verified'])
     ->name('blog.response.create');
+Route::post('/notes/{id}/private', [Note::class, 'makePrivate'])
+    ->middleware(['auth'])
+    ->name('note.make-private');
+Route::post('/notes/{id}/public', [Note::class, 'makePublic'])
+    ->middleware(['auth'])
+    ->name('note.make-public');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
