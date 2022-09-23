@@ -26,8 +26,10 @@ class Community extends Controller
         ]);
     }
 
-    public function like($id)
+    public function like($slug)
     {
+        $id = Post::query()->where('slug', $slug)->first()->id;
+
         Like::query()->firstOrCreate(
             [
                 'post_id' => $id,
@@ -54,12 +56,12 @@ class Community extends Controller
         ]);
     }
 
-    public function post($id)
+    public function post($slug)
     {
-        Post::query()->where('posts.id', $id)->increment('views', '1');
+        Post::query()->where('posts.slug', $slug)->increment('views', '1');
 
         return view('communitypost', [
-            'post' => Post::query()->where('posts.id', $id)->find($id),
+            'post' => Post::query()->where('posts.slug', $slug)->firstOrFail(),
         ]);
     }
 
@@ -149,17 +151,19 @@ class Community extends Controller
         return redirect(route('community'));
     }
 
-    public function updatePost($id, UpdateUserPost $request)
+    public function updatePost($slug, UpdateUserPost $request)
     {
-        $post = Post::query()->where('posts.id', $id);
+        $post = Post::query()->where('posts.slug', $slug);
 
         $title = $request->input('title');
         $body = $request->input('body');
+        $slug = Str::slug($request->input('title'));
 
         $post->update(
             [
                 'title' => $title,
-                'body' => $body
+                'body' => $body,
+                'slug' => $slug
             ]
         );
 
