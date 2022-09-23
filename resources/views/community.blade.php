@@ -379,7 +379,7 @@
                                                                         @endif
 
                                                                         @if (auth()->user()->is_admin)
-                                                                            <form action="{{ route('community.delete', $post->id) }}"
+                                                                            <form action="{{ route('community.delete', $post->slug) }}"
                                                                                   method="post">
                                                                                 @csrf
                                                                                 <a class="text-gray-700 flex px-4 py-2 text-sm"
@@ -419,8 +419,15 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <div>
+                                                        @foreach($post->Tag() as $t)
+                                                            <span class="mt-2 inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">{{$t->tag}}</span>
+                                                        @endforeach
+                                                    </div>
+
                                                     <h2 id="question-title-81614" x-show="content"
-                                                        class="mt-4 text-base font-medium text-gray-900">
+                                                        class="mt-2 text-base font-medium text-gray-900">
                                                         {{$post->title}}
                                                     </h2>
                                                 </div>
