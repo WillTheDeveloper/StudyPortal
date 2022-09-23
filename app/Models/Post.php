@@ -16,7 +16,7 @@ class Post extends Model
         'body',
         'user_id',
         'subject_id',
-        'tag_id'
+        'tag_id',
         'slug'
     ];
 
