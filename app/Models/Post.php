@@ -8,7 +8,8 @@ use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory;
+    use Searchable;
 
     protected $fillable = [
         'title',
