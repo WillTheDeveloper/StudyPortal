@@ -8,13 +8,15 @@ use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory;
+    use Searchable;
 
     protected $fillable = [
         'title',
         'body',
         'user_id',
         'subject_id',
+        'tag_id'
         'slug'
     ];
 
@@ -23,6 +25,11 @@ class Post extends Model
         return[
             'title' => $this->title,
         ];
+    }
+
+    public function Tag()
+    {
+        return $this->belongsTo(Tag::class);
     }
 
     public function Comments()

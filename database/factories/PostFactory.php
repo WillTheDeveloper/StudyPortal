@@ -24,10 +24,11 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(),
-            'body' => $this->faker->paragraph(2),
-            'user_id' => User::query()->get('id')->random(),
-            'subject_id' => Subject::query()->get('id')->random()
+            'title' => $this->faker->text(25),
+            'body' => $this->faker->sentence(2),
+            'user_id' => User::factory()->create()->id,
+            'subject_id' => Subject::factory()->create()->id,
+            'views' => $this->faker->randomNumber(8)
         ];
     }
 }

@@ -379,7 +379,7 @@
                                                                         @endif
 
                                                                         @if (auth()->user()->is_admin)
-                                                                            <form action="{{ route('community.delete', $post->id) }}"
+                                                                            <form action="{{ route('community.delete', $post->slug) }}"
                                                                                   method="post">
                                                                                 @csrf
                                                                                 <a class="text-gray-700 flex px-4 py-2 text-sm"
@@ -419,8 +419,15 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <div>
+                                                        @foreach($post->Tag()->get() as $t)
+                                                            <span class="mt-2 inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800">{{$t->tag}}</span>
+                                                        @endforeach
+                                                    </div>
+
                                                     <h2 id="question-title-81614" x-show="content"
-                                                        class="mt-4 text-base font-medium text-gray-900">
+                                                        class="mt-2 text-base font-medium text-gray-900">
                                                         {{$post->title}}
                                                     </h2>
                                                 </div>
@@ -492,7 +499,7 @@
                       </button>
                     </span>
                                                     </div>
-                                                    <div class="flex text-sm">
+                                                    {{--<div class="flex text-sm">
                     <span class="inline-flex items-center text-sm">
                       <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                         <!-- Heroicon name: solid/share -->
@@ -503,7 +510,7 @@
                         <span class="font-medium text-gray-900">Share</span>
                       </button>
                     </span>
-                                                    </div>
+                                                    </div>--}}
                                                 </div>
                                             </article>
                                         </li>
@@ -736,6 +743,26 @@
                                                                     class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                                                 @foreach(auth()->user()->Subject()->get() as $subject)
                                                                     <option value="{{$subject->id}}">{{$subject->subject}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- Team members -->
+                                                    <div class="space-y-2 px-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:px-6 sm:py-5">
+                                                        <div>
+                                                            <h3 class="text-sm font-medium text-gray-900">
+                                                                Tag
+                                                            </h3>
+                                                        </div>
+
+                                                        <div>
+                                                            <select id="tag" name="tag"
+                                                                    class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                                                    <option selected value="">None</option>
+                                                                @foreach(auth()->user()->Tag()->get() as $tag)
+                                                                    <option value="{{$tag->id}}">{{$tag->tag}}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>

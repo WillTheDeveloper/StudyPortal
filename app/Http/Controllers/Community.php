@@ -82,7 +82,8 @@ class Community extends Controller
         return view('trending');
     }
 
-    public function showSubject($id) {
+    public function showSubject($id)
+    {
         return view('communitysubject', [
             'posts' => Post::all()->where('subject_id', $id)
         ]);
@@ -98,6 +99,7 @@ class Community extends Controller
                 'body' => $request->input('text'),
                 'user_id' => $request->user()->id,
                 'subject_id' => $request->input('subject'),
+                'tag_id' => $request->input('tag')
                 'slug' => Str::slug($request->input('title'))
             ]
         );

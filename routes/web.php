@@ -33,9 +33,6 @@ Route::get('/contact', function () {
 })->name('contact');
 
 // Dashboard routes
-/*Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');*/
 Route::get('/dashboard', [Dashboard::class, 'show'])
     ->middleware('auth')
     ->name('dashboard');
