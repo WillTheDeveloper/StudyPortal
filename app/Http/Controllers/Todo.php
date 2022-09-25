@@ -18,7 +18,7 @@ class Todo extends Controller
     public function completed()
     {
         return view('todocompleted', [
-            'completed' => Task::query()->where('user_id', auth()->id())->where('complete', false)->paginate(20)
+            'completed' => Task::query()->where('user_id', auth()->id())->where('complete', true)->paginate(20)
         ]);
     }
 
@@ -36,6 +36,29 @@ class Todo extends Controller
         ]);
 
         Session::flash('status', 'completed');
+
+        return redirect(route('todo.all'));
+    }
+
+    public function markAsDue($id)
+    {
+        Task::withTrashed()->find($id)->update([
+            'complete' => false
+        ]);
+
+        Session::flash('status', 'uncompleted');
+
+        return redirect(route('todo.all'));
+    }
+
+    public function restore($id)
+    {
+        Task::withTrashed()->find($id)->restore();
+        Task::withoutTrashed()->find($id)->update([
+            'complete' => false
+        ]);
+
+        Session::flash('status', 'restored');
 
         return redirect(route('todo.all'));
     }

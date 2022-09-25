@@ -211,7 +211,7 @@ Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelet
 Route::get('/todo/completed', [Todo::class, 'completed'])
     ->middleware(['auth', 'verified'])
     ->name('todo.completed');
-Route::get('/todo/archived', [Todo::class, 'archive'])
+Route::get('/todo/archived', [Todo::class, 'archived'])
     ->middleware(['auth', 'verified'])
     ->name('todo.archived');
 Route::get('/todo/active', [Todo::class, 'active'])
@@ -406,6 +406,9 @@ Route::post('/blog/{slug}/response/create', [Blog::class, 'response'])
 Route::post('/todo/{id}/completed', [Todo::class, 'markAsComplete'])
     ->middleware(['auth', 'verified'])
     ->name('todo.mark-as-complete');
+Route::post('/todo/{id}/due', [Todo::class, 'markAsDue'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.mark-as-due');
 Route::post('/todo/{id}/archive', [Todo::class, 'archive'])
     ->middleware(['auth', 'verified'])
     ->name('todo.mark-as-archive');
