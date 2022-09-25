@@ -415,6 +415,9 @@ Route::post('/todo/{id}/archive', [Todo::class, 'archive'])
 Route::post('/todo/{id}/delete', [Todo::class, 'deletearchive'])
     ->middleware(['auth', 'verified'])
     ->name('todo.delete-archive');
+Route::post('/todo/{id}/restore', [Todo::class, 'restore'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.restore');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
