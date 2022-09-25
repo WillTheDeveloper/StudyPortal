@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/users', function () {
     return new \App\Http\Resources\UserCollection(\App\Models\User::all());
 })->middleware('auth:sanctum');
+Route::get('/user/posts', function () {
+    return new \App\Http\Resources\UserPostResource(auth()->user());
+})->middleware('auth:sanctum');
 Route::get('/user/{id}', function ($id) {
     return new \App\Http\Resources\UserResource(\App\Models\User::findOrFail($id));
 })->middleware(['auth:sanctum', 'admin']);
-//Route::get('/user')
 
 
 Route::get('/post/{slug}', function ($slug) {
