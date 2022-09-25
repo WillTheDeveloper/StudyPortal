@@ -8,3 +8,8 @@ Route::get('/users', function () {
 Route::get('/user/{id}', function ($id) {
     return new \App\Http\Resources\UserResource(\App\Models\User::findOrFail($id));
 })->middleware(['auth:sanctum', 'admin']);
+
+
+Route::get('/post/{id}', function ($id) {
+    return new \App\Http\Resources\PostResource(\App\Models\Post::findOrFail($id));
+})->middleware(['auth:sanctum']);
