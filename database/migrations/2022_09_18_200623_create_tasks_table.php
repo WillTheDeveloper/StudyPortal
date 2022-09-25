@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->dateTime('due')->nullable();
             $table->boolean('complete')->nullable(false)->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
