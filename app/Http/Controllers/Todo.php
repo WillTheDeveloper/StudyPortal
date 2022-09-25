@@ -10,7 +10,16 @@ class Todo extends Controller
 {
     public function new(Request $request) // POST
     {
+        Task::query()->create([
+            'task' => $request->input('task'),
+            'details' => $request->input('additional'),
+            'due' => $request->input('duedate'),
+            'user_id' => auth()->id()
+        ]);
 
+        Session::flash('status', 'created');
+
+        return redirect(route('todo.all'));
     }
 
     public function active()

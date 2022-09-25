@@ -26,7 +26,7 @@
                             To: "translate-x-full"
                         -->
                         <div class="pointer-events-auto w-screen max-w-2xl">
-                            <form class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                            <form class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl" action="{{route('todo.new')}}" method="post">
                                 <div class="flex-1">
                                     <!-- Header -->
                                     <div class="bg-gray-50 px-4 py-6 sm:px-6">
@@ -84,7 +84,7 @@
                                 <!-- Action buttons -->
                                 <div class="flex-shrink-0 border-t border-gray-200 px-4 py-5 sm:px-6">
                                     <div class="flex justify-end space-x-3">
-                                        <button type="button" class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Cancel</button>
+                                        <button type="button" @click="newmodal = false" class="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Cancel</button>
                                         <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Create</button>
                                     </div>
                                 </div>
