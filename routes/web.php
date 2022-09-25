@@ -207,7 +207,7 @@ Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
 Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('institution.request-delete');
-Route::get('/todo/all', [\App\Http\Controllers\Todo::class, 'all'])
+Route::get('/todo/active', [\App\Http\Controllers\Todo::class, 'active'])
     ->middleware(['auth', 'verified'])
     ->name('todo.all');
 
