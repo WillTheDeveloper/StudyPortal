@@ -15,3 +15,6 @@ Route::get('/user/{id}', function ($id) {
 Route::get('/post/{slug}', function ($slug) {
     return new \App\Http\Resources\PostResource(\App\Models\Post::firstWhere('slug', $slug));
 })->middleware(['auth:sanctum']);
+Route::get('/posts', function () {
+    return new \App\Http\Resources\PostCollection(\App\Models\Post::all());
+})->middleware(['auth:sanctum', 'admin']);
