@@ -24,7 +24,7 @@ class Todo extends Controller
     public function archived()
     {
         return view('todoarchived', [
-            'archived' => Task::query()->where('user_id', auth()->id())->paginate(20)
+            'archived' => Task::onlyTrashed()->where('user_id', auth()->id())->paginate(20)
         ]);
     }
 }
