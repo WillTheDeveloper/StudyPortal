@@ -11,6 +11,14 @@ class Task extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'task',
+        'details',
+        'due',
+        'user_id',
+        'complete'
+    ];
+
     protected $casts = [
         'due' => 'datetime',
         'complete' => 'boolean'
