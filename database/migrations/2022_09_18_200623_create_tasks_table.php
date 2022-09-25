@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('details')->nullable();
             $table->integer('user_id');
             $table->dateTime('due')->nullable();
-            $table->boolean('complete')->nullable(false);
+            $table->boolean('complete')->nullable(false)->default(false);
             $table->timestamps();
         });
     }
