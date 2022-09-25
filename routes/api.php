@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+// ENSURE THAT YOU USE THE MIGRATIONS THAT ARE LOCATED ON THE MASTER BRANCH!
+
 Route::get('/users', function () {
     return new \App\Http\Resources\UserCollection(\App\Models\User::all());
 })->middleware('auth:sanctum');
