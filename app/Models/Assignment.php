@@ -19,7 +19,7 @@ class Assignment extends Model
 
     public function User()
     {
-        return $this->belongsToMany(User::class)->withPivot('has_seen');
+        return $this->belongsToMany(User::class)->withPivot('has_seen', 'user_id');
     }
 
     public function Group()

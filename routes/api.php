@@ -30,3 +30,6 @@ Route::get('/comment/{id}', function ($id) {
 Route::get('/assignment/{id}', function ($id) {
     return new \App\Http\Resources\AssignmentResource(\App\Models\Assignment::findOrFail($id));
 });
+Route::get('/assignment/{id}/students', function ($id) {
+    return new \App\Http\Resources\AssignmentUserResource(\App\Models\Assignment::findOrFail($id));
+});
