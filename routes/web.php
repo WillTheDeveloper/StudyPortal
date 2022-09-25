@@ -12,6 +12,7 @@ use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
+use App\Http\Controllers\Todo;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
@@ -207,9 +208,15 @@ Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
 Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('institution.request-delete');
-Route::get('/todo/active', [\App\Http\Controllers\Todo::class, 'active'])
+Route::get('/todo/active', [Todo::class, 'active'])
     ->middleware(['auth', 'verified'])
     ->name('todo.all');
+Route::get('/todo/archived', [Todo::class, 'active'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.archived');
+Route::get('/todo/completed', [Todo::class, 'active'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.completed');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -396,6 +403,15 @@ Route::post('/community/user/{id}/privacy', [Community::class, 'updatePrivacy'])
 Route::post('/blog/{slug}/response/create', [Blog::class, 'response'])
     ->middleware(['auth', 'verified'])
     ->name('blog.response.create');
+Route::post('/todo/{id}/completed', [Todo::class, 'markAsComplete'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.mark-as-complete');
+Route::post('/todo/{id}/archive', [Todo::class, 'archive'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.mark-as-archive');
+Route::post('/todo/{id}/delete', [Todo::class, 'deletearchive'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.delete-archive');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {

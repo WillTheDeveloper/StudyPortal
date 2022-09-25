@@ -328,7 +328,9 @@
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$a->due->diffForHumans()}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$a->created_at->diffForHumans()}}</td>
                                             <td class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Mark as completed</a>
+                                                <br>
+                                                <a href="#" class="text-red-600 hover:text-indigo-900">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

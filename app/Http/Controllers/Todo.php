@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Todo extends Controller
 {
@@ -26,5 +27,34 @@ class Todo extends Controller
         return view('todoarchived', [
             'archived' => Task::onlyTrashed()->where('user_id', auth()->id())->paginate(20)
         ]);
+    }
+
+    public function markAsComplete($id)
+    {
+        Task::withTrashed()->find($id)->update([
+            'complete' => true
+        ]);
+
+        Session::flash('status', 'completed');
+
+        return redirect(route('todo.all'));
+    }
+
+    public function archive($id) // Essentially is deleting but uses soft deletes therefore goes to archive.
+    {
+        Task::withoutTrashed()->find($id)->delete();
+
+        Session::flash('status', 'archived');
+
+        return redirect(route('todo.all'));
+    }
+
+    public function deletearchive($id) // This actually deletes it from the database.
+    {
+        Task::onlyTrashed()->find($id)->forceDelete();
+
+        Session::flash('status', 'deleted');
+
+        return redirect(route('todo.all'));
     }
 }
