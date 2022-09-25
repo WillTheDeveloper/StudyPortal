@@ -157,6 +157,10 @@
                                                     @csrf
                                                     <button type="submit" class="text-indigo-600 hover:text-indigo-900">Restore</button>
                                                 </form>
+                                                <form action="{{route('todo.delete-archive', $a->id)}}" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="text-red-600 hover:text-red-900">Delete forever</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
