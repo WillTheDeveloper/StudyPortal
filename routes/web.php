@@ -12,6 +12,7 @@ use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
+use App\Http\Controllers\Todo;
 use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
@@ -204,6 +205,15 @@ Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
 Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('institution.request-delete');
+Route::get('/todo/completed', [Todo::class, 'completed'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.completed');
+Route::get('/todo/archived', [Todo::class, 'archived'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.archived');
+Route::get('/todo/active', [Todo::class, 'active'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.all');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
@@ -390,6 +400,24 @@ Route::post('/community/user/{id}/privacy', [Community::class, 'updatePrivacy'])
 Route::post('/blog/{slug}/response/create', [Blog::class, 'response'])
     ->middleware(['auth', 'verified'])
     ->name('blog.response.create');
+Route::post('/todo/{id}/completed', [Todo::class, 'markAsComplete'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.mark-as-complete');
+Route::post('/todo/{id}/due', [Todo::class, 'markAsDue'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.mark-as-due');
+Route::post('/todo/{id}/archive', [Todo::class, 'archive'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.mark-as-archive');
+Route::post('/todo/{id}/delete', [Todo::class, 'deletearchive'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.delete-archive');
+Route::post('/todo/{id}/restore', [Todo::class, 'restore'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.restore');
+Route::post('/todo/create', [Todo::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.new');
 Route::post('/notes/{id}/private', [Note::class, 'makePrivate'])
     ->middleware(['auth'])
     ->name('note.make-private');
