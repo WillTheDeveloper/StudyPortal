@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Session;
 
 class Todo extends Controller
 {
+    public function new(Request $request) // POST
+    {
+
+    }
+
     public function active()
     {
         return view('todo', [
