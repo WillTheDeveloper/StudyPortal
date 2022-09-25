@@ -21,3 +21,8 @@ Route::get('/post/{slug}', function ($slug) {
 Route::get('/posts', function () {
     return new \App\Http\Resources\PostCollection(\App\Models\Post::all());
 })->middleware(['auth:sanctum', 'admin']);
+
+
+Route::get('/comment/{id}', function ($id) {
+    return new \App\Http\Resources\CommentResource(\App\Models\Comment::findOrFail($id));
+});
