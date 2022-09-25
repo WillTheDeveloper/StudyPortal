@@ -10,14 +10,14 @@ class Todo extends Controller
     public function active()
     {
         return view('todo', [
-            'all' => Task::query()->where('user_id', auth()->id())->paginate(20)
+            'all' => Task::query()->where('user_id', auth()->id())->where('complete', false)->paginate(20)
         ]);
     }
 
     public function completed()
     {
         return view('todocompleted', [
-            'completed' => Task::query()->where('user_id', auth()->id())->paginate(20)
+            'completed' => Task::query()->where('user_id', auth()->id())->where('complete', false)->paginate(20)
         ]);
     }
 
