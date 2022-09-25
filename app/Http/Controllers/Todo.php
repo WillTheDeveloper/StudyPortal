@@ -10,7 +10,7 @@ class Todo extends Controller
     public function all()
     {
         return view('todo', [
-            'all' => Task::query()->where('user_id', auth()->id())
+            'all' => Task::query()->where('user_id', auth()->id())->paginate(20)
         ]);
     }
 }
