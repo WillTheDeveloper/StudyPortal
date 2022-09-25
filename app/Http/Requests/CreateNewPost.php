@@ -26,7 +26,8 @@ class CreateNewPost extends FormRequest
         return [
             'title' => 'required|string',
             'text' => 'required|string',
-            'subject' => 'required|integer'
+            'subject' => 'required|integer',
+            'tag' => 'nullable|integer'
         ];
     }
 

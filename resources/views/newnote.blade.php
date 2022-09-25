@@ -122,6 +122,15 @@
                                                 <textarea type="text" name="description" id="description" autocomplete="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                                             </div>
                                         </div>
+
+                                        <div class="py-5 w-40">
+                                            <label for="private" class="block text-sm font-medium text-gray-700">Privacy</label>
+                                            <select id="private" name="private" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                                <option value="1" selected>Private</option>
+                                                <option value="0">Public</option>
+                                            </select>
+                                        </div>
+
                                     </div>
                                     <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('name')->nullable(false);
             $table->string('description')->nullable(true);
             $table->text('notes')->nullable(true);
             $table->integer('user_id')->nullable(false);
+            $table->boolean('private')->default(1)->nullable(false);
             $table->timestamps();
         });
     }

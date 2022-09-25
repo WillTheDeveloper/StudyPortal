@@ -34,9 +34,6 @@ Route::get('/contact', function () {
 })->name('contact');
 
 // Dashboard routes
-/*Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');*/
 Route::get('/dashboard', [Dashboard::class, 'show'])
     ->middleware('auth')
     ->name('dashboard');
@@ -72,7 +69,7 @@ Route::get('/users', [User::class, 'showAll'])
 Route::get('/community/user/{id}', [Community::class, 'profile'])
     ->middleware('auth')
     ->name('community.profile');
-Route::get('/community/post/{id}', [Community::class, 'post'])
+Route::get('/community/post/{slug}', [Community::class, 'post'])
     ->middleware('auth')
     ->name('community.post');
 Route::get('/assignments/create', [Assignment::class, 'create'])
@@ -246,13 +243,13 @@ Route::post('/groups/updating/{id}', [Group::class, 'updatename'])
 Route::post('/community/post/create', [Community::class, 'createNewPost'])
     ->middleware('auth')
     ->name('community.new');
-Route::post('/community/post/delete/{id}', [Community::class, 'deletePost'])
+Route::post('/community/post/delete/{slug}', [Community::class, 'deletePost'])
     ->middleware('auth')
     ->name('community.delete');
 Route::post('/kanban/delete/{id}', [Kanban::class, 'delete'])
     ->middleware('auth')->middleware("owner:" . \App\Models\Kanban::class)
     ->name('kanban.delete');
-Route::post('/community/post/{id}/comment/new', [Community::class, 'CreateNewComment'])
+Route::post('/community/post/{slug}/comment/new', [Community::class, 'CreateNewComment'])
     ->middleware('auth')
     ->name('community.comment.new');
 Route::post('/kanban/board/new', [Kanban::class, 'create'])
@@ -280,7 +277,7 @@ Route::post('/notifications/markallasread', [Notification::class, 'markAllAsRead
 Route::post('/users/{id}/update', [User::class, 'updateUser'])
     ->middleware(['auth', 'admin'])
     ->name('user.update');
-Route::post('/community/post/{id}/update', [Community::class, 'updatePost'])
+Route::post('/community/post/{slug}/update', [Community::class, 'updatePost'])
     ->middleware('auth')
     ->name('community.post.update');
 Route::post('/community/comment/{id}/update', [Community::class, 'updateComment'])
@@ -304,7 +301,7 @@ Route::post('/settings/delete/confirmed', [User::class, 'DeleteAccount'])
 Route::post('/timetable/create', [Timetable::class, 'create'])
     ->middleware('auth')
     ->name('timetable.create');
-Route::post('/community/like/{id}', [Community::class, 'like'])
+Route::post('/community/like/{slug}', [Community::class, 'like'])
     ->middleware(['auth', 'verified'])
     ->name('community.like');
 Route::post('/community/report/{id}/submit', [Report::class, 'submit'])
@@ -421,6 +418,12 @@ Route::post('/todo/{id}/restore', [Todo::class, 'restore'])
 Route::post('/todo/create', [Todo::class, 'new'])
     ->middleware(['auth', 'verified'])
     ->name('todo.new');
+Route::post('/notes/{id}/private', [Note::class, 'makePrivate'])
+    ->middleware(['auth'])
+    ->name('note.make-private');
+Route::post('/notes/{id}/public', [Note::class, 'makePublic'])
+    ->middleware(['auth'])
+    ->name('note.make-public');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
