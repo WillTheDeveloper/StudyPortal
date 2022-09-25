@@ -27,6 +27,7 @@
                         -->
                         <div class="pointer-events-auto w-screen max-w-2xl">
                             <form class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl" action="{{route('todo.new')}}" method="post">
+                                @csrf
                                 <div class="flex-1">
                                     <!-- Header -->
                                     <div class="bg-gray-50 px-4 py-6 sm:px-6">
