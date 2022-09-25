@@ -208,15 +208,15 @@ Route::get('/institutions/{joincode}/add', [Institution::class, 'addUser'])
 Route::get('/institutions/{joincode}/delete', [Institution::class, 'requestDelete'])
     ->middleware(['admin', 'auth', 'verified'])
     ->name('institution.request-delete');
+Route::get('/todo/completed', [Todo::class, 'completed'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.completed');
+Route::get('/todo/archived', [Todo::class, 'archive'])
+    ->middleware(['auth', 'verified'])
+    ->name('todo.archived');
 Route::get('/todo/active', [Todo::class, 'active'])
     ->middleware(['auth', 'verified'])
     ->name('todo.all');
-Route::get('/todo/archived', [Todo::class, 'active'])
-    ->middleware(['auth', 'verified'])
-    ->name('todo.archived');
-Route::get('/todo/completed', [Todo::class, 'active'])
-    ->middleware(['auth', 'verified'])
-    ->name('todo.completed');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
