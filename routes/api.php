@@ -26,3 +26,7 @@ Route::get('/posts', function () {
 Route::get('/comment/{id}', function ($id) {
     return new \App\Http\Resources\CommentResource(\App\Models\Comment::findOrFail($id));
 });
+
+Route::get('/assignment/{id}', function ($id) {
+    return new \App\Http\Resources\AssignmentResource(\App\Models\Assignment::findOrFail($id));
+});
