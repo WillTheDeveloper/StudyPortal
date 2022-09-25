@@ -10,6 +10,7 @@ Route::get('/users', function () {
 Route::get('/user/{id}', function ($id) {
     return new \App\Http\Resources\UserResource(\App\Models\User::findOrFail($id));
 })->middleware(['auth:sanctum', 'admin']);
+//Route::get('/user')
 
 
 Route::get('/post/{slug}', function ($slug) {

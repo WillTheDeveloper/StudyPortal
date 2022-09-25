@@ -20,6 +20,7 @@ class PostResource extends JsonResource
             'user' => $this->User->name,
             'subject' => $this->Subject->subject,
             'views' => $this->views,
+            'tag' => $this->Tag->tag
         ];
     }
 }
