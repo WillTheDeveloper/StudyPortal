@@ -308,10 +308,10 @@
                                 <table class="min-w-full table-fixed divide-y divide-gray-300">
                                     <thead class="bg-gray-50">
                                     <tr>
-                                        <th scope="col" class="min-w-[12rem] pl-3 py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">Name</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Title</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Role</th>
+                                        <th scope="col" class="min-w-[12rem] pl-3 py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">Task</th>
+                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Details</th>
+                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Due</th>
+                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Created</th>
                                         <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                             <span class="sr-only">Edit</span>
                                         </th>
@@ -319,16 +319,19 @@
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
                                     <!-- Selected: "bg-gray-50" -->
-                                    <tr>
-                                        <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
-                                        <td class="whitespace-nowrap py-4 pr-3 pl-3 text-sm font-medium text-gray-900">Lindsay Walton</td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-                                        <td class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
-                                        </td>
-                                    </tr>
+
+                                    @foreach($all as $a)
+                                        <tr>
+                                            <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
+                                            <td class="whitespace-nowrap py-4 pr-3 pl-3 text-sm font-medium text-gray-900">{{$a->task}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$a->details}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$a->due->diffForHumans()}}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$a->created_at->diffForHumans()}}</td>
+                                            <td class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
                                     <!-- More people... -->
                                     </tbody>
