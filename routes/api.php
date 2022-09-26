@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/users', function () {
     return new \App\Http\Resources\UserCollection(\App\Models\User::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.user.collection');
 Route::get('/user/posts', function () {
     return new \App\Http\Resources\UserPostResource(auth()->user());
 })->middleware('auth:sanctum');
