@@ -507,18 +507,60 @@ Route::get('/support/profile', function () {
 Route::name('docs.v1.')->group(function () { // Prefix the name of the routes
     Route::middleware(['auth', 'web'])->group( function () { // Apply auth middleware to the prefixed routes.
         Route::prefix('/api/v1/docs')->group(function () { // V1 Documentation. Prefix = {url}/api/v1/docs/posts for example
-            Route::get('/posts', function () {
-                return view('api.v1.posts');
-            })->name('posts');
             Route::get('/assignments', function () {
                 return view('api.v1.assignments');
             })->name('assignments');
             Route::get('/blog', function () {
                 return view('api.v1.blog');
             })->name('blog');
+            Route::get('/comments', function () {
+                return view('api.v1.comments');
+            })->name('comments');
+            Route::get('/discussion', function () {
+                return view('api.v1.discussion');
+            })->name('discussion');
+            Route::get('/group', function () {
+                return view('api.v1.group');
+            })->name('group');
             Route::get('/institution', function () {
                 return view('api.v1.institution');
             })->name('institution');
+            Route::get('/kanban', function () {
+                return view('api.v1.kanban');
+            })->name('kanban');
+            Route::get('/notes', function () {
+                return view('api.v1.notes');
+            })->name('notes');
+            Route::get('/posts', function () {
+                return view('api.v1.posts');
+            })->name('posts');
+            Route::get('/reply', function () {
+                return view('api.v1.reply');
+            })->name('reply');
+            Route::get('/report', function () {
+                return view('api.v1.report');
+            })->name('report');
+            Route::get('/response', function () {
+                return view('api.v1.response');
+            })->name('response');
+            Route::get('/subject', function () {
+                return view('api.v1.subject');
+            })->name('subject');
+            Route::get('/tag', function () {
+                return view('api.v1.tag');
+            })->name('tag');
+            Route::get('/task', function () {
+                return view('api.v1.task');
+            })->name('task');
+            Route::get('/timetable', function () {
+                return view('api.v1.timetable');
+            })->name('timetable');
+            Route::get('/users', function () {
+                return view('api.v1.users');
+            })->name('users');
+            Route::get('/webhook', function () {
+                return view('api.v1.webhook');
+            })->name('webhook');
         });
     });
 });
