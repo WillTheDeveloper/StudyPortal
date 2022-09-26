@@ -60,4 +60,4 @@ Route::delete('/subject/{id}/delete', function ($id) {
     return [
         'status' => 'completed'
     ];
-});
+})->middleware(['auth:sanctum', 'admin']);
