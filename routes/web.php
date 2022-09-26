@@ -503,11 +503,22 @@ Route::get('/support/profile', function () {
 
 // API DOCUMENTATION PAGES
 
-Route::prefix('/api/v1/docs')->group(function () {
-    Route::get('/posts', function () {
-        return view('api.v1.posts');
-    });
-    Route::get('/assignments', function () {
-        return view('api.v1.assignments');
+// V1
+Route::name('docs.v1.')->group(function () { // Prefix the name of the routes
+    Route::middleware(['auth', 'web'])->group( function () { // Apply auth middleware to the prefixed routes.
+        Route::prefix('/api/v1/docs')->group(function () { // V1 Documentation. Prefix = {url}/api/v1/docs/posts for example
+            Route::get('/posts', function () {
+                return view('api.v1.posts');
+            })->name('posts');
+            Route::get('/assignments', function () {
+                return view('api.v1.assignments');
+            })->name('assignments');
+            Route::get('/blog', function () {
+                return view('api.v1.blog');
+            })->name('blog');
+            Route::get('/institution', function () {
+                return view('api.v1.institution');
+            })->name('institution');
+        });
     });
 });
