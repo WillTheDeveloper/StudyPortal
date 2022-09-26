@@ -18,7 +18,7 @@ Route::get('/post/{slug}', function ($slug) {
 })->middleware(['auth:sanctum'])->name('api.post.slug');
 Route::get('/posts', function () {
     return new \App\Http\Resources\PostCollection(\App\Models\Post::all());
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.post.collection');
 
 
 Route::get('/comment/{id}', function ($id) {

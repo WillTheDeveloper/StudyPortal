@@ -115,7 +115,7 @@
                                         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">API</th>
                                         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Endpoint</th>
                                         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Method</th>
-                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Token</th>
+                                        <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Auth token</th>
                                         <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Roles</th>
                                     </tr>
                                     </thead>
@@ -137,6 +137,25 @@
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Required</td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">None</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="font-medium text-gray-900">Get a collection of posts</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <div class="text-gray-900">{{route('api.post.collection', null, false)}}</div>
+                                            <div class="text-gray-500">Requires valid <b>slug</b> parameter</div>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">GET</span>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Required</td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
                                     </tr>
 
                                     <!-- More people... -->
