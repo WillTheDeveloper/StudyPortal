@@ -55,3 +55,9 @@ Route::post('/subject/new', function () {
     ]);
     return new \App\Http\Resources\SubjectResource($id);
 })->middleware(['auth:sanctum', 'admin']);
+Route::delete('/subject/{id}/delete', function ($id) {
+    \App\Models\Subject::findOrFail($id)->forceDelete();
+    return [
+        'status' => 'completed'
+    ];
+});
