@@ -38,3 +38,8 @@ Route::get('/blog/{slug}', function ($slug) {
 Route::get('/blogs', function () {
     return new \App\Http\Resources\BlogCollection(\App\Models\Blog::all());
 })->middleware(['auth:sanctum']);
+Route::get('/blog/{slug}/responses', function ($slug) {
+    return new \App\Http\Resources\BlogResponseResource(\App\Models\Blog::firstWhere('slug', $slug));
+})->middleware(['auth:sanctum']);
+
+//Route::get('/response');
