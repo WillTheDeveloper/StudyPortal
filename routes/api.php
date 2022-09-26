@@ -61,3 +61,10 @@ Route::delete('/subject/{id}/delete', function ($id) {
         'status' => 'completed'
     ];
 })->middleware(['auth:sanctum', 'admin']);
+
+Route::get('/notes', function () {
+    return new \App\Http\Resources\NoteCollection(\App\Models\Note::all());
+})->middleware(['auth:sanctum', 'admin']);
+Route::get('/note/{id}', function ($id) { // This model uses UUIDs as their primary key called 'id'
+    return new \App\Http\Resources\NoteResource(\App\Models\Note::findOrFail($id));
+})->middleware('auth:sanctum');

@@ -15,6 +15,7 @@ class NoteResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'uuid' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
             'note' => $this->note,
