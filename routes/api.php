@@ -42,9 +42,13 @@ Route::get('/blog/{slug}/responses', function ($slug) {
     return new \App\Http\Resources\BlogResponseResource(\App\Models\Blog::firstWhere('slug', $slug));
 })->middleware(['auth:sanctum']);
 
+
+Route::get('/subjects', function () {
+    return new \App\Http\Resources\SubjectCollection(\App\Models\Subject::all());
+})->middleware('auth:sanctum');
 Route::post('/subject/new', function () {
     $id = \App\Models\Subject::create([
         'subject' => Request::input('subject')
     ]);
-    return $id->id;
+    return new \App\Http\Resources\SubjectResource($id);
 })->middleware(['auth:sanctum', 'admin']);
