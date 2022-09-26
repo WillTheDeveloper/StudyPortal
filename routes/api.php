@@ -27,7 +27,14 @@ Route::get('/comment/{id}', function ($id) {
 
 Route::get('/assignment/{id}', function ($id) {
     return new \App\Http\Resources\AssignmentResource(\App\Models\Assignment::findOrFail($id));
-});
+})->middleware(['auth:sanctum']);
 Route::get('/assignment/{id}/students', function ($id) {
     return new \App\Http\Resources\AssignmentUserResource(\App\Models\Assignment::findOrFail($id));
-});
+})->middleware(['auth:sanctum', 'tutor']);
+
+Route::get('/blog/{slug}', function ($slug) {
+    return new \App\Http\Resources\BlogResource(\App\Models\Blog::firstWhere('slug', $slug));
+})->middleware(['auth:sanctum']);
+Route::get('/blogs', function () {
+    return new \App\Http\Resources\BlogCollection(\App\Models\Blog::all());
+})->middleware(['auth:sanctum']);
