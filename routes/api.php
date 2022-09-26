@@ -43,8 +43,8 @@ Route::get('/blog/{slug}/responses', function ($slug) {
 })->middleware(['auth:sanctum']);
 
 Route::post('/subject/new', function () {
-    \App\Models\Subject::create([
+    $id = \App\Models\Subject::create([
         'subject' => Request::input('subject')
     ]);
-    return true;
+    return $id->id;
 })->middleware(['auth:sanctum', 'admin']);
