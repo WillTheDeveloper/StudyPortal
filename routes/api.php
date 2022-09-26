@@ -74,10 +74,10 @@ Route::get('/reports', function () {
 })->middleware(['auth:sanctum', 'admin']);
 Route::get('/report/{id}', function ($id) {
     return new \App\Http\Resources\ReportResource(\App\Models\Report::findOrFail($id));
-});
+})->middleware(['auth:sanctum', 'admin']);
 Route::get('/reports/user/{id}', function ($id) {
     return new \App\Http\Resources\ReportCollection(\App\Models\Report::where('user_id', $id)->get());
-});
+})->middleware(['auth:sanctum', 'admin']);
 Route::get('/reports/post/{id}', function ($id) {
     return new \App\Http\Resources\ReportCollection(\App\Models\Report::where('post_id', $id)->get());
-});
+})->middleware(['auth:sanctum', 'admin']);
