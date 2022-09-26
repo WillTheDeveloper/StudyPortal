@@ -68,3 +68,16 @@ Route::get('/notes', function () {
 Route::get('/note/{id}', function ($id) { // This model uses UUIDs as their primary key called 'id'
     return new \App\Http\Resources\NoteResource(\App\Models\Note::findOrFail($id));
 })->middleware('auth:sanctum');
+
+Route::get('/reports', function () {
+    return new \App\Http\Resources\ReportCollection(\App\Models\Report::all());
+})->middleware(['auth:sanctum', 'admin']);
+Route::get('/report/{id}', function ($id) {
+    return new \App\Http\Resources\ReportResource(\App\Models\Report::findOrFail($id));
+});
+Route::get('/reports/user/{id}', function ($id) {
+    return new \App\Http\Resources\ReportCollection(\App\Models\Report::where('user_id', $id)->get());
+});
+Route::get('/reports/post/{id}', function ($id) {
+    return new \App\Http\Resources\ReportCollection(\App\Models\Report::where('post_id', $id)->get());
+});
