@@ -46,6 +46,9 @@ Route::get('/blog/{slug}/responses', function ($slug) {
 Route::get('/subjects', function () {
     return new \App\Http\Resources\SubjectCollection(\App\Models\Subject::all());
 })->middleware('auth:sanctum');
+Route::get('/subject/{id}', function ($id) {
+    return new \App\Http\Resources\SubjectResource(\App\Models\Subject::findOrFail($id));
+});
 Route::post('/subject/new', function () {
     $id = \App\Models\Subject::create([
         'subject' => Request::input('subject')
