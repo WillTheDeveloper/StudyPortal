@@ -500,3 +500,14 @@ Route::get('/support/users', function () {
 Route::get('/support/profile', function () {
     return view('supportprofile');
 })->name('support.profile')->middleware('auth');
+
+// API DOCUMENTATION PAGES
+
+Route::prefix('/api/v1/docs')->group(function () {
+    Route::get('/posts', function () {
+        return view('api.v1.posts');
+    });
+    Route::get('/assignments', function () {
+        return view('api.v1.assignments');
+    });
+});
