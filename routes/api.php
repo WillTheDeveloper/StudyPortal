@@ -42,4 +42,9 @@ Route::get('/blog/{slug}/responses', function ($slug) {
     return new \App\Http\Resources\BlogResponseResource(\App\Models\Blog::firstWhere('slug', $slug));
 })->middleware(['auth:sanctum']);
 
-//Route::get('/response');
+Route::post('/subject/new', function () {
+    \App\Models\Subject::create([
+        'subject' => Request::input('subject')
+    ]);
+    return true;
+})->middleware(['auth:sanctum', 'admin']);

@@ -13,6 +13,10 @@ class Subject extends Model
         'subject' => 'string'
     ];
 
+    protected $fillable = [
+        'subject'
+    ];
+
     public function Assignment()
     {
         return $this->hasMany(Assignment::class);
