@@ -308,6 +308,68 @@
             </div>
 
 
+            <div class="px-4 sm:px-6 lg:px-8 mt-5">
+                <div class="sm:flex sm:items-center">
+                    <div class="sm:flex-auto">
+                        <h1 class="text-xl font-semibold text-gray-900">Interactive</h1>
+                        <p class="mt-2 text-sm text-gray-700">Interact and test interactions with API on form below</p>
+                    </div>
+                </div>
+                <div class="mt-4 flex flex-col">
+                    <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                            <form method="get">
+                                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-300">
+                                        <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-3 py-3.5 pl-4 text-left text-sm font-semibold text-gray-900">Action</th>
+                                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Input</th>
+                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Data type</th>
+                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Required</th>
+                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 bg-white">
+                                        <tr>
+                                            <td class="whitespace-nowrap px-3 py-4 pl-4 text-sm text-gray-500">
+                                                <div class="text-gray-900">Get a post by its slug</div>
+                                            </td>
+                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                                <div class="flex items-center">
+                                                    <div class="relative w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-indigo-600 focus-within:ring-1 focus-within:ring-indigo-600">
+                                                        <label for="slug" class="absolute -top-2 left-2 -mt-px inline-block bg-white px-1 text-xs font-medium text-gray-900">Slug</label>
+                                                        <input type="text" name="slug" id="slug" class="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Jane Smith">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                                <div class="text-gray-900">String</div>
+                                                <div class="text-gray-500">Requires valid <b>slug</b> parameter</div>
+                                            </td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                                <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Yes</span>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <x-button type="submit">Run</x-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+
+                                        <!-- More people... -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
 
         </div>
