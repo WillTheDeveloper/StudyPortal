@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
@@ -24,11 +25,12 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->text(25),
+            'title' => $title = $this->faker->text(25),
             'body' => $this->faker->sentence(2),
             'user_id' => User::factory()->create()->id,
             'subject_id' => Subject::factory()->create()->id,
-            'views' => $this->faker->randomNumber(8)
+            'views' => $this->faker->randomNumber(8),
+            'slug' => Str::slug($title)
         ];
     }
 }
