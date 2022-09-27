@@ -26,6 +26,7 @@ Route::post('/post/new', function () {
         'user_id' => Request::user()->id,
         'subject_id' => Request::input('subject'),
         'tag_id' => Request::input('tag'),
+        'views' => 0,
         'slug' => \Illuminate\Support\Str::slug($title)
     ]);
     return new \App\Http\Resources\PostResource($model);
