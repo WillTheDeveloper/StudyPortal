@@ -125,3 +125,13 @@ Route::patch('/report/{id}/severity/low', function ($id) {
     \App\Models\Report::find($id)->update(['severity' => 'Low']);
     return new \App\Http\Resources\ReportResource(\App\Models\Report::find($id));
 })->middleware(['auth:sanctum', 'admin'])->name('api.report.severity.low');
+
+Route::get('/groups', function () {
+    return new \App\Http\Resources\GroupCollection(\App\Models\Group::all());
+});
+Route::get('/group/{name}', function ($name) {
+    return new \App\Http\Resources\GroupResource(\App\Models\Group::firstWhere('name', $name));
+});
+Route::get('/group/{name}/users', function ($name) {
+    return new \App\Http\Resources\GroupUserResource(\App\Models\Group::firstWhere('name', $name));
+});
