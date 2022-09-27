@@ -7,10 +7,10 @@ Route::get('/users', function () {
 })->middleware('auth:sanctum')->name('api.user.collection');
 Route::get('/user/posts', function () {
     return new \App\Http\Resources\UserPostResource(auth()->user());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.user.post.resource');
 Route::get('/user/{id}', function ($id) {
     return new \App\Http\Resources\UserResource(\App\Models\User::findOrFail($id));
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.user.resource');
 
 
 Route::get('/post/{slug}', function ($slug) {

@@ -11,27 +11,31 @@ use Tests\TestCase;
 
 class ApiTest extends TestCase
 {
-    public function dont_test_can_get_collection_of_users()
+    public function test_can_get_collection_of_users()
     {
-        $user = User::factory()->create();
-        $user->createToken('tests');
+
+    }
+
+    public function test_can_get_a_resource_for_user()
+    {
+        $user = User::factory()->create([
+            'is_admin' => true
+        ]);
+
         $this->actingAs($user);
-        $this->withToken('tests');
-        $response = $this->getJson(route('api.user.collection'));
+        $user->createToken('testing');
+        $this->withToken('testing');
+
+        $response = $this->getJson(route('api.user.resource', $user->id));
+
         $response
             ->assertOk()
-            ->assertSimilarJson(
-                [
-                    'data' => [
-                        [
-                            'name' => $user->name,
-                            'username' => $user->username,
-                            'bio' => $user->bio,
-                            'created' => $user->created_at,
-                            'admin' => $user->is_admin
-                        ]
-                    ]
+            ->assertJson([
+                'data' => [
+                    'name' => true,
                 ]
-            );
+            ])->assertJsonMissing([
+                'password' => true
+            ]);
     }
 }
