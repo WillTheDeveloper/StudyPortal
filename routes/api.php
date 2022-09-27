@@ -48,6 +48,15 @@ Route::delete('/post/{slug}/delete', function ($slug) {
 Route::get('/comment/{id}', function ($id) {
     return new \App\Http\Resources\CommentResource(\App\Models\Comment::findOrFail($id));
 });
+Route::delete('/comment/{id}/delete', function ($id) {
+    \App\Models\Comment::query()
+        ->find($id)
+        ->where('user_id', \Illuminate\Support\Facades\Request::user()->id)
+        ->forceDelete();
+    return [
+        'status' => 'deleted'
+    ];
+});
 
 Route::get('/assignment/{id}', function ($id) {
     return new \App\Http\Resources\AssignmentResource(\App\Models\Assignment::findOrFail($id));
