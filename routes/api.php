@@ -31,8 +31,8 @@ Route::post('/post/new', function () {
     return new \App\Http\Resources\PostResource($model);
 })->middleware(['auth:sanctum', 'verified'])->name('api.post.new');
 Route::delete('/post/{slug}/delete', function ($slug) {
-    $post = new \App\Http\Resources\PostResource(\App\Models\Post::firstWhere('slug', $slug));
-    \App\Models\Post::firstWhere('slug', $slug)->forceDelete();
+    $post = new \App\Http\Resources\PostResource(\App\Models\Post::firstWhere('slug', $slug)->where('user_id', Request::user()->id));
+    \App\Models\Post::firstWhere('slug', $slug)->where('user_id', Request::user()->id)->forceDelete();
     return [
         'deleted' => $post,
         'status' => 'deleted'
