@@ -18,11 +18,7 @@ class BlogResponseResource extends JsonResource
             'title' => $this->title,
             'body' => $this->body,
             'created' => $this->created_at,
-            'responses' => [
-                'body' => $this->Response,
-                'user' => $this->User->name,
-                'responded' => $this->created_at
-            ]
+            'responses' => ResponseResource::collection($this->Response)
         ];
     }
 }
