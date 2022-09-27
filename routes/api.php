@@ -95,33 +95,33 @@ Route::get('/note/{id}', function ($id) { // This model uses UUIDs as their prim
 
 Route::get('/reports', function () {
     return new \App\Http\Resources\ReportCollection(\App\Models\Report::all());
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.reports.collection');
 Route::get('/report/{id}', function ($id) {
     return new \App\Http\Resources\ReportResource(\App\Models\Report::findOrFail($id));
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.resource');
 Route::get('/reports/user/{id}', function ($id) {
     return new \App\Http\Resources\ReportCollection(\App\Models\Report::where('user_id', $id)->get());
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.user.id');
 Route::get('/reports/post/{id}', function ($id) {
     return new \App\Http\Resources\ReportCollection(\App\Models\Report::where('post_id', $id)->get());
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.post.id');
 Route::patch('/report/{id}/resolved', function ($id) {
     \App\Models\Report::find($id)->update(['resolved' => true]);
     return new \App\Http\Resources\ReportResource(\App\Models\Report::find($id));
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.resolved');
 Route::patch('/report/{id}/unresolved', function ($id) {
     \App\Models\Report::find($id)->update(['resolved' => false]);
     return new \App\Http\Resources\ReportResource(\App\Models\Report::find($id));
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.unresolved');
 Route::patch('/report/{id}/severity/high', function ($id) {
     \App\Models\Report::find($id)->update(['severity' => 'High']);
     return new \App\Http\Resources\ReportResource(\App\Models\Report::find($id));
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.severity.high');
 Route::patch('/report/{id}/severity/moderate', function ($id) {
     \App\Models\Report::find($id)->update(['severity' => 'Moderate']);
     return new \App\Http\Resources\ReportResource(\App\Models\Report::find($id));
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.severity.moderate');
 Route::patch('/report/{id}/severity/low', function ($id) {
     \App\Models\Report::find($id)->update(['severity' => 'Low']);
     return new \App\Http\Resources\ReportResource(\App\Models\Report::find($id));
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.report.severity.low');
