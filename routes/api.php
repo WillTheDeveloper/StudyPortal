@@ -19,7 +19,25 @@ Route::get('/post/{slug}', function ($slug) {
 Route::get('/posts', function () {
     return new \App\Http\Resources\PostCollection(\App\Models\Post::all());
 })->middleware(['auth:sanctum', 'admin'])->name('api.post.collection');
-
+Route::post('/post/new', function () {
+    $model = \App\Models\Post::create([
+        'title' => $title = Request::input('title'),
+        'body' => Request::input('body'),
+        'user_id' => Request::user()->id,
+        'subject_id' => Request::input('subject'),
+        'tag_id' => Request::input('tag'),
+        'slug' => \Illuminate\Support\Str::slug($title)
+    ]);
+    return new \App\Http\Resources\PostResource($model);
+})->middleware(['auth:sanctum', 'verified'])->name('api.post.new');
+Route::delete('/post/{slug}/delete', function ($slug) {
+    $post = new \App\Http\Resources\PostResource(\App\Models\Post::firstWhere('slug', $slug));
+    \App\Models\Post::firstWhere('slug', $slug)->forceDelete();
+    return [
+        'deleted' => $post,
+        'status' => 'deleted'
+    ];
+});
 
 Route::get('/comment/{id}', function ($id) {
     return new \App\Http\Resources\CommentResource(\App\Models\Comment::findOrFail($id));
