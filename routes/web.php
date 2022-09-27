@@ -507,6 +507,9 @@ Route::get('/support/profile', function () {
 Route::name('docs.v1.')->group(function () { // Prefix the name of the routes
     Route::middleware(['auth', 'web'])->group( function () { // Apply auth middleware to the prefixed routes.
         Route::prefix('/api/v1/docs')->group(function () { // V1 Documentation. Prefix = {url}/api/v1/docs/posts for example
+            Route::get('/', function () {
+                return view('api.root');
+            })->name('root');
             Route::get('/assignments', function () {
                 return view('api.v1.assignments');
             })->name('assignments');
