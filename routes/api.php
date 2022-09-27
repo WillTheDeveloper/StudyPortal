@@ -20,12 +20,17 @@ Route::get('/posts', function () {
     return new \App\Http\Resources\PostCollection(\App\Models\Post::all());
 })->middleware(['auth:sanctum', 'admin'])->name('api.post.collection');
 Route::post('/post/new', function () {
-    $model = \App\Models\Post::create([
+    $model = \App\Models\Post::query()->create([
         'title' => $title = Request::input('title'),
         'body' => Request::input('body'),
         'user_id' => Request::user()->id,
-        'subject_id' => Request::input('subject'),
-        'tag_id' => Request::input('tag'),
+        'subject_id' => \App\Models\Subject::query()->firstOrCreate([
+            'subject' => Request::input('subject')
+        ])->id,
+        'tag_id' => \App\Models\Tag::query()->firstOrCreate([
+            'tag' => Request::input('tag'),
+            'user_id' => Request::user()->id
+        ])->id,
         'views' => 0,
         'slug' => \Illuminate\Support\Str::slug($title)
     ]);
