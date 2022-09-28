@@ -12,13 +12,15 @@ Route::get('/user/{id}', function ($id) {
     return new \App\Http\Resources\UserResource(\App\Models\User::findOrFail($id));
 })->middleware(['auth:sanctum', 'admin'])->name('api.user.resource');
 
-
 Route::get('/post/{slug}', function ($slug) {
     return new \App\Http\Resources\PostResource(\App\Models\Post::firstWhere('slug', $slug));
 })->middleware(['auth:sanctum'])->name('api.post.slug');
 Route::get('/posts', function () {
     return new \App\Http\Resources\PostCollection(\App\Models\Post::all());
 })->middleware(['auth:sanctum', 'admin'])->name('api.post.collection');
+Route::get('/posts/user/{id}');
+Route::get('/posts/subject/{subject}');
+Route::get('/posts/{slug}/likes');
 Route::post('/post/new', function () {
     $model = \App\Models\Post::query()->create([
         'title' => $title = Request::input('title'),
