@@ -164,3 +164,12 @@ Route::get('/tasks', function () {
 Route::get('/task/{id}', function ($id) {
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->find($id));
 });
+Route::post('/task/new', function () {
+    \App\Models\Task::query()->create([
+        'task' => Request::input('task'),
+        'details' => Request::input('details'),
+        'user_id' => Request::user()->id,
+        'due' => \Carbon\Carbon::parse(Request::input('due')),
+        'complete' => Request::input('complete') ? null : false
+    ]);
+});
