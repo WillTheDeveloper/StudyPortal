@@ -13,6 +13,11 @@ class Task extends Model
     use SoftDeletes;
     use HasUuids;
 
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     protected $fillable = [
         'task',
         'details',

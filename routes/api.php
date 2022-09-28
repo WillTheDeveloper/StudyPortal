@@ -157,3 +157,10 @@ Route::get('/group/{name}', function ($name) {
 Route::get('/group/{name}/users', function ($name) {
     return new \App\Http\Resources\GroupUserResource(\App\Models\Group::firstWhere('name', $name));
 });
+
+Route::get('/tasks', function () {
+    return new \App\Http\Resources\TaskCollection(\App\Models\Task::all());
+});
+Route::get('/task/{id}', function ($id) {
+    return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->find($id));
+});
