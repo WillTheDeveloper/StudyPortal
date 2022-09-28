@@ -11,6 +11,17 @@ Route::get('/user/posts', function () {
 Route::get('/user/{id}', function ($id) {
     return new \App\Http\Resources\UserResource(\App\Models\User::findOrFail($id));
 })->middleware(['auth:sanctum', 'admin'])->name('api.user.resource');
+Route::patch('/user/profile/update', function () {
+    \App\Models\User::query()->find(Request::user()->id)->update(
+        [
+            'name' => Request::input('name'),
+            'email' => Request::input('email'),
+            'username' => Request::input('username'),
+            'bio' => Request::input('bio'),
+        ]
+    );
+    return new \App\Http\Resources\UserResource(\App\Models\User::find(Request::user()->id));
+})->middleware(['auth:sanctum', 'verified']);
 
 Route::get('/post/{slug}', function ($slug) {
     return new \App\Http\Resources\PostResource(\App\Models\Post::firstWhere('slug', $slug));
