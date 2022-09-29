@@ -114,16 +114,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.235.15",
+            "version": "3.236.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "635914c29fc875c58a85fdf981c27f1f561eaf50"
+                "reference": "1e8d1abe7582968df16a2e7a87c5dcc51d0dfd1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/635914c29fc875c58a85fdf981c27f1f561eaf50",
-                "reference": "635914c29fc875c58a85fdf981c27f1f561eaf50",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1e8d1abe7582968df16a2e7a87c5dcc51d0dfd1b",
+                "reference": "1e8d1abe7582968df16a2e7a87c5dcc51d0dfd1b",
                 "shasum": ""
             },
             "require": {
@@ -202,9 +202,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.235.15"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.236.1"
             },
-            "time": "2022-09-23T18:16:52+00:00"
+            "time": "2022-09-27T18:19:10+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -1538,16 +1538,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.31.0",
+            "version": "v9.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "75013d4fffe3b24748d313fbbea53206351214f7"
+                "reference": "aae3b59f82434176546c9dd10804adda16da5278"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/75013d4fffe3b24748d313fbbea53206351214f7",
-                "reference": "75013d4fffe3b24748d313fbbea53206351214f7",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/aae3b59f82434176546c9dd10804adda16da5278",
+                "reference": "aae3b59f82434176546c9dd10804adda16da5278",
                 "shasum": ""
             },
             "require": {
@@ -1720,7 +1720,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-09-20T13:32:50+00:00"
+            "time": "2022-09-27T13:32:56+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1789,16 +1789,16 @@
         },
         {
             "name": "laravel/scout",
-            "version": "v9.4.10",
+            "version": "v9.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/scout.git",
-                "reference": "45c7222ccd8f5d8ee069a85deeef799b7dcd79fa"
+                "reference": "24ed5c0724078f52b04227121b26e9f15fdb04c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/scout/zipball/45c7222ccd8f5d8ee069a85deeef799b7dcd79fa",
-                "reference": "45c7222ccd8f5d8ee069a85deeef799b7dcd79fa",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/24ed5c0724078f52b04227121b26e9f15fdb04c9",
+                "reference": "24ed5c0724078f52b04227121b26e9f15fdb04c9",
                 "shasum": ""
             },
             "require": {
@@ -1857,7 +1857,7 @@
                 "issues": "https://github.com/laravel/scout/issues",
                 "source": "https://github.com/laravel/scout"
             },
-            "time": "2022-07-19T14:34:57+00:00"
+            "time": "2022-09-27T15:42:14+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -7962,16 +7962,16 @@
         },
         {
             "name": "laravel/breeze",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/breeze.git",
-                "reference": "1c7592561f5a834eea6c38a77e43ae3c2ee83609"
+                "reference": "91ae7b749e9b3562355a78f945b4ee71153153f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/breeze/zipball/1c7592561f5a834eea6c38a77e43ae3c2ee83609",
-                "reference": "1c7592561f5a834eea6c38a77e43ae3c2ee83609",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/91ae7b749e9b3562355a78f945b4ee71153153f6",
+                "reference": "91ae7b749e9b3562355a78f945b4ee71153153f6",
                 "shasum": ""
             },
             "require": {
@@ -8019,20 +8019,20 @@
                 "issues": "https://github.com/laravel/breeze/issues",
                 "source": "https://github.com/laravel/breeze"
             },
-            "time": "2022-09-19T14:29:29+00:00"
+            "time": "2022-09-27T13:30:11+00:00"
         },
         {
             "name": "laravel/sail",
-            "version": "v1.16.0",
+            "version": "v1.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "73030c18b769f27e6f6aacf7848d024fa9a55560"
+                "reference": "cd7b9b6817c871e8b85d4f42e714303ee22676da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/73030c18b769f27e6f6aacf7848d024fa9a55560",
-                "reference": "73030c18b769f27e6f6aacf7848d024fa9a55560",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/cd7b9b6817c871e8b85d4f42e714303ee22676da",
+                "reference": "cd7b9b6817c871e8b85d4f42e714303ee22676da",
                 "shasum": ""
             },
             "require": {
@@ -8079,7 +8079,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-08-31T16:38:14+00:00"
+            "time": "2022-09-26T13:53:59+00:00"
         },
         {
             "name": "maximebf/debugbar",
