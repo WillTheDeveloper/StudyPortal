@@ -17,7 +17,7 @@ class CommentCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'self' => 'link-value'
+                'documentation' => route('docs.v1.comments')
             ]
         ];
     }
