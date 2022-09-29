@@ -244,3 +244,7 @@ Route::get('/kanbans', function () {
 Route::get('/kanban/{kanban}', function ($kanban) {
     return new \App\Http\Resources\KanbanResource(\App\Models\Kanban::findOrFail($kanban));
 })->middleware('auth:sanctum');
+
+Route::get('/kanban/{kanban}/groups', function ($kanban) {
+    return new \App\Http\Resources\KanbanGroupCollection(\App\Models\Kanban::find($kanban));
+})->middleware('auth:sanctum');
