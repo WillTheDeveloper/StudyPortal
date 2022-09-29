@@ -251,3 +251,10 @@ Route::get('/kanban/{kanban}/groups', function ($kanban) {
 Route::get('/kanban/{kanban}/group/{group}', function ($kanban, $group) {
 
 })->middleware('auth:sanctum');
+
+Route::get('/institutions', function () {
+    return new \App\Http\Resources\InstitutionCollection(\App\Models\Institution::all());
+})->middleware('auth:sanctum');
+Route::get('/institution/{joincode}', function ($joincode) {
+    return new \App\Http\Resources\InstitutionResource(\App\Models\Institution::firstWhere('joincode', $joincode));
+})->middleware('auth:sanctum');
