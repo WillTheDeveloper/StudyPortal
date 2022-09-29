@@ -176,13 +176,13 @@
 
                                 <div class="space-y-6 sm:space-y-5">
                                     <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
-                                        <label for="first-name"
+                                        <label for="name"
                                                class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                                             Full Name
                                         </label>
                                         <div class="mt-1 sm:mt-0 sm:col-span-2">
-                                            <input type="text" name="first-name" id="first-name"
-                                                   autocomplete="given-name" value="{{auth()->user()->name}}"
+                                            <input type="text" name="name" id="name"
+                                                   autocomplete="name" value="{{auth()->user()->name}}"
                                                    class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                                         </div>
                                     </div>

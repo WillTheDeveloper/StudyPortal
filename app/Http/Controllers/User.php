@@ -74,6 +74,8 @@ class User extends Controller
             [
                 'username' => Str::slug($request->input('username')),
                 'bio' => $request->input('about'),
+                'name' => $request->input('name'),
+                'email' => $request->input('email')
             ]
         );
         auth()->user()->save();
