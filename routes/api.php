@@ -195,3 +195,10 @@ Route::get('/replies', function () {
 Route::get('/reply/{id}', function ($id) {
     return new \App\Http\Resources\ReplyResource(\App\Models\Reply::findOrFail($id));
 })->middleware('auth:sanctum');
+
+Route::get('/tags', function () {
+    return new \App\Http\Resources\TagCollection(\App\Models\Tag::all());
+})->middleware('auth:sanctum');
+Route::get('/tag/{tag}', function ($tag) {
+    return new \App\Http\Resources\TagResource(\App\Models\Tag::query()->firstWhere('tag', $tag));
+})->middleware('auth:sanctum');
