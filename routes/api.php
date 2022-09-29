@@ -175,13 +175,13 @@ Route::post('/task/new', function () {
     return new \App\Http\Resources\TaskResource($yeet);
 })->middleware('auth:sanctum');
 Route::patch('/task/{id}/complete', function ($id) {
-    $a = \App\Models\Task::query()->where('user_id', Request::user()->id)->find($id)->update([
+    \App\Models\Task::query()->where('user_id', Request::user()->id)->find($id)->update([
         'complete' => true
     ]);
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->findOrFail($id));
 })->middleware('auth:sanctum');
 Route::patch('/task/{id}/update', function ($id) {
-    $u = \App\Models\Task::query()->where('user_id', Request::user()->id)->find($id)->update([
+    \App\Models\Task::query()->where('user_id', Request::user()->id)->find($id)->update([
         'task' => Request::input('task'),
         'details' => Request::input('details'),
         'due' => Request::input('due'),
