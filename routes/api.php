@@ -202,3 +202,9 @@ Route::get('/tags', function () {
 Route::get('/tag/{tag}', function ($tag) {
     return new \App\Http\Resources\TagResource(\App\Models\Tag::query()->firstWhere('tag', $tag));
 })->middleware('auth:sanctum');
+Route::delete('/tag/{tag}/delete', function ($tag) {
+    \App\Models\Tag::query()->firstWhere('tag', $tag)->where('user_id', Request::user()->id)->delete();
+    return [
+        'status' => 'deleted'
+    ];
+})->middleware('auth:sanctum');
