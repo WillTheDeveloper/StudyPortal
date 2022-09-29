@@ -237,3 +237,10 @@ Route::get('/webhooks/current', function () {
 Route::get('/webhooks/user/{id}', function ($id) {
     return new \App\Http\Resources\WebhookCollection(\App\Models\Webhook::where('user_id', $id)->get());
 })->middleware(['auth:sanctum', 'admin']);
+
+Route::get('/kanbans', function () {
+    return new \App\Http\Resources\KanbanCollection(\App\Models\Kanban::all()->where('user_id', Request::user()->id));
+})->middleware('auth:sanctum');
+Route::get('/kanban/{kanban}', function ($kanban) {
+    return new \App\Http\Resources\KanbanResource(\App\Models\Kanban::findOrFail($kanban));
+})->middleware('auth:sanctum');
