@@ -248,3 +248,6 @@ Route::get('/kanban/{kanban}', function ($kanban) {
 Route::get('/kanban/{kanban}/groups', function ($kanban) {
     return new \App\Http\Resources\KanbanGroupCollection(\App\Models\Kanban::find($kanban));
 })->middleware('auth:sanctum');
+Route::get('/kanban/{kanban}/group/{group}', function ($kanban, $group) {
+
+})->middleware('auth:sanctum');
