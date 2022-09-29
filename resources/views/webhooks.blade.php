@@ -199,13 +199,13 @@
                                         <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                                             @switch($h->active)
                                                 @case(1)
-                                                    <form action="#" method="post">
+                                                    <form action="{{route('webhooks.disable', $h->id)}}" method="post">
                                                         @csrf
                                                         <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </button>
                                                     </form>
                                                     @break(1)
                                                 @case(0)
-                                                    <form action="#" method="post">
+                                                    <form action="{{route('webhooks.enable', $h->id)}}" method="post">
                                                         @csrf
                                                         <button class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Inactive </button>
                                                     </form>
