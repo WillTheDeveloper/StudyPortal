@@ -188,3 +188,10 @@ Route::patch('/task/{id}/update', function ($id) {
     ]);
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->findOrFail($id));
 });
+
+Route::get('/replies', function () {
+    return new \App\Http\Resources\ReplyResource(\App\Models\Reply::all());
+});
+Route::get('/reply/{id}', function ($id) {
+    return new \App\Http\Resources\ReplyResource(\App\Models\Reply::findOrFail($id));
+});
