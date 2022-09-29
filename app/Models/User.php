@@ -93,11 +93,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Task::class);
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
     protected $fillable = [
         'name',
         'email',
@@ -109,21 +104,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'institution_id'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'is_tutor' => 'boolean',
