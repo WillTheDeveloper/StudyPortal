@@ -22,4 +22,9 @@ class Group extends Model
     public function Subject() {
         return $this->belongsTo(Subject::class);
     }
+
+    public function Reply()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }
