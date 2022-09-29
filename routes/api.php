@@ -29,9 +29,9 @@ Route::get('/post/{slug}', function ($slug) {
 Route::get('/posts', function () {
     return new \App\Http\Resources\PostCollection(\App\Models\Post::all());
 })->middleware(['auth:sanctum', 'admin'])->name('api.post.collection');
-Route::get('/posts/user/{id}');
-Route::get('/posts/subject/{subject}');
-Route::get('/posts/{slug}/likes');
+Route::get('/posts/user/{id}')->middleware('auth:sanctum');
+Route::get('/posts/subject/{subject}')->middleware('auth:sanctum');
+Route::get('/posts/{slug}/likes')->middleware('auth:sanctum');
 Route::post('/post/new', function () {
     $model = \App\Models\Post::query()->create([
         'title' => $title = Request::input('title'),
@@ -56,11 +56,11 @@ Route::delete('/post/{slug}/delete', function ($slug) {
         'deleted' => $post,
         'status' => 'deleted'
     ];
-});
+})->middleware('auth:sanctum');
 
 Route::get('/comment/{id}', function ($id) {
     return new \App\Http\Resources\CommentResource(\App\Models\Comment::findOrFail($id));
-});
+})->middleware('auth:sanctum');
 Route::delete('/comment/{id}/delete', function ($id) {
     \App\Models\Comment::query()
         ->find($id)
@@ -69,7 +69,7 @@ Route::delete('/comment/{id}/delete', function ($id) {
     return [
         'status' => 'deleted'
     ];
-});
+})->middleware('auth:sanctum');
 
 Route::get('/assignment/{id}', function ($id) {
     return new \App\Http\Resources\AssignmentResource(\App\Models\Assignment::findOrFail($id));
@@ -94,7 +94,7 @@ Route::get('/subjects', function () {
 })->middleware('auth:sanctum');
 Route::get('/subject/{id}', function ($id) {
     return new \App\Http\Resources\SubjectResource(\App\Models\Subject::findOrFail($id));
-});
+})->middleware('auth:sanctum');
 Route::post('/subject/new', function () {
     $id = \App\Models\Subject::create([
         'subject' => Request::input('subject')
@@ -150,26 +150,27 @@ Route::patch('/report/{id}/severity/low', function ($id) {
 
 Route::get('/groups', function () {
     return new \App\Http\Resources\GroupCollection(\App\Models\Group::all());
-});
+})->middleware('auth:sanctum');
 Route::get('/group/{name}', function ($name) {
     return new \App\Http\Resources\GroupResource(\App\Models\Group::firstWhere('name', $name));
-});
+})->middleware('auth:sanctum');
 Route::get('/group/{name}/users', function ($name) {
     return new \App\Http\Resources\GroupUserResource(\App\Models\Group::firstWhere('name', $name));
-});
+})->middleware('auth:sanctum');
 
 Route::get('/tasks', function () {
     return new \App\Http\Resources\TaskCollection(\App\Models\Task::all());
-});
+})->middleware('auth:sanctum');
 Route::get('/task/{id}', function ($id) {
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->find($id));
-});
+})->middleware('auth:sanctum');
 Route::post('/task/new', function () {
-    \App\Models\Task::query()->create([
+    $yeet = \App\Models\Task::query()->create([
         'task' => Request::input('task'),
         'details' => Request::input('details'),
         'user_id' => Request::user()->id,
         'due' => \Carbon\Carbon::parse(Request::input('due')),
         'complete' => Request::input('complete') ? null : false
     ]);
-});
+    return new \App\Http\Resources\TaskResource($yeet);
+})->middleware('auth:sanctum');
