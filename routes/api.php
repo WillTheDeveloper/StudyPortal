@@ -230,3 +230,10 @@ Route::get('/discussions/group/{group}', function ($group) {
         \App\Models\Discussion::where('group_id', \App\Models\Group::query()->firstWhere('name', $group)->id)
     );
 })->middleware('auth:sanctum');
+
+Route::get('/webhooks/current', function () {
+    return new \App\Http\Resources\WebhookCollection(\App\Models\Webhook::all()->where('user_id', Request::user()->id));
+})->middleware('auth:sanctum');
+Route::get('/webhooks/user/{id}', function ($id) {
+    return new \App\Http\Resources\WebhookCollection(\App\Models\Webhook::where('user_id', $id)->get());
+})->middleware(['auth:sanctum', 'admin']);
