@@ -208,3 +208,16 @@ Route::delete('/tag/{tag}/delete', function ($tag) {
         'status' => 'deleted'
     ];
 })->middleware('auth:sanctum');
+
+Route::get('/responses', function () {
+    return new \App\Http\Resources\ResponseCollection(\App\Models\Response::all());
+})->middleware('auth:sanctum');
+Route::get('/response/{id}', function ($id) {
+    return new \App\Http\Resources\ResponseResource(\App\Models\Response::findOrFail($id));
+})->middleware('auth:sanctum');
+Route::get('/response/blog/{id}', function ($id) {
+    return new \App\Http\Resources\ResponseCollection(\App\Models\Response::where('blog_id', $id));
+})->middleware('auth:sanctum');
+Route::get('/response/user/{id}', function ($id) {
+    return new \App\Http\Resources\ResponseCollection(\App\Models\Response::where('user_id', $id));
+})->middleware('auth:sanctum');
