@@ -221,3 +221,12 @@ Route::get('/response/blog/{id}', function ($id) {
 Route::get('/response/user/{id}', function ($id) {
     return new \App\Http\Resources\ResponseCollection(\App\Models\Response::where('user_id', $id));
 })->middleware('auth:sanctum');
+
+Route::get('/discussions', function () {
+    return new \App\Http\Resources\DiscussionCollection(\App\Models\Discussion::all());
+})->middleware('auth:sanctum');
+Route::get('/discussions/group/{group}', function ($group) {
+    return new \App\Http\Resources\DiscussionCollection(
+        \App\Models\Discussion::where('group_id', \App\Models\Group::query()->firstWhere('name', $group)->id)
+    );
+})->middleware('auth:sanctum');

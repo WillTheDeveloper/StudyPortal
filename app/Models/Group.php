@@ -27,4 +27,9 @@ class Group extends Model
     {
         return $this->hasMany(Reply::class);
     }
+
+    public function Discussion()
+    {
+        return $this->hasMany(Discussion::class);
+    }
 }

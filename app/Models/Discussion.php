@@ -25,4 +25,9 @@ class Discussion extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function Group()
+    {
+        return $this->belongsTo(Group::class);
+    }
 }
