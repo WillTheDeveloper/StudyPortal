@@ -187,11 +187,11 @@ Route::patch('/task/{id}/update', function ($id) {
         'due' => Request::input('due'),
     ]);
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->findOrFail($id));
-});
+})->middleware('auth:sanctum');
 
 Route::get('/replies', function () {
     return new \App\Http\Resources\ReplyResource(\App\Models\Reply::all());
-});
+})->middleware('auth:sanctum');
 Route::get('/reply/{id}', function ($id) {
     return new \App\Http\Resources\ReplyResource(\App\Models\Reply::findOrFail($id));
-});
+})->middleware('auth:sanctum');
