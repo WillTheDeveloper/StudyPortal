@@ -30,7 +30,7 @@ class CommentPolicy
      */
     public function view(User $user, Comment $comment)
     {
-        //
+        return $user->is_banned != 1;
     }
 
     /**
@@ -41,7 +41,7 @@ class CommentPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->is_banned != 1 && auth()->check();
     }
 
     /**
@@ -53,7 +53,7 @@ class CommentPolicy
      */
     public function update(User $user, Comment $comment)
     {
-        //
+        return $user->is_banned != 1 && auth()->check() && $user->id == $comment->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class CommentPolicy
      */
     public function delete(User $user, Comment $comment)
     {
-        //
+        return $user->is_banned != 1 && auth()->check() && $user->id == $comment->user_id;
     }
 
     /**
