@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->id == $post->user_id;
+        return $user->id == $post->user_id && !$user->is_banned;
     }
 
     /**
@@ -65,7 +65,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->id == $post->user_id or $user->is_admin = true;
+        return $user->id == $post->user_id or $user->is_admin;
     }
 
     /**

@@ -41,6 +41,8 @@ class Community extends Controller
 
     public function view()
     {
+        $this->authorize('viewAny', Post::class);
+
         return view('community', [
             'posts' => Post::query()->orderByDesc('created_at')->paginate(10),
             'users' => User::all()->take(3)
@@ -91,6 +93,8 @@ class Community extends Controller
 
     public function createNewPost(CreateNewPost $request)
     {
+        $this->authorize('create', Post::class);
+
         $request->validated();
 
         $post = new Post(
@@ -111,9 +115,14 @@ class Community extends Controller
 
     public function deletePost($id)
     {
-        $post = Post::all()->find($id);
-        $post->delete();
-        $comments = Comment::query()->where('post_id', $id)->delete();
+        $this->authorize('delete', Post::query()->where('slug', $id)->first());
+
+        Comment::query()
+            ->where('post_id', Post::query()
+                ->where('slug', $id)
+                ->first()->id)
+            ->delete();
+        Post::all()->firstWhere('slug', $id)->delete();
 
         return redirect(route('community'));
     }
@@ -155,6 +164,8 @@ class Community extends Controller
 
     public function updatePost($slug, UpdateUserPost $request)
     {
+        $this->authorize('update', Post::query()->firstWhere('slug', $slug));
+
         $post = Post::query()->where('posts.slug', $slug);
 
         $title = $request->input('title');
