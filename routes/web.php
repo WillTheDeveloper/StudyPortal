@@ -531,6 +531,9 @@ Route::name('docs.v1.')->group(function () { // Prefix the name of the routes
             Route::get('/kanban', function () {
                 return view('api.v1.kanban');
             })->name('kanban');
+            Route::get('/likes', function () {
+                return view('api.v1.like');
+            })->name('likes');
             Route::get('/notes', function () {
                 return view('api.v1.notes');
             })->name('notes');
