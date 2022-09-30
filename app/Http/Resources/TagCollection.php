@@ -17,7 +17,8 @@ class TagCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.tag')
+                'documentation' => route('docs.v1.tag'),
+                'status' => 'latest'
             ]
         ];
     }

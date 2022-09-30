@@ -17,7 +17,8 @@ class KanbanCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.kanban')
+                'documentation' => route('docs.v1.kanban'),
+                'status' => 'latest'
             ]
         ];
     }

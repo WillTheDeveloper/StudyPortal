@@ -17,7 +17,8 @@ class GroupCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.group')
+                'documentation' => route('docs.v1.group'),
+                'status' => 'latest'
             ]
         ];
     }

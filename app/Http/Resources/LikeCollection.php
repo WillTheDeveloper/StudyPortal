@@ -17,7 +17,8 @@ class LikeCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => 'coming soon'
+                'documentation' => 'coming soon',
+                'status' => 'work in progress'
             ]
         ];
     }

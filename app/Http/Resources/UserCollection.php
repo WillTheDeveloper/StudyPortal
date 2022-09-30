@@ -17,7 +17,8 @@ class UserCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.users')
+                'documentation' => route('docs.v1.users'),
+                'status' => 'latest'
             ]
         ];
     }

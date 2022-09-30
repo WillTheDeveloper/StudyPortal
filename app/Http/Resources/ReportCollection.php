@@ -17,7 +17,8 @@ class ReportCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.report')
+                'documentation' => route('docs.v1.report'),
+                'status' => 'latest'
             ]
         ];
     }

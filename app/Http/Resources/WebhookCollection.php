@@ -17,7 +17,8 @@ class WebhookCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.webhook')
+                'documentation' => route('docs.v1.webhook'),
+                'status' => 'latest'
             ]
         ];
     }

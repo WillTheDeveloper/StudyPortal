@@ -17,7 +17,8 @@ class TaskCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.task')
+                'documentation' => route('docs.v1.task'),
+                'status' => 'latest'
             ]
         ];
     }

@@ -17,7 +17,8 @@ class PostCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.posts')
+                'documentation' => route('docs.v1.posts'),
+                'status' => 'latest'
             ]
         ];
     }

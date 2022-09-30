@@ -17,7 +17,8 @@ class TimetableCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.timetable')
+                'documentation' => route('docs.v1.timetable'),
+                'status' => 'latest'
             ]
         ];
     }

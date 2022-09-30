@@ -17,7 +17,8 @@ class NoteCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.notes')
+                'documentation' => route('docs.v1.notes'),
+                'status' => 'latest'
             ]
         ];
     }

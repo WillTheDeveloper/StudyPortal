@@ -17,7 +17,8 @@ class SubjectCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.subject')
+                'documentation' => route('docs.v1.subject'),
+                'status' => 'latest'
             ]
         ];
     }

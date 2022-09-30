@@ -17,7 +17,8 @@ class ResponseCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => route('docs.v1.response')
+                'documentation' => route('docs.v1.response'),
+                'status' => 'latest'
             ]
         ];
     }
