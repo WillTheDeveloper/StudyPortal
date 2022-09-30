@@ -129,6 +129,8 @@ class Community extends Controller
 
     public function createNewComment($id, CreateNewComment $request)
     {
+        $this->authorize('create', Comment::class);
+
         $request->validated();
 
         $comment = new Comment(
