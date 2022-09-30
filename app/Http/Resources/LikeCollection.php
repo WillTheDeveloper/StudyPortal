@@ -17,8 +17,8 @@ class LikeCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'documentation' => 'coming soon',
-                'status' => 'work in progress'
+                'documentation' => route('docs.v1.likes'),
+                'status' => 'latest'
             ]
         ];
     }
