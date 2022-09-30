@@ -187,6 +187,8 @@ class Community extends Controller
 
     public function updateComment($id, UpdateUserComment $request)
     {
+        $this->authorize('update', Comment::query()->find($id));
+
         $comment = Comment::query()->where('comments.id', $id);
 
         $comment->update(
@@ -200,6 +202,8 @@ class Community extends Controller
 
     public function deleteComment($id)
     {
+        $this->authorize('delete', Comment::find($id));
+
         $comment = Comment::query()->where('comments.id', $id);
 
         $comment->delete();
