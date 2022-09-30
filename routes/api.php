@@ -258,3 +258,13 @@ Route::get('/institutions', function () {
 Route::get('/institution/{joincode}', function ($joincode) {
     return new \App\Http\Resources\InstitutionResource(\App\Models\Institution::firstWhere('joincode', $joincode));
 })->middleware('auth:sanctum');
+
+Route::get('/likes', function () {
+    return new \App\Http\Resources\LikeCollection(\App\Models\Like::all());
+})->middleware('auth:sanctum');
+Route::get('/likes/post/{id}', function ($id) {
+    return new \App\Http\Resources\LikeCollection(\App\Models\Like::query()->where('post_id', $id));
+})->middleware('auth:sanctum');
+Route::get('/likes/user/{id}', function ($id) {
+    return new \App\Http\Resources\LikeCollection(\App\Models\Like::query()->where('user_id', $id));
+});
