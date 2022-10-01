@@ -18,7 +18,7 @@ class NotePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check();
     }
 
     /**
@@ -30,7 +30,7 @@ class NotePolicy
      */
     public function view(User $user, Note $note)
     {
-        //
+        return auth()->check() && $note->user_id == $user->id;
     }
 
     /**
@@ -41,7 +41,7 @@ class NotePolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check();
     }
 
     /**
@@ -53,7 +53,7 @@ class NotePolicy
      */
     public function update(User $user, Note $note)
     {
-        //
+        return auth()->check() && $user->id == $note->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class NotePolicy
      */
     public function delete(User $user, Note $note)
     {
-        //
+        return auth()->check() && $user->id == $note->user_id;
     }
 
     /**
