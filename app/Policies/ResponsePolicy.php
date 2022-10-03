@@ -18,7 +18,7 @@ class ResponsePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check();
     }
 
     /**
@@ -30,7 +30,7 @@ class ResponsePolicy
      */
     public function view(User $user, Response $response)
     {
-        //
+        return auth()->check() && $response->Blog->replies == true;
     }
 
     /**
@@ -41,7 +41,7 @@ class ResponsePolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && $user->hasVerifiedEmail() && !$user->is_banned;
     }
 
     /**
@@ -53,7 +53,11 @@ class ResponsePolicy
      */
     public function update(User $user, Response $response)
     {
-        //
+        return auth()->check() &&
+            $user->hasVerifiedEmail() &&
+            $user->id == $response->user_id &&
+            !$user->is_banned &&
+            $response->Blog->replies == true;
     }
 
     /**
@@ -65,7 +69,12 @@ class ResponsePolicy
      */
     public function delete(User $user, Response $response)
     {
-        //
+        return auth()->check() &&
+            $user->hasVerifiedEmail() &&
+            $user->id == $response->user_id &&
+            !$user->is_banned &&
+            $response->Blog->replies == true or
+            $user->is_admin;
     }
 
     /**
