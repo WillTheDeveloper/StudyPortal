@@ -30,7 +30,7 @@ class AssignmentPolicy
      */
     public function view(User $user, Assignment $assignment)
     {
-        //
+        return auth()->check() && $user->hasVerifiedEmail();
     }
 
     /**
@@ -41,7 +41,7 @@ class AssignmentPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && $user->is_tutor or $user->is_admin;
     }
 
     /**
@@ -53,7 +53,16 @@ class AssignmentPolicy
      */
     public function update(User $user, Assignment $assignment)
     {
-        //
+        return
+            auth()->check()
+            &&
+            $user->is_tutor or $user->is_admin
+            &&
+            $assignment
+                ->User()
+                ->where('is_admin', true)
+                ->where('assignment_id', $assignment->id)
+                ->first()->user_id == $user->id;
     }
 
     /**
@@ -65,7 +74,7 @@ class AssignmentPolicy
      */
     public function delete(User $user, Assignment $assignment)
     {
-        //
+        return auth()->check() && $user->is_tutor or $user->is_admin;
     }
 
     /**
