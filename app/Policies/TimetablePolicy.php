@@ -18,7 +18,7 @@ class TimetablePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check() && $user->hasVerifiedEmail();
     }
 
     /**
@@ -30,7 +30,7 @@ class TimetablePolicy
      */
     public function view(User $user, Timetable $timetable)
     {
-        //
+        return auth()->check() && $user->id == $timetable->user_id;
     }
 
     /**
@@ -41,7 +41,7 @@ class TimetablePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasVerifiedEmail() && auth()->check() && !$user->is_banned;
     }
 
     /**
@@ -53,7 +53,7 @@ class TimetablePolicy
      */
     public function update(User $user, Timetable $timetable)
     {
-        //
+        return $user->hasVerifiedEmail() && auth()->check() && !$user->is_banned && $user->id == $timetable->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class TimetablePolicy
      */
     public function delete(User $user, Timetable $timetable)
     {
-        //
+        return $user->hasVerifiedEmail() && auth()->check() && !$user->is_banned && $user->id == $timetable->user_id;
     }
 
     /**
