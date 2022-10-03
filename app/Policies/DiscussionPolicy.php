@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Discussion;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -18,7 +19,7 @@ class DiscussionPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check();
     }
 
     /**
@@ -30,7 +31,10 @@ class DiscussionPolicy
      */
     public function view(User $user, Discussion $discussion)
     {
-        //
+        return $user->has(Group::find($discussion->Group()->id))->exists() &&
+            !$user->is_banned &&
+            auth()->check() or
+            $user->is_admin or $user->is_moderator;
     }
 
     /**
@@ -41,7 +45,9 @@ class DiscussionPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->is_tutor &&
+            $user->hasVerifiedEmail() &&
+            !$user->is_banned;
     }
 
     /**
@@ -53,7 +59,7 @@ class DiscussionPolicy
      */
     public function update(User $user, Discussion $discussion)
     {
-        //
+        return $user->id == $discussion->user_id && $user->is_tutor or $user->is_admin;
     }
 
     /**
@@ -65,7 +71,7 @@ class DiscussionPolicy
      */
     public function delete(User $user, Discussion $discussion)
     {
-        //
+        return $user->id == $discussion->user_id && $user->is_tutor or $user->is_admin;
     }
 
     /**
