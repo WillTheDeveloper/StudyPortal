@@ -76,44 +76,44 @@ Route::get('/assignment/{id}', function ($id) {
 })->middleware(['auth:sanctum'])->name('api.assignment.id');
 Route::get('/assignment/{id}/students', function ($id) {
     return new \App\Http\Resources\AssignmentUserResource(\App\Models\Assignment::findOrFail($id));
-})->middleware(['auth:sanctum', 'tutor']);
+})->middleware(['auth:sanctum', 'tutor'])->name('api.assignment.id.students');
 
 Route::get('/blog/{slug}', function ($slug) {
     return new \App\Http\Resources\BlogResource(\App\Models\Blog::firstWhere('slug', $slug));
-})->middleware(['auth:sanctum']);
+})->middleware(['auth:sanctum'])->name('api.blog.slug');
 Route::get('/blogs', function () {
     return new \App\Http\Resources\BlogCollection(\App\Models\Blog::all());
-})->middleware(['auth:sanctum']);
+})->middleware(['auth:sanctum'])->name('api.blogs');
 Route::get('/blog/{slug}/responses', function ($slug) {
     return new \App\Http\Resources\BlogResponseResource(\App\Models\Blog::firstWhere('slug', $slug));
-})->middleware(['auth:sanctum']);
+})->middleware(['auth:sanctum'])->name('api.blog.slug.responses');
 
 
 Route::get('/subjects', function () {
     return new \App\Http\Resources\SubjectCollection(\App\Models\Subject::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.subjects');
 Route::get('/subject/{id}', function ($id) {
     return new \App\Http\Resources\SubjectResource(\App\Models\Subject::findOrFail($id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.subject.id');
 Route::post('/subject/new', function () {
     $id = \App\Models\Subject::create([
         'subject' => Request::input('subject')
     ]);
     return new \App\Http\Resources\SubjectResource($id);
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.subject.new');
 Route::delete('/subject/{id}/delete', function ($id) {
     \App\Models\Subject::findOrFail($id)->forceDelete();
     return [
         'status' => 'completed'
     ];
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.subject.delete');
 
 Route::get('/notes', function () {
     return new \App\Http\Resources\NoteCollection(\App\Models\Note::all());
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.notes');
 Route::get('/note/{id}', function ($id) { // This model uses UUIDs as their primary key called 'id'
     return new \App\Http\Resources\NoteResource(\App\Models\Note::findOrFail($id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.note.id');
 
 Route::get('/reports', function () {
     return new \App\Http\Resources\ReportCollection(\App\Models\Report::all());
@@ -150,20 +150,20 @@ Route::patch('/report/{id}/severity/low', function ($id) {
 
 Route::get('/groups', function () {
     return new \App\Http\Resources\GroupCollection(\App\Models\Group::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.groups');
 Route::get('/group/{name}', function ($name) {
     return new \App\Http\Resources\GroupResource(\App\Models\Group::firstWhere('name', $name));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.group.name');
 Route::get('/group/{name}/users', function ($name) {
     return new \App\Http\Resources\GroupUserResource(\App\Models\Group::firstWhere('name', $name));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.group.users');
 
 Route::get('/tasks', function () {
     return new \App\Http\Resources\TaskCollection(\App\Models\Task::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.tasks');
 Route::get('/task/{id}', function ($id) {
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->find($id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.task.uuid');
 Route::post('/task/new', function () {
     $yeet = \App\Models\Task::query()->create([
         'task' => Request::input('task'),
@@ -173,13 +173,13 @@ Route::post('/task/new', function () {
         'complete' => Request::input('complete') ? null : false
     ]);
     return new \App\Http\Resources\TaskResource($yeet);
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.task.new');
 Route::patch('/task/{id}/complete', function ($id) {
     \App\Models\Task::query()->where('user_id', Request::user()->id)->find($id)->update([
         'complete' => true
     ]);
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->findOrFail($id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.task.complete');
 Route::patch('/task/{id}/update', function ($id) {
     \App\Models\Task::query()->where('user_id', Request::user()->id)->find($id)->update([
         'task' => Request::input('task'),
@@ -187,84 +187,84 @@ Route::patch('/task/{id}/update', function ($id) {
         'due' => Request::input('due'),
     ]);
     return new \App\Http\Resources\TaskResource(\App\Models\Task::query()->findOrFail($id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.task.update');
 
 Route::get('/replies', function () {
     return new \App\Http\Resources\ReplyResource(\App\Models\Reply::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.replies');
 Route::get('/reply/{id}', function ($id) {
     return new \App\Http\Resources\ReplyResource(\App\Models\Reply::findOrFail($id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.reply.id');
 
 Route::get('/tags', function () {
     return new \App\Http\Resources\TagCollection(\App\Models\Tag::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.tags');
 Route::get('/tag/{tag}', function ($tag) {
     return new \App\Http\Resources\TagResource(\App\Models\Tag::query()->firstWhere('tag', $tag));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.tag.tag');
 Route::delete('/tag/{tag}/delete', function ($tag) {
     \App\Models\Tag::query()->firstWhere('tag', $tag)->where('user_id', Request::user()->id)->delete();
     return [
         'status' => 'deleted'
     ];
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.tag.delete');
 
 Route::get('/responses', function () {
     return new \App\Http\Resources\ResponseCollection(\App\Models\Response::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.responses');
 Route::get('/response/{id}', function ($id) {
     return new \App\Http\Resources\ResponseResource(\App\Models\Response::findOrFail($id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.response.id');
 Route::get('/response/blog/{id}', function ($id) {
     return new \App\Http\Resources\ResponseCollection(\App\Models\Response::where('blog_id', $id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.response.blog.id');
 Route::get('/response/user/{id}', function ($id) {
     return new \App\Http\Resources\ResponseCollection(\App\Models\Response::where('user_id', $id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.response.user.id');
 
 Route::get('/discussions', function () {
     return new \App\Http\Resources\DiscussionCollection(\App\Models\Discussion::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.discussions');
 Route::get('/discussions/group/{group}', function ($group) {
     return new \App\Http\Resources\DiscussionCollection(
         \App\Models\Discussion::where('group_id', \App\Models\Group::query()->firstWhere('name', $group)->id)
     );
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.discussion.group');
 
 Route::get('/webhooks/current', function () {
     return new \App\Http\Resources\WebhookCollection(\App\Models\Webhook::all()->where('user_id', Request::user()->id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.webhooks.current');
 Route::get('/webhooks/user/{id}', function ($id) {
     return new \App\Http\Resources\WebhookCollection(\App\Models\Webhook::where('user_id', $id)->get());
-})->middleware(['auth:sanctum', 'admin']);
+})->middleware(['auth:sanctum', 'admin'])->name('api.webhooks.user.id');
 
 Route::get('/kanbans', function () {
     return new \App\Http\Resources\KanbanCollection(\App\Models\Kanban::all()->where('user_id', Request::user()->id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.kanbans');
 Route::get('/kanban/{kanban}', function ($kanban) {
     return new \App\Http\Resources\KanbanResource(\App\Models\Kanban::findOrFail($kanban));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.kanban.kanban');
 
 Route::get('/kanban/{kanban}/groups', function ($kanban) {
     return new \App\Http\Resources\KanbanGroupCollection(\App\Models\Kanban::find($kanban));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.kanban.groups.all');
 Route::get('/kanban/{kanban}/group/{group}', function ($kanban, $group) {
 
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.kanban.group');
 
 Route::get('/institutions', function () {
     return new \App\Http\Resources\InstitutionCollection(\App\Models\Institution::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.institutions');
 Route::get('/institution/{joincode}', function ($joincode) {
     return new \App\Http\Resources\InstitutionResource(\App\Models\Institution::firstWhere('joincode', $joincode));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.institutions.joincode');
 
 Route::get('/likes', function () {
     return new \App\Http\Resources\LikeCollection(\App\Models\Like::all());
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.likes');
 Route::get('/likes/post/{id}', function ($id) {
     return new \App\Http\Resources\LikeCollection(\App\Models\Like::query()->where('post_id', $id));
-})->middleware('auth:sanctum');
+})->middleware('auth:sanctum')->name('api.likes.post');
 Route::get('/likes/user/{id}', function ($id) {
     return new \App\Http\Resources\LikeCollection(\App\Models\Like::query()->where('user_id', $id));
-});
+})->middleware('auth:sanctum')->name('api.likes.user');
