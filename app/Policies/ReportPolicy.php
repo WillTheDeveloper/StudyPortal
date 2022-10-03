@@ -18,7 +18,7 @@ class ReportPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check() && $user->is_admin or $user->is_moderator;
     }
 
     /**
@@ -30,7 +30,7 @@ class ReportPolicy
      */
     public function view(User $user, Report $report)
     {
-        //
+        return $user->is_admin && auth()->check() && $user->hasVerifiedEmail();
     }
 
     /**
@@ -41,7 +41,7 @@ class ReportPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasVerifiedEmail() && auth()->check();
     }
 
     /**
@@ -53,7 +53,7 @@ class ReportPolicy
      */
     public function update(User $user, Report $report)
     {
-        //
+        return $user->is_admin && auth()->check() && $user->hasVerifiedEmail();
     }
 
     /**
@@ -65,7 +65,7 @@ class ReportPolicy
      */
     public function delete(User $user, Report $report)
     {
-        //
+        return $user->is_admin && auth()->check() && $user->hasVerifiedEmail() && $report->resolved == true;
     }
 
     /**
