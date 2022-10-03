@@ -73,7 +73,7 @@ Route::delete('/comment/{id}/delete', function ($id) {
 
 Route::get('/assignment/{id}', function ($id) {
     return new \App\Http\Resources\AssignmentResource(\App\Models\Assignment::findOrFail($id));
-})->middleware(['auth:sanctum']);
+})->middleware(['auth:sanctum'])->name('api.assignment.id');
 Route::get('/assignment/{id}/students', function ($id) {
     return new \App\Http\Resources\AssignmentUserResource(\App\Models\Assignment::findOrFail($id));
 })->middleware(['auth:sanctum', 'tutor']);

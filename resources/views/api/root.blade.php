@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Reports') }}
+            {{ __('API') }}
         </h2>
     </x-slot>
 
@@ -98,7 +98,7 @@
             <div class="pt-4 px-10">
                 <div class="border-b border-gray-200 px-4 py-5 sm:px-6">
                     <h3 class="text-lg font-medium leading-6 text-gray-900">API Documentation</h3>
-                    <p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>
+{{--                    <p class="mt-1 text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.</p>--}}
                 </div>
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-4">
                     <div class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400">
@@ -106,7 +106,7 @@
                             <a href="{{route('docs.v1.assignments')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Assignment</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                             <a href="{{route('docs.v1.blog')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Blog</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                             <a href="{{route('docs.v1.comments')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Comment</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                             <a href="{{route('docs.v1.discussion')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Discussion</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
                             <a href="{{route('docs.v1.group')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Group</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                             <a href="{{route('docs.v1.institution')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Institution</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                             <a href="{{route('docs.v1.kanban')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Kanban</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                             <a href="#" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Likes</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -178,7 +178,7 @@
                             <a href="{{route('docs.v1.notes')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Note</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -187,7 +187,7 @@
                             <a href="{{route('docs.v1.posts')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Posts</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
                             <a href="{{route('docs.v1.reply')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Reply</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -205,7 +205,7 @@
                             <a href="{{route('docs.v1.report')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Report</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                             <a href="{{route('docs.v1.response')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Response</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
                             <a href="{{route('docs.v1.subject')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Subject</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -232,7 +232,7 @@
                             <a href="{{route('docs.v1.tag')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Tag</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -241,7 +241,7 @@
                             <a href="{{route('docs.v1.task')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Task</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -250,7 +250,7 @@
                             <a href="{{route('docs.v1.timetable')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Timetable</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -259,7 +259,7 @@
                             <a href="{{route('docs.v1.users')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">User</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
                             <a href="{{route('docs.v1.webhook')}}" class="focus:outline-none">
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 <p class="text-sm font-medium text-gray-900">Webhook</p>
-                                <p class="truncate text-sm text-gray-500">AA</p>
+                                <p class="truncate text-sm text-green-500">Up to date</p>
                             </a>
                         </div>
                     </div>
