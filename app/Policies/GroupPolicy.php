@@ -18,7 +18,7 @@ class GroupPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check();
     }
 
     /**
@@ -30,7 +30,7 @@ class GroupPolicy
      */
     public function view(User $user, Group $group)
     {
-        //
+        return auth()->check() && $group->has($user);
     }
 
     /**
@@ -41,7 +41,7 @@ class GroupPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && $user->is_tutor or $user->is_tutor;
     }
 
     /**
@@ -53,7 +53,7 @@ class GroupPolicy
      */
     public function update(User $user, Group $group)
     {
-        //
+        return auth()->check() && $group->User()->has($user) && $user->is_tutor or $user->is_admin;
     }
 
     /**
@@ -65,7 +65,7 @@ class GroupPolicy
      */
     public function delete(User $user, Group $group)
     {
-        //
+        return auth()->check() && $user->is_tutor;
     }
 
     /**
