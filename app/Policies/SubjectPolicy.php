@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -18,7 +19,7 @@ class SubjectPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check() && !$user->is_banned;
     }
 
     /**
@@ -30,7 +31,7 @@ class SubjectPolicy
      */
     public function view(User $user, Subject $subject)
     {
-        //
+        return auth()->check() && !$user->is_banned;
     }
 
     /**
@@ -41,7 +42,7 @@ class SubjectPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && $user->is_tutor or $user->is_admin;
     }
 
     /**
@@ -53,7 +54,7 @@ class SubjectPolicy
      */
     public function update(User $user, Subject $subject)
     {
-        //
+        return auth()->check() && $user->is_tutor or $user->is_admin;
     }
 
     /**
@@ -65,7 +66,7 @@ class SubjectPolicy
      */
     public function delete(User $user, Subject $subject)
     {
-        //
+        return auth()->check() && $user->is_tutor or $user->is_admin && $subject->doesntHave(Post::class);
     }
 
     /**
