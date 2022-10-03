@@ -30,7 +30,7 @@ class InstitutionPolicy
      */
     public function view(User $user, Institution $institution)
     {
-        //
+        return auth()->check() && $user->is_admin;
     }
 
     /**
@@ -41,7 +41,7 @@ class InstitutionPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && $user->is_admin;
     }
 
     /**
@@ -53,7 +53,7 @@ class InstitutionPolicy
      */
     public function update(User $user, Institution $institution)
     {
-        //
+        return auth()->check() && $user->is_admin;
     }
 
     /**
