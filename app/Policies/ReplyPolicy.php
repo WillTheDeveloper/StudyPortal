@@ -30,7 +30,7 @@ class ReplyPolicy
      */
     public function view(User $user, Reply $reply)
     {
-        //
+        return auth()->check() && !$user->is_banned;
     }
 
     /**
@@ -41,7 +41,7 @@ class ReplyPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && !$user->is_banned;
     }
 
     /**
@@ -53,7 +53,7 @@ class ReplyPolicy
      */
     public function update(User $user, Reply $reply)
     {
-        //
+        return $user->id == $reply->user_id && !$user->is_banned && auth()->check();
     }
 
     /**
@@ -65,7 +65,7 @@ class ReplyPolicy
      */
     public function delete(User $user, Reply $reply)
     {
-        //
+        return $user->id == $reply->user_id && !$user->is_banned && auth()->check();
     }
 
     /**
