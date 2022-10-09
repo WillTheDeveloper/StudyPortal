@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TicketCreated;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class Ticket extends Controller
 {
@@ -50,6 +52,8 @@ class Ticket extends Controller
     public function new(Request $request)
     {
 
+
+//        Mail::send(new TicketCreated(), )
     }
 
     public function viewticket($id)
