@@ -17,6 +17,7 @@ use App\Http\Controllers\User;
 use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 use App\Http\Controllers\Webhook;
+use App\Http\Controllers\Ticket;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -214,7 +215,7 @@ Route::get('/todo/archived', [Todo::class, 'archived'])
 Route::get('/todo/active', [Todo::class, 'active'])
     ->middleware(['auth', 'verified'])
     ->name('todo.all');
-Route::get('/tickets', [\App\Http\Controllers\Ticket::class, 'switch'])
+Route::get('/tickets', [Ticket::class, 'switch'])
     ->middleware(['auth', 'verified'])
     ->name('tickets');
 
