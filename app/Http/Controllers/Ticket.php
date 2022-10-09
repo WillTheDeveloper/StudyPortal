@@ -21,29 +21,29 @@ class Ticket extends Controller
         }
     }
 
-    public function studentview(Auth $auth)
+    public function studentview()
     {
         return view('studenttickets', [
             'tickets' => \App\Models\Ticket::query()
-                ->where('student_id', $auth->id())
+                ->where('student_id', auth()->id())
                 ->paginate(20)
         ]);
     }
 
-    public function tutorview(Auth $auth)
+    public function tutorview()
     {
         return view('tutortickets', [
             'tickets' => \App\Models\Ticket::query()
-                ->where('tutor_id', $auth->id())
+                ->where('tutor_id', auth()->id())
                 ->paginate(20)
         ]);
     }
 
-    public function create(Auth $auth)
+    public function create()
     {
         return view('createticket', [
             'subjects' => Subject::query()
-                ->whereBelongsTo(\App\Models\User::find($auth->id()))
+                ->whereBelongsTo(\App\Models\User::find(auth()->id()))
                 ->select('subjects.subject')
         ]);
     }

@@ -214,6 +214,9 @@ Route::get('/todo/archived', [Todo::class, 'archived'])
 Route::get('/todo/active', [Todo::class, 'active'])
     ->middleware(['auth', 'verified'])
     ->name('todo.all');
+Route::get('/tickets', [\App\Http\Controllers\Ticket::class, 'switch'])
+    ->middleware(['auth', 'verified'])
+    ->name('tickets');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
