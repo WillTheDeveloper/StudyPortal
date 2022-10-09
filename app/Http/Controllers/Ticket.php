@@ -55,6 +55,8 @@ class Ticket extends Controller
 
     public function viewticket($id)
     {
-
+        return view('ticket', [
+            'ticket' => \App\Models\Ticket::query()->findOrFail($id)
+        ]);
     }
 }

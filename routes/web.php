@@ -218,6 +218,9 @@ Route::get('/todo/active', [Todo::class, 'active'])
 Route::get('/tickets', [Ticket::class, 'switch'])
     ->middleware(['auth', 'verified'])
     ->name('tickets');
+Route::get('/ticket/{id}', [Ticket::class, 'viewticket'])
+    ->middleware(['auth', 'verified'])
+    ->name('ticket.id');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
