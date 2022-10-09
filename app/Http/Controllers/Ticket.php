@@ -43,7 +43,6 @@ class Ticket extends Controller
     {
         return view('createticket', [
             'subjects' => Subject::query()
-                ->whereBelongsTo(\App\Models\User::find(auth()->id()))
                 ->select('subjects.subject')
         ]);
     }

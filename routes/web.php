@@ -218,6 +218,9 @@ Route::get('/todo/active', [Todo::class, 'active'])
 Route::get('/tickets', [Ticket::class, 'switch'])
     ->middleware(['auth', 'verified'])
     ->name('tickets');
+Route::get('/ticket/new', [Ticket::class, 'create'])
+    ->middleware(['auth', 'verified'])
+    ->name('ticket.new');
 Route::get('/ticket/{id}', [Ticket::class, 'viewticket'])
     ->middleware(['auth', 'verified'])
     ->name('ticket.id');
