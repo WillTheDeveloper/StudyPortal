@@ -11,6 +11,15 @@ class Ticket extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $fillable = [
+        'student_id',
+        'tutor_id',
+        'question',
+        'subject_id',
+        'details',
+        'status'
+    ];
+
     public function Student()
     {
         return $this->belongsTo(User::class)->where('is_tutor', false);
