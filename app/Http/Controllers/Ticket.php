@@ -13,10 +13,10 @@ class Ticket extends Controller
         switch ($request->user()->is_tutor or $request->user()->is_admin)
         {
             case true:
-                $this->tutorview();
+                return $this->tutorview();
                 break;
             case false:
-                $this->studentview();
+                return $this->studentview();
                 break;
         }
     }
