@@ -104,6 +104,10 @@
                         {{ __('Community') }}
                     </x-responsive-nav-link>
 
+                    <x-responsive-nav-link :href="route('tickets')" :active="request()->routeIs('tickets')">
+                        {{ __('Tickets') }}
+                    </x-responsive-nav-link>
+
                     <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
@@ -287,6 +291,10 @@
 
                 <x-responsive-nav-link :href="route('community')" :active="request()->routeIs('community')">
                     {{ __('Community') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('tickets')" :active="request()->routeIs('tickets')">
+                    {{ __('Tickets') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('profile')" :active="request()->routeIs('profile')">
