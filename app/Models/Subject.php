@@ -22,6 +22,11 @@ class Subject extends Model
         return $this->hasMany(Assignment::class);
     }
 
+    public function Ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
     public function User()
     {
         return $this->belongsToMany(User::class);
