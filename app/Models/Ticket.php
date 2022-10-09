@@ -10,4 +10,19 @@ class Ticket extends Model
 {
     use HasFactory;
     use HasUuids;
+
+    public function Student()
+    {
+        return $this->belongsTo(User::class)->where('is_tutor', false);
+    }
+
+    public function Tutor()
+    {
+        return $this->belongsTo(User::class)->where('is_tutor', false);
+    }
+
+    public function Message()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

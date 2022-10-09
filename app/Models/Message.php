@@ -10,4 +10,14 @@ class Message extends Model
 {
     use HasFactory;
     use HasUuids;
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
 }
