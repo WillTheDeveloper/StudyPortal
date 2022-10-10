@@ -441,6 +441,9 @@ Route::post('/ticket/create', [Ticket::class, 'new'])
 Route::post('/ticket/{id}/message', [Message::class, 'create'])
     ->middleware(['auth', 'verified'])
     ->name('ticket.message');
+Route::post('/ticket/{id}/resolved', [Ticket::class, 'resolved'])
+    ->middleware(['auth', 'verified'])
+    ->name('ticket.resolved');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {

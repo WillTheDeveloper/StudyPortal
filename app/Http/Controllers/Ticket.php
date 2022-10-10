@@ -74,4 +74,14 @@ class Ticket extends Controller
                 ->where('ticket_id', $id)->get()
         ]);
     }
+
+    public function resolved($id)
+    {
+        \App\Models\Ticket::query()->find($id)
+            ->update([
+                'status' => 'completed'
+            ]);
+
+        return redirect(route('ticket.id', $id));
+    }
 }
