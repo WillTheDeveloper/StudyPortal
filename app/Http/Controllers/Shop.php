@@ -16,4 +16,11 @@ class Shop extends Controller
                 ->get()
         ]);
     }
+
+    public function product($slug)
+    {
+        return view('product', [
+            'item' => Product::query()->firstWhere('slug', $slug)
+        ]);
+    }
 }

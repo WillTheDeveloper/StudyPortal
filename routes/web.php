@@ -229,6 +229,9 @@ Route::get('/ticket/{id}', [Ticket::class, 'viewticket'])
 Route::get('/shop', [Shop::class, 'view'])
     ->middleware('web')
     ->name('shop');
+Route::get('/shop/{slug}', [Shop::class, 'product'])
+    ->middleware('web')
+    ->name('shop.product');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
