@@ -19,6 +19,7 @@ use App\Http\Controllers\Note;
 use App\Http\Controllers\Webhook;
 use App\Http\Controllers\Ticket;
 use App\Http\Controllers\Message;
+use App\Http\Controllers\Shop;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -225,6 +226,9 @@ Route::get('/ticket/new', [Ticket::class, 'create'])
 Route::get('/ticket/{id}', [Ticket::class, 'viewticket'])
     ->middleware(['auth', 'verified'])
     ->name('ticket.id');
+Route::get('/shop', [Shop::class, 'view'])
+    ->middleware('web')
+    ->name('shop');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
