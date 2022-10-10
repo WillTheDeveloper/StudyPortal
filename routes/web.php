@@ -434,6 +434,9 @@ Route::post('/notes/{id}/private', [Note::class, 'makePrivate'])
 Route::post('/notes/{id}/public', [Note::class, 'makePublic'])
     ->middleware(['auth'])
     ->name('note.make-public');
+Route::post('/ticket/create', [Ticket::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('ticket.create');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {

@@ -1,7 +1,7 @@
 @component('mail::message')
 # Ticket successfully created
 
-Hello, {{$data->Student()->name}}.
+Hello, {{$data->Student->name}}.
 
 Your ticket has been created.
 
@@ -9,7 +9,7 @@ Your ticket has been created.
 
 **Details:** {{$data->details}}
 
-**Tutor:** {{$data->Tutor()->name}}
+**Tutor:** {{$data->Tutor->name}}
 
 **Status:** {{Str::ucfirst($data->status)}}
 

@@ -44,16 +44,26 @@ class Ticket extends Controller
     public function create()
     {
         return view('createticket', [
-            'subjects' => Subject::query()
-                ->select('subjects.subject')
+            'subjects' => Subject::query()->get(),
+            'tutors' => \App\Models\User::query()
+                ->where('is_tutor', true)->get()
         ]);
     }
 
     public function new(Request $request)
     {
+        $t = \App\Models\Ticket::query()->create([
+            'student_id' => $request->user()->id,
+            'tutor_id' => $request->input('tutor'),
+            'question' => $request->input('question'),
+            'subject_id' => $request->input('subject'),
+            'details' => $request->input('details'),
+            'status' => 'new'
+        ]);
 
+        Mail::to($request->user())->send(new TicketCreated($t));
 
-//        Mail::send(new TicketCreated(), )
+        return redirect(route('ticket.id', $t->id));
     }
 
     public function viewticket($id)
