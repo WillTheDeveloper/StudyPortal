@@ -69,7 +69,9 @@ class Ticket extends Controller
     public function viewticket($id)
     {
         return view('ticket', [
-            'ticket' => \App\Models\Ticket::query()->findOrFail($id)
+            'ticket' => \App\Models\Ticket::query()->findOrFail($id),
+            'messages' => \App\Models\Message::query()
+                ->where('ticket_id', $id)->get()
         ]);
     }
 }
