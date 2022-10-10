@@ -221,7 +221,7 @@
                                         <p class="mt-0.5 text-sm text-gray-500">Replied {{$m->created_at->diffForHumans()}}</p>
                                     </div>
                                     <div class="mt-2 text-sm text-gray-700">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam.</p>
+                                        <p>{{$m->message}}</p>
                                     </div>
                                 </div>
                             </div>
