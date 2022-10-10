@@ -18,6 +18,7 @@ use App\Http\Controllers\Notification;
 use App\Http\Controllers\Note;
 use App\Http\Controllers\Webhook;
 use App\Http\Controllers\Ticket;
+use App\Http\Controllers\Message;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -437,6 +438,9 @@ Route::post('/notes/{id}/public', [Note::class, 'makePublic'])
 Route::post('/ticket/create', [Ticket::class, 'new'])
     ->middleware(['auth', 'verified'])
     ->name('ticket.create');
+Route::post('/ticket/{id}/message', [Message::class, 'create'])
+    ->middleware(['auth', 'verified'])
+    ->name('ticket.message');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
