@@ -343,7 +343,7 @@
                         </a>
                     </h3>
                     <div class="mt-3 flex flex-col items-center">
-                        <p class="sr-only">5 out of 5 stars</p>
+                        <p class="sr-only">{{$i->Review->average('rating')}} out of 5 stars</p>
                         <div class="flex items-center">
                             <!-- Heroicon name: mini/star -->
                             <svg class="text-yellow-400 flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -372,7 +372,14 @@
                         </div>
                         <p class="mt-1 text-sm text-gray-500">{{$i->Review->count()}} reviews</p>
                     </div>
-                    <p class="mt-4 text-base font-medium text-gray-900">£{{$i->price}}</p>
+                    @auth()
+                        <p class="mt-4 text-base font-medium text-gray-900">£{{$i->price}}</p>
+                    @endauth
+
+                    @guest()
+                        <p class="mt-4 text-base font-medium text-gray-900">Please login</p>
+                    @endguest
+
                 </div>
             </div>
             @endforeach
