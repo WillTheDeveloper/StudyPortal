@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('image')->nullable();
             $table->boolean('active');
             $table->text('sold')->comment('Who is it sold by, not an ID but a name');
+            $table->text('slug')->nullable(false);
             $table->integer('user_id')->nullable(false);
             $table->timestamps();
         });
