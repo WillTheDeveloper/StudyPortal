@@ -27,7 +27,7 @@ class Ticket extends Model
 
     public function Tutor()
     {
-        return $this->belongsTo(User::class)->where('is_tutor', false);
+        return $this->belongsTo(User::class)->where('is_tutor', true);
     }
 
     public function Message()

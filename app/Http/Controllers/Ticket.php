@@ -61,7 +61,7 @@ class Ticket extends Controller
             'status' => 'new'
         ]);
 
-        Mail::to($request->user())->send(new TicketCreated($t));
+        Mail::to($request->user())->send(new TicketCreated(\App\Models\Ticket::query()->find($t->id)));
 
         return redirect(route('ticket.id', $t->id));
     }
