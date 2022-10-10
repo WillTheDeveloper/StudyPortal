@@ -20,7 +20,8 @@ class Shop extends Controller
     public function product($slug)
     {
         return view('product', [
-            'item' => Product::query()->firstWhere('slug', $slug)
+            'item' => Product::query()->firstWhere('slug', $slug),
+            'reviews' => Review::query()->where('product_id', Product::query()->where('slug', $slug)->first()->id)->get()
         ]);
     }
 }
