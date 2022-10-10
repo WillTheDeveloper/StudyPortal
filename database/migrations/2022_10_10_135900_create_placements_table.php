@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('placements', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->text('location');
+            $table->text('company');
+            $table->text('role');
+            $table->text('title');
             $table->timestamps();
         });
     }
