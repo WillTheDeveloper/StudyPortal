@@ -17,6 +17,7 @@ class CreateInstitutionsTable extends Migration
             $table->id();
             $table->string('institution');
             $table->string('joincode');
+            $table->text('domain')->nullable();
             $table->timestamps();
         });
     }
