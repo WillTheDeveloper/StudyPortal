@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('placements', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->integer('user_id');
             $table->text('location');
             $table->text('company');
