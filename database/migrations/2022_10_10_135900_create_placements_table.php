@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('company');
             $table->text('role');
             $table->text('title');
+            $table->text('slug')->nullable(false);
             $table->timestamps();
         });
     }
