@@ -11,7 +11,8 @@ class Institution extends Model
 
     protected $fillable = [
         'institution',
-        'joincode'
+        'joincode',
+        'domain'
     ];
 
     public function User()
