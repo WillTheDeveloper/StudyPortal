@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Placement;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -11,11 +12,8 @@ use Illuminate\Support\Str;
  */
 class PlacementFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Placement::class;
+
     public function definition()
     {
         return [
