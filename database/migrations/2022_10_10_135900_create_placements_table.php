@@ -21,6 +21,9 @@ return new class extends Migration
             $table->text('role');
             $table->text('title');
             $table->text('slug')->nullable(false);
+            $table->boolean('open')->default(true)->comment('Can users apply for it?');
+            $table->boolean('active')->default(true)->comment('Is the placement visible on the site?');
+            $table->date('closing')->default(now()->addWeek());
             $table->timestamps();
         });
     }

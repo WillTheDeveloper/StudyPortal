@@ -20,6 +20,7 @@ use App\Http\Controllers\Webhook;
 use App\Http\Controllers\Ticket;
 use App\Http\Controllers\Message;
 use App\Http\Controllers\Shop;
+use App\Http\Controllers\Placement;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -232,6 +233,9 @@ Route::get('/shop', [Shop::class, 'view'])
 Route::get('/shop/{slug}', [Shop::class, 'product'])
     ->middleware('web')
     ->name('shop.product');
+Route::get('/placements', [Placement::class, 'view'])
+    ->middleware(['auth', 'verified'])
+    ->name('placements');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
