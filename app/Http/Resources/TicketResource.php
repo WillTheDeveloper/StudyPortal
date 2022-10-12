@@ -20,7 +20,8 @@ class TicketResource extends JsonResource
             'student' => $this->Student->name,
             'tutor' => $this->Tutor->name,
             'subject' => $this->Subject->subject,
-            'status' => $this->status
+            'status' => $this->status,
+            'created' => $this->created_at
         ];
     }
 }
