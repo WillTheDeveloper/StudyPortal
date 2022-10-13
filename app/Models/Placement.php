@@ -15,4 +15,10 @@ class Placement extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $casts = [
+        'closing' => 'date',
+        'active' => 'boolean',
+        'open' => 'boolean'
+    ];
 }
