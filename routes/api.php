@@ -291,3 +291,25 @@ Route::post('/review/{slug}/new', function ($slug) {
 
     return new \App\Http\Resources\ReviewResource($r);
 });
+
+Route::get('/product/{slug}', function ($slug) {
+    return new \App\Http\Resources\ProductResource(\App\Models\Product::query()->firstWhere('slug', $slug));
+})->middleware('auth:sanctum');
+Route::patch('/product/{slug}/inactive', function ($slug) {
+    \App\Models\Product::query()
+        ->where('active', true)
+        ->where('user_id', Request::user()->id)
+        ->firstWhere('slug', $slug)
+        ->update([
+        'active' => false
+    ]);
+});
+Route::patch('/product/{slug}/active', function ($slug) {
+    \App\Models\Product::query()
+        ->where('active', false)
+        ->where('user_id', Request::user()->id)
+        ->firstWhere('slug', $slug)
+        ->update([
+            'active' => true
+        ]);
+});
