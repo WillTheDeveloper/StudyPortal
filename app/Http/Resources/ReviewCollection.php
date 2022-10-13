@@ -14,6 +14,12 @@ class ReviewCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'data' => $this->collection,
+            'links' => [
+                'documentation' => 'none',
+                'status' => 'latest'
+            ]
+        ];
     }
 }
