@@ -6,7 +6,127 @@
     </x-slot>
 
     <!-- Main column -->
-    <div class="lg:pl-64 flex flex-col">
+    <div class="lg:pl-64 flex flex-col" x-data="{likes:false}">
+
+
+        <div x-show="likes" x-cloak class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div class="fixed inset-0"></div>
+
+            <div class="fixed inset-0 overflow-hidden">
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+                        <!--
+                          Slide-over panel, show/hide based on slide-over state.
+
+                          Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+                            From: "translate-x-full"
+                            To: "translate-x-0"
+                          Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+                            From: "translate-x-0"
+                            To: "translate-x-full"
+                        -->
+                        <div class="pointer-events-auto w-screen max-w-md">
+                            <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                                <div class="p-6">
+                                    <div class="flex items-start justify-between">
+                                        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Users who liked this post</h2>
+                                        <div class="ml-3 flex h-7 items-center">
+                                            <button @click="likes = false" type="button" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500">
+                                                <span class="sr-only">Close panel</span>
+                                                <!-- Heroicon name: outline/x-mark -->
+                                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul role="list" class="flex-1 divide-y divide-gray-200 overflow-y-auto">
+
+                                    @foreach($post->Like as $l)
+                                    <li x-data="{menu:false}">
+                                        <div class="group relative flex items-center py-6 px-5">
+                                            <a href="#" class="-m-1 block flex-1 p-1">
+                                                <div class="absolute inset-0 group-hover:bg-gray-50" aria-hidden="true"></div>
+                                                <div class="relative flex min-w-0 flex-1 items-center">
+                                                      <span class="relative inline-block flex-shrink-0">
+                                                        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                                          <!-- Online: "bg-green-400", Offline: "bg-gray-300" -->
+                                                        <span class="bg-green-400 absolute top-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white" aria-hidden="true"></span>
+                                                      </span>
+                                                    <div class="ml-4 truncate">
+                                                        <p class="truncate text-sm font-medium text-gray-900">{{$l->User->name}}</p>
+                                                        @isset($l->User->username)
+                                                            <p class="truncate text-sm text-gray-500">@ {{$l->User->username}}</p>
+                                                        @endisset
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="relative ml-2 inline-block flex-shrink-0 text-left">
+                                                <button @click="menu = true" type="button" class="group relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
+                                                    <span class="sr-only">Open options menu</span>
+                                                    <span class="flex h-full w-full items-center justify-center rounded-full">
+                                                        <!-- Heroicon name: mini/ellipsis-vertical -->
+                                                        <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                          <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
+                                                        </svg>
+                                                      </span>
+                                                </button>
+
+                                                <!--
+                                                  Dropdown panel, show/hide based on dropdown state.
+
+                                                  Entering: "transition ease-out duration-100"
+                                                    From: "transform opacity-0 scale-95"
+                                                    To: "transform opacity-100 scale-100"
+                                                  Leaving: "transition ease-in duration-75"
+                                                    From: "transform opacity-100 scale-100"
+                                                    To: "transform opacity-0 scale-95"
+                                                -->
+                                                <div x-show="menu" @click.away="menu = false" class="absolute top-0 right-9 z-10 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
+                                                    <div class="py-1" role="none">
+                                                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                                        <a href="{{route('community.profile', $l->User->id)}}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="options-menu-0-item-0">View profile</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    @endforeach
+
+                                    <!-- More people... -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Search header -->
         <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
             <!-- Sidebar toggle, controls the 'sidebarOpen' sidebar state. -->
