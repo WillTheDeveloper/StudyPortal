@@ -303,6 +303,8 @@ Route::patch('/product/{slug}/inactive', function ($slug) {
         ->update([
         'active' => false
     ]);
+
+    return new \App\Http\Resources\ProductResource(\App\Models\Product::query()->firstWhere('slug', $slug));
 });
 Route::patch('/product/{slug}/active', function ($slug) {
     \App\Models\Product::query()
@@ -312,4 +314,6 @@ Route::patch('/product/{slug}/active', function ($slug) {
         ->update([
             'active' => true
         ]);
+
+    return new \App\Http\Resources\ProductResource(\App\Models\Product::query()->firstWhere('slug', $slug));
 });
