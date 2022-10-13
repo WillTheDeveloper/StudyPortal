@@ -7,6 +7,7 @@ use App\Http\Requests\CreateNewPost;
 use App\Http\Requests\UpdateUserComment;
 use App\Http\Requests\UpdateUserPost;
 use App\Jobs\SendPostWebhook;
+use App\Mail\NewCommentOnPost;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Post;
@@ -15,6 +16,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class Community extends Controller
@@ -142,6 +144,8 @@ class Community extends Controller
         );
 
         $comment->save();
+
+        Mail::to(User::find($comment->user_id))->send(new NewCommentOnPost($comment));
 
         return redirect()->back();
     }
