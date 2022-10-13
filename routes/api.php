@@ -279,3 +279,15 @@ Route::get('/reviews', function () {
 Route::get('/reviews/{rating}', function (int $rating) {
     return new \App\Http\Resources\ReviewCollection(\App\Models\Review::query()->where('rating', $rating));
 });
+Route::post('/review/{slug}/new', function ($slug) {
+    $id = \App\Models\Product::query()->firstWhere('slug', $slug)->id;
+
+    $r = \App\Models\Review::query()->create([
+        'user_id' => Request::user()->id,
+        'product_id' => $id,
+        'review' => Request::input('review'),
+        'rating' => Request::input('rating')
+    ]);
+
+    return new \App\Http\Resources\ReviewResource($r);
+});
