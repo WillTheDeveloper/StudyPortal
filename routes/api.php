@@ -317,3 +317,7 @@ Route::patch('/product/{slug}/active', function ($slug) {
 
     return new \App\Http\Resources\ProductResource(\App\Models\Product::query()->firstWhere('slug', $slug));
 });
+
+Route::get('/placement/{slug}', function ($slug) {
+    return new \App\Http\Resources\PlacementResource(\App\Models\Placement::query()->firstWhere('slug', $slug));
+});
