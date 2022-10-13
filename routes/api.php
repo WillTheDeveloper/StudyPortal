@@ -268,3 +268,14 @@ Route::get('/likes/post/{id}', function ($id) {
 Route::get('/likes/user/{id}', function ($id) {
     return new \App\Http\Resources\LikeCollection(\App\Models\Like::query()->where('user_id', $id));
 })->middleware('auth:sanctum')->name('api.likes.user');
+
+// NEEDS TO BE DOCUMENTED
+Route::get('/review/{id}', function ($id) {
+    return new \App\Http\Resources\ReviewResource(\App\Models\Review::query()->first($id));
+})->middleware('auth:sanctum');
+Route::get('/reviews', function () {
+    return new \App\Http\Resources\ReviewCollection(\App\Models\Review::all());
+});
+Route::get('/reviews/{rating}', function (int $rating) {
+    return new \App\Http\Resources\ReviewCollection(\App\Models\Review::query()->where('rating', $rating));
+});
