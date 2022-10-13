@@ -275,10 +275,10 @@ Route::get('/review/{id}', function ($id) {
 })->middleware('auth:sanctum');
 Route::get('/reviews', function () {
     return new \App\Http\Resources\ReviewCollection(\App\Models\Review::all());
-});
+})->middleware('auth:sanctum');
 Route::get('/reviews/{rating}', function (int $rating) {
     return new \App\Http\Resources\ReviewCollection(\App\Models\Review::query()->where('rating', $rating));
-});
+})->middleware('auth:sanctum');
 Route::post('/review/{slug}/new', function ($slug) {
     $id = \App\Models\Product::query()->firstWhere('slug', $slug)->id;
 
@@ -290,7 +290,7 @@ Route::post('/review/{slug}/new', function ($slug) {
     ]);
 
     return new \App\Http\Resources\ReviewResource($r);
-});
+})->middleware('auth:sanctum');
 
 Route::get('/product/{slug}', function ($slug) {
     return new \App\Http\Resources\ProductResource(\App\Models\Product::query()->firstWhere('slug', $slug));
@@ -305,7 +305,7 @@ Route::patch('/product/{slug}/inactive', function ($slug) {
     ]);
 
     return new \App\Http\Resources\ProductResource(\App\Models\Product::query()->firstWhere('slug', $slug));
-});
+})->middleware('auth:sanctum');
 Route::patch('/product/{slug}/active', function ($slug) {
     \App\Models\Product::query()
         ->where('active', false)
@@ -316,8 +316,8 @@ Route::patch('/product/{slug}/active', function ($slug) {
         ]);
 
     return new \App\Http\Resources\ProductResource(\App\Models\Product::query()->firstWhere('slug', $slug));
-});
+})->middleware('auth:sanctum');
 
 Route::get('/placement/{slug}', function ($slug) {
     return new \App\Http\Resources\PlacementResource(\App\Models\Placement::query()->firstWhere('slug', $slug));
-});
+})->middleware('auth:sanctum');
