@@ -321,3 +321,8 @@ Route::patch('/product/{slug}/active', function ($slug) {
 Route::get('/placement/{slug}', function ($slug) {
     return new \App\Http\Resources\PlacementResource(\App\Models\Placement::query()->firstWhere('slug', $slug));
 })->middleware('auth:sanctum');
+Route::get('/placements/active', function () {
+    return new \App\Http\Resources\PlacementCollection(\App\Models\Placement::query()
+        ->where('active', true)
+        ->where('open', true));
+});
