@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\TicketCreated;
+use App\Mail\TicketResolved;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,12 +76,14 @@ class Ticket extends Controller
         ]);
     }
 
-    public function resolved($id)
+    public function resolved($id, Request $request)
     {
         \App\Models\Ticket::query()->find($id)
             ->update([
                 'status' => 'completed'
             ]);
+
+        Mail::to($request->user())->send(new TicketResolved(\App\Models\Ticket::query()->find($id)));
 
         return redirect(route('ticket.id', $id));
     }
