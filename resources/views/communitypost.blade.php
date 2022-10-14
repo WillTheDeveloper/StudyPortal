@@ -16,16 +16,7 @@
             <div class="fixed inset-0 overflow-hidden">
                 <div class="absolute inset-0 overflow-hidden">
                     <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
-                        <!--
-                          Slide-over panel, show/hide based on slide-over state.
 
-                          Entering: "transform transition ease-in-out duration-500 sm:duration-700"
-                            From: "translate-x-full"
-                            To: "translate-x-0"
-                          Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
-                            From: "translate-x-0"
-                            To: "translate-x-full"
-                        -->
                         <div class="pointer-events-auto w-screen max-w-md">
                             <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                 <div class="p-6">
@@ -290,17 +281,21 @@
                     </div>
                     <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
                         <dl class="sm:divide-y sm:divide-gray-200">
-                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <div class="py-2 sm:py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Subject</dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$post->Subject->subject}}</dd>
                             </div>
-                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <div class="py-2 sm:py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Posted at</dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$post->created_at->diffForHumans()}}</dd>
                             </div>
-                            <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <div class="py-2 sm:py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt class="text-sm font-medium text-gray-500">Message</dt>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$post->body}}</dd>
+                            </div>
+                            <div @click="likes = true" class="py-2 sm:py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt class="text-sm font-medium text-gray-500">Likes</dt>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$post->Like->count()}}</dd>
                             </div>
                             @if($errors->all())
                                 <div class="rounded-md bg-red-50 p-4">
@@ -324,7 +319,7 @@
                                     </div>
                                 </div>
                             @endif
-                            <div x-show="button" x-cloak class="py-4 sm:py-5 sm:grid sm:grid-cols-3 bg-gray-500 sm:gap-4 sm:px-6">
+                            <div x-show="button" x-cloak class="py-2 sm:py-3 sm:grid sm:grid-cols-3 bg-gray-500 sm:gap-4 sm:px-6">
                                 <dt @click="button = false; create = true" class="text-sm font-medium text-white">New Comment</dt>
                             </div>
                             <form method="post" action="{{ route('community.comment.new', $post->id) }}">
