@@ -330,7 +330,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="w-full">
-                                <div x-show="create" x-cloak class="py-4 sm:py-5 sm:grid bg-gray-700  sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <div x-show="create" x-cloak class="py-2 sm:py-3 sm:grid bg-gray-700  sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium text-white text-left">Post comment</dt>
                                 </div>
                                 </button>
