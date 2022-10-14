@@ -105,28 +105,6 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Search header -->
         <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
             <!-- Sidebar toggle, controls the 'sidebarOpen' sidebar state. -->
