@@ -26,9 +26,21 @@ class Ticket extends Controller
 
     public function studentview()
     {
+        $request = Request();
+
+        $subject = $request->query('subject');
+        $status = $request->query('status');
+
         return view('studenttickets', [
             'tickets' => \App\Models\Ticket::query()
                 ->where('student_id', auth()->id())
+                ->when($subject, function ($query, $subject) {
+                    $a = Subject::query()->firstWhere('subject', $subject)->id;
+                    $query->where('subject_id', $a);
+                })
+                ->when($status, function ($query, $status) {
+                    $query->where('status', $status);
+                })
                 ->paginate(20)
         ]);
     }
