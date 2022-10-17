@@ -118,11 +118,12 @@
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
                                     @foreach($tickets as $t)
+
                                         <tr>
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$t->question}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$t->Tutor->name}}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><a href="?status={{$t->status}}">{{Str::ucfirst($t->status)}}</a></td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><a>{{$t->Subject->subject}}</a></td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><a href="?subject={{$t->Subject->subject}}">{{$t->Subject->subject}}</a></td>
                                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                 <a href="{{route('ticket.id', $t->id)}}" class="text-indigo-600 hover:text-indigo-900">Open ticket<span class="sr-only">, {{$t->question}}</span></a>
                                             </td>
