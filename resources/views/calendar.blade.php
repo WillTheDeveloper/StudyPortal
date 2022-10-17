@@ -252,14 +252,12 @@
                                 <div class="relative bg-white py-2 px-3">
                                     <time datetime="{{$date->day($i)->toDateString()}}">{{$i}}</time>
                                     <ol class="mt-2">
-                                        @foreach($events->whereDay('date', $i)->get() as $c)
                                             <li>
                                                 <a href="#" class="group flex">
-                                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">{{$c->title}}</p>
+                                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">{{$events->whereDay('date', 19)->first()->title}}</p>
                                                     <time datetime="2022-01-03T10:00" class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block">10AM</time>
                                                 </a>
                                             </li>
-                                        @endforeach
                                     </ol>
                                 </div>
                             @endfor
