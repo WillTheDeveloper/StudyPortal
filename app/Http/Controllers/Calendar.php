@@ -17,7 +17,7 @@ class Calendar extends Controller
                 ->where('user_id', auth()->id())
                 ->whereMonth('date', $month)
                 ->whereYear('date', $year)
-                ->get()
+                ->get('*')
         ]);
     }
 }

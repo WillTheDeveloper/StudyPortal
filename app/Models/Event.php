@@ -10,4 +10,13 @@ class Event extends Model
 {
     use HasFactory;
     use HasUuids;
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    protected $casts = [
+        'date' => 'date'
+    ];
 }
