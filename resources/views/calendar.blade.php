@@ -248,7 +248,6 @@
                                     </ol>
                                 </div>
                             @endfor
-{{--                            {{dd($events->whereDay('date', 19)->get())}}--}}
                             @for($i = 1; $i <= $current; $i++)
                                 <div class="relative bg-white py-2 px-3">
                                     <time datetime="{{$date->day($i)->toDateString()}}">{{$i}}</time>

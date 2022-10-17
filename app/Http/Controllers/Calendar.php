@@ -22,7 +22,7 @@ class Calendar extends Controller
             'before' => Carbon::now()->subMonth()->endOfMonth()->dayOfWeek,
             'current' => Carbon::now()->months($month)->daysInMonth,
             'date' => Carbon::now()->months($month)->year($year),
-            'next' => Carbon::now()->addMonth()->startOfMonth()->endOfWeek()->day
+            'next' => Carbon::now()->addMonth()->startOfMonth()->endOfWeek()->day,
         ]);
     }
 }
