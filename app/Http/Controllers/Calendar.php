@@ -10,8 +10,9 @@ class Calendar extends Controller
 {
     public function view()
     {
-        $month = /*Request()->query('month') ? '' : */Carbon::now()->month;
-        $year = /*Request()->query('year') ? '' : */Carbon::now()->year;
+        $month = Request()->query('month') ? '' : Carbon::today()->month;
+        $year = Request()->query('year') ? '' : Carbon::today()->year;
+//        $day = CarbonPeriod::start(Carbon::today()->startOfMonth()->toDate())->end(Carbon::today()->endOfMonth()->toDate())->toArray();
 
         return view('calendar', [
             'events' => \App\Models\Event::query()
@@ -19,10 +20,14 @@ class Calendar extends Controller
                 ->whereMonth('date', $month)
                 ->whereYear('date', $year),
 
-            'before' => Carbon::now()->subMonth()->endOfMonth()->dayOfWeek,
-            'current' => Carbon::now()->months($month)->daysInMonth,
-            'date' => Carbon::now()->months($month)->year($year),
-            'next' => Carbon::now()->addMonth()->startOfMonth()->endOfWeek()->day,
+            'month' => $month,
+            'year' => $year,
+
+            'before' => Carbon::today()->subMonth()->endOfMonth()->dayOfWeek,
+            'current' => Carbon::today()->months($month)->daysInMonth,
+            'date' => Carbon::today()->months($month)->year($year),
+            'test' => CarbonPeriod::start(Carbon::today()->startOfMonth()->toDate())->end(Carbon::today()->endOfMonth()->toDate())->toArray(),
+            'next' => Carbon::today()->addMonth()->startOfMonth()->endOfWeek()->day,
         ]);
     }
 }

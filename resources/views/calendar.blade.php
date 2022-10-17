@@ -234,47 +234,21 @@
                                 <time datetime="2021-12-27">27</time>
                             </div>--}}
 
-                            @for($i = 1; $i <= $before; $i++)
-                                <div class="relative bg-gray-300 py-2 px-3">
-                                    <time datetime="">{{$i}}</time>
+                            @foreach($test as $t)
+                                <div class="relative bg-white py-2 px-3">
+                                    <time>{{$t->toDateString()}}</time>
                                     <ol class="mt-2">
-
+                                        @foreach($events->whereDay('date', $t->day)->get() as $e)
                                             <li>
                                                 <a href="#" class="group flex">
-                                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">Design review</p>
-                                                    <time datetime="2022-01-03T10:00" class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block">10AM</time>
+                                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">{{$e->title}}</p>
+                                                    <time datetime="{{\Carbon\Carbon::parse($e->start)}}" class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block">{{\Carbon\Carbon::parse($e->start)->format('H')}}</time>
                                                 </a>
                                             </li>
+                                        @endforeach
                                     </ol>
                                 </div>
-                            @endfor
-                            @for($i = 1; $i <= $current; $i++)
-                                <div class="relative bg-white py-2 px-3">
-                                    <time datetime="{{$date->day($i)->toDateString()}}">{{$i}}</time>
-                                    <ol class="mt-2">
-                                            <li>
-                                                <a href="#" class="group flex">
-                                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">{{$events->whereDay('date', 19)->first()->title}}</p>
-                                                    <time datetime="2022-01-03T10:00" class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block">10AM</time>
-                                                </a>
-                                            </li>
-                                    </ol>
-                                </div>
-                            @endfor
-                            @for($i = 1; $i <= $next; $i++)
-                                <div class="relative bg-white py-2 px-3">
-                                    <time datetime="">{{$i}}</time>
-                                    <ol class="mt-2">
-
-                                        <li>
-                                            <a href="#" class="group flex">
-                                                <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">Design review</p>
-                                                <time datetime="2022-01-03T10:00" class="ml-3 hidden flex-none text-gray-500 group-hover:text-indigo-600 xl:block">10AM</time>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            @endfor
+                            @endforeach
 
 
                         </div>
