@@ -21,6 +21,7 @@ use App\Http\Controllers\Ticket;
 use App\Http\Controllers\Message;
 use App\Http\Controllers\Shop;
 use App\Http\Controllers\Placement;
+use App\Http\Controllers\Calendar;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -236,6 +237,9 @@ Route::get('/shop/{slug}', [Shop::class, 'product'])
 Route::get('/placements', [Placement::class, 'view'])
     ->middleware(['auth', 'verified'])
     ->name('placements');
+Route::get('/calendar', [Calendar::class, 'view'])
+    ->middleware(['auth', 'verified'])
+    ->name('calendar');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
