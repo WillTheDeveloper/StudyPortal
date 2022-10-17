@@ -64,6 +64,10 @@
                         {{ __('Assignments') }}
                     </x-responsive-nav-link>
 
+                    <x-responsive-nav-link :href="route('calendar')" :active="request()->routeIs('calendar')">
+                        {{ __('Calendar') }}
+                    </x-responsive-nav-link>
+
                     <x-responsive-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
                         {{ __('Kanban') }}
                     </x-responsive-nav-link>
@@ -251,6 +255,10 @@
 
                 <x-responsive-nav-link :href="route('assignments')" :active="request()->routeIs('assignments')">
                     {{ __('Assignments') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('calendar')" :active="request()->routeIs('calendar')">
+                    {{ __('Calendar') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link :href="route('kanban.list')" :active="request()->routeIs('kanban.list')">
