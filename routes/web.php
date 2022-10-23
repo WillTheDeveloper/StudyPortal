@@ -42,15 +42,12 @@ Route::get('/contact', function () {
 Route::get('/dashboard', [Dashboard::class, 'show'])
     ->middleware('auth')
     ->name('dashboard');
-
 Route::get('/assignments', function () {
     return view('assignments');
 })->middleware(['auth'])->name('assignments');
-
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
-
 Route::get('/groups', function (Request $request) {
     if ($request->user()->is_tutor) {
         return view('groups');
