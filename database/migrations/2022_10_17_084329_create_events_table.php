@@ -14,7 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->text('title');
+            $table->text('details');
+            $table->date('date');
+            $table->time('start');
+            $table->time('end');
+            $table->integer('user_id');
+            $table->enum('priority', ['low', 'normal', 'high'])->default('normal');
             $table->timestamps();
         });
     }
