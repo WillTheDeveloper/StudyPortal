@@ -192,7 +192,7 @@
                                     </a>
 
 
-                                    <a href="{{ route('community.communities') }}"
+                                    <a href="{{ route('placements') }}"
                                        class="text-gray-600 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                         <!-- Heroicon name: outline/user-group -->
                                         <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"

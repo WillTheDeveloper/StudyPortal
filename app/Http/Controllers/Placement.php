@@ -9,7 +9,7 @@ class Placement extends Controller
     public function view()
     {
         return view('placements', [
-            \App\Models\Placement::query()->get()
+            'placements' => \App\Models\Placement::query()->get()
         ]);
     }
 }
