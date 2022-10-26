@@ -13,6 +13,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.fleet
 .vapor/
 .env.production
 .env.staging
