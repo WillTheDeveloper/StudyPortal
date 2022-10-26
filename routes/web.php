@@ -234,6 +234,12 @@ Route::get('/shop/{slug}', [Shop::class, 'product'])
 Route::get('/placements', [Placement::class, 'view'])
     ->middleware(['auth', 'verified'])
     ->name('placements');
+Route::get('/placement/{slug}', [Placement::class, 'slug'])
+    ->middleware(['auth', 'verified'])
+    ->name('placement.slug');
+Route::get('/placement/new', [Placement::class, 'new'])
+    ->middleware(['auth', 'verified'])
+    ->name('placement.new');
 Route::get('/calendar', [Calendar::class, 'view'])
     ->middleware(['auth', 'verified'])
     ->name('calendar');
