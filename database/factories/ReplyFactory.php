@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Discussion;
 use App\Models\Group;
+use App\Models\Reply;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -12,11 +13,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ReplyFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Reply::class;
+
     public function definition()
     {
         return [
