@@ -19,7 +19,9 @@ class Placement extends Controller
 
     public function slug($slug)
     {
-
+        return view('placement', [
+            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug)
+        ]);
     }
 
     public function create(Request $request)
