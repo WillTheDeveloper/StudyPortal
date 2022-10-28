@@ -41,6 +41,6 @@ class Placement extends Controller
 
     public function new()
     {
-
+        return view('newplacement');
     }
 }
