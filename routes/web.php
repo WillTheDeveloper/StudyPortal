@@ -22,6 +22,7 @@ use App\Http\Controllers\Message;
 use App\Http\Controllers\Shop;
 use App\Http\Controllers\Placement;
 use App\Http\Controllers\Calendar;
+use App\Http\Controllers\Application;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -243,6 +244,12 @@ Route::get('/placement/new', [Placement::class, 'new'])
 Route::get('/calendar', [Calendar::class, 'view'])
     ->middleware(['auth', 'verified'])
     ->name('calendar');
+Route::get('/applications', [Application::class, 'all'])
+    ->middleware(['auth', 'verified'])
+    ->name('applications');
+Route::get('/application/{id}', [Application::class, 'id'])
+    ->middleware(['auth', 'verified'])
+    ->name('application.id');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
