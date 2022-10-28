@@ -13,7 +13,11 @@ class Placement extends Controller
             'placements' => \App\Models\Placement::query()
                 ->where('active', true)
                 ->groupBy(['open', 'id'])
-                ->paginate(15)
+                ->paginate(15),
+            'applications' => \App\Models\Application::query()
+                ->where('user_id', auth()->id())
+                ->inRandomOrder()
+                ->limit(2)
         ]);
     }
 
