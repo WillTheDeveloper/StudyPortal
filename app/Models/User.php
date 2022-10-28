@@ -18,6 +18,11 @@ class User extends Authenticatable implements MustVerifyEmail
     use Billable;
     use TwoFactorAuthenticatable;
 
+    public function Application()
+    {
+        return $this->hasMany(Application::class);
+    }
+
     public function Institution()
     {
         return $this->belongsTo(Institution::class);

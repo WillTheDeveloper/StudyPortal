@@ -16,6 +16,11 @@ class Placement extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function Application()
+    {
+        return $this->hasMany(Application::class);
+    }
+
     protected $casts = [
         'closing' => 'date',
         'active' => 'boolean',
