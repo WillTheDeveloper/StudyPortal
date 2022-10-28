@@ -359,7 +359,7 @@
                                                                     <p class="truncate text-sm text-gray-500">{{\Illuminate\Support\Str::title($a->status)}}</p>
                                                                 </div>
                                                                 <div>
-                                                                    <a href="#" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
+                                                                    <a href="{{route('application.id', $a->id)}}" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -370,7 +370,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="mt-6">
-                                                    <a href="#" class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">Manage my applications</a>
+                                                    <a href="{{route('applications')}}" class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">Manage my applications</a>
                                                 </div>
                                             </div>
 
