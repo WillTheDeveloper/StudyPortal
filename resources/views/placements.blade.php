@@ -355,8 +355,8 @@
                                                         <li class="py-4">
                                                             <div class="flex items-center space-x-4">
                                                                 <div class="min-w-0 flex-1">
-                                                                    <p class="truncate text-sm font-medium text-gray-900">Junior Software Developer</p>
-                                                                    <p class="truncate text-sm text-gray-500">Pending review</p>
+                                                                    <p class="truncate text-sm font-medium text-gray-900">{{$a->Placement->role}}</p>
+                                                                    <p class="truncate text-sm text-gray-500">{{\Illuminate\Support\Str::title($a->status)}}</p>
                                                                 </div>
                                                                 <div>
                                                                     <a href="#" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
@@ -370,7 +370,7 @@
                                                     </ul>
                                                 </div>
                                                 <div class="mt-6">
-                                                    <a href="#" class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">View all applications</a>
+                                                    <a href="#" class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">Manage my applications</a>
                                                 </div>
                                             </div>
 

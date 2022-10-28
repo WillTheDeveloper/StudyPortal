@@ -17,7 +17,7 @@ class Placement extends Controller
             'applications' => \App\Models\Application::query()
                 ->where('user_id', auth()->id())
                 ->inRandomOrder()
-                ->limit(2)
+                ->limit(2)->get()
         ]);
     }
 
