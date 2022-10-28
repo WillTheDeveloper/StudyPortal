@@ -18,7 +18,7 @@ class Application extends Controller
     public function id($id)
     {
         return view('application', [
-            'application' => \App\Models\Application::query()->firstOrFail($id)
+            'application' => \App\Models\Application::query()->findOrFail($id)
         ]);
     }
 }
