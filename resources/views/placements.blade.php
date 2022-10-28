@@ -268,7 +268,7 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4">
+                            <div>
                                 <h1 class="sr-only">Newest placements</h1>
                                 <div class="overflow-hidden bg-white shadow sm:rounded-md">
                                     <ul role="list" class="divide-y divide-gray-200">
@@ -345,92 +345,80 @@
                                     <div class="bg-white rounded-lg shadow">
                                         <div class="p-6">
                                             <h2 id="who-to-follow-heading" class="text-base font-medium text-gray-900">
-                                                Who to follow
+                                                Open applications
                                             </h2>
-                                            {{--<div class="mt-6 flow-root">
-                                                <ul role="list" class="-my-4 divide-y divide-gray-200">
-                                                    @foreach($users as $user)
-                                                        <li class="flex items-center py-4 space-x-3">
-                                                            <div class="flex-shrink-0">
-                                                                <img class="h-8 w-8 rounded-full"
-                                                                     src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                                     alt="">
-                                                            </div>
-                                                            <div class="min-w-0 flex-1">
-                                                                <p class="text-sm font-medium text-gray-900">
-                                                                    <a href="#">{{$user->name}}</a>
-                                                                </p>
-                                                                @isset($user->username)
-                                                                    <p class="text-sm text-gray-500">
-                                                                        <a href="{{ route('community.profile', $user->id) }}">@ {{$user->username}}</a>
-                                                                    </p>
-                                                                @endisset
-                                                            </div>
-                                                            <div class="flex-shrink-0">
-                                                                <button type="button"
-                                                                        class="inline-flex items-center px-3 py-0.5 rounded-full bg-rose-50 text-sm font-medium text-rose-700 hover:bg-rose-100">
-                                                                    <!-- Heroicon name: solid/plus-sm -->
-                                                                    <svg class="-ml-1 mr-0.5 h-5 w-5 text-rose-400"
-                                                                         xmlns="http://www.w3.org/2000/svg"
-                                                                         viewBox="0 0 20 20"
-                                                                         fill="currentColor" aria-hidden="true">
-                                                                        <path fill-rule="evenodd"
-                                                                              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                                                              clip-rule="evenodd"/>
-                                                                    </svg>
-                                                                    <span>
-                            Follow
-                          </span>
-                                                                </button>
+
+                                            <div>
+                                                <div class="mt-6 flow-root">
+                                                    <ul role="list" class="-my-5 divide-y divide-gray-200">
+                                                        <li class="py-4">
+                                                            <div class="flex items-center space-x-4">
+                                                                <div class="min-w-0 flex-1">
+                                                                    <p class="truncate text-sm font-medium text-gray-900">Junior Software Developer</p>
+                                                                    <p class="truncate text-sm text-gray-500">Pending review</p>
+                                                                </div>
+                                                                <div>
+                                                                    <a href="#" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
+                                                                </div>
                                                             </div>
                                                         </li>
-                                                    @endforeach
 
-                                                    <!-- More people... -->
-                                                </ul>
-                                            </div>--}}
+                                                        <li class="py-4">
+                                                            <div class="flex items-center space-x-4">
+                                                                <div class="min-w-0 flex-1">
+                                                                    <p class="truncate text-sm font-medium text-gray-900">Junior Full Stack Developer</p>
+                                                                    <p class="truncate text-sm text-gray-500">Pending interview</p>
+                                                                </div>
+                                                                <div>
+                                                                    <a href="#" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="mt-6">
+                                                    <a href="#" class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">View all</a>
+                                                </div>
+                                            </div>
+
 
                                         </div>
                                     </div>
                                 </section>
                                 <section aria-labelledby="trending-heading">
                                     <div class="bg-white rounded-lg shadow">
-                                        <div class="p-6">
-                                            <h2 id="trending-heading" class="text-base font-medium text-gray-900">
-                                                Trending
-                                            </h2>
-                                            <div class="mt-6 flow-root">
-                                                <ul role="list" class="-my-4 divide-y divide-gray-200">
-                                                    <li class="flex py-4 space-x-3">
-                                                        <div class="flex-shrink-0">
-                                                            <img class="h-8 w-8 rounded-full"
-                                                                 src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                                 alt="Floyd Miles">
-                                                        </div>
-                                                        <div class="min-w-0 flex-1">
-                                                            <p class="text-sm text-gray-800">What books do you have on
-                                                                your
-                                                                bookshelf just to look smarter than you actually
-                                                                are?</p>
-                                                            <div class="mt-2 flex">
-                          <span class="inline-flex items-center text-sm">
-                            <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                              <!-- Heroicon name: solid/chat-alt -->
-                              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                   fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                      d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                                      clip-rule="evenodd"/>
-                              </svg>
-                              <span class="font-medium text-gray-900">291</span>
-                            </button>
-                          </span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <!-- More posts... -->
-                                                </ul>
+                                        <div class="pl-5 pr-5 pt-2">
+                                            <div class="flex w-full items-center justify-between space-x-6 mt-2">
+                                                <div class="flex-1 truncate">
+                                                    <div class="flex items-center space-x-3">
+                                                        <h3 class="truncate text-sm font-medium text-gray-900">Jane Cooper</h3>
+                                                    </div>
+                                                    <p class="mt-1 truncate text-sm text-gray-500">Work placement contact</p>
+                                                </div>
+                                                <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                            </div>
+                                            <div>
+                                                <div class="-mt-px flex divide-x divide-gray-200">
+                                                    <div class="flex w-0 flex-1">
+                                                        <a href="mailto:janecooper@example.com" class="relative -mr-px inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500">
+                                                            <!-- Heroicon name: mini/envelope -->
+                                                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                                <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+                                                                <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+                                                            </svg>
+                                                            <span class="ml-3">Email</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="-ml-px flex w-0 flex-1">
+                                                        <a href="tel:+1-202-555-0170" class="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500">
+                                                            <!-- Heroicon name: mini/phone -->
+                                                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                                <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd" />
+                                                            </svg>
+                                                            <span class="ml-3">Open Ticket</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
