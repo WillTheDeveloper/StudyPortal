@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('applications', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->integer('user_id');
             $table->uuid('placement_id');
             $table->enum('status', ['pending', 'interview', 'declined', 'active', 'accepted', 'completed', 'reviewed', 'redacted']);
