@@ -15,6 +15,22 @@ class Application extends Controller
         ]);
     }
 
+    public function apply($id)
+    {
+        return view('application');
+    }
+
+    public function retract($id)
+    {
+        \App\Models\Application::query()
+            ->first($id)
+            ->update([
+                'status' => 'redacted'
+            ]);
+
+        return redirect(route('applications'));
+    }
+
     public function id($id)
     {
         return view('application', [

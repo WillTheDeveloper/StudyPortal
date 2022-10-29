@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->uuid('placement_id');
-            $table->enum('status', ['pending', 'interview', 'declined', 'active', 'accepted', 'completed', 'reviewed']);
+            $table->enum('status', ['pending', 'interview', 'declined', 'active', 'accepted', 'completed', 'reviewed', 'redacted']);
             $table->longText('cv');
             $table->timestamps();
         });
