@@ -269,6 +269,85 @@
                             </div>
 
 
+                            <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+                                <div class="px-4 py-5 sm:px-6">
+                                    <h3 class="text-lg font-medium leading-6 text-gray-900">Work Placement Information</h3>
+                                    <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>
+                                </div>
+                                <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                                    <dl class="sm:divide-y sm:divide-gray-200">
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Company</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{$placement->company}}</dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Location</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{$placement->location}}</dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Role</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{$placement->role}}</dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Role description</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">(Need fresh migration)</dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Requirements</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">(Need fresh migration)</dd>
+                                        </div>
+                                        <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
+                                            <dt class="text-sm font-medium text-gray-500">Closing</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{$placement->closing->diffForHumans()}}</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+
+
+                            @switch($check)
+                                @case(true)
+                                    <div class="md:flex md:items-center md:justify-between md:space-x-5 pt-5">
+                                        <div class="flex items-start space-x-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="relative">
+                                                    <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+                                                    <span class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                            <div class="pt-1.5">
+                                                <h1 class="text-2xl font-bold text-gray-900">{{auth()->user()->name}}</h1>
+                                                <p class="text-sm font-medium text-gray-500">Applied for {{$placement->role}}, {{$placement->created_at->diffForHumans()}}
+                                            </div>
+                                        </div>
+                                        <div class="justify-stretch mt-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">
+                                            <button type="button" class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">Retract</button>
+                                            <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">View status</button>
+                                        </div>
+                                    </div>
+                                @break(true)
+                                @case(false)
+                                    <div class="md:flex md:items-center md:justify-between md:space-x-5 pt-5">
+                                        <div class="flex items-start space-x-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="relative">
+                                                    <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+                                                    <span class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                            <div class="pt-1.5">
+                                                <h1 class="text-2xl font-bold text-gray-900">{{auth()->user()->name}}</h1>
+                                                <p class="text-sm font-medium text-gray-500">You can apply for this work placement if you would like.</p>
+                                            </div>
+                                        </div>
+                                        <div class="justify-stretch mt-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">
+                                            {{--<button type="button" class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">Disqualify</button>--}}
+                                            <button type="button" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">Advance to offer</button>
+                                        </div>
+                                    </div>
+                                @break(false)
+                            @endswitch
+
                         </main>
                     </div>
                 </div>

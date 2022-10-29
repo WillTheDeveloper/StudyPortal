@@ -17,14 +17,15 @@ class Placement extends Controller
             'applications' => \App\Models\Application::query()
                 ->where('user_id', auth()->id())
                 ->inRandomOrder()
-                ->limit(2)->get()
+                ->limit(2)->get(),
         ]);
     }
 
     public function slug($slug)
     {
         return view('placement', [
-            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug)
+            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug),
+            'check' => \App\Models\Placement::query()->first('slug', $slug)->where('user_id', auth()->id())->exists()
         ]);
     }
 
