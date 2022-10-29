@@ -321,8 +321,10 @@
                                             </div>
                                         </div>
                                         <div class="justify-stretch mt-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">
-                                            <button type="submit" class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">Retract</button>
-                                            <form action="{{route('application.id', $application)}}" method="get">
+                                            <form method="post" action="{{route('application.redact', $application->id)}}">
+                                                <button type="submit" class="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">Retract</button>
+                                            </form>
+                                            <form action="{{route('application.id', $application->id)}}" method="get">
                                                 <button type="submit" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">View status</button>
                                             </form>
                                         </div>
@@ -339,7 +341,7 @@
                                             </div>
                                             <div class="pt-1.5">
                                                 <h1 class="text-2xl font-bold text-gray-900">{{auth()->user()->name}}</h1>
-                                                <p class="text-sm font-medium text-gray-500">You can apply for this work placement if you would like.</p>
+                                                <p class="text-sm font-medium text-gray-500">You can apply for this work placement if you would like but please read all the information thoroughly before you do!</p>
                                             </div>
                                         </div>
                                         <div class="justify-stretch mt-6 flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-y-0 sm:space-x-3 sm:space-x-reverse md:mt-0 md:flex-row md:space-x-3">

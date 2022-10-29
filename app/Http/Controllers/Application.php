@@ -15,12 +15,19 @@ class Application extends Controller
         ]);
     }
 
-    public function apply($id)
+    public function apply()
     {
         return view('application');
     }
 
-    public function retract($id)
+    public function submit()
+    {
+        /*\App\Models\Application::query()->create([
+            ''
+        ])*/
+    }
+
+    public function redact($id)
     {
         \App\Models\Application::query()
             ->first($id)
