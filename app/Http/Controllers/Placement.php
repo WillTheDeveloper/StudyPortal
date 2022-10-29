@@ -25,7 +25,14 @@ class Placement extends Controller
     {
         return view('placement', [
             'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug),
-            'check' => \App\Models\Placement::query()->first('slug', $slug)->where('user_id', auth()->id())->exists()
+            'check' => \App\Models\Placement::query()->first('slug', $slug)->where('user_id', auth()->id())->exists(),
+            'application' => \App\Models\Application::query()
+                ->where('user_id', auth()->id())
+                ->where('placement_id', \App\Models\Placement::query()
+                    ->firstWhere('slug', $slug)
+                    ->id)
+                ->first()
+                ->id,
         ]);
     }
 
