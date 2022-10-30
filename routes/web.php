@@ -250,6 +250,9 @@ Route::get('/applications', [Application::class, 'all'])
 Route::get('/application/{id}', [Application::class, 'id'])
     ->middleware(['auth', 'verified'])
     ->name('application.id');
+Route::get('/placement/{slug}/apply', [Application::class, 'apply'])
+    ->middleware(['auth', 'verified'])
+    ->name('placement.apply');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
