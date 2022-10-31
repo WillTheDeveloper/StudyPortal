@@ -30,7 +30,7 @@ class Application extends Controller
     public function redact($id)
     {
         \App\Models\Application::query()
-            ->first($id)
+            ->find($id)
             ->update([
                 'status' => 'redacted'
             ]);

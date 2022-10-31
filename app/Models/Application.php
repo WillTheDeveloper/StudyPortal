@@ -11,6 +11,10 @@ class Application extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $fillable = [
+        'status'
+    ];
+
     public function User()
     {
         return $this->belongsTo(User::class);
