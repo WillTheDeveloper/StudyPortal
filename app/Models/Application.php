@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Placement extends Model
+class Application extends Model
 {
     use HasFactory;
     use HasUuids;
@@ -16,14 +16,8 @@ class Placement extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Application()
+    public function Placement()
     {
-        return $this->hasMany(Application::class);
+        return $this->belongsTo(Placement::class);
     }
-
-    protected $casts = [
-        'closing' => 'date',
-        'active' => 'boolean',
-        'open' => 'boolean'
-    ];
 }

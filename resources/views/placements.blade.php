@@ -363,33 +363,26 @@
                                             <div>
                                                 <div class="mt-6 flow-root">
                                                     <ul role="list" class="-my-5 divide-y divide-gray-200">
+                                                        @forelse($applications as $a)
                                                         <li class="py-4">
                                                             <div class="flex items-center space-x-4">
                                                                 <div class="min-w-0 flex-1">
-                                                                    <p class="truncate text-sm font-medium text-gray-900">Junior Software Developer</p>
-                                                                    <p class="truncate text-sm text-gray-500">Pending review</p>
+                                                                    <p class="truncate text-sm font-medium text-gray-900">{{$a->Placement->role}}</p>
+                                                                    <p class="truncate text-sm text-gray-500">{{\Illuminate\Support\Str::title($a->status)}}</p>
                                                                 </div>
                                                                 <div>
-                                                                    <a href="#" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
+                                                                    <a href="{{route('application.id', $a->id)}}" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
                                                                 </div>
                                                             </div>
                                                         </li>
+                                                        @empty
+                                                            <p>No active applications</p>
 
-                                                        <li class="py-4">
-                                                            <div class="flex items-center space-x-4">
-                                                                <div class="min-w-0 flex-1">
-                                                                    <p class="truncate text-sm font-medium text-gray-900">Junior Full Stack Developer</p>
-                                                                    <p class="truncate text-sm text-gray-500">Pending interview</p>
-                                                                </div>
-                                                                <div>
-                                                                    <a href="#" class="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-0.5 text-sm font-medium leading-5 text-gray-700 shadow-sm hover:bg-gray-50">View</a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
+                                                        @endforelse()
                                                     </ul>
                                                 </div>
                                                 <div class="mt-6">
-                                                    <a href="#" class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">View all</a>
+                                                    <a href="{{route('applications')}}" class="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">Manage my applications</a>
                                                 </div>
                                             </div>
 
@@ -422,7 +415,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="-ml-px flex w-0 flex-1">
-                                                        <a href="tel:+1-202-555-0170" class="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500">
+                                                        <a href="{{route('ticket.new')}}" class="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500">
                                                             <!-- Heroicon name: mini/phone -->
                                                             <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                                 <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd" />

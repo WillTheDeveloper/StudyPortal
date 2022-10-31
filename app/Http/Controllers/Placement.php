@@ -13,14 +13,28 @@ class Placement extends Controller
             'placements' => \App\Models\Placement::query()
                 ->where('active', true)
                 ->groupBy(['open', 'id'])
-                ->paginate(15)
+                ->paginate(15),
+            'applications' => \App\Models\Application::query()
+                ->where('user_id', auth()->id())
+                ->inRandomOrder()
+                ->limit(2)->get(),
         ]);
     }
 
     public function slug($slug)
     {
         return view('placement', [
-            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug)
+            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug),
+            'check' => \App\Models\Application::query()
+                ->where('user_id', auth()->id())
+                ->where('placement_id', \App\Models\Placement::query()->firstWhere('slug', $slug)->id)
+                ->exists(),
+            'application' => \App\Models\Application::query()
+                ->where('user_id', auth()->id())
+                ->where('placement_id', \App\Models\Placement::query()
+                    ->firstWhere('slug', $slug)
+                    ->id)
+                ->get(),
         ]);
     }
 
