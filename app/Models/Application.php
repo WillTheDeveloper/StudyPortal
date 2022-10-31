@@ -12,7 +12,10 @@ class Application extends Model
     use HasUuids;
 
     protected $fillable = [
-        'status'
+        'status',
+        'user_id',
+        'placement_id',
+        'cv'
     ];
 
     public function User()

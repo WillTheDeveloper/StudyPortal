@@ -15,16 +15,25 @@ class Application extends Controller
         ]);
     }
 
-    public function apply()
+    public function apply($slug)
     {
-        return view('application');
+        return view('application', [
+            'slug' => $slug
+        ]);
     }
 
-    public function submit()
+    public function submit(Request $request, $slug)
     {
-        /*\App\Models\Application::query()->create([
-            ''
-        ])*/
+//        dd($slug, $request);
+
+        \App\Models\Application::query()->create([
+            'cv' => $request->input('cv'),
+            'user_id' => auth()->id(),
+            'placement_id' => \App\Models\Placement::query()->firstWhere('slug', $slug)->id,
+            'status' => 'pending'
+        ]);
+
+        return redirect(route('applications'));
     }
 
     public function redact($id)
