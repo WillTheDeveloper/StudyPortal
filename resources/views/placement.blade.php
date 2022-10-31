@@ -297,8 +297,8 @@
                                             <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{$placement->requirements}}</dd>
                                         </div>
                                         <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5 sm:px-6">
-                                            <dt class="text-sm font-medium text-gray-500">Closing</dt>
-                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{$placement->closing->diffForHumans()}}</dd>
+                                            <dt class="text-sm font-medium text-gray-500">Closing in</dt>
+                                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{\Carbon\Carbon::today()->diffInDays($placement->closing)}} days</dd>
                                         </div>
                                     </dl>
                                 </div>
