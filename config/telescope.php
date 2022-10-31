@@ -78,6 +78,8 @@ return [
     'middleware' => [
         'web',
         Authorize::class,
+        'admin',
+        'verified'
     ],
 
     /*
