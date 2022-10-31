@@ -34,7 +34,7 @@ class Placement extends Controller
                 ->where('placement_id', \App\Models\Placement::query()
                     ->firstWhere('slug', $slug)
                     ->id)
-                ->get(),
+                ->get()->first(),
         ]);
     }
 
