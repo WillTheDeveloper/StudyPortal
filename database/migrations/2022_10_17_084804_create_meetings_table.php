@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        //TODO: Create a model for attendees which will attend this meeting.
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
