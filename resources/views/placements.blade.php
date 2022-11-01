@@ -292,8 +292,8 @@
                                                                     <div class="hidden md:block">
                                                                         <div>
                                                                             <p class="text-sm text-gray-900">
-                                                                                Closing
-                                                                                <time datetime="2020-01-07">{{$p->closing->diffForHumans()}}</time>
+                                                                                Closing in
+                                                                                <time>{{\Illuminate\Support\Carbon::today()->diffInDays($p->closing)}}</time> days
                                                                             </p>
                                                                             @switch($p->open)
                                                                                 @case(true)
