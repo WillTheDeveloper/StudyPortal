@@ -36,6 +36,18 @@ class Application extends Controller
         return redirect(route('applications'));
     }
 
+    public function allapplications($slug)
+    {
+        $id = \App\Models\Placement::query()->firstWhere('slug', $slug)->get('id');
+
+        return view('allapplications', [
+            'list' => \App\Models\Application::query()
+                ->where('placement_id', $id)
+                ->where('status', 'pending')
+                ->paginate(10)
+        ]);
+    }
+
     public function redact($id)
     {
         \App\Models\Application::query()
