@@ -132,7 +132,7 @@ class StudentTest extends TestCase
             ]
         );
         $this->assertModelExists($post);
-        $view = $this->get(route('community.post', $post->id));
+        $view = $this->get(route('community.post', $post->slug));
         $view->assertOk();
     }
 
