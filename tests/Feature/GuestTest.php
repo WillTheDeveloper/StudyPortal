@@ -2,9 +2,12 @@
 
 namespace Tests\Feature;
 
+use App\Models\Application;
 use App\Models\Blog;
 use App\Models\Institution;
 use App\Models\Note;
+use App\Models\Placement;
+use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -291,6 +294,100 @@ class GuestTest extends TestCase
         $this->assertGuest();
         $institution = Institution::factory()->create()->joincode;
         $view = $this->get(route('institution.request-delete', $institution));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_can_see_shop()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('shop'));
+        $view->assertOk();
+    }
+
+    public function test_guest_can_see_product_shop()
+    {
+        $this->assertGuest();
+        $product = Product::factory()->create();
+        $this->assertModelExists($product);
+        $view = $this->get(route('shop.product', $product->slug));
+    }
+
+    public function test_guest_cant_see_completed_todo()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('todo.completed'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_archived_todo()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('todo.archived'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_active_todo()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('todo.all'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_tickets()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('tickets'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_create_new_tickets()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('ticket.new'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_placements()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('placements'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_one_placement()
+    {
+        $this->assertGuest();
+        $placement = Placement::factory()->create();
+        $view = $this->get(route('placement.slug', $placement->slug));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_create_new_placement()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('placement.new'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_calendar()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('calendar'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_applications()
+    {
+        $this->assertGuest();
+        $view = $this->get(route('applications'));
+        $view->assertRedirect(route('login'));
+    }
+
+    public function test_guest_cant_see_an_application()
+    {
+        $this->assertGuest();
+        $application = Application::factory()->create();
+        $view = $this->get(route('application.id', $application->id));
         $view->assertRedirect(route('login'));
     }
 
