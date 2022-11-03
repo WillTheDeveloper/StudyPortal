@@ -145,36 +145,36 @@ class AdminTest extends TestCase
     public function test_admin_can_manage_a_institution()
     {
         $this->admin();
-        $org = Institution::factory()->create()->joincode;
+        $org = Institution::factory()->create();
         $this->assertModelExists($org);
-        $get = $this->get(route('institution.edit', $org));
+        $get = $this->get(route('institution.edit', $org->joincode));
         $get->assertOk();
     }
 
     public function test_admin_can_user_for_institution()
     {
         $this->admin();
-        $org = Institution::factory()->create()->joincode;
+        $org = Institution::factory()->create();
         $this->assertModelExists($org);
-        $get = $this->get(route('institution.users', $org));
+        $get = $this->get(route('institution.users', $org->joincode));
         $get->assertOk();
     }
 
     public function test_admin_can_add_user_to_institution()
     {
         $this->admin();
-        $org = Institution::factory()->create()->joincode;
+        $org = Institution::factory()->create();
         $this->assertModelExists($org);
-        $get = $this->get(route('institutions.add', $org));
+        $get = $this->get(route('institutions.add', $org->joincode));
         $get->assertOk();
     }
 
     public function test_admin_can_request_deletion_institution()
     {
         $this->admin();
-        $org = Institution::factory()->create()->joincode;
+        $org = Institution::factory()->create();
         $this->assertModelExists($org);
-        $get = $this->get(route('institution.request-delete', $org));
+        $get = $this->get(route('institution.request-delete', $org->joincode));
         $get->assertOk();
     }
 }
