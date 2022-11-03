@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class ApiCollectionTest extends TestCase
 {
-    public function test_can_get_collection_of_users()
+    public function disable_test_can_get_collection_of_users()
     {
 
     }
