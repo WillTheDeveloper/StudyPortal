@@ -49,6 +49,14 @@ class Application extends Controller
         ]);
     }
 
+    public function review($slug)
+    {
+        return view('reviewapplication', [
+            'application' => \App\Models\Application::query()
+                ->firstWhere('slug', $slug)
+        ]);
+    }
+
     public function redact($id)
     {
         \App\Models\Application::query()
