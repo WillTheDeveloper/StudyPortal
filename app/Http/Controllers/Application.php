@@ -38,13 +38,14 @@ class Application extends Controller
 
     public function allapplications($slug)
     {
-        $id = \App\Models\Placement::query()->firstWhere('slug', $slug)->get('id');
+        $id = \App\Models\Placement::query()->firstWhere('slug', $slug)->id;
 
         return view('allapplications', [
-            'list' => \App\Models\Application::query()
+            'applicants' => \App\Models\Application::query()
                 ->where('placement_id', $id)
                 ->where('status', 'pending')
-                ->paginate(10)
+                ->paginate(10),
+            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug)
         ]);
     }
 
