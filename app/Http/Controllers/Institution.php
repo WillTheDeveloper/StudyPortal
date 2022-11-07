@@ -64,6 +64,18 @@ class Institution extends Controller
         return view('institutionadduser');
     }
 
+    public function submitUser($joincode, Request $request) // Post request
+    {
+        $user = \App\Models\User::query()->where('email', $request->input('email'))->firstOrFail();
+        $institution = \App\Models\Institution::query()->where('joincode', $joincode)->firstOrFail();
+
+        if ($user->exists() && $institution->exists()) {
+            $user->institutions()->attach($institution->id);
+        }
+
+        return redirect(route('institution.users', $joincode));
+    }
+
     public function process($joincode, Request $request)
     {
         $email = $request->input('email');

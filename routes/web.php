@@ -487,6 +487,9 @@ Route::post('/application/{id}/redact', [Application::class, 'redact'])
 Route::post('/placement/{slug}/submit', [Application::class, 'submit'])
     ->middleware(['auth', 'verified'])
     ->name('placement.submit');
+Route::post('/institution/{joincode}/user/add', [Institution::class, 'submitUser'])
+    ->middleware(['auth', 'verified'])
+    ->name('institution.submit-user');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
