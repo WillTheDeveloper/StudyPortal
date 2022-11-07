@@ -21,7 +21,7 @@ class Institution extends Controller
         ]);
     }
 
-    public function create() // Why does this exist? It's a post request.... stop being a silly billy.
+    public function create()
     {
         return view('institutionnew');
     }
@@ -31,7 +31,8 @@ class Institution extends Controller
         \App\Models\Institution::query()->create(
             [
                 'joincode' => $request->input('joincode'),
-                'institution' => $request->input('name')
+                'institution' => $request->input('name'),
+                'domain' => $request->input('domain'),
             ]
         )->save();
 
