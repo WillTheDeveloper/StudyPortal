@@ -14,6 +14,8 @@ class Group extends Controller
 {
     public function returnView($id)
     {
+        $this->authorize('view', UserGroup::find($id));
+
         return view('managegroups', [
             'groupstuff' => UserGroup::all()->where('id', $id)->find($id)
         ]);
@@ -21,6 +23,8 @@ class Group extends Controller
 
     public function new(CreateNewGroup $request)
     {
+        $this->authorize('create', UserGroup::class);
+
         $request->validated();
 
         $group = new UserGroup([
@@ -37,6 +41,8 @@ class Group extends Controller
 
     public function add($id)
     {
+        $this->authorize('update', UserGroup::find($id));
+
         return view('addusertogroup', [
             'users' => \App\Models\User::all()->where('is_tutor', 0),
             'groupid' => $id,
@@ -45,6 +51,8 @@ class Group extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->authorize('update', UserGroup::find($id));
+
         $group = UserGroup::find($id);
 
         $users = $request->input(['user-select']);
@@ -55,6 +63,8 @@ class Group extends Controller
 
     public function delete($id)
     {
+        $this->authorize('update', UserGroup::find($id));
+
         UserGroup::query()->where('groups.id', $id)->select('*')->delete();
         $group = new UserGroup();
         $group->User()->detach();
@@ -63,6 +73,8 @@ class Group extends Controller
 
     public function create()
     {
+        $this->authorize('create', UserGroup::class);
+
         return view('creategroup', [
             'subjects' => Subject::all()
         ]);
@@ -70,6 +82,8 @@ class Group extends Controller
 
     public function edit($id)
     {
+        $this->authorize('update', UserGroup::find($id));
+
         return view('editgroup', [
             'group' => UserGroup::query()->find($id)
         ]);
@@ -77,6 +91,8 @@ class Group extends Controller
 
     public function updatename($id, Request $request)
     {
+        $this->authorize('update', UserGroup::find($id));
+
         UserGroup::all()->find($id)->update(
             [
                 'name' => $request->input('groupname'),
@@ -88,6 +104,8 @@ class Group extends Controller
 
     public function discussion($id)
     {
+        $this->authorize('viewAny', Discussion::class);
+
         return view('groupdiscussions', [
             'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->paginate(),
             'id' => $id
@@ -96,6 +114,8 @@ class Group extends Controller
 
     public function newdiscussion($id, Request $request)
     {
+        $this->authorize('create', Discussion::class);
+
         Discussion::query()->create(
             [
                 'title' => $request->input('title'),
@@ -111,6 +131,8 @@ class Group extends Controller
 
     public function lock($id)
     {
+        $this->authorize('update', Discussion::find($id));
+
         Discussion::query()->where('id', $id)->update(['locked' => 1]);
 
         return redirect(route('group.discussion', $id));
@@ -118,6 +140,8 @@ class Group extends Controller
 
     public function unlock($id)
     {
+        $this->authorize('update', Discussion::find($id));
+
         Discussion::query()->where('id', $id)->update(['locked' => 0]);
 
         return redirect(route('group.discussion', $id));
@@ -125,6 +149,9 @@ class Group extends Controller
 
     public function deletediscussion($id)
     {
+        $this->authorize('delete', Discussion::find($id));
+        $this->authorize('delete', Reply::query()->where('discussion_id', $id)->id);
+
         Discussion::query()->where('id', $id)->delete();
         Reply::query()->where('discussion_id', $id)->delete();
 
@@ -133,6 +160,8 @@ class Group extends Controller
 
     public function replies($id)
     {
+        $this->authorize('viewAny', Reply::class);
+
         return view('discussionschat', [
             'main' => Discussion::query()->where('discussions.id', $id)->orderByDesc('created_at')->firstOrFail(),
             'replies' => Reply::query()->where('replies.discussion_id', $id)->orderByDesc('created_at')->get()
@@ -141,6 +170,8 @@ class Group extends Controller
 
     public function reply($id, Request $request)
     {
+        $this->authorize('create', Reply::class);
+
         $d = Discussion::query()->where('discussions.id', $id)->get('id')->first()->id;
 
         Reply::query()->create(
