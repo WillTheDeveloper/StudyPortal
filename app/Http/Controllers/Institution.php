@@ -27,11 +27,15 @@ class Institution extends Controller
 
     public function create()
     {
+        $this->authorize('create', \App\Models\Institution::class);
+
         return view('institutionnew');
     }
 
     public function submit(Request $request)
     {
+        $this->authorize('create', \App\Models\Institution::class);
+
         \App\Models\Institution::query()->create(
             [
                 'joincode' => $request->input('joincode'),
@@ -45,6 +49,8 @@ class Institution extends Controller
 
     public function update($joincode, Request $request)
     {
+        $this->authorize('update', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         $new = $request->input('joincode');
 
         $n = \App\Models\Institution::query()->where('joincode', $joincode)
@@ -58,6 +64,8 @@ class Institution extends Controller
 
     public function users($joincode)
     {
+        $this->authorize('view', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         return view('institutionusers', [
             'users' => \App\Models\Institution::query()->where('institutions.joincode', $joincode)->firstOrFail()
         ]);
@@ -65,11 +73,15 @@ class Institution extends Controller
 
     public function addUser($joincode) //🦆
     {
+        $this->authorize('update', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         return view('institutionadduser');
     }
 
     public function submitUser($joincode, Request $request) // Post request
     {
+        $this->authorize('update', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         $user = \App\Models\User::query()->where('email', $request->input('email'))->firstOrFail();
         $institution = \App\Models\Institution::query()->where('joincode', $joincode)->firstOrFail();
 
@@ -82,6 +94,8 @@ class Institution extends Controller
 
     public function process($joincode, Request $request)
     {
+        $this->authorize('update', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         $email = $request->input('email');
 
         $user = \App\Models\User::query()->where('email', $email);
@@ -101,6 +115,8 @@ class Institution extends Controller
 
     public function requestDelete($joincode)
     {
+        $this->authorize('delete', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         return view('requestinstitutiondelete', [
             'joincode' => $joincode
         ]);
@@ -108,6 +124,8 @@ class Institution extends Controller
 
     public function deletedelete($joincode)
     {
+        $this->authorize('delete', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         $institution = \App\Models\Institution::query()->where('joincode', $joincode)->get('id');
 
         foreach (\App\Models\User::query()->where('institution_id', $institution)->get('id') as $u)

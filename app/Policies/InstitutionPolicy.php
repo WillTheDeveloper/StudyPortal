@@ -65,7 +65,7 @@ class InstitutionPolicy
      */
     public function delete(User $user, Institution $institution)
     {
-        //
+        return auth()->check() && auth()->user()->is_admin;
     }
 
     /**
