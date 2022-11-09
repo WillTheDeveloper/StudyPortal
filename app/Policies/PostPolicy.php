@@ -18,7 +18,7 @@ class PostPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->is_banned == 0;
+        return $user->is_banned == 0 && auth()->check();
     }
 
     /**
@@ -30,7 +30,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        return $user->is_banned == 0;
+        return $user->is_banned == 0 && auth()->check();
     }
 
     /**
@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->is_banned == 0;
+        return $user->is_banned == 0 && auth()->check();
     }
 
     /**
@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->id == $post->user_id && !$user->is_banned;
+        return $user->id == $post->user_id && !$user->is_banned && auth()->check();
     }
 
     /**
@@ -65,7 +65,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->id == $post->user_id or $user->is_admin;
+        return $user->id == $post->user_id or $user->is_admin && !$user->is_banned && auth()->check();
     }
 
     /**
