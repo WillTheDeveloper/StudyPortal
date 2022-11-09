@@ -8,6 +8,8 @@ class Institution extends Controller
 {
     public function view()
     {
+        $this->authorize('viewAny', \App\Models\Institution::class);
+
         return view('institutions',
         [
             'all' => \App\Models\Institution::query()->orderByDesc('institutions.institution')->paginate(25),
@@ -16,6 +18,8 @@ class Institution extends Controller
 
     public function manage($joincode)
     {
+        $this->authorize('view', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
+
         return view('institutionmanage', [
             'institution' => \App\Models\Institution::query()->where('institutions.joincode', $joincode)->firstOrFail()
         ]);
