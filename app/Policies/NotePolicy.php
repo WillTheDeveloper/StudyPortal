@@ -30,7 +30,7 @@ class NotePolicy
      */
     public function view(User $user, Note $note)
     {
-        return auth()->check() && $note->user_id == $user->id;
+        return auth()->check() && $note->user_id == auth()->user()->id;
     }
 
     /**
