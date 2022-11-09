@@ -23,6 +23,8 @@ class Community extends Controller
 {
     public function search(Request $request)
     {
+        $this->authorize('viewAny', Post::class);
+
         return view('communitysearch', [
             'results' => Post::search($request->input('search'))->paginate(10)
         ]);
@@ -31,6 +33,8 @@ class Community extends Controller
     public function like($slug)
     {
         $id = Post::query()->where('slug', $slug)->first()->id;
+
+        $this->authorize('update', Post::query()->where('id', $id)->first());
 
         Like::query()->firstOrCreate(
             [
@@ -53,6 +57,8 @@ class Community extends Controller
 
     public function profile($id)
     {
+        $this->authorize('view', User::query()->where('id', $id)->first());
+
         return view('communityuser', [
             'user' => User::query()->where('users.id', $id)->findOrFail($id),
             'posts' => Post::query()->where('posts.user_id', $id)->orderByDesc('created_at')->limit(5)->get(),
@@ -62,6 +68,8 @@ class Community extends Controller
 
     public function post($slug)
     {
+        $this->authorize('view', Post::query()->where('slug', $slug)->first());
+
         Post::query()->where('posts.slug', $slug)->increment('views', '1');
 
         return view('communitypost', [
@@ -71,11 +79,15 @@ class Community extends Controller
 
     public function popular()
     {
+        $this->authorize('viewAny', Post::class);
+
         return view('popular');
     }
 
     public function communities()
     {
+        $this->authorize('viewAny', Post::class);
+
         return view('communities', [
             'data' => Subject::query()->orderByDesc('created_at')->paginate(10)
         ]);
@@ -83,11 +95,15 @@ class Community extends Controller
 
     public function trending()
     {
+        $this->authorize('viewAny', Post::class);
+
         return view('trending');
     }
 
     public function showSubject($id)
     {
+        $this->authorize('view', Subject::query()->where('id', $id)->first());
+
         return view('communitysubject', [
             'posts' => Post::all()->where('subject_id', $id)
         ]);
@@ -152,6 +168,8 @@ class Community extends Controller
 
     public function joinSubject($id) //POST REQUEST
     {
+        $this->authorize('update', Subject::query()->where('id', $id)->first());
+
         $subject = Subject::find($id);
 
         $subject->User()->attach(auth()->id());
@@ -161,6 +179,8 @@ class Community extends Controller
 
     public function leaveSubject($id) //POST REQUEST
     {
+        $this->authorize('update', Subject::query()->where('id', $id)->first());
+
         $subject = Subject::find($id);
 
         $subject->User()->detach(auth()->id());
@@ -217,6 +237,8 @@ class Community extends Controller
 
     public function updatePrivacy(Request $request, $id)
     {
+        $this->authorize('update', User::query()->where('id', $id)->first());
+
         $bio = $request->input('bio');
         $privacy = $request->input('privacy');
         $contact = $request->input('contact');
