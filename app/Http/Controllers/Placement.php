@@ -9,6 +9,8 @@ class Placement extends Controller
 {
     public function view()
     {
+        $this->authorize('viewAny', Placement::class);
+
         return view('placements', [
             'placements' => \App\Models\Placement::query()
                 ->where('active', true)
@@ -23,6 +25,8 @@ class Placement extends Controller
 
     public function slug($slug)
     {
+        $this->authorize('view', Placement::query()->where('slug', $slug)->first());
+
         return view('placement', [
             'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug),
             'check' => \App\Models\Application::query()
@@ -40,6 +44,8 @@ class Placement extends Controller
 
     public function create(Request $request)
     {
+        $this->authorize('create', Placement::class);
+
         $pm = \App\Models\Placement::query()->create([
             'user_id' => $request->user()->id,
             'location' => $request->input('location'),
@@ -55,6 +61,8 @@ class Placement extends Controller
 
     public function new()
     {
+        $this->authorize('create', Placement::class);
+
         return view('newplacement');
     }
 }
