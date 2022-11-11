@@ -10,6 +10,8 @@ class Message extends Controller
 {
     public function create($ticket, Request $request)
     {
+        $this->authorize('create', \App\Models\Message::class);
+
         $d = \App\Models\Message::query()->create([
             'ticket_id' => $ticket,
             'user_id' => auth()->id(),
