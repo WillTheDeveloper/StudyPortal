@@ -26,6 +26,8 @@ class Ticket extends Controller
 
     public function studentview()
     {
+        $this->authorize('viewAnyStudent', \App\Models\Ticket::class);
+
         $request = Request();
 
         $subject = $request->query('subject');
@@ -47,6 +49,8 @@ class Ticket extends Controller
 
     public function tutorview()
     {
+        $this->authorize('viewAnyTutor', \App\Models\Ticket::class);
+
         $request = Request();
 
         $subject = $request->query('subject');
@@ -68,6 +72,8 @@ class Ticket extends Controller
 
     public function create()
     {
+        $this->authorize('create', \App\Models\Ticket::class);
+
         return view('createticket', [
             'subjects' => Subject::query()->get(),
             'tutors' => \App\Models\User::query()
@@ -77,6 +83,8 @@ class Ticket extends Controller
 
     public function new(Request $request)
     {
+        $this->authorize('create', \App\Models\Ticket::class);
+
         $t = \App\Models\Ticket::query()->create([
             'student_id' => $request->user()->id,
             'tutor_id' => $request->input('tutor'),
@@ -93,6 +101,8 @@ class Ticket extends Controller
 
     public function viewticket($id)
     {
+        $this->authorize('view', \App\Models\Ticket::query()->find($id));
+
         return view('ticket', [
             'ticket' => \App\Models\Ticket::query()->findOrFail($id),
             'messages' => \App\Models\Message::query()
@@ -102,6 +112,8 @@ class Ticket extends Controller
 
     public function resolved($id, Request $request)
     {
+        $this->authorize('update', \App\Models\Ticket::query()->findOrFail($id));
+
         \App\Models\Ticket::query()->find($id)
             ->update([
                 'status' => 'completed'
