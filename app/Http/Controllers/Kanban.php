@@ -12,6 +12,8 @@ class Kanban extends Controller
 {
     public function list()
     {
+        $this->authorize('viewAny', Kan::class);
+
         return view('kanban',
         [
             'kanban' => Kan::all()->where('user_id', auth()->id()),
@@ -20,6 +22,14 @@ class Kanban extends Controller
 
     public function view($id)
     {
+        $kanban = Kan::find($id)->id;
+
+        $this->authorize('view', Kan::query()->findOrFail($kanban));
+        $this->authorize('view', KanbanGroup::query()
+            ->where('kanban_groups.kanban_id', $kanban)
+            ->where('kanban_groups.user_id', auth()->id())
+            ->get());
+
         return view('viewkanban',
         [
             'kanban' => Kan::all()->where('id', $id)->find($id),
