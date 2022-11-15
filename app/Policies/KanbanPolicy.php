@@ -18,7 +18,7 @@ class KanbanPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -30,7 +30,7 @@ class KanbanPolicy
      */
     public function view(User $user, Kanban $kanban)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned && $kanban->user_id == auth()->id();
     }
 
     /**
@@ -41,7 +41,7 @@ class KanbanPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -53,7 +53,7 @@ class KanbanPolicy
      */
     public function update(User $user, Kanban $kanban)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned && $kanban->user_id == auth()->id();
     }
 
     /**
@@ -65,7 +65,7 @@ class KanbanPolicy
      */
     public function delete(User $user, Kanban $kanban)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned && $kanban->user_id == auth()->id();
     }
 
     /**
