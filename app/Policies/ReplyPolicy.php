@@ -18,7 +18,7 @@ class ReplyPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
