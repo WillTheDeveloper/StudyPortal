@@ -18,12 +18,12 @@ class TicketPolicy
      */
     public function viewAnyStudent(User $user)
     {
-        //
+        return auth()->check() && auth()->user()->is_student;
     }
 
     public function viewAnyTutor(User $user)
     {
-        //
+        return auth()->check() && auth()->user()->is_tutor;
     }
 
     /**
@@ -46,7 +46,7 @@ class TicketPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -58,7 +58,7 @@ class TicketPolicy
      */
     public function update(User $user, Ticket $ticket)
     {
-        //
+        return auth()->check() && auth()->user()->id == $ticket->user_id;
     }
 
     /**
@@ -70,7 +70,7 @@ class TicketPolicy
      */
     public function delete(User $user, Ticket $ticket)
     {
-        //
+        return auth()->check() && auth()->user()->is_admin;
     }
 
     /**
