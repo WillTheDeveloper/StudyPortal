@@ -18,7 +18,7 @@ class AssignmentPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check();
     }
 
     /**
