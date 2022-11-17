@@ -30,7 +30,7 @@ class KanbanItemPolicy
      */
     public function view(User $user, KanbanItem $kanbanItem)
     {
-        //
+        return auth()->check() && auth()->id() == $kanbanItem->user_id;
     }
 
     /**
@@ -41,7 +41,7 @@ class KanbanItemPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -53,7 +53,7 @@ class KanbanItemPolicy
      */
     public function update(User $user, KanbanItem $kanbanItem)
     {
-        //
+        return auth()->check() && auth()->id() == $kanbanItem->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class KanbanItemPolicy
      */
     public function delete(User $user, KanbanItem $kanbanItem)
     {
-        //
+        return auth()->check() && auth()->id() == $kanbanItem->user_id && !auth()->user()->is_banned;
     }
 
     /**
