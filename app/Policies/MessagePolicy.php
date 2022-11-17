@@ -18,7 +18,7 @@ class MessagePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check();
     }
 
     /**
@@ -30,7 +30,7 @@ class MessagePolicy
      */
     public function view(User $user, Message $message)
     {
-        //
+        return auth()->check() && auth()->id() == $message->user_id or $message->Ticket()->tutor_id;
     }
 
     /**
@@ -53,7 +53,7 @@ class MessagePolicy
      */
     public function update(User $user, Message $message)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned && auth()->user() == $message->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class MessagePolicy
      */
     public function delete(User $user, Message $message)
     {
-        //
+        return auth()->user()->is_admin;
     }
 
     /**
