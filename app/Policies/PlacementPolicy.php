@@ -30,7 +30,7 @@ class PlacementPolicy
      */
     public function view(User $user, Placement $placement)
     {
-        return auth()->check() && !auth()->user()->is_banned;
+        return auth()->check() && !auth()->user()->is_banned && $placement->active;
     }
 
     /**
