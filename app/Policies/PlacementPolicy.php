@@ -18,7 +18,7 @@ class PlacementPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return auth()->check() && auth()->user()->hasVerifiedEmail();
     }
 
     /**
@@ -30,7 +30,7 @@ class PlacementPolicy
      */
     public function view(User $user, Placement $placement)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -41,7 +41,7 @@ class PlacementPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -53,7 +53,7 @@ class PlacementPolicy
      */
     public function update(User $user, Placement $placement)
     {
-        //
+        return auth()->check() && auth()->id() == $placement->user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class PlacementPolicy
      */
     public function delete(User $user, Placement $placement)
     {
-        //
+        return auth()->check() && auth()->id() == $placement->user_id;
     }
 
     /**
