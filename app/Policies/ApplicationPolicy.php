@@ -30,7 +30,7 @@ class ApplicationPolicy
      */
     public function view(User $user, Application $application)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -41,7 +41,7 @@ class ApplicationPolicy
      */
     public function create(User $user)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
@@ -53,7 +53,7 @@ class ApplicationPolicy
      */
     public function update(User $user, Application $application)
     {
-        //
+        return auth()->check() && auth()->id() == $application->user_id && auth()->user()->hasVerifiedEmail();
     }
 
     /**
@@ -65,7 +65,7 @@ class ApplicationPolicy
      */
     public function delete(User $user, Application $application)
     {
-        //
+        return auth()->check() && auth()->id() == $application->user_id && auth()->user()->hasVerifiedEmail();
     }
 
     /**
