@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Application as App;
 
 class Application extends Controller
 {
     public function all()
     {
+        $this->authorize('viewAny', App::class);
+
         return view('myapplications', [
             'applications' => \App\Models\Application::query()
                 ->where('user_id', auth()->id())
@@ -17,6 +20,8 @@ class Application extends Controller
 
     public function apply($slug)
     {
+        $this->authorize('create', App::class);
+
         return view('application', [
             'slug' => $slug
         ]);
@@ -24,7 +29,7 @@ class Application extends Controller
 
     public function submit(Request $request, $slug)
     {
-//        dd($slug, $request);
+        $this->authorize('create', App::class);
 
         \App\Models\Application::query()->create([
             'cv' => $request->input('cv'),
@@ -38,6 +43,8 @@ class Application extends Controller
 
     public function allapplications($slug)
     {
+        $this->authorize('view', App::query()->firstWhere('slug', $slug));
+
         $id = \App\Models\Placement::query()->firstWhere('slug', $slug)->id;
 
         return view('allapplications', [
@@ -51,6 +58,8 @@ class Application extends Controller
 
     public function review($slug)
     {
+        $this->authorize('view', App::query()->firstWhere('slug', $slug));
+
         return view('reviewapplication', [
             'application' => \App\Models\Application::query()
                 ->firstWhere('slug', $slug)
