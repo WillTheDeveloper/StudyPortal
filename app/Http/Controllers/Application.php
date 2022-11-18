@@ -68,6 +68,8 @@ class Application extends Controller
 
     public function redact($id)
     {
+        $this->authorize('update', App::query()->firstOrFail($id));
+
         \App\Models\Application::query()
             ->find($id)
             ->update([
