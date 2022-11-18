@@ -19,6 +19,8 @@ class User extends Controller
 {
     public function confirmDelete()
     {
+        $this->authorize('delete', \App\Models\User::query()->find(auth()->id()));
+
         return view('confirmdeleteaccount', [
             'name' => auth()->user()->name,
             'posts' => auth()->user()->Post()->count(),
@@ -28,6 +30,8 @@ class User extends Controller
 
     public function DeleteAccount()
     {
+        $this->authorize('delete', \App\Models\User::query()->find(auth()->id()));
+
         $id = auth()->id();
 
         Comment::query()->where('user_id', $id)->delete();
@@ -50,6 +54,8 @@ class User extends Controller
 
     public function settings()
     {
+        $this->authorize('update', \App\Models\User::query()->find(auth()->id()));
+
         return view('settings');
     }
 
