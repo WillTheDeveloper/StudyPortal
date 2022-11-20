@@ -43,12 +43,12 @@ But, long explanation, cut short, my primary goals were as follows;
 
 *Tick means it has been finished*
 
-- [ ] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
+- [X] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
 - [X] Assignments - This is where students can keep track of assignment work that they are doing.
 - [X] Dashboard - Overview of all the stats that matter to students.
 - [X] Community - Place where students can talk to each other with posts and support each other.
-- [ ] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
-- [X] ~~Calendar - This idea is still **provisional,** but it will be a calendar where events can be created for things such as meetings.~~
+- [X] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
+- [ ] Calendar - This idea is still **provisional,** but it will be a calendar where events can be created for things such as meetings.
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
