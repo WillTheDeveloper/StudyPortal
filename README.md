@@ -12,12 +12,18 @@ The idea behind Study Portal is to have one platform where students are able to 
 
 The full public roadmap is available to everyone. The link to it can be found here. [Study Portal Public Roadmap](https://github.com/Study-Portal/roadmap/projects/1)
 
+Development for this project can sometimes fall behind in regard to keeping up with the roadmap since essentially all the development is done by me and I have a full time job. I will try my best to keep up with the roadmap and keep it up to date. Occasionally people help but nothing significant.
+
 | Q/Year  | Status         |
 |---------|----------------|
 | Q1 2022 | ✔️ Completed   |
 | Q2 2022 | ✔ Completed    |
-| Q3 2022 | ✔️ In Progress |
-| Q4 2022 | ❔ Planning     |
+| Q3 2022 | ✔ Completed    |
+| Q4 2022 | ✔️ In Progress |
+| Q1 2023 | ❔ Planning     |
+| Q2 2023 | ❔ Planning     |
+| Q3 2023 | ❔ Planning     |
+| Q4 2023 | ❔ Planning     |
 
 ## My goal and original idea
 
