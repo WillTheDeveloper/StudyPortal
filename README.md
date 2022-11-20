@@ -52,6 +52,8 @@ But, long explanation, cut short, my primary goals were as follows;
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
+More features will be added to this list soon. Progress has outpaced the documentation and roadmap a little.
+
 ## How to install/run server
 
 ### Prerequisites
