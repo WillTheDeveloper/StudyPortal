@@ -15,6 +15,7 @@ class ApiResourceTest extends TestCase
 {
     public function admin()
     {
+        /** @var User */
         $user = User::factory()->create([
             'is_admin' => true
         ]);
@@ -28,6 +29,7 @@ class ApiResourceTest extends TestCase
 
     public function auth()
     {
+        /** @var User */
         $user = User::factory()->create();
 
         $this->actingAs($user);
