@@ -12,10 +12,11 @@ use Tests\TestCase;
 
 class TutorTest extends TestCase
 {
-//  This is a test to see if Tutors can see there pages and do what they need to do. Link to assignment tests?
+    //  This is a test to see if Tutors can see there pages and do what they need to do. Link to assignment tests?
 
     public function test_tutor_can_see_dashboard()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -29,6 +30,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_see_timetable()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -42,6 +44,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_see_assignments()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -55,6 +58,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_see_groups()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -68,6 +72,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_see_community()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -81,6 +86,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_see_profile()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -107,6 +113,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_cant_see_users()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -120,6 +127,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_view_create_group()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1'
@@ -133,6 +141,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_see_their_profile()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1',
@@ -147,6 +156,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_create_group()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_tutor' => '1',
@@ -160,6 +170,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_update_group()
     {
+        /** @var User */
         $user = User::factory()->has($group = Group::factory())->create(
             [
                 'is_tutor' => '1',
@@ -173,6 +184,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_delete_group()
     {
+        /** @var User */
         $user = User::factory()->has($group = Group::factory())->create(
             [
                 'is_tutor' => '1',
@@ -186,6 +198,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_create_assignment()
     {
+        /** @var User */
         $user = User::factory()->has($ass = Assignment::factory())->create(
             [
                 'is_tutor' => '1',
@@ -199,6 +212,7 @@ class TutorTest extends TestCase
 
     public function test_tutor_can_update_assignment()
     {
+        /** @var User */
         $user = User::factory()->has($ass = Assignment::factory())->create(
             [
                 'is_tutor' => '1',
@@ -212,6 +226,7 @@ class TutorTest extends TestCase
 
     public function disable_test_tutor_can_delete_assignment()
     {
+        /** @var User */
         $user = User::factory()->has($ass = Assignment::factory())->create(
             [
                 'is_tutor' => '1',
@@ -223,5 +238,4 @@ class TutorTest extends TestCase
         $post = $this->post(route('assignment.delete', $assignment->id));
         $post->assertRedirect();
     } //TODO: Fix strange error that occurs here
-
 }

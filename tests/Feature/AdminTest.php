@@ -15,6 +15,7 @@ class AdminTest extends TestCase
 {
     public function admin()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'is_admin' => '1'
@@ -177,6 +178,4 @@ class AdminTest extends TestCase
         $get = $this->get(route('institution.request-delete', $org->joincode));
         $get->assertOk();
     }
-
-
 }

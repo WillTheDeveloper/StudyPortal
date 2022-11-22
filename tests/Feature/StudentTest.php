@@ -19,10 +19,11 @@ use Tests\TestCase;
 
 class StudentTest extends TestCase
 {
-//  This test it to see if students can access all the pages that they need to.
+    //  This test it to see if students can access all the pages that they need to.
 
     public function new_student()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -32,6 +33,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_dashboard()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -41,6 +43,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_timetable()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -50,6 +53,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_assignments()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -59,6 +63,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_community()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -68,6 +73,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_profile()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -86,6 +92,7 @@ class StudentTest extends TestCase
 
     public function test_student_cant_see_groups()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -95,6 +102,7 @@ class StudentTest extends TestCase
 
     public function test_student_cant_see_users()
     {
+        /** @var User */
         $user = User::factory()->create();
         $response = $this->actingAs($user);
         $response->assertAuthenticated();
@@ -104,6 +112,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_their_profile()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'email_verified_at' => now()
@@ -117,6 +126,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_post()
     {
+        /** @var User */
         $user = User::factory()->create(
             [
                 'email_verified_at' => now()
@@ -150,6 +160,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_view_assignment()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -161,6 +172,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_view_subject()
     {
+        /** @var User */
         $user = User::factory()->has($subject = Subject::factory())->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -170,6 +182,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_not_create_assignment()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -180,6 +193,7 @@ class StudentTest extends TestCase
     public function test_student_can_not_update_assignment()
     {
         $ass = Assignment::factory()->create();
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -190,6 +204,7 @@ class StudentTest extends TestCase
     public function test_student_can_not_delete_assignment()
     {
         $ass = Assignment::factory()->create();
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -199,6 +214,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_not_create_group()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -209,6 +225,7 @@ class StudentTest extends TestCase
     public function test_student_can_not_update_group()
     {
         $group = Group::factory()->create();
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -219,6 +236,7 @@ class StudentTest extends TestCase
     public function test_student_can_not_delete_group()
     {
         $group = Group::factory()->create();
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -228,6 +246,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_not_overview_reports()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -237,6 +256,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_not_see_unresolved_reports()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -246,6 +266,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_not_see_resolved_reports()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -255,6 +276,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_not_resolve_report()
     {
+        /** @var User */
         $user = User::factory()->create();
         $report = Report::factory()->create();
         $this->actingAs($user);
@@ -265,6 +287,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_not_unresolve_report()
     {
+        /** @var User */
         $user = User::factory()->create();
         $report = Report::factory()->create();
         $this->actingAs($user);
@@ -275,6 +298,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_see_notes()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -284,6 +308,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_create_notes()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -293,6 +318,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_edit_notes()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
@@ -307,6 +333,7 @@ class StudentTest extends TestCase
 
     public function test_student_can_list_notes()
     {
+        /** @var User */
         $user = User::factory()->create();
         $this->actingAs($user);
         $this->assertAuthenticated();
