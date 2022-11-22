@@ -10,7 +10,7 @@ The idea behind Study Portal is to have one platform where students are able to 
 
 ## Project Roadmap
 
-The full public roadmap is available to everyone. The link to it can be found here. [Study Portal Public Roadmap](https://github.com/Study-Portal/roadmap/projects/1)
+The full public roadmap is available to everyone. The link to it can be found here. [Study Portal Public Roadmap](https://github.com/orgs/Study-Portal/projects/2/views/1)
 
 Development for this project can sometimes fall behind in regard to keeping up with the roadmap since essentially all the development is done by me and I have a full time job. I will try my best to keep up with the roadmap and keep it up to date. Occasionally people help but nothing significant.
 
@@ -26,8 +26,6 @@ Development for this project can sometimes fall behind in regard to keeping up w
 | Q4 2023 | ❔ Planning     |
 
 ## My goal and original idea
-
-**Extracted from my [blog post](https://blog.willthedeveloper.co.uk/2022/02/20/an-ecosystem-for-students.html)**
 
 Before we get into the nifty-gritty of the project and my plans for the future, I first wanted to give a little back-story to how the idea came about and the situation that I was in at the time that I had come up with the idea. I am going to assume that you know nothing about me, so I will make sure to leave some pointers. During my time at college, I had to do a work placement and I had actually decided to take part of a work placement where we are all told that it was going to be really difficult, well long story short, it started with 12 people and finished with 2, including myself. During that project, I got exposed to Laravel which is an entire different story and quite a steep learning curve since I had never worked with any frameworks before. You can read about my experience with laravel up to yet [here](https://blog.willthedeveloper.co.uk/2022/02/13/laravel-one-year-later.html).
 
