@@ -135,17 +135,13 @@
                                 <option selected>Due</option>
 
                                 <option>Late</option>
-
-                                <option>Returned</option>
-
-                                <option>Incomplete</option>
                             </select>
                         </div>
                         <div class="hidden sm:block">
                             <div class="border-b border-gray-200">
                                 <nav class="mt-2 -mb-px flex space-x-8" aria-label="Tabs">
                                     <!-- Current: "border-purple-500 text-purple-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200" -->
-                                    <a href="#"
+                                    <a href="{{route('assignments.completed')}}"
                                        class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
                                         Completed
 
@@ -160,21 +156,11 @@
                                         <span class="bg-purple-100 text-purple-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">{{$assignments->count()}}</span>
                                     </a>
 
-                                    <a href="#"
+                                    <a href="{{route('assignments.late')}}"
                                        class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
                                         Late
 
                                         <span class="bg-gray-100 text-gray-900 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">6</span>
-                                    </a>
-
-                                    <a href="#"
-                                       class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                                        Returned
-                                    </a>
-
-                                    <a href="#"
-                                       class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                                        Incomplete
                                     </a>
                                 </nav>
                             </div>
