@@ -15,11 +15,21 @@ use Illuminate\Support\Facades\Mail;
 
 class Assignment extends Controller
 {
-    public function view() //TODO: Need to implement assignments properly so we can have pagination.
+    public function due() //TODO: Need to implement assignments properly so we can have pagination.
     {
 //        return view('assignments', [
 //            'assign' => Assign::query()
 //        ])
+    }
+
+    public function completed()
+    {
+
+    }
+
+    public function late()
+    {
+
     }
 
     public function manage($id)
