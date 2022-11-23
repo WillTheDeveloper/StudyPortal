@@ -43,14 +43,6 @@ Route::get('/contact', function () {
 Route::get('/dashboard', [Dashboard::class, 'show'])
     ->middleware('auth')
     ->name('dashboard');
-/*Route::get('/assignments', function () {
-    return view('assignments');
-})->middleware(['auth'])->name('assignments');*/
-
-Route::get('/assignments/due', [Assignment::class, 'due'])
-    ->middleware('auth')
-    ->name('assignments');
-
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
@@ -62,6 +54,15 @@ Route::get('/groups', function (Request $request) {
 })->middleware(['auth', 'tutor'])->name('groups');
 
 // Dynamic get routes
+Route::get('/assignments/due', [Assignment::class, 'due'])
+    ->middleware('auth')
+    ->name('assignments');
+Route::get('/assignments/late', [Assignment::class, 'late'])
+    ->middleware('auth')
+    ->name('assignments.late');
+Route::get('/assignments/completed', [Assignment::class, 'completed'])
+    ->middleware('auth')
+    ->name('assignments.completed');
 Route::get('/timetable', [Timetable::class, 'view'])
     ->middleware(['auth'])
     ->name('timetable');

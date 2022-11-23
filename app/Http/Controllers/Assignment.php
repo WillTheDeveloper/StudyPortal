@@ -36,7 +36,7 @@ class Assignment extends Controller
     public function late()
     {
         return view('lateassignments', [
-            'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '=', null)->paginate(10)
+            'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '=', null)->where('duedate', '<', Carbon::today()->toDate())->paginate(10)
         ]);
     }
 
