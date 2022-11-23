@@ -116,15 +116,15 @@
 
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="px-4 sm:px-0">
-{{--                        <h2 class="text-lg font-medium text-gray-900">My Assignments</h2>--}}
+                        {{--                        <h2 class="text-lg font-medium text-gray-900">My Assignments</h2>--}}
 
                         @if (auth()->user()->is_tutor)
                             <a href="{{ route('assignment.create') }}">
                                 <x-button>Create Assignment</x-button>
                             </a>
-                    @endif
+                        @endif
 
-                    <!-- Tabs -->
+                        <!-- Tabs -->
                         <div class="sm:hidden">
                             <label for="tabs" class="sr-only">Select a tab</label>
                             <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
@@ -240,7 +240,7 @@
                                 </a>
                             </li>
                         @empty
-                        <!-- This example requires Tailwind CSS v2.0+ -->
+                            <!-- This example requires Tailwind CSS v2.0+ -->
                             <div class="text-center py-10">
                                 <h3 class="mt-2 text-sm font-medium text-gray-900">No assignments due</h3>
                                 <p class="mt-1 text-sm text-gray-500">
@@ -312,8 +312,8 @@
                     </nav>
                 </div>--}}
 
+                </div>
         </div>
-    </div>
     </div>
     </div>
 </x-app-layout>

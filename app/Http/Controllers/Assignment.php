@@ -6,6 +6,7 @@ use App\Http\Requests\CreateNewAssignment;
 use App\Mail\AssignmentAssigned;
 use App\Mail\AssignmentDeleted;
 use App\Models\Subject;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Assignment as Assign;
 use App\Models\User;
@@ -15,21 +16,28 @@ use Illuminate\Support\Facades\Mail;
 
 class Assignment extends Controller
 {
-    public function due() //TODO: Need to implement assignments properly so we can have pagination.
+    public function due()
     {
-//        return view('assignments', [
-//            'assign' => Assign::query()
-//        ])
+        return view('assignments', [
+            'assignments' => auth()->user()->Assignment()
+                ->wherePivot('submitted_on', '=', null)
+                ->where('duedate', '>=', Carbon::today()->toDate())
+                ->paginate(10)
+        ]);
     }
 
     public function completed()
     {
-
+        return view('completedassignment', [
+            'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '!=', null)->paginate(10)
+        ]);
     }
 
     public function late()
     {
-
+        return view('lateassignments', [
+            'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '=', null)->paginate(10)
+        ]);
     }
 
     public function manage($id)

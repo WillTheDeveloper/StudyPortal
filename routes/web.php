@@ -43,9 +43,14 @@ Route::get('/contact', function () {
 Route::get('/dashboard', [Dashboard::class, 'show'])
     ->middleware('auth')
     ->name('dashboard');
-Route::get('/assignments', function () {
+/*Route::get('/assignments', function () {
     return view('assignments');
-})->middleware(['auth'])->name('assignments');
+})->middleware(['auth'])->name('assignments');*/
+
+Route::get('/assignments/due', [Assignment::class, 'due'])
+    ->middleware('auth')
+    ->name('assignments');
+
 Route::get('/profile', function () {
     return view('profile');
 })->middleware(['auth'])->name('profile');
