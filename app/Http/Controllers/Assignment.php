@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Mail;
 
 class Assignment extends Controller
 {
+    public function view() //TODO: Need to implement assignments properly so we can have pagination.
+    {
+//        return view('assignments', [
+//            'assign' => Assign::query()
+//        ])
+    }
+
     public function manage($id)
     {
         $hasseen = Assign::query()->find($id);
