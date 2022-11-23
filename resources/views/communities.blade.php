@@ -192,7 +192,7 @@
                 </nav>
             </div>
             <main class="lg:col-span-9 xl:col-span-6">
-                <div class="mt-4">
+                <div>
                     <h1 class="sr-only">Communities</h1>
 
                     {{$data->links()}}
