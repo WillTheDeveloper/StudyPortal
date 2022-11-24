@@ -29,7 +29,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        return auth()->check() && auth()->user()->is_banned;
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
