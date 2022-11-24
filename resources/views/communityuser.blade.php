@@ -481,13 +481,13 @@
                                                         </a>
                                                     </div>
                                                     <a href="#" class="mt-4 block">
-                                                        <p class="text-xl font-semibold text-gray-900">Boost your conversion rate</p>
-                                                        <p class="mt-3 text-base text-gray-500">Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor lacus arcu.</p>
+                                                        <p class="text-xl font-semibold text-gray-900">{{$post->title}}</p>
+                                                        <p class="mt-3 text-base text-gray-500">{{$post->body}}</p>
                                                     </a>
                                                     <div class="mt-6 flex items-center">
                                                         <div>
                                                             <div class="flex space-x-1 text-sm text-gray-500">
-                                                                <time datetime="2020-03-16">Mar 16, 2020</time>
+                                                                <time datetime="2020-03-16">{{$post->created_at->diffForHumans()}}</time>
                                                                 <span aria-hidden="true">&middot;</span>
                                                                 <span>6 min read</span>
                                                             </div>
