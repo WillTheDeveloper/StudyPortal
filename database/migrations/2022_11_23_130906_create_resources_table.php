@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('description');
+            $table->longText('s3_url');
             $table->integer('user_id');
             $table->integer('label_id');
             $table->integer('subject_id');
+            $table->boolean('private')->default(true);
             $table->timestamps();
         });
     }
