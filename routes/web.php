@@ -266,7 +266,7 @@ Route::get('/placement/{slug}/applications', [Application::class, 'allapplicatio
 Route::get('/application/{id}/review', [Application::class, 'review'])
     ->middleware(['auth', 'verified'])
     ->name('application.review');
-Route::get('/resources', [Resource::class, 'view'])
+Route::get('/resources', [Resource::class, 'main'])
     ->middleware(['auth', 'verified'])
     ->name('resources');
 
