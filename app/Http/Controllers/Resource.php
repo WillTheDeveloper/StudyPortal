@@ -31,17 +31,17 @@ class Resource extends Controller
 
     }
 
-    public function show()
+    public function show($id)
     {
 
     }
 
-    public function edit()
+    public function edit($id)
     {
 
     }
 
-    public function update()
+    public function update($id)
     {
 
     }
