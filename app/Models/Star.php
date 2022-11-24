@@ -9,6 +9,11 @@ class Star extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'resource_id',
+    ];
+
     public function User()
     {
         return $this->belongsTo(User::class);

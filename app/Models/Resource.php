@@ -9,6 +9,14 @@ class Resource extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'url',
+        'user_id',
+        'label_id',
+    ];
+
     public function User()
     {
         return $this->belongsTo(User::class);
@@ -16,7 +24,7 @@ class Resource extends Model
 
     public function Label()
     {
-        return $this->belongsToMany(Label::class);
+        return $this->belongsTo(Label::class);
     }
 
     public function Star()
