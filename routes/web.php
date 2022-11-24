@@ -23,6 +23,7 @@ use App\Http\Controllers\Shop;
 use App\Http\Controllers\Placement;
 use App\Http\Controllers\Calendar;
 use App\Http\Controllers\Application;
+use App\Http\Controllers\Resource;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -265,6 +266,9 @@ Route::get('/placement/{slug}/applications', [Application::class, 'allapplicatio
 Route::get('/application/{id}/review', [Application::class, 'review'])
     ->middleware(['auth', 'verified'])
     ->name('application.review');
+Route::get('/resources', [Resource::class, 'view'])
+    ->middleware(['auth', 'verified'])
+    ->name('resources');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
