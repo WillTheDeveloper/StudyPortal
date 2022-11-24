@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('description');
             $table->longText('s3_url');
             $table->integer('user_id');
-            $table->integer('label_id');
-            $table->integer('subject_id');
+            $table->integer('label_id')->nullable();
+            $table->integer('subject_id')->nullable(false);
             $table->boolean('private')->default(true);
             $table->timestamps();
         });
