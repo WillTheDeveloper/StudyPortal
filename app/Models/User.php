@@ -103,6 +103,21 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Task::class);
     }
 
+    public function Star()
+    {
+        return $this->hasMany(Star::class);
+    }
+
+    public function Label()
+    {
+        return $this->hasMany(Label::class);
+    }
+
+    public function Resource()
+    {
+        return $this->hasMany(Resource::class);
+    }
+
     protected $fillable = [
         'name',
         'email',
