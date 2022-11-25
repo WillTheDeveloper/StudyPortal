@@ -135,7 +135,7 @@
                     </div>
                 </div>
 
-                <div class="px-6 rounded-lg pt-3">
+                <div class="px-9 rounded-lg pt-3">
                     <div class="rounded-md bg-blue-50 p-3">
                         <div class="flex">
                             <div class="flex-shrink-0">
