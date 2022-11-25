@@ -26,9 +26,6 @@ class Resource extends Model
         return [
             'title' => $this->title,
             'description' => $this->description,
-            'user' => $this->User->name,
-            'label' => $this->Label->name,
-            'subject' => $this->subject->name,
         ];
     }
 
