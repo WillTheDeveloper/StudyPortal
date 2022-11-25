@@ -18,10 +18,21 @@ class Resource extends Controller
         return view('resourcesearch');
     }
 
+    public function myresourceresults()
+    {
+        return view('resourceresults', [
+            'results' => \App\Models\Resource::search(request()->input('search'))
+                ->where('user_id', auth()->id())
+                ->paginate(10)
+        ]);
+    }
+
     public function results()
     {
         return view('resourceresults', [
-            'results' => \App\Models\Resource::search(request()->input('search'))->paginate(10)
+            'results' => \App\Models\Resource::search(request()->input('search'))
+                ->where('private', false)
+                ->paginate(10)
         ]);
     }
 
