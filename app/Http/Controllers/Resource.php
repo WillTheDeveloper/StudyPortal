@@ -72,7 +72,9 @@ class Resource extends Controller
 
     public function show($id)
     {
-
+        return view('resource', [
+            'resource' => \App\Models\Resource::query()->find($id)
+        ]);
     }
 
     public function edit($id)
