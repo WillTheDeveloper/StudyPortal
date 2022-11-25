@@ -18,19 +18,16 @@ class Resource extends Controller
         return view('resourcesearch');
     }
 
-    public function searchresults()
-    {
-
-    }
-
     public function results()
     {
-
+        return view('resourceresults', [
+            'results' => \App\Models\Resource::search(request()->input('search'))->paginate(10)
+        ]);
     }
 
     public function create() // GET
     {
-
+        return view('newresource');
     }
 
     public function store() // POST
