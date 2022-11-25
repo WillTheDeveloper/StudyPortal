@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Label;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Uid\Uuid;
 
 class Resource extends Controller
 {
@@ -46,9 +48,26 @@ class Resource extends Controller
         ]);
     }
 
-    public function store() // POST
+    public function store(Request $request) // POST
     {
+        $name = Uuid::v6();
 
+//        dd($request->input('file-upload'), $name);
+
+        $path = Storage::putFileAs('./', $request->input('file-upload'), $name);
+
+        /*$id = \App\Models\Resource::query()->create([
+            'title' => 'test',
+            'description' => 'test description',
+            's3_url' => $path,
+            'user_id' => auth()->id(),
+            'label_id' => null,
+            'subject_id' => 1,
+        ]);*/
+
+        return redirect(route('resources'));
+
+//        return redirect(route('resource.id', $id->id));
     }
 
     public function show($id)

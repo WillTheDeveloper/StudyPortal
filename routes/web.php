@@ -522,6 +522,9 @@ Route::post('/institution/{joincode}/user/add', [Institution::class, 'submitUser
 Route::post('/resources/{id}/star', [Star::class, 'star'])
     ->middleware(['auth', 'verified'])
     ->name('resources-id.star');
+Route::post('/resources/upload', [Resource::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->name('resources.upload');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
