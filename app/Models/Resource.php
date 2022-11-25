@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Attributes\SearchUsingFullText;
+use Laravel\Scout\Searchable;
 
 class Resource extends Model
 {
     use HasFactory;
+    use Searchable;
 
     protected $fillable = [
         'name',
@@ -16,6 +19,18 @@ class Resource extends Model
         'user_id',
         'label_id',
     ];
+
+    #[SearchUsingFullText(['title'])]
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'description' => $this->description,
+            'user' => $this->User->name,
+            'label' => $this->Label->name,
+            'subject' => $this->subject->name,
+        ];
+    }
 
     public function User()
     {

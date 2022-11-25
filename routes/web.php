@@ -270,9 +270,6 @@ Route::get('/application/{id}/review', [Application::class, 'review'])
 Route::get('/resources', [Resource::class, 'main'])
     ->middleware(['auth', 'verified'])
     ->name('resources');
-Route::get('/resources/{id}', [Resource::class, 'show'])
-    ->middleware(['auth', 'verified'])
-    ->name('resource.id');
 Route::get('/resources/search', [Resource::class, 'search'])
     ->middleware(['auth', 'verified'])
     ->name('resources.search');
@@ -282,6 +279,9 @@ Route::get('/resources/starred', [Star::class, 'starred'])
 Route::get('/resources/create', [Resource::class, 'create'])
     ->middleware(['auth', 'verified'])
     ->name('resource.create');
+Route::get('/resources/{id}', [Resource::class, 'show'])
+    ->middleware(['auth', 'verified'])
+    ->name('resource.id');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

@@ -15,6 +15,11 @@ class Resource extends Controller
 
     public function search()
     {
+        return view('resourcesearch');
+    }
+
+    public function searchresults()
+    {
 
     }
 

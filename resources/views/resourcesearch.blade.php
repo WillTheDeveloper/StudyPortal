@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Starred') }}
+            {{ __('Search') }}
         </h2>
     </x-slot>
 
@@ -125,9 +125,9 @@
                                 <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
                                 <a href="{{route('resources')}}" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">Mine</a>
 
-                                <a href="{{route('resources.search')}}" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">Search</a>
+                                <a href="{{route('resources.search')}}" class="border-indigo-500 text-indigo-600 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm" aria-current="page">Search</a>
 
-                                <a href="{{route('resources.starred')}}" class="border-indigo-500 text-indigo-600 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm" aria-current="page">Starred</a>
+                                <a href="{{route('resources.starred')}}" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">Starred</a>
 
                                 <a href="{{route('resource.create')}}" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm">Create</a>
                             </nav>
@@ -138,7 +138,7 @@
                 <div class="px-9 py-4">
                     <label for="search" class="block text-sm font-medium text-gray-700"></label>
                     <div class="relative mt-1 flex items-center">
-                        <input type="text" name="search" placeholder="Search your starred resources" id="search" class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <input type="text" name="search" placeholder="Search for anything" id="search" class="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                         <div class="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
                             <kbd class="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">⌘K</kbd>
                         </div>
