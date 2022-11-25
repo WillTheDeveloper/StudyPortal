@@ -10,6 +10,7 @@ use App\Http\Controllers\Group;
 use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
+use App\Http\Controllers\Star;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\Todo;
@@ -275,6 +276,12 @@ Route::get('/resources/{id}', [Resource::class, 'show'])
 Route::get('/resources/search', [Resource::class, 'search'])
     ->middleware(['auth', 'verified'])
     ->name('resources.search');
+Route::get('/resources/saved', [Star::class, 'starred'])
+    ->middleware(['auth', 'verified'])
+    ->name('resources.saved');
+Route::get('/resources/create', [Resource::class, 'create'])
+    ->middleware(['auth', 'verified'])
+    ->name('resource.create');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

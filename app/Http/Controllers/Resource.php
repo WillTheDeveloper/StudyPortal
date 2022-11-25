@@ -23,12 +23,12 @@ class Resource extends Controller
 
     }
 
-    public function create()
+    public function create() // GET
     {
 
     }
 
-    public function store()
+    public function store() // POST
     {
 
     }
