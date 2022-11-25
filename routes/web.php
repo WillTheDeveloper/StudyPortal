@@ -276,6 +276,9 @@ Route::get('/resources/search', [Resource::class, 'search'])
 Route::get('/resources/results', [Resource::class, 'myresourceresults'])
     ->middleware(['auth', 'verified'])
     ->name('resources.results');
+Route::get('/resources/search/results', [Resource::class, 'results'])
+    ->middleware(['auth', 'verified'])
+    ->name('resources.search.results');
 Route::get('/resources/starred', [Star::class, 'starred'])
     ->middleware(['auth', 'verified'])
     ->name('resources.starred');

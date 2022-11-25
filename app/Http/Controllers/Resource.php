@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Label;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class Resource extends Controller
@@ -38,7 +40,10 @@ class Resource extends Controller
 
     public function create() // GET
     {
-        return view('newresource');
+        return view('newresource', [
+            'labels' => Label::query()->where('user_id', auth()->id())->get(),
+            'subject' => Subject::query()->get(),
+        ]);
     }
 
     public function store() // POST
