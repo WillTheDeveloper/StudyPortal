@@ -163,7 +163,7 @@
                                                 @break(1)
                                                 @case(0)
                                                     <div class="ml-2 flex flex-shrink-0">
-                                                        <p class="inline-flex rounded-full bg-orange-100 px-2 text-xs font-semibold leading-5 text-orange-800">Public</p>
+                                                        <p class="inline-flex rounded-full bg-purple-100 px-2 text-xs font-semibold leading-5 text-purple-800">Public</p>
                                                     </div>
                                                 @break(0)
                                             @endswitch
