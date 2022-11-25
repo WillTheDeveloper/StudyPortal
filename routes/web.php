@@ -276,9 +276,9 @@ Route::get('/resources/{id}', [Resource::class, 'show'])
 Route::get('/resources/search', [Resource::class, 'search'])
     ->middleware(['auth', 'verified'])
     ->name('resources.search');
-Route::get('/resources/saved', [Star::class, 'starred'])
+Route::get('/resources/starred', [Star::class, 'starred'])
     ->middleware(['auth', 'verified'])
-    ->name('resources.saved');
+    ->name('resources.starred');
 Route::get('/resources/create', [Resource::class, 'create'])
     ->middleware(['auth', 'verified'])
     ->name('resource.create');
