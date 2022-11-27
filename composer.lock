@@ -2126,16 +2126,16 @@
         },
         {
             "name": "laravel/vapor-cli",
-            "version": "v1.48.0",
+            "version": "v1.49.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/vapor-cli.git",
-                "reference": "8c987f5b399fb9cf1bb10710bf9cc6e206a15ad9"
+                "reference": "6e91cde113aee78e4b225594ebe5d8cf01b43a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/vapor-cli/zipball/8c987f5b399fb9cf1bb10710bf9cc6e206a15ad9",
-                "reference": "8c987f5b399fb9cf1bb10710bf9cc6e206a15ad9",
+                "url": "https://api.github.com/repos/laravel/vapor-cli/zipball/6e91cde113aee78e4b225594ebe5d8cf01b43a5e",
+                "reference": "6e91cde113aee78e4b225594ebe5d8cf01b43a5e",
                 "shasum": ""
             },
             "require": {
@@ -2188,9 +2188,9 @@
                 "vapor"
             ],
             "support": {
-                "source": "https://github.com/laravel/vapor-cli/tree/v1.48.0"
+                "source": "https://github.com/laravel/vapor-cli/tree/v1.49.0"
             },
-            "time": "2022-11-22T21:27:21+00:00"
+            "time": "2022-11-23T15:18:31+00:00"
         },
         {
             "name": "laravel/vapor-core",
@@ -2453,16 +2453,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.10.3",
+            "version": "3.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "8013fb046c6a244b2b1b75cc95d732ed6bcdeb8a"
+                "reference": "a7790f3dd1b27af81d380e6b2afa77c16ab7e181"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/8013fb046c6a244b2b1b75cc95d732ed6bcdeb8a",
-                "reference": "8013fb046c6a244b2b1b75cc95d732ed6bcdeb8a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a7790f3dd1b27af81d380e6b2afa77c16ab7e181",
+                "reference": "a7790f3dd1b27af81d380e6b2afa77c16ab7e181",
                 "shasum": ""
             },
             "require": {
@@ -2524,7 +2524,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.10.3"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.10.4"
             },
             "funding": [
                 {
@@ -2540,7 +2540,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-14T10:42:43+00:00"
+            "time": "2022-11-26T19:48:01+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
