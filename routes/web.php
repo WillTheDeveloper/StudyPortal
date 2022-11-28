@@ -11,6 +11,7 @@ use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\Star;
+use App\Http\Controllers\Subject;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\Todo;
@@ -288,6 +289,10 @@ Route::get('/resources/create', [Resource::class, 'create'])
 Route::get('/resources/{id}', [Resource::class, 'show'])
     ->middleware(['auth', 'verified'])
     ->name('resource.id');
+Route::get('/community/communities/manage', [Subject::class, 'manage'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('communities.manage');
+Route::get('/community/communities/{subject}');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])

@@ -93,23 +93,22 @@
             </div>
         </div>
 
-    <div class="py-10" x-data="{newpost:false}">
+    <div class="py-10">
         <div class="max-w-3xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-12 lg:gap-8">
             <div class="hidden lg:block lg:col-span-3 xl:col-span-2">
                 <nav aria-label="Sidebar" class="sticky top-4 divide-y divide-gray-300">
                     <div class="pb-8 space-y-1">
 
-
-
-                        <a @click="newpost = true"
+                        @if(auth()->user()->is_admin)
+                        <a
                            class="bg-blue-500 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
-                           aria-current="page">
+                           aria-current="page" href="{{route('communities.manage')}}">
                             <!-- Heroicon name: outline/home -->
                             <span class="truncate">
-                            New Post
+                            Manage subjects
                           </span>
                         </a>
-
+                        @endif
 
                         <!-- Current: "bg-gray-200 text-gray-900", Default: "text-gray-600 hover:bg-gray-50" -->
                         <a href="{{ route('community') }}"
