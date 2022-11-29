@@ -32,4 +32,14 @@ class Subject extends Controller
 
         return redirect(route('communities.id', $id));
     }
+
+    public function connect(Request $request)
+    {
+        \App\Models\User::query()->where('email', $request->email)->first()->Subject()->attach($request->input('subject'));
+    }
+
+    public function disconnect(Request $request)
+    {
+        \App\Models\User::query()->where('email', $request->email)->first()->Subject()->detach($request->input('subject'));
+    }
 }
