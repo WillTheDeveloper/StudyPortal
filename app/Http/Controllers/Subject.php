@@ -50,4 +50,12 @@ class Subject extends Controller
             ->Subject()
             ->detach($request->input('subject'));
     }
+
+    public function disconnectall(Request $request)
+    {
+        \App\Models\Subject::query()
+            ->find($request->input('subject'))
+            ->User()
+            ->detach();
+    }
 }
