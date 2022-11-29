@@ -8,6 +8,8 @@ class Subject extends Controller
 {
     public function manage()
     {
-        return view('managesubjects');
+        return view('managesubjects', [
+            'data' => \App\Models\Subject::query()->orderBy('subject')->paginate(15)
+        ]);
     }
 }
