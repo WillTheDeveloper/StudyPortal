@@ -12,4 +12,11 @@ class Subject extends Controller
             'data' => \App\Models\Subject::query()->orderBy('subject')->paginate(15)
         ]);
     }
+
+    public function setting($id)
+    {
+        return view('subjectsettings', [
+            'subject' => \App\Models\Subject::find($id)
+        ]);
+    }
 }

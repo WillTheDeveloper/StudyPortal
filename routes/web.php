@@ -292,7 +292,9 @@ Route::get('/resources/{id}', [Resource::class, 'show'])
 Route::get('/community/communities/manage', [Subject::class, 'manage'])
     ->middleware(['auth', 'admin', 'verified'])
     ->name('communities.manage');
-Route::get('/community/communities/{subject}');
+Route::get('/community/communities/{id}', [Subject::class, 'setting'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('communities.id');
 
 // Post routes
 Route::post('/assignments/delete/{id}', [Assignment::class, 'delete'])
