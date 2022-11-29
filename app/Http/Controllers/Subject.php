@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Subject extends Controller
 {
@@ -26,5 +27,9 @@ class Subject extends Controller
         \App\Models\Subject::query()->find($id)->update([
             'subject' => $request->input('subject')
         ]);
+
+        Session::flash('updated');
+
+        return redirect(route('communities.id', $id));
     }
 }

@@ -532,6 +532,9 @@ Route::post('/resources/{id}/star', [Star::class, 'star'])
 Route::post('/resources/upload', [Resource::class, 'store'])
     ->middleware(['auth', 'verified'])
     ->name('resources.upload');
+Route::post('/community/communities/{id}/update', [Subject::class, 'updatesettings'])
+    ->middleware('auth', 'verified', 'admin')
+    ->name('communities.id.update');
 
 //API POST ROUTES
 Route::post('/keys/create', function (Request $request) {
