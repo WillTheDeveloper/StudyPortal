@@ -324,10 +324,11 @@
                 @endif--}}
             </div>
             <div class="mt-8">
+                @if(auth()->user()->Group()->count() > 0)
                 <!-- Secondary navigation -->
                 <h3 class="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider"
                     id="desktop-teams-headline">
-                    Teams
+                    My groups
                 </h3>
                 <div class="mt-1 space-y-1" role="group" aria-labelledby="desktop-teams-headline">
                     @foreach(auth()->user()->Group()->get() as $group)
@@ -340,6 +341,7 @@
                         </a>
                     @endforeach
                 </div>
+                @endif
             </div>
         </nav>
     </div>
