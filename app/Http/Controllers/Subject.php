@@ -16,7 +16,15 @@ class Subject extends Controller
     public function setting($id)
     {
         return view('subjectsettings', [
-            'subject' => \App\Models\Subject::find($id)
+            'subject' => \App\Models\Subject::find($id),
+            'users' => \App\Models\Subject::find($id)->User()->orderBy('name')->paginate(6)
+        ]);
+    }
+
+    public function updatesettings($id, Request $request)
+    {
+        \App\Models\Subject::query()->find($id)->update([
+            'subject' => $request->input('subject')
         ]);
     }
 }
