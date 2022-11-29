@@ -223,57 +223,28 @@
                                 <p class="mt-1 text-sm text-gray-500">Decide which communications you'd like to receive and how.</p>
                             </div>
                             <div class="mt-5 space-y-6 md:col-span-2 md:mt-0">
-                                <fieldset>
-                                    <legend class="sr-only">By Email</legend>
-                                    <div class="text-base font-medium text-gray-900" aria-hidden="true">By Email</div>
-                                    <div class="mt-4 space-y-4">
-                                        <div class="flex items-start">
-                                            <div class="flex h-5 items-center">
-                                                <input id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            </div>
-                                            <div class="ml-3 text-sm">
-                                                <label for="comments" class="font-medium text-gray-700">Comments</label>
-                                                <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
-                                            </div>
+
+                                <div class="rounded-md bg-blue-50 p-4">
+                                    <div class="flex">
+                                        <div class="flex-shrink-0">
+                                            <!-- Heroicon name: mini/information-circle -->
+                                            <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path fill-rule="evenodd" d="M19 10.5a8.5 8.5 0 11-17 0 8.5 8.5 0 0117 0zM8.25 9.75A.75.75 0 019 9h.253a1.75 1.75 0 011.709 2.13l-.46 2.066a.25.25 0 00.245.304H11a.75.75 0 010 1.5h-.253a1.75 1.75 0 01-1.709-2.13l.46-2.066a.25.25 0 00-.245-.304H9a.75.75 0 01-.75-.75zM10 7a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                            </svg>
                                         </div>
-                                        <div class="flex items-start">
-                                            <div class="flex h-5 items-center">
-                                                <input id="candidates" name="candidates" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            </div>
-                                            <div class="ml-3 text-sm">
-                                                <label for="candidates" class="font-medium text-gray-700">Candidates</label>
-                                                <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-start">
-                                            <div class="flex h-5 items-center">
-                                                <input id="offers" name="offers" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            </div>
-                                            <div class="ml-3 text-sm">
-                                                <label for="offers" class="font-medium text-gray-700">Offers</label>
-                                                <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
-                                            </div>
+                                        <div class="ml-3 flex-1 md:flex md:justify-between">
+                                            <p class="text-sm text-blue-700">Coming soon</p>
+                                            <p class="mt-3 text-sm md:mt-0 md:ml-6">
+                                                <a href="#" class="whitespace-nowrap font-medium text-blue-700 hover:text-blue-600">
+                                                    Details
+                                                    <span aria-hidden="true"> &rarr;</span>
+                                                </a>
+                                            </p>
                                         </div>
                                     </div>
-                                </fieldset>
-                                <fieldset>
-                                    <legend class="contents text-base font-medium text-gray-900">Push Notifications</legend>
-                                    <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
-                                    <div class="mt-4 space-y-4">
-                                        <div class="flex items-center">
-                                            <input id="push-everything" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">Everything</label>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <input id="push-email" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">Same as email</label>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <input id="push-nothing" name="push-notifications" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                                            <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">No push notifications</label>
-                                        </div>
-                                    </div>
-                                </fieldset>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
