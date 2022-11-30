@@ -169,10 +169,10 @@
                                                                   stroke-linejoin="round"/>
                                                         </svg>
                                                         <div class="flex text-sm text-gray-600">
-                                                            <label for="file-upload"
+                                                            <label for="upload"
                                                                    class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
                                                                 <span>Upload a file</span>
-                                                                <input id="file-upload" name="file-upload" type="file"
+                                                                <input id="upload" name="upload" type="file"
                                                                        class="sr-only">
                                                             </label>
                                                             <p class="pl-1">or drag and drop</p>
@@ -208,17 +208,17 @@
                                         <div class="bg-white px-4 py-5 sm:p-6">
                                             <div class="grid grid-cols-6 gap-6">
                                                 <div class="col-span-6 sm:col-span-3">
-                                                    <label for="first-name"
+                                                    <label for="title"
                                                            class="block text-sm font-medium text-gray-700">Title</label>
-                                                    <input type="text" name="first-name" id="first-name"
+                                                    <input type="text" name="title" id="title"
                                                            autocomplete="given-name"
                                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-3">
-                                                    <label for="country"
+                                                    <label for="private"
                                                            class="block text-sm font-medium text-gray-700">Private or public</label>
-                                                    <select id="country" name="country" autocomplete="country-name"
+                                                    <select id="private" name="private" autocomplete="country-name"
                                                             class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                                         <option selected value="1">Private</option>
                                                         <option value="0">Public</option>
@@ -226,17 +226,17 @@
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-4">
-                                                    <label for="email-address"
+                                                    <label for="description"
                                                            class="block text-sm font-medium text-gray-700">Description</label>
-                                                    <textarea type="text" name="email-address" id="email-address"
+                                                    <textarea type="text" name="description" id="description"
                                                            autocomplete="email"
                                                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-3">
-                                                    <label for="country"
+                                                    <label for="label"
                                                            class="block text-sm font-medium text-gray-700">Label</label>
-                                                    <select id="country" name="country" autocomplete="country-name"
+                                                    <select id="label" name="label" autocomplete="country-name"
                                                             class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                                         @foreach($labels as $l)
                                                             <option value="{{$l->id}}">{{$l->label}}</option>
@@ -245,9 +245,9 @@
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-3">
-                                                    <label for="country"
+                                                    <label for="subject"
                                                            class="block text-sm font-medium text-gray-700">Subject</label>
-                                                    <select id="country" name="country" autocomplete="country-name"
+                                                    <select id="subject" name="subject" autocomplete="country-name"
                                                             class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                                         @foreach($subject as $s)
                                                             <option value="{{$s->id}}">{{$s->subject}}</option>
