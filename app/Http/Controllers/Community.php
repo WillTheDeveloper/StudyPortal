@@ -13,6 +13,7 @@ use App\Models\Like;
 use App\Models\Post;
 use App\Models\Subject;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination;
@@ -81,7 +82,14 @@ class Community extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        return view('popular');
+        return view('popular', [
+            'posts' => Post::query()
+                ->whereDate('created_at', '>=', Carbon::today()
+                    ->subMonth()
+                    ->toDate())
+                ->orderBy('views')
+                ->paginate(10),
+        ]);
     }
 
     public function communities()
@@ -97,7 +105,14 @@ class Community extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        return view('trending');
+        return view('trending', [
+            'posts' => Post::query()
+                ->whereDate('created_at', '>=', Carbon::today()
+                    ->subDay()
+                    ->toDate())
+                ->orderBy('views')
+                ->paginate(10),
+        ]);
     }
 
     public function showSubject($id)
