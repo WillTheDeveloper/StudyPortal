@@ -101,7 +101,7 @@
             <div class="px-4 sm:px-6 lg:px-8 mt-5">
                 <div class="sm:flex sm:items-center">
                     <div class="sm:flex-auto">
-                        <h1 class="text-xl font-semibold text-gray-900">Post endpoints</h1>
+                        <h1 class="text-xl font-semibold text-gray-900">Comment endpoints</h1>
                         <p class="mt-2 text-sm text-gray-700">The following endpoints require you to have auth tokens.</p>
                     </div>
                 </div>
