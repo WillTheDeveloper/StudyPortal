@@ -14,6 +14,11 @@ class Subject extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('createsubject');
+    }
+
     public function setting($id)
     {
         return view('subjectsettings', [
