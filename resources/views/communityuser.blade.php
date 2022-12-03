@@ -421,7 +421,7 @@
               ```
             -->
             <div class="min-h-full">
-                <header class="bg-indigo-600 pb-24">
+                <header class=" pb-24">
                     <div class="mx-auto w-full px-4 sm:px-6 lg:px-8">
                         {{--<div class="hidden border-t border-white border-opacity-20 py-5 lg:block">
                             <div class="grid grid-cols-3 items-center gap-8">
