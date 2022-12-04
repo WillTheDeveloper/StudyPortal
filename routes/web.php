@@ -533,7 +533,7 @@ Route::post('/resources/upload', [Resource::class, 'store'])
     ->middleware(['auth', 'verified'])
     ->name('resources.upload');
 Route::post('/community/communities/{id}/update', [Subject::class, 'updatesettings'])
-    ->middleware('auth', 'verified', 'admin')
+    ->middleware(['auth', 'verified', 'admin'])
     ->name('communities.id.update');
 
 //API POST ROUTES
