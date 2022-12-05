@@ -124,13 +124,32 @@
                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="font-medium text-gray-900">Get a post by its slug</div>
+                                                    <div class="font-medium text-gray-900">Get a collection of institutions</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                            <div class="text-gray-900">{{route('api.post.slug', 'slug', false)}}</div>
-                                            <div class="text-gray-500">Requires valid <b>slug</b> parameter</div>
+                                            <div class="text-gray-900">{{route('api.institutions', '', false)}}</div>
+{{--                                            <div class="text-gray-500">Requires valid <b>slug</b> parameter</div>--}}
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">GET</span>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Required</td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">None</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="font-medium text-gray-900">Get institution from its joincode</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <div class="text-gray-900">{{route('api.institutions.joincode', 'joincode', false)}}</div>
+                                            <div class="text-gray-500">Requires valid <b>joincode</b> parameter</div>
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                             <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">GET</span>
@@ -175,7 +194,25 @@
                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="font-medium text-gray-900">Title</div>
+                                                    <div class="font-medium text-gray-900">Institution</div>
+                                                    {{--<div class="text-gray-500">lindsay.walton@example.com</div>--}}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <div class="text-gray-900">String</div>
+                                            {{--<div class="text-gray-500">Optimization</div>--}}
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">Yes</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="font-medium text-gray-900">Joincode</div>
                                                     {{--<div class="text-gray-500">lindsay.walton@example.com</div>--}}
                                                 </div>
                                             </div>
