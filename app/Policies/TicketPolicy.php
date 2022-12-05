@@ -18,7 +18,7 @@ class TicketPolicy
      */
     public function viewAnyStudent(User $user)
     {
-        return auth()->check() && auth()->user()->is_student;
+        return auth()->check();
     }
 
     public function viewAnyTutor(User $user)
