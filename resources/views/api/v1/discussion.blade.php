@@ -124,13 +124,32 @@
                                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                                             <div class="flex items-center">
                                                 <div>
-                                                    <div class="font-medium text-gray-900">Get a post by its slug</div>
+                                                    <div class="font-medium text-gray-900">Get a collection of discussions</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                            <div class="text-gray-900">{{route('api.post.slug', 'slug', false)}}</div>
-                                            <div class="text-gray-500">Requires valid <b>slug</b> parameter</div>
+                                            <div class="text-gray-900">{{route('api.discussions', '', false)}}</div>
+{{--                                            <div class="text-gray-500">Requires valid <b>slug</b> parameter</div>--}}
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">GET</span>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Required</td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">None</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <div class="font-medium text-gray-900">Get discussions based on group name</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <div class="text-gray-900">{{route('api.discussion.group', 'group-name', false)}}</div>
+                                            <div class="text-gray-500">Requires valid <b>group name</b> parameter</div>
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                             <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">GET</span>
@@ -199,7 +218,7 @@
             </div>
 
 
-            <div class="px-4 sm:px-6 lg:px-8 mt-5">
+            {{--<div class="px-4 sm:px-6 lg:px-8 mt-5">
                 <div class="sm:flex sm:items-center">
                     <div class="sm:flex-auto">
                         <h1 class="text-xl font-semibold text-gray-900">Interactive</h1>
@@ -258,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
 
 
 
