@@ -4,6 +4,8 @@
 
 Official Discord server - https://discord.gg/ZEkX2NPWVs
 
+Contact email about anything related to Study Portal: [will@studyportal.cloud](mailto:will@studyportal.cloud)
+
 ## About Study Portal
 
 The idea behind Study Portal is to have one platform where students are able to work together on work where other people are doing similar subjects and help each other out.
@@ -14,18 +16,18 @@ The full public roadmap is available to everyone. The link to it can be found he
 
 Development for this project can sometimes fall behind in regard to keeping up with the roadmap since essentially all the development is done by me and I have a full time job. I will try my best to keep up with the roadmap and keep it up to date. Occasionally people help but nothing significant.
 
-| Q/Year  | Status             | Version |
-|---------|--------------------|---------|
-| Q3 2021 | ✔ Start of project | Alpha   |
-| Q4 2021 | ✔ Not recorded     | Alpha   |
-| Q1 2022 | ✔ Completed        | Beta    |
-| Q2 2022 | ✔ Completed        | Beta    |
-| Q3 2022 | ✔ Completed        | Beta    |
-| Q4 2022 | ✔ In Progress      | Beta    |
+| Q/Year  | Status             | Version     |
+|---------|--------------------|-------------|
+| Q3 2021 | ✔ Start of project | Alpha       |
+| Q4 2021 | ✔ Not recorded     | Alpha       |
+| Q1 2022 | ✔ Completed        | Beta        |
+| Q2 2022 | ✔ Completed        | Beta        |
+| Q3 2022 | ✔ Completed        | Beta        |
+| Q4 2022 | ✔ In Progress      | Beta        |
 | Q1 2023 | ❔ Planning         | Pre-release |
-| Q2 2023 | ❔ Planning         | v1.0.0  |
-| Q3 2023 | ❔ Planning         | v1.x.x  |
-| Q4 2023 | ❔ Planning         | v1.x.x  |
+| Q2 2023 | ❔ Planning         | v1.0.0      |
+| Q3 2023 | ❔ Planning         | v1.x.x      |
+| Q4 2023 | ❔ Planning         | v1.x.x      |
 
 ## My goal and original idea
 
