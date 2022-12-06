@@ -443,7 +443,7 @@
 
 
 <div class="bg-gradient-to-b from-green-300 to-blue-300">
-    <div class="mx-auto max-w-7xl py-6 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+    <div class="mx-auto max-w-7xl py-6 px-4 text-center sm:px-6 lg:px-8 lg:py-6">
         <div class="space-y-8 sm:space-y-12">
             <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                 <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Study Portal Team</h2>
@@ -474,7 +474,7 @@
 
 
 <div class="bg-gradient-to-b from-blue-300 to-green-300">
-    <div class="mx-auto max-w-7xl py-6 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+    <div class="mx-auto max-w-7xl py-6 px-4 text-center sm:px-6 lg:px-8 lg:py-6">
         <div class="space-y-8 sm:space-y-12">
             <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                 <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Our contributors</h2>
