@@ -122,7 +122,7 @@
 
                                     <!-- Current: "bg-gray-200 text-gray-900", Default: "text-gray-600 hover:bg-gray-50" -->
                                     <a href="{{ route('community') }}"
-                                       class="bg-gray-200 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
+                                       class="text-gray-600 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
                                        aria-current="page">
                                         <!-- Heroicon name: outline/home -->
                                         <svg class="text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
@@ -182,7 +182,7 @@
 
 
                                     <a href="{{ route('placements') }}"
-                                       class="text-gray-600 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                                       class="bg-gray-200 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                         <!-- Heroicon name: outline/user-group -->
                                         <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"
                                              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
