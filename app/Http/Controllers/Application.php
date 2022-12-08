@@ -81,7 +81,7 @@ class Application extends Controller
 
     public function id($id)
     {
-        return view('application', [
+        return view('managemyapplication', [
             'application' => \App\Models\Application::query()->findOrFail($id)
         ]);
     }
