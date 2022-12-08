@@ -25,7 +25,7 @@ class Placement extends Controller
 
     public function slug($slug)
     {
-        $this->authorize('view', \App\Models\Placemente::query()->where('slug', $slug)->first());
+        $this->authorize('view', \App\Models\Placement::query()->where('slug', $slug)->first());
 
         return view('placement', [
             'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug),
