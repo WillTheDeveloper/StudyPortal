@@ -19,6 +19,15 @@ class Subject extends Controller
         return view('createsubject');
     }
 
+    public function save(Request $request)
+    {
+        \App\Models\Subject::query()->create([
+            'subject' => $request->input('subject'),
+        ]);
+
+        return redirect(route('communities.manage'));
+    }
+
     public function setting($id)
     {
         return view('subjectsettings', [
