@@ -13,7 +13,7 @@ class Shop extends Controller
         return view('shop', [
             'items' => Product::query()
                 ->where('active', true)
-                ->get()
+                ->paginate(20)
         ]);
     }
 
