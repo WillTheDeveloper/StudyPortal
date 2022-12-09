@@ -43,14 +43,25 @@ But, long explanation, cut short, my primary goals were as follows;
 
 ## Study Portal features
 
-*Tick means it has been finished*
-
-- [X] Timetable - Place for students to create their own timetable and keep track of what lessons they have.
-- [X] Assignments - This is where students can keep track of assignment work that they are doing.
-- [X] Dashboard - Overview of all the stats that matter to students.
-- [X] Community - Place where students can talk to each other with posts and support each other.
-- [X] Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
-- [ ] Calendar - One place where meetings and events can be created and tracked.
+- Timetable - Place for students to create their own timetable and keep track of what lessons they have.
+- Assignments - This is where students can keep track of assignment work that they are doing.
+- Dashboard - Overview of all the stats that matter to students.
+- Community - Place where students can talk to each other with posts and support each other.
+- Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
+- Calendar - One place where meetings and events can be created and tracked.
+- Blog - This is where students and the general public will be able to see internal posts from Study Portal team get posted.
+- Shop - Somewhere where people can post any items or stationary that may be useful during education. Only ran by Study Portal at the minute.
+- Todo - An area where people can keep track of individual tasks that have email updates and reminders connected to them.
+- Notes - This is in the name of it, a large inventory and place for students to take notes which supports markdown.
+- Groups - This is managed by tutors where they can group students into classes or little teams and manage assignments and other resources for them.
+- Reports - The community area of the platform is protected by a report system where admins can take action where nessasary of any posts that are harmful to others.
+- Institutions - Insitutions are like colleges and universities that have subjects and students associated with them to keep everyone under their associated umbrella.
+- Placements - Falling under the community area is a placements area where students are able to apply for work placements that may be available to them.
+- Applications - This is where students can apply for placements, track the status of their application and employers are able to review their applications.
+- Subjects - This is the kind of category system that everything falls under, keeping the entire ecosystem tidy.
+- Tags - Kind of like subjects but on a more granular level on a per user basis but this is entirely optional.
+- Resources - A place where students are able to share resources or keep them private amongst themselves, allowing for support among students to take place.
+- Tickets - These are support tickets that allow students to have a channel where they can get answers for any questions directly from the tutors of their choice.
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
 
@@ -126,7 +137,7 @@ The versioning has been introduced into the repository a bit late but has now be
 - [X] Alpha (Not part of versioning)
 - [ ] Beta (Currently in Beta)
 - [X] Public Beta Testing
-- [ ] Initial release (Date TBD)
+- [ ] Initial release (31st April 2023)
 
 ## Testing
 
@@ -173,72 +184,81 @@ You can contribute to this repository by forking it, making the changes that you
 
 ## What does it look like at the moment?
 
-**PLEASE NOTE THAT THIS IS NOT THE FINAL DESIGN AND IS SUBJECT FOR A OVERHAUL REDESIGN AND IS JUST SHOWING A CONCEPT**
+**PLEASE NOTE THAT THIS IS STILL IN BETA AND IS NOT THE FINAL PRODUCT.....YET**
 
-Here are some images of the fundamental structure of the application at the minute.
+### User dashboard
 
-### Student Dashboard
+![image](https://user-images.githubusercontent.com/78596837/206759763-73ced16a-8396-48b8-8700-cb50f1657e27.png)
 
-**UPDATE - THIS PAGE IS CURRENTLY HAVING AN HEAVY REDESIGN**
+### User Timetable
 
-You can preview this redesign on a different branch linked here - https://github.com/WillTheDeveloper/StudyPortal/tree/redesigned-backend
+*Not fully populated*
 
-On this page, students will be able to get an overview of what is happening. Here they will be able to view an overview of key flags for that individual, which will include things such as the students attendance etc. Additionally, other information will be available here such as updates or notifications that the student may receive regarding anything that they may need updating on, such as assignment updates etc.
+![image](https://user-images.githubusercontent.com/78596837/206759917-83081487-aa6b-4ce2-a3ee-d83f1cc85031.png)
 
-![image](https://user-images.githubusercontent.com/78596837/144643845-79159886-2273-4514-b8c7-34bc3d6a379c.png)
+### User Assignments
 
-### Student Timetable
+*Empty*
 
-This is where students will be able to view their timetables and edit them if they need to. They will also be able to create their own if they have not been assigned one. **This image is due for an update as this has changed a lot.** Here they will be able to manage and view their timetable for the week. They will be able to click on the slot that they want to query and view extra information about it. I am also going to link the timetable to assignments so when they view it or look at the details, assignment pointers can be found there too as a subtle reminder.
+![image](https://user-images.githubusercontent.com/78596837/206759998-b1bd2f92-0a37-4371-83c1-fa2c5af367d0.png)
 
-![image](https://user-images.githubusercontent.com/78596837/144643904-054571a0-73e8-4a9c-8bbe-cca319096783.png)
+### User calandar
 
-### Student Assignments
+![image](https://user-images.githubusercontent.com/78596837/206760045-33b3f3c4-df59-4314-a495-bc31a407d8f6.png)
 
-This is where students will be able to view all the assignments they have. Which will be followed by an image of where students can view their assignment details. Here they are able to view details of assignments that tutors or staff have assigned to them. They will be able to hand in work and tutors will be able to see this on their own dashboard interface.
+### User Kanban
 
-![image](https://user-images.githubusercontent.com/78596837/144643958-f0054008-a4eb-468e-a242-bb3586da5328.png)
+![image](https://user-images.githubusercontent.com/78596837/206760099-2c1d540e-d1b8-4368-befa-27f0d52984a0.png)
 
-### Student Kanban (New feature)
+### User Todo lists
 
-This is where students will be able to create their own kanban boards to allow them to organise tasks and work into groups for themselves. The idea behind this is to support them by giving them a tool where they can possibly time manage their tasks and other things they are doing by adding their own tasks and syncing it with assignments. Additional information will be able to be viewed when clicking on the task that you create. These tasks can be associated with other things such as subjects and assignments if they felt it was necessary. In the future, these will be sharable with other people with set permissions on each.
+![image](https://user-images.githubusercontent.com/78596837/206760137-052cf2c0-c5a4-4696-aa61-4836210e79dc.png)
 
-![image](https://user-images.githubusercontent.com/78596837/144643998-7114bbe2-199d-4b00-90db-be85ab0f098b.png)
+### User Notes section
 
-Details view of the kanban board. **Still in early development.**
+![image](https://user-images.githubusercontent.com/78596837/206760197-53bfae57-89ec-4105-b87f-67a20af67ea5.png)
 
-![image](https://user-images.githubusercontent.com/78596837/141192867-5e9e84ad-0ff1-497d-8c0a-05892b1b31b3.png)
+### Tutor Group management
 
-### Student Community
+![image](https://user-images.githubusercontent.com/78596837/206760273-cc734875-7f6a-47ba-b44e-2f6cece1b1b3.png)
 
-This is where students will be able to collaborate on work and ask each other things related to their own subjects.
+### Admin User Management
 
-![image](https://user-images.githubusercontent.com/78596837/144644088-b891c412-3ad7-45d5-9ba0-10c6cd6c724b.png)
+![image](https://user-images.githubusercontent.com/78596837/206760439-ba5c4b70-7b65-45d1-8f2e-5cbf456c3c39.png)
 
-### Regarding tutors
+### Admin Report Overview
 
-In regard to tutor, the views will be similar with additional functionality. There are security measures in place to ensure that there is no access from a student to tutors tools.
+![image](https://user-images.githubusercontent.com/78596837/206760507-87545778-56a0-4e26-bff2-ff1dcebb326d.png)
 
-### Tutors Group Management
+### Institution management area
 
-On this page, tutors can create groups of students which could be different classes or such. Groups are groups of students that can be chosen to assign assignments to be tutors, this will be shown further down.
+![image](https://user-images.githubusercontent.com/78596837/206760571-1de1d71e-bde4-42da-99c5-684bfd30d5b6.png)
 
-![image](https://user-images.githubusercontent.com/78596837/141193329-c4173e52-628b-46d0-a156-09fbc4f964b9.png)
+### Community home page
 
-This is where tutors can view who is in the group and edit anything they need to edit regarding the group.
+![image](https://user-images.githubusercontent.com/78596837/206760621-4fd250da-4539-4dcc-b173-2e0458c0bd15.png)
 
-![image](https://user-images.githubusercontent.com/78596837/141193570-1793e005-8623-4854-a01e-087584e5c51c.png)
+### Community communities area
 
-Here is where tutors can select different students to add to the group.
+![image](https://user-images.githubusercontent.com/78596837/206760697-82f81c9c-a3f2-4c1e-a8c9-f9dd9ce3ad9e.png)
 
-![image](https://user-images.githubusercontent.com/78596837/141193639-76dd275f-a2c2-41a5-92e2-a1de050a91df.png)
+### Community placements page
 
-### Tutors Assignment Management
+![image](https://user-images.githubusercontent.com/78596837/206760756-5fafb028-d573-438b-a17c-c883a397be22.png)
 
-Tutors will have additional options to assign work to students, this is where they will do it. Which can be located inside the assignments tab in the navigation bar.
+### Student applications management page
 
-![image](https://user-images.githubusercontent.com/78596837/141193793-9318ce3e-d6a4-4337-8331-909693797db5.png)
+![image](https://user-images.githubusercontent.com/78596837/206760812-23df4fa7-6d07-4490-8c64-3e31d8b9ce2a.png)
 
-Finally, tutors can see who has seen the assignment and when they have submitted the students work along with editing the assignment information.
+### User's resources page
 
-![image](https://user-images.githubusercontent.com/78596837/141193914-05bba580-b970-4ac0-9f58-78fe3b9c3dd4.png)
+![image](https://user-images.githubusercontent.com/78596837/206760860-ec75ad45-14f2-4c12-aa89-2c5dde6c05bd.png)
+
+### Tutor's incoming tickets page
+
+![image](https://user-images.githubusercontent.com/78596837/206760918-b6c19086-c866-479d-b32d-8ee28ba49e23.png)
+
+### User profile management page
+
+![image](https://user-images.githubusercontent.com/78596837/206760988-809b825c-430c-4585-8c83-0cd989721675.png)
+
