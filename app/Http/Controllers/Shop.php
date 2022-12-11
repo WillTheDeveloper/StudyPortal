@@ -24,4 +24,11 @@ class Shop extends Controller
             'reviews' => Review::query()->where('product_id', Product::query()->where('slug', $slug)->first()->id)->get()
         ]);
     }
+
+    public function manage()
+    {
+        return view('shopmanagement', [
+            'items' => Product::query()->orderBy('name')->paginate(10)
+        ]);
+    }
 }
