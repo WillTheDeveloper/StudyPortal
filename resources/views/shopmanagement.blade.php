@@ -124,8 +124,8 @@
                                         <tr>
                                             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name</th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Details</th>
+                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Active</th>
                                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Price</th>
-                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Role</th>
                                             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                                 <span class="sr-only">Edit</span>
                                             </th>
@@ -146,13 +146,21 @@
                                                     </div>
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                    <div class="text-gray-900">Front-end Developer</div>
-                                                    <div class="text-gray-500">Optimization</div>
+                                                    <div class="text-gray-900">{{$i->sold}}</div>
+                                                    <div class="text-gray-500">{{$i->User->name}}</div>
                                                 </td>
                                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                    <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">£{{$i->price}}</span>
+                                                    @switch($i->active)
+                                                        @case(1)
+                                                            <span class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">True</span>
+                                                        @break(1)
+
+                                                        @case(0)
+                                                            <span class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">False</span>
+                                                        @break(0)
+                                                    @endswitch
                                                 </td>
-                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{{$i->price}}</td>
                                                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
                                                 </td>
