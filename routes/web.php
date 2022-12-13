@@ -238,6 +238,9 @@ Route::get('/ticket/{id}', [Ticket::class, 'viewticket'])
 Route::get('/shop', [Shop::class, 'view'])
     ->middleware('web')
     ->name('shop');
+Route::get('/shop/management', [Shop::class, 'manage'])
+    ->middleware(['auth', 'admin', 'verified'])
+    ->name('shop.management');
 Route::get('/shop/{slug}', [Shop::class, 'product'])
     ->middleware('web')
     ->name('shop.product');
