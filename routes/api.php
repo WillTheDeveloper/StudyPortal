@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Resources\UserResource;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/users', function () {
@@ -8,6 +10,9 @@ Route::get('/users', function () {
 Route::get('/user/posts', function () {
     return new \App\Http\Resources\UserPostResource(auth()->user());
 })->middleware('auth:sanctum')->name('api.user.post.resource');
+Route::get('/user/me', function () {
+    return new UserResource(User::findOrFail(auth()->user()->id));
+})->middleware('auth:sanctum')->name('api.user.me');
 Route::get('/user/{id}', function ($id) {
     return new \App\Http\Resources\UserResource(\App\Models\User::findOrFail($id));
 })->middleware(['auth:sanctum', 'admin'])->name('api.user.resource');
