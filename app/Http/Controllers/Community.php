@@ -143,6 +143,8 @@ class Community extends Controller
 
         $post->save();
 
+        session()->flash('posted');
+
         return redirect(route('community.post', $post->slug));
     }
 
@@ -176,7 +178,7 @@ class Community extends Controller
 
         $comment->save();
 
-        Mail::to(User::find($comment->user_id))->send(new NewCommentOnPost($comment));
+        Mail::to(User::find($comment->user_id)->email)->send(new NewCommentOnPost($comment));
 
         return redirect()->back();
     }
