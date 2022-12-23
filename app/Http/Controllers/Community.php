@@ -223,6 +223,8 @@ class Community extends Controller
             ]
         );
 
+        session()->flash('updatedpost');
+
         return redirect(route('community'));
     }
 
@@ -238,6 +240,8 @@ class Community extends Controller
             ]
         );
 
+        session()->flash('updatedcomment');
+
         return back();
     }
 
@@ -248,6 +252,8 @@ class Community extends Controller
         $comment = Comment::query()->where('comments.id', $id);
 
         $comment->delete();
+
+        session()->flash('commentdeleted');
 
         return back();
     }
