@@ -18,7 +18,7 @@ class PostPolicy
      */
     public function viewAny(User $user)
     {
-        return !$user->is_banned == 0 && auth()->check();
+        return !$user->is_banned && auth()->check();
     }
 
     /**
@@ -30,7 +30,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        return !$user->is_banned == 0 && auth()->check();
+        return !$user->is_banned && auth()->check();
     }
 
     /**
@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return !$user->is_banned == 0 && auth()->check();
+        return !$user->is_banned && auth()->check();
     }
 
     /**
