@@ -43,6 +43,9 @@ class Community extends Controller
                 'user_id' => auth()->id()
             ]
         )->save();
+
+        session()->flash('liked');
+
         return redirect('community');
     }
 
