@@ -183,6 +183,8 @@ class Community extends Controller
 
         Mail::to(User::find($comment->user_id)->email)->send(new NewCommentOnPost($comment));
 
+        session()->flash('commented');
+
         return redirect()->back();
     }
 
