@@ -23,8 +23,8 @@ Development for this project can sometimes fall behind in regard to keeping up w
 | Q1 2022 | ✔ Completed        | Beta        |
 | Q2 2022 | ✔ Completed        | Beta        |
 | Q3 2022 | ✔ Completed        | Beta        |
-| Q4 2022 | ✔ In Progress      | Beta        |
-| Q1 2023 | ❔ Planning         | Pre-release |
+| Q4 2022 | ✔ Completed        | Beta        |
+| Q1 2023 | ❔ Pending          | Pre-release |
 | Q2 2023 | ❔ Planning         | v1.0.0      |
 | Q3 2023 | ❔ Planning         | v1.x.x      |
 | Q4 2023 | ❔ Planning         | v1.x.x      |
