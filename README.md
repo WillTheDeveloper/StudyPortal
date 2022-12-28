@@ -49,18 +49,18 @@ But, long explanation, cut short, my primary goals were as follows;
 - Community - Place where students can talk to each other with posts and support each other.
 - Kanban - Students being able to have their own personalised kanban to track progress of work or other stuff.
 - Calendar - One place where meetings and events can be created and tracked.
-- Blog - This is where students and the general public will be able to see internal posts from Study Portal team get posted.
+- Blog - This is where students and the public will be able to see internal posts from Study Portal team get posted.
 - Shop - Somewhere where people can post any items or stationary that may be useful during education. Only ran by Study Portal at the minute.
 - Todo - An area where people can keep track of individual tasks that have email updates and reminders connected to them.
 - Notes - This is in the name of it, a large inventory and place for students to take notes which supports markdown.
 - Groups - This is managed by tutors where they can group students into classes or little teams and manage assignments and other resources for them.
-- Reports - The community area of the platform is protected by a report system where admins can take action where nessasary of any posts that are harmful to others.
-- Institutions - Insitutions are like colleges and universities that have subjects and students associated with them to keep everyone under their associated umbrella.
+- Reports - The community area of the platform is protected by a report system where admins can take action where necessary of any posts that are harmful to others.
+- Institutions - Institutions are like colleges and universities that have subjects and students associated with them to keep everyone under their associated umbrella.
 - Placements - Falling under the community area is a placements area where students are able to apply for work placements that may be available to them.
 - Applications - This is where students can apply for placements, track the status of their application and employers are able to review their applications.
 - Subjects - This is the kind of category system that everything falls under, keeping the entire ecosystem tidy.
-- Tags - Kind of like subjects but on a more granular level on a per user basis but this is entirely optional.
-- Resources - A place where students are able to share resources or keep them private amongst themselves, allowing for support among students to take place.
+- Tags - Kind of like subjects but on a more granular level on a per-user basis but this is entirely optional.
+- Resources - A place where students are able to share resources or keep them private amongst themselves, allowing for support amongst students to take place.
 - Tickets - These are support tickets that allow students to have a channel where they can get answers for any questions directly from the tutors of their choice.
 
 If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
