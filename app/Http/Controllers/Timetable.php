@@ -8,7 +8,7 @@ class Timetable extends Controller
 {
     public function view()
     {
-        return view('timetable', [
+        return view('timetable.index', [
             'monday' => \App\Models\Timetable::query()
                 ->where('timetables.user_id', auth()->id())
                 ->where('timetables.weekday', 'Monday')
@@ -34,7 +34,7 @@ class Timetable extends Controller
 
     public function add()
     {
-        return view('addlesson', [
+        return view('timetable.add', [
             'subjects' => auth()->user()->Subject()->get(),
         ]);
     }

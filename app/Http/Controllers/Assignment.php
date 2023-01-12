@@ -20,7 +20,7 @@ class Assignment extends Controller
     {
         $this->authorize('viewAny', Assign::class);
 
-        return view('assignments', [
+        return view('assignments.index', [
             'assignments' => auth()->user()->Assignment()
                 ->wherePivot('submitted_on', '=', null)
                 ->where('duedate', '>=', Carbon::today()->toDate())
@@ -32,7 +32,7 @@ class Assignment extends Controller
     {
         $this->authorize('viewAny', Assign::class);
 
-        return view('completedassignment', [
+        return view('assignments.completed', [
             'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '!=', null)->paginate(10)
         ]);
     }
@@ -41,7 +41,7 @@ class Assignment extends Controller
     {
         $this->authorize('viewAny', Assign::class);
 
-        return view('lateassignments', [
+        return view('assignments.late', [
             'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '=', null)->where('duedate', '<', Carbon::today()->toDate())->paginate(10)
         ]);
     }
@@ -63,7 +63,7 @@ class Assignment extends Controller
                 );
         }
 
-        return view('manageassignment', [
+        return view('assignments.manage', [
             'assignment' => Assign::all()->find($id)
         ]);
     }
@@ -72,7 +72,7 @@ class Assignment extends Controller
     {
         $this->authorize('create', Assign::class);
 
-        return view('createassignment', [
+        return view('assignments.create', [
             'subjects' => Subject::all(),
 //            'tutors' => User::all()->where('is_tutor', 1),
             /*'students' => User::all()
@@ -153,7 +153,7 @@ class Assignment extends Controller
     {
         $this->authorize('update', Assign::query()->find($id));
 
-        return view('editassignment', [
+        return view('assignments.edit', [
             'assignment' => Assign::query()->where('assignments.id', $id)->findOrFail($id),
             'subjects' => Subject::query()->get('subjects.subject')
         ]);

@@ -24,21 +24,21 @@ class Todo extends Controller
 
     public function active()
     {
-        return view('todo', [
+        return view('todo.index', [
             'all' => Task::query()->where('user_id', auth()->id())->where('complete', false)->paginate(20)
         ]);
     }
 
     public function completed()
     {
-        return view('todocompleted', [
+        return view('todo.completed', [
             'completed' => Task::query()->where('user_id', auth()->id())->where('complete', true)->paginate(20)
         ]);
     }
 
     public function archived()
     {
-        return view('todoarchived', [
+        return view('todo.archived', [
             'archived' => Task::onlyTrashed()->where('user_id', auth()->id())->paginate(20)
         ]);
     }

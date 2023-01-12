@@ -24,7 +24,7 @@ class Resource extends Controller
 
     public function myresourceresults()
     {
-        return view('resourceresults', [
+        return view('resources.results', [
             'results' => \App\Models\Resource::search(request()->input('search'))
                 ->where('user_id', auth()->id())
                 ->paginate(10)
@@ -33,7 +33,7 @@ class Resource extends Controller
 
     public function results()
     {
-        return view('resourceresults', [
+        return view('resources.results', [
             'results' => \App\Models\Resource::search(request()->input('search'))
                 ->where('private', false)
                 ->paginate(10)
@@ -42,7 +42,7 @@ class Resource extends Controller
 
     public function create() // GET
     {
-        return view('newresource', [
+        return view('resources.new', [
             'labels' => Label::query()->where('user_id', auth()->id())->get(),
             'subject' => Subject::query()->get(),
         ]);
@@ -72,7 +72,7 @@ class Resource extends Controller
 
     public function show($id)
     {
-        return view('resource', [
+        return view('resources.show', [
             'resource' => \App\Models\Resource::query()->find($id)
         ]);
     }

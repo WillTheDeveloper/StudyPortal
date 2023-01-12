@@ -26,7 +26,7 @@ class Community extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        return view('communitysearch', [
+        return view('community.search', [
             'results' => Post::search($request->input('search'))->paginate(10)
         ]);
     }
@@ -53,7 +53,7 @@ class Community extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        return view('community', [
+        return view('community.index', [
             'posts' => Post::query()->orderByDesc('created_at')->paginate(10),
             'users' => User::all()->take(3)
         ]);
@@ -63,7 +63,7 @@ class Community extends Controller
     {
         $this->authorize('view', User::query()->where('id', $id)->first());
 
-        return view('communityuser', [
+        return view('community.user', [
             'user' => User::query()->where('users.id', $id)->findOrFail($id),
             'posts' => Post::query()->where('posts.user_id', $id)->orderByDesc('created_at')->limit(6)->get(),
             'comments' => Comment::query()->where('comments.user_id', $id)->orderByDesc('created_at')->limit(5)->get(),
@@ -76,7 +76,7 @@ class Community extends Controller
 
         Post::query()->where('posts.slug', $slug)->increment('views', '1');
 
-        return view('communitypost', [
+        return view('community.post', [
             'post' => Post::query()->where('posts.slug', $slug)->firstOrFail(),
         ]);
     }
@@ -85,7 +85,7 @@ class Community extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        return view('popular', [
+        return view('community.popular', [
             'posts' => Post::query()
                 ->whereDate('created_at', '>=', Carbon::today()
                     ->subMonth()
@@ -99,7 +99,7 @@ class Community extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        return view('communities', [
+        return view('community.communities', [
             'data' => Subject::query()->orderByDesc('created_at')->paginate(10)
         ]);
     }
@@ -108,7 +108,7 @@ class Community extends Controller
     {
         $this->authorize('viewAny', Post::class);
 
-        return view('trending', [
+        return view('community.trending', [
             'posts' => Post::query()
                 ->whereDate('created_at', '>=', Carbon::today()
                     ->subDay()
@@ -122,7 +122,7 @@ class Community extends Controller
     {
         $this->authorize('view', Subject::query()->where('id', $id)->first());
 
-        return view('communitysubject', [
+        return view('community.subject', [
             'posts' => Post::all()->where('subject_id', $id)
         ]);
     }

@@ -29,7 +29,7 @@ class Institution extends Controller
     {
         $this->authorize('create', \App\Models\Institution::class);
 
-        return view('institutionnew');
+        return view('institutions.new');
     }
 
     public function submit(Request $request)
@@ -66,7 +66,7 @@ class Institution extends Controller
     {
         $this->authorize('view', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
 
-        return view('institutionusers', [
+        return view('institutions.users', [
             'users' => \App\Models\Institution::query()->where('institutions.joincode', $joincode)->firstOrFail()
         ]);
     }
@@ -75,7 +75,7 @@ class Institution extends Controller
     {
         $this->authorize('update', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
 
-        return view('institutionadduser');
+        return view('institutions.adduser');
     }
 
     public function submitUser($joincode, Request $request) // Post request
@@ -117,7 +117,7 @@ class Institution extends Controller
     {
         $this->authorize('delete', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
 
-        return view('requestinstitutiondelete', [
+        return view('institutions.delete', [
             'joincode' => $joincode
         ]);
     }

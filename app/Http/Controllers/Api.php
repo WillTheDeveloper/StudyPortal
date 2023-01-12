@@ -8,7 +8,7 @@ class Api extends Controller
 {
     public function view()
     {
-        return view('apikeys',
+        return view('keys.view',
         [
             'token' => auth()->user()->tokens()->get(),
         ]);
@@ -16,7 +16,7 @@ class Api extends Controller
 
     public function new() // GET REQUEST
     {
-        return view('apinew');
+        return view('keys.new');
     }
 
     public function create() // POST REQUEST

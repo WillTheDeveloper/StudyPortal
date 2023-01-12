@@ -9,14 +9,14 @@ class Subject extends Controller
 {
     public function manage()
     {
-        return view('managesubjects', [
+        return view('subjects.manage', [
             'data' => \App\Models\Subject::query()->orderBy('subject')->paginate(15)
         ]);
     }
 
     public function create()
     {
-        return view('createsubject');
+        return view('subjects.create');
     }
 
     public function save(Request $request)
@@ -30,7 +30,7 @@ class Subject extends Controller
 
     public function setting($id)
     {
-        return view('subjectsettings', [
+        return view('subjects.settings', [
             'subject' => \App\Models\Subject::find($id),
             'users' => \App\Models\Subject::find($id)->User()->orderBy('name')->paginate(6)
         ]);

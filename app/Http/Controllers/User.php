@@ -67,7 +67,7 @@ class User extends Controller
     public function showAll()
     {
         if (auth()->user()->is_admin) {
-            return view('users', [
+            return view('users.index', [
                 'users' => \App\Models\User::query()->orderByDesc('created_at')->paginate(15),
             ]);
         }
@@ -107,7 +107,7 @@ class User extends Controller
 
     public function manageUser($id)
     {
-        return view('manageuser', [
+        return view('users.manage', [
             'user' => \App\Models\User::query()->where('users.id', $id)->find($id),
         ]);
     }

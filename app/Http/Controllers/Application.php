@@ -11,7 +11,7 @@ class Application extends Controller
     {
         $this->authorize('viewAny', App::class);
 
-        return view('myapplications', [
+        return view('placement.applications', [
             'applications' => \App\Models\Application::query()
                 ->where('user_id', auth()->id())
                 ->paginate(10)

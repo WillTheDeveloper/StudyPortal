@@ -14,7 +14,7 @@ class Kanban extends Controller
     {
         $this->authorize('viewAny', Kan::class);
 
-        return view('kanban',
+        return view('kanban.index',
         [
             'kanban' => Kan::all()->where('user_id', auth()->id()),
         ]);
@@ -30,7 +30,7 @@ class Kanban extends Controller
             ->where('kanban_groups.user_id', auth()->id())
             ->get());
 
-        return view('viewkanban',
+        return view('kanban.show',
         [
             'kanban' => Kan::all()->where('id', $id)->find($id),
             'groups' => KanbanGroup::all()->where('kanban_id', $id),
@@ -40,7 +40,7 @@ class Kanban extends Controller
 
     public function renderCreate() //GET REQUEST
     {
-        return view('newkanban');
+        return view('kanban.new');
     }
 
     public function create(CreateNewKanbanBoard $request) //POST REQUEST

@@ -127,6 +127,8 @@ Route::middleware(['auth'])->prefix('groups')->name("groups.")->group(function (
     Route::post('/update/{id}/add', [Group::class, 'update'])->middleware(['tutor'])->name('add');
     Route::post('/updating/{id}', [Group::class, 'updatename'])->middleware(['tutor'])->name('updatedata');
 });
+
+
 //kanban routes
 Route::middleware(['auth'])->prefix('kanban')->name('kanban.')->group(function () {
     Route::get('/', [Kanban::class, 'list'])->name('list');
@@ -175,7 +177,7 @@ Route::middleware(['auth', 'admin', 'verified'])->prefix('reports')->group(funct
     Route::post('/unresolve/{id}', [Report::class, 'unresolve'])->name('reports.unresolve.id');
 });
 //placement routes
-Route::middleware(['auth', 'verified'])->prefix('reports')->name('placement.')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('placement')->name('placement.')->group(function () {
     Route::get('/{slug}', [Placement::class, 'slug'])->name('slug');
     Route::get('/new', [Placement::class, 'new'])->name('new');
     Route::get('/{slug}/apply', [Application::class, 'apply'])->name('apply');
@@ -183,6 +185,7 @@ Route::middleware(['auth', 'verified'])->prefix('reports')->name('placement.')->
     Route::post('/create', [Placement::class, 'create'])->name('create');
     Route::post('/{slug}/submit', [Application::class, 'submit'])->name('submit');
 });
+
 //institutions routes
 Route::middleware(['auth', 'admin', 'verified'])->prefix('institutions')->group(function () {
     Route::get('/', [Institution::class, 'view'])->name('institution.manage');
@@ -366,31 +369,31 @@ Route::post('/email/verification-notification', function (Request $request) {
 // SUPPORT PAGES
 Route::middleware(['auth'])->prefix('support')->name('support')->group(function () {
     Route::get('/', function () {
-        return view('support');
+        return view('support.index');
     });
     Route::get('/timetable', function () {
-        return view('supporttimetable');
+        return view('support.timetable');
     })->name('.timetable');
     Route::get('/assignments', function () {
-        return view('supportassignments');
+        return view('support.assignments');
     })->name('.assignments');
     Route::get('/kanban', function () {
-        return view('supportkanban');
+        return view('support.kanban');
     })->name('.kanban');
     Route::get('/notes', function () {
-        return view('supportnotes');
+        return view('support.notes');
     })->name('.notes');
     Route::get('/groups', function () {
-        return view('supportgroups');
+        return view('support.groups');
     })->name('.groups');
     Route::get('/community', function () {
-        return view('supportcommunity');
+        return view('support.community');
     })->name('.community');
     Route::get('/users', function () {
-        return view('supportusers');
+        return view('support.users');
     })->name('.users');
     Route::get('/profile', function () {
-        return view('supportprofile');
+        return view('support.profile');
     })->name('.profile');
 });
 

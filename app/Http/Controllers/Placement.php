@@ -27,7 +27,7 @@ class Placement extends Controller
     {
         $this->authorize('view', \App\Models\Placement::query()->where('slug', $slug)->first());
 
-        return view('placement', [
+        return view('placement.slug', [
             'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug),
             'check' => \App\Models\Application::query()
                 ->where('user_id', auth()->id())
@@ -63,6 +63,6 @@ class Placement extends Controller
     {
         $this->authorize('create', Placement::class);
 
-        return view('newplacement');
+        return view('placement.new');
     }
 }
