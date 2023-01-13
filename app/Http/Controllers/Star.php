@@ -16,7 +16,7 @@ class Star extends Controller
 
     public function results()
     {
-        return view('resourceresults', [
+        return view('resources.results', [
             'results' => \App\Models\Resource::search(request()->input('search'))->paginate(10)
         ]);
     }
