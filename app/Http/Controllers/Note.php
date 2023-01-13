@@ -10,7 +10,7 @@ class Note extends Controller
     {
         $this->authorize('viewAny', \App\Models\Note::class);
 
-        return view('note', [
+        return view('notes.show', [
             'list' => \App\Models\Note::query()->where('notes.user_id', auth()->id())->paginate(10),
         ]);
     }
@@ -19,7 +19,7 @@ class Note extends Controller
     {
         $this->authorize('create', \App\Models\Note::class);
 
-        return view('newnote');
+        return view('notes.create');
     }
 
     public function newNote(Request $request)
@@ -56,7 +56,7 @@ class Note extends Controller
     {
         $this->authorize('view', \App\Models\Note::query()->find($id));
 
-        return view('viewnote', [
+        return view('notes.view', [
             'render' => \App\Models\Note::query()->where('id', $id)->find($id)
         ]);
     }
@@ -65,7 +65,7 @@ class Note extends Controller
     {
         $this->authorize('update', \App\Models\Note::query()->find($id));
 
-        return view('editnote', [
+        return view('notes.edit', [
             'notes' => \App\Models\Note::query()->where('id', $id)->find($id)
         ]);
     }

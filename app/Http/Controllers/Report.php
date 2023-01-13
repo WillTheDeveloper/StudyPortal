@@ -39,7 +39,7 @@ class Report extends Controller
 
     public function details($id)
     {
-        return view('reportdetails', [
+        return view('reports.details', [
             'data' => \App\Models\Report::query()->find($id)
         ]);
     }
@@ -61,7 +61,7 @@ class Report extends Controller
 
     public function overview()
     {
-        return view('reports', [
+        return view('reports.overview', [
             'reports' => \App\Models\Report::query()->orderByDesc('created_at')->paginate(10),
             'stats' => \App\Models\Report::query()->select('reports.resolved'),
         ]);
@@ -69,14 +69,14 @@ class Report extends Controller
 
     public function resolved()
     {
-        return view('resolved', [
+        return view('reports.resolved', [
             'reports' => \App\Models\Report::query()->where('reports.resolved', true)->paginate(10)
         ]);
     }
 
     public function unresolved()
     {
-        return view('unresolved', [
+        return view('reports.unresolved', [
             'reports' => \App\Models\Report::query()->where('reports.resolved', false)->paginate(10)
         ]);
     }

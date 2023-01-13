@@ -9,7 +9,7 @@ class Star extends Controller
 {
     public function starred()
     {
-        return view('starred', [
+        return view('resources.starred', [
             'starred' => \App\Models\Star::query()->where('user_id', auth()->id())->paginate(10)
         ]);
     }

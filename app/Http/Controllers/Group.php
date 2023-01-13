@@ -16,7 +16,7 @@ class Group extends Controller
     {
         $this->authorize('view', UserGroup::find($id));
 
-        return view('managegroups', [
+        return view('groups.manage', [
             'groupstuff' => UserGroup::all()->where('id', $id)->find($id)
         ]);
     }
@@ -43,7 +43,7 @@ class Group extends Controller
     {
         $this->authorize('update', UserGroup::find($id));
 
-        return view('addusertogroup', [
+        return view('groups.add', [
             'users' => \App\Models\User::all()->where('is_tutor', 0),
             'groupid' => $id,
         ]);
@@ -75,7 +75,7 @@ class Group extends Controller
     {
         $this->authorize('create', UserGroup::class);
 
-        return view('creategroup', [
+        return view('groups.create', [
             'subjects' => Subject::all()
         ]);
     }
@@ -84,7 +84,7 @@ class Group extends Controller
     {
         $this->authorize('update', UserGroup::find($id));
 
-        return view('editgroup', [
+        return view('groups.edit', [
             'group' => UserGroup::query()->find($id)
         ]);
     }
@@ -106,7 +106,7 @@ class Group extends Controller
     {
         $this->authorize('viewAny', Discussion::class);
 
-        return view('groupdiscussions', [
+        return view('group.discussions', [
             'board' => Discussion::query()->where('discussions.group_id', $id)->orderByDesc('discussions.created_at')->paginate(),
             'id' => $id
         ]);
@@ -162,7 +162,7 @@ class Group extends Controller
     {
         $this->authorize('viewAny', Reply::class);
 
-        return view('discussionschat', [
+        return view('group.chat', [
             'main' => Discussion::query()->where('discussions.id', $id)->orderByDesc('created_at')->firstOrFail(),
             'replies' => Reply::query()->where('replies.discussion_id', $id)->orderByDesc('created_at')->get()
         ]);

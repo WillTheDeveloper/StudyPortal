@@ -10,7 +10,7 @@ class Blog extends Controller
 {
     public function all(Request $request)
     {
-        return view('blog', [
+        return view('blog.index', [
             'articles' => \App\Models\Blog::query()
                 ->where('blogs.visible', 1)
                 ->when($request->query('type'), function ($query, $type) {
@@ -23,7 +23,7 @@ class Blog extends Controller
 
     public function show($slug)
     {
-        return view('blogread', [
+        return view('blog.show', [
             'content' => \App\Models\Blog::query()
                 ->where('blogs.slug', $slug)
                 ->where('blogs.visible', 1)
@@ -33,7 +33,7 @@ class Blog extends Controller
 
     public function make()
     {
-        return view('blogcreate');
+        return view('blog.create');
     }
 
     public function postit(Request $request)
@@ -78,7 +78,7 @@ class Blog extends Controller
 
     public function hidden() //GET
     {
-        return view('bloghidden', [
+        return view('blog.hidden', [
             'articles' => \App\Models\Blog::query()
                 ->where('blogs.visible', 0)
                 ->orderByDesc('blogs.created_at')

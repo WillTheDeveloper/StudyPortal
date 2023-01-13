@@ -15,7 +15,7 @@ class Webhook extends Controller
 
     public function new()
     {
-        return view('webhooknew');
+        return view('webhooks.new');
     }
 
     public function createWebhook(Request $request)

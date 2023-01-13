@@ -74,7 +74,7 @@ class Ticket extends Controller
     {
         $this->authorize('create', \App\Models\Ticket::class);
 
-        return view('createticket', [
+        return view('tickets.create', [
             'subjects' => Subject::query()->get(),
             'tutors' => \App\Models\User::query()
                 ->where('is_tutor', true)->get()
@@ -103,7 +103,7 @@ class Ticket extends Controller
     {
         $this->authorize('view', \App\Models\Ticket::query()->find($id));
 
-        return view('ticket', [
+        return view('tickets.show', [
             'ticket' => \App\Models\Ticket::query()->findOrFail($id),
             'messages' => \App\Models\Message::query()
                 ->where('ticket_id', $id)->get()
