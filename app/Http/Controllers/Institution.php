@@ -10,7 +10,7 @@ class Institution extends Controller
     {
         $this->authorize('viewAny', \App\Models\Institution::class);
 
-        return view('institutions',
+        return view('institutions.view',
         [
             'all' => \App\Models\Institution::query()->orderByDesc('institutions.institution')->paginate(25),
         ]);
@@ -20,7 +20,7 @@ class Institution extends Controller
     {
         $this->authorize('view', \App\Models\Institution::query()->firstWhere('joincode', $joincode));
 
-        return view('institutionmanage', [
+        return view('institutions.manage', [
             'institution' => \App\Models\Institution::query()->where('institutions.joincode', $joincode)->firstOrFail()
         ]);
     }
