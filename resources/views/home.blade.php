@@ -448,7 +448,7 @@
             <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                 <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Study Portal Team</h2>
                 <p class="text-xl text-gray-800">Official members of the Study Portal Team who made this project a reality from day 1.</p>
-                <p class="text-xs text-gray-800">Last updated: <a href="https://github.com/WillTheDeveloper/StudyPortal/commit/bb948608ce396a12f8a8880828d9342590088c2c">6th December 2022 @ 11:00</a></p>
+                <p class="text-xs text-gray-800">Last updated: 6th December 2022 @ 11:00</p>
             </div>
             <ul role="list" class="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
                 <li>
@@ -479,7 +479,7 @@
             <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
                 <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Our contributors</h2>
                 <p class="text-xl text-gray-800">Group of open source developers who support and have contributed to this project.</p>
-                <p class="text-xs text-gray-800">Last updated: <a href="https://github.com/WillTheDeveloper/StudyPortal/commit/bb948608ce396a12f8a8880828d9342590088c2c">6th December 2022 @ 11:00</a></p>
+                <p class="text-xs text-gray-800">Last updated: 15th January 2023 @ 16:30</p>
             </div>
             <ul role="list" class="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
                 <li>
@@ -519,6 +519,20 @@
                                 <p class="text-gray-600">1 commits</p>
                                 <p class="text-green-600">438++</p>
                                 <p class="text-red-600">9,680--</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="space-y-4">
+                        <img class="mx-auto h-20 w-20 rounded-full lg:h-24 lg:w-24" src="https://avatars.githubusercontent.com/u/84431594?v=4" alt="">
+                        <div class="space-y-2">
+                            <div class="text-xs font-medium lg:text-sm">
+                                <h3>kkumar-gcc</h3>
+                                <p class="text-gray-600">2 commits</p>
+                                <p class="text-green-600">18,803++</p>
+                                <p class="text-red-600">18,795--</p>
                             </div>
                         </div>
                     </div>
