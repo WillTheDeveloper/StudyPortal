@@ -138,18 +138,22 @@
                                                     <dt class="text-sm font-medium text-gray-500">Full name</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$user->name}}</dd>
                                                 </div>
+                                                @isset($user->username)
                                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                                     <dt class="text-sm font-medium text-gray-500">Username</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$user->username}}</dd>
                                                 </div>
+                                                @endisset
                                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                                     <dt class="text-sm font-medium text-gray-500">Email address</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$user->email}}</dd>
                                                 </div>
+                                                @isset($user->Institution()->institution)
                                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                                     <dt class="text-sm font-medium text-gray-500">Institution</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$user->Institution->institution}}</dd>
                                                 </div>
+                                                @endisset
                                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                                     <dt class="text-sm font-medium text-gray-500">Account created</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$user->created_at->format('h:m - n D M Y')}}</dd>
@@ -166,10 +170,12 @@
                                                     <dt class="text-sm font-medium text-gray-500">Reports associated</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$user->Report->count()}}</dd>
                                                 </div>
+                                                @isset($user->bio)
                                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                                     <dt class="text-sm font-medium text-gray-500">Bio</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{$user->bio}}</dd>
                                                 </div>
+                                                @endisset
                                                 <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                                                     <dt class="text-sm font-medium text-gray-500">Permission level</dt>
                                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
