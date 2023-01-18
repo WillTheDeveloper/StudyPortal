@@ -369,7 +369,7 @@
                                         </div>
                                         <div class="mt-8">
                                             <h3 class="text-lg font-medium">
-                                                <a href="#" class="focus:outline-none">
+                                                <a href="{{route('timetable')}}" class="focus:outline-none">
                                                     <!-- Extend touch target to entire panel -->
                                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                                     Set up your timetable
@@ -395,7 +395,7 @@
                                         </div>
                                         <div class="mt-8">
                                             <h3 class="text-lg font-medium">
-                                                <a href="#" class="focus:outline-none">
+                                                <a href="{{route('assignments')}}" class="focus:outline-none">
                                                     <!-- Extend touch target to entire panel -->
                                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                                     View your assignments
@@ -421,7 +421,7 @@
                                         </div>
                                         <div class="mt-8">
                                             <h3 class="text-lg font-medium">
-                                                <a href="#" class="focus:outline-none">
+                                                <a href="{{route('community')}}" class="focus:outline-none">
                                                     <!-- Extend touch target to entire panel -->
                                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                                     Post in your community
@@ -447,7 +447,7 @@
                                         </div>
                                         <div class="mt-8">
                                             <h3 class="text-lg font-medium">
-                                                <a href="#" class="focus:outline-none">
+                                                <a href="{{route('profile')}}" class="focus:outline-none">
                                                     <!-- Extend touch target to entire panel -->
                                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                                     Manage your profile
@@ -473,7 +473,7 @@
                                         </div>
                                         <div class="mt-8">
                                             <h3 class="text-lg font-medium">
-                                                <a href="#" class="focus:outline-none">
+                                                <a href="{{route('tickets')}}" class="focus:outline-none">
                                                     <!-- Extend touch target to entire panel -->
                                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                                     Create a support ticket
@@ -499,7 +499,7 @@
                                         </div>
                                         <div class="mt-8">
                                             <h3 class="text-lg font-medium">
-                                                <a href="#" class="focus:outline-none">
+                                                <a href="{{route('resources')}}" class="focus:outline-none">
                                                     <!-- Extend touch target to entire panel -->
                                                     <span class="absolute inset-0" aria-hidden="true"></span>
                                                     Find any resources you need
