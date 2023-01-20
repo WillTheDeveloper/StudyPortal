@@ -8,7 +8,7 @@ class Dashboard extends Controller
 {
     public function show()
     {
-        return view('dashboard', [
+        return view('dashboard.dashboard', [
             'notifications' => auth()->user()->notifications()->paginate(10)
         ]);
     }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Notification extends Controller
 {
     public function show() {
-        return view('notifications', [
+        return view('dashboard.notifications', [
             'notify' => Auth::user()->unreadNotifications()->orderByDesc('notifications.created_at')->get(),
         ]);
     }
@@ -24,6 +24,6 @@ class Notification extends Controller
     public function markAllAsRead() {
         Auth::user()->unreadNotifications()->update(['read_at' => now()]);
 
-        return view('notifications');
+        return view('dashboard.notifications');
     }
 }

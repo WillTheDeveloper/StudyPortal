@@ -21,7 +21,7 @@ class User extends Controller
     {
         $this->authorize('delete', \App\Models\User::query()->find(auth()->id()));
 
-        return view('confirmdeleteaccount', [
+        return view('dashboard.confirmdeleteaccount', [
             'name' => auth()->user()->name,
             'posts' => auth()->user()->Post()->count(),
             'comments' => auth()->user()->Comment()->count(),
@@ -56,7 +56,7 @@ class User extends Controller
     {
         $this->authorize('update', \App\Models\User::query()->find(auth()->id()));
 
-        return view('settings');
+        return view('dashboard.settings');
     }
 
     public function updateSettings()
@@ -85,7 +85,7 @@ class User extends Controller
             ]
         );
         auth()->user()->save();
-        return redirect('profile');
+        return redirect(route('profile'));
     }
 
     public function joinInstitution(JoinInstitution $joinInstitution)
@@ -102,7 +102,7 @@ class User extends Controller
             $user->save();
         }
 
-        return redirect(route('profile'));
+        return redirect(route(route('profile')));
     }
 
     public function manageUser($id)

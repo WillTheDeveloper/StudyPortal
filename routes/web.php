@@ -47,7 +47,7 @@ Route::get('/dashboard', [Dashboard::class, 'show'])
     ->middleware('auth')
     ->name('dashboard');
 Route::get('/profile', function () {
-    return view('profile');
+    return view('dashboard.profile');
 })->middleware(['auth'])->name('profile');
 Route::get('/groups', function (Request $request) {
     if ($request->user()->is_tutor) {
