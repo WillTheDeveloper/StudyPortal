@@ -33,13 +33,13 @@ use Illuminate\Http\Request;
 
 // Normal routes
 Route::get('/', function () {
-    return view('home');
+    return view('guest.home');
 })->name('home');
 Route::get('/features', function () {
-    return view('features');
+    return view('guest.features');
 })->name('features');
 Route::get('/contact', function () {
-    return view('contact');
+    return view('guest.contact');
 })->name('contact');
 
 // Dashboard routes
