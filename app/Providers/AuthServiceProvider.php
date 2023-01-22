@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Models\Comment;
+use App\Models\Group;
 use App\Models\Post;
 use App\Policies\CommentPolicy;
+use App\Policies\GroupPolicy;
 use App\Policies\PostPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -18,7 +20,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Post::class => PostPolicy::class,
-        Comment::class => CommentPolicy::class
+        Comment::class => CommentPolicy::class,
+        Group::class=>GroupPolicy::class,
     ];
 
     /**

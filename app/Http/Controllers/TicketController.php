@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Mail\TicketCreated;
 use App\Mail\TicketResolved;
+use App\Models\Message;
 use App\Models\Subject;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
-class Ticket extends Controller
+class TicketController extends Controller
 {
     public function switch(Request $request)
     {
@@ -26,7 +28,7 @@ class Ticket extends Controller
 
     public function studentview()
     {
-        $this->authorize('viewAnyStudent', \App\Models\Ticket::class);
+        $this->authorize('viewAnyStudent', Ticket::class);
 
         $request = Request();
 
@@ -34,7 +36,7 @@ class Ticket extends Controller
         $status = $request->query('status');
 
         return view('tickets.studenttickets', [
-            'tickets' => \App\Models\Ticket::query()
+            'tickets' => Ticket::query()
                 ->where('student_id', auth()->id())
                 ->when($subject, function ($query, $subject) {
                     $a = Subject::query()->firstWhere('subject', $subject)->id;
@@ -49,7 +51,7 @@ class Ticket extends Controller
 
     public function tutorview()
     {
-        $this->authorize('viewAnyTutor', \App\Models\Ticket::class);
+        $this->authorize('viewAnyTutor', Ticket::class);
 
         $request = Request();
 
@@ -57,7 +59,7 @@ class Ticket extends Controller
         $status = $request->query('status');
 
         return view('tickets.tutortickets', [
-            'tickets' => \App\Models\Ticket::query()
+            'tickets' => Ticket::query()
                 ->where('tutor_id', auth()->id())
                 ->when($subject, function ($query, $subject) {
                     $a = Subject::query()->firstWhere('subject', $subject)->id;
@@ -83,9 +85,9 @@ class Ticket extends Controller
 
     public function new(Request $request)
     {
-        $this->authorize('create', \App\Models\Ticket::class);
+        $this->authorize('create',Ticket::class);
 
-        $t = \App\Models\Ticket::query()->create([
+        $t = Ticket::query()->create([
             'student_id' => $request->user()->id,
             'tutor_id' => $request->input('tutor'),
             'question' => $request->input('question'),
@@ -94,32 +96,32 @@ class Ticket extends Controller
             'status' => 'new'
         ]);
 
-        Mail::to($request->user())->send(new TicketCreated(\App\Models\Ticket::query()->find($t->id)));
+        Mail::to($request->user())->send(new TicketCreated(Ticket::query()->find($t->id)));
 
         return redirect(route('ticket.id', $t->id));
     }
 
     public function viewticket($id)
     {
-        $this->authorize('view', \App\Models\Ticket::query()->find($id));
+        $this->authorize('view', Ticket::query()->find($id));
 
         return view('tickets.show', [
-            'ticket' => \App\Models\Ticket::query()->findOrFail($id),
-            'messages' => \App\Models\Message::query()
+            'ticket' => Ticket::query()->findOrFail($id),
+            'messages' => Message::query()
                 ->where('ticket_id', $id)->get()
         ]);
     }
 
     public function resolved($id, Request $request)
     {
-        $this->authorize('update', \App\Models\Ticket::query()->findOrFail($id));
+        $this->authorize('update',Ticket::query()->findOrFail($id));
 
-        \App\Models\Ticket::query()->find($id)
+        Ticket::query()->find($id)
             ->update([
                 'status' => 'completed'
             ]);
 
-        Mail::to($request->user())->send(new TicketResolved(\App\Models\Ticket::query()->find($id)));
+        Mail::to($request->user())->send(new TicketResolved(Ticket::query()->find($id)));
 
         return redirect(route('ticket.id', $id));
     }

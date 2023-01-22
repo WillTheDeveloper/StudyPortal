@@ -5,26 +5,26 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateNewKanbanBoard;
 use App\Models\KanbanGroup;
 use App\Models\KanbanItem;
-use App\Models\Kanban as Kan;
+use App\Models\Kanban;
 use Illuminate\Http\Request;
 
-class Kanban extends Controller
+class KanbanController extends Controller
 {
     public function list()
     {
-        $this->authorize('viewAny', Kan::class);
+        $this->authorize('viewAny', Kanban::class);
 
         return view('kanban.index',
         [
-            'kanban' => Kan::all()->where('user_id', auth()->id()),
+            'kanban' => Kanban::all()->where('user_id', auth()->id()),
         ]);
     }
 
     public function view($id)
     {
-        $kanban = Kan::find($id)->id;
+        $kanban = Kanban::find($id)->id;
 
-        $this->authorize('view', Kan::query()->findOrFail($kanban));
+        $this->authorize('view', Kanban::query()->findOrFail($kanban));
         $this->authorize('view', KanbanGroup::query()
             ->where('kanban_groups.kanban_id', $kanban)
             ->where('kanban_groups.user_id', auth()->id())
@@ -32,7 +32,7 @@ class Kanban extends Controller
 
         return view('kanban.show',
         [
-            'kanban' => Kan::all()->where('id', $id)->find($id),
+            'kanban' => Kanban::all()->where('id', $id)->find($id),
             'groups' => KanbanGroup::all()->where('kanban_id', $id),
             'items' => KanbanItem::all()->where('kanban_id', $id)
         ]);
@@ -47,7 +47,7 @@ class Kanban extends Controller
     {
         $request->validated();
 
-        $kan = new Kan(
+        $kan = new Kanban(
             [
                 'user_id' => $request->user()->id,
                 'name' => $request->input('title'),
@@ -69,7 +69,7 @@ class Kanban extends Controller
     {
         KanbanItem::query()->where('kanban_items.kanban_id', $id)->delete();
         KanbanGroup::query()->where('kanban_groups.kanban_id', $id)->delete();
-        Kan::query()->where('kanbans.id', $id)->delete();
+        Kanban::query()->where('kanbans.id', $id)->delete();
 
         return redirect(route('kanban.list'));
     }

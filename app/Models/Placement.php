@@ -10,7 +10,14 @@ class Placement extends Model
 {
     use HasFactory;
     use HasUuids;
-
+    protected $fillable = [
+        'location',
+        'company',
+        'role',
+        'title',
+        'description',
+        'slug',
+    ];
     public function User()
     {
         return $this->belongsTo(User::class);

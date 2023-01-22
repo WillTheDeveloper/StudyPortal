@@ -6,7 +6,7 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class Todo extends Controller
+class TodoController extends Controller
 {
     public function new(Request $request) // POST
     {

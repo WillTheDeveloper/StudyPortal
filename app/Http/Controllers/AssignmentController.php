@@ -8,17 +8,17 @@ use App\Mail\AssignmentDeleted;
 use App\Models\Subject;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Models\Assignment as Assign;
+use App\Models\Assignment;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
-class Assignment extends Controller
+class AssignmentController extends Controller
 {
     public function due()
     {
-        $this->authorize('viewAny', Assign::class);
+        $this->authorize('viewAny', Assignment::class);
 
         return view('assignments.index', [
             'assignments' => auth()->user()->Assignment()
@@ -30,7 +30,7 @@ class Assignment extends Controller
 
     public function completed()
     {
-        $this->authorize('viewAny', Assign::class);
+        $this->authorize('viewAny', Assignment::class);
 
         return view('assignments.completed', [
             'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '!=', null)->paginate(10)
@@ -39,7 +39,7 @@ class Assignment extends Controller
 
     public function late()
     {
-        $this->authorize('viewAny', Assign::class);
+        $this->authorize('viewAny',Assignment::class);
 
         return view('assignments.late', [
             'assignments' => auth()->user()->Assignment()->wherePivot('submitted_on', '=', null)->where('duedate', '<', Carbon::today()->toDate())->paginate(10)
@@ -48,9 +48,9 @@ class Assignment extends Controller
 
     public function manage($id)
     {
-        $this->authorize('view', Assign::query()->find($id));
+        $this->authorize('view', Assignment::query()->find($id));
 
-        $hasseen = Assign::query()->find($id);
+        $hasseen = Assignment::query()->find($id);
 
         if (! $hasseen->has_seen == "1") {
             DB::table('assignment_user')
@@ -64,13 +64,13 @@ class Assignment extends Controller
         }
 
         return view('assignments.manage', [
-            'assignment' => Assign::all()->find($id)
+            'assignment' => Assignment::all()->find($id)
         ]);
     }
 
     public function create()
     {
-        $this->authorize('create', Assign::class);
+        $this->authorize('create', Assignment::class);
 
         return view('assignments.create', [
             'subjects' => Subject::all(),
@@ -86,7 +86,7 @@ class Assignment extends Controller
     {
         $this->authorize('create', Assign::class);
 
-        $assignment = new Assign(
+        $assignment = new Assignment(
             [
                 'title' => $request->input('title'),
                 'duedate' => $request->input('due-date'),
@@ -98,7 +98,7 @@ class Assignment extends Controller
         $assignment->save();
 
         $array = $request->input(['group-select']); // Get the numbers from the select
-        $assign = Assign::find($assignment->id); // Get the assignment that just got created
+        $assign = Assignment::find($assignment->id); // Get the assignment that just got created
 
         $users = DB::table('group_user')
             ->where('group_id', $array)->get('user_id')->keyBy('user_id')->keys()->toArray();
@@ -128,10 +128,10 @@ class Assignment extends Controller
 
     public function delete($id, Request $request)
     {
-        $this->authorize('delete', Assign::query()->find($id));
+        $this->authorize('delete', Assignment::query()->find($id));
 
         if ($request->user()->is_tutor) {
-            Assign::query()->where('assignments.id', $id)->findOrFail($id)->delete();
+            Assignment::query()->where('assignments.id', $id)->findOrFail($id)->delete();
 
             $users = DB::table('assignment_user')->where('assignment_user.assignment_id', $id)->get('id');
             $array = User::query()->where('id', $users)->get('email');
@@ -151,21 +151,21 @@ class Assignment extends Controller
 
     public function edit($id)
     {
-        $this->authorize('update', Assign::query()->find($id));
+        $this->authorize('update', Assignment::query()->find($id));
 
         return view('assignments.edit', [
-            'assignment' => Assign::query()->where('assignments.id', $id)->findOrFail($id),
+            'assignment' => Assignment::query()->where('assignments.id', $id)->findOrFail($id),
             'subjects' => Subject::query()->get('subjects.subject')
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $this->authorize('update', Assign::query()->find($id));
+        $this->authorize('update', Assignment::query()->find($id));
 
         $old = $request->all();
 
-        $new = Assign::all()->find($id)->update(
+        $new = Assignment::all()->find($id)->update(
             [
                 'subject_id' => $request->input('subject-select'),
                 'title' => $request->input('title'),
@@ -173,7 +173,7 @@ class Assignment extends Controller
             ]
         );
 
-        $assignment = \App\Models\Assignment::query()->where('assignments.id', $id)->find($id);
+        $assignment = Assignment::query()->where('assignments.id', $id)->find($id);
 
         return redirect(route('assignments.manage', $id));
     }

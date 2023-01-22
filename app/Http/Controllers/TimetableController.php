@@ -2,30 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Timetable;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class Timetable extends Controller
+class TimetableController extends Controller
 {
     public function view()
     {
         return view('timetable.index', [
-            'monday' => \App\Models\Timetable::query()
+            'monday' => Timetable::query()
                 ->where('timetables.user_id', auth()->id())
                 ->where('timetables.weekday', 'Monday')
                 ->get('*'),
-            'tuesday' => \App\Models\Timetable::query()
+            'tuesday' => Timetable::query()
                 ->where('timetables.user_id', auth()->id())
                 ->where('timetables.weekday', 'Tuesday')
                 ->get('*'),
-            'wednesday' => \App\Models\Timetable::query()
+            'wednesday' => Timetable::query()
                 ->where('timetables.user_id', auth()->id())
                 ->where('timetables.weekday', 'Wednesday')
                 ->get('*'),
-            'thursday' => \App\Models\Timetable::query()
+            'thursday' => Timetable::query()
                 ->where('timetables.user_id', auth()->id())
                 ->where('timetables.weekday', 'Thursday')
                 ->get('*'),
-            'friday' => \App\Models\Timetable::query()
+            'friday' => Timetable::query()
                 ->where('timetables.user_id', auth()->id())
                 ->where('timetables.weekday', 'Friday')
                 ->get('*'),
@@ -34,14 +36,15 @@ class Timetable extends Controller
 
     public function add()
     {
+        $user=User::where('id',auth()->user()->id)->get();
         return view('timetable.add', [
-            'subjects' => auth()->user()->Subject()->get(),
+            'subjects' => $user->Subject(),
         ]);
     }
 
     public function create(Request $request)
     {
-        \App\Models\Timetable::query()->create(
+        Timetable::query()->create(
             [
                 'start' => $request->input('start'),
                 'end' => $request->input('end'),

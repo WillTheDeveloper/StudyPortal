@@ -192,6 +192,7 @@ class TutorTest extends TestCase
         );
         $this->actingAs($user);
         $this->assertAuthenticated();
+       
         $post = $this->post(route('groups.delete', $group->create()->id));
         $post->assertRedirect();
     }

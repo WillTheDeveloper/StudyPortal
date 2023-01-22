@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Application as App;
+use App\Models\Application;
+use App\Models\Placement;
 
-class Application extends Controller
+class ApplicationController extends Controller
 {
     public function all()
     {
-        $this->authorize('viewAny', App::class);
+        $this->authorize('viewAny', Application::class);
 
         return view('placement.applications', [
-            'applications' => \App\Models\Application::query()
+            'applications' => Application::query()
                 ->where('user_id', auth()->id())
                 ->paginate(10)
         ]);
@@ -20,7 +21,7 @@ class Application extends Controller
 
     public function apply($slug)
     {
-        $this->authorize('create', App::class);
+        $this->authorize('create', Application::class);
 
         return view('application', [
             'slug' => $slug
@@ -29,12 +30,12 @@ class Application extends Controller
 
     public function submit(Request $request, $slug)
     {
-        $this->authorize('create', App::class);
+        $this->authorize('create', Application::class);
 
-        \App\Models\Application::query()->create([
+        Application::query()->create([
             'cv' => $request->input('cv'),
             'user_id' => auth()->id(),
-            'placement_id' => \App\Models\Placement::query()->firstWhere('slug', $slug)->id,
+            'placement_id' => Placement::query()->firstWhere('slug', $slug)->id,
             'status' => 'pending'
         ]);
 
@@ -43,34 +44,34 @@ class Application extends Controller
 
     public function allapplications($slug)
     {
-        $this->authorize('view', App::query()->firstWhere('slug', $slug));
+        $this->authorize('view', Application::query()->firstWhere('slug', $slug));
 
-        $id = \App\Models\Placement::query()->firstWhere('slug', $slug)->id;
+        $id = Placement::query()->firstWhere('slug', $slug)->id;
 
         return view('allapplications', [
-            'applicants' => \App\Models\Application::query()
+            'applicants' => Application::query()
                 ->where('placement_id', $id)
                 ->where('status', 'pending')
                 ->paginate(10),
-            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug)
+            'placement' => Placement::query()->firstWhere('slug', $slug)
         ]);
     }
 
     public function review($slug)
     {
-        $this->authorize('view', App::query()->firstWhere('slug', $slug));
+        $this->authorize('view', Application::query()->firstWhere('slug', $slug));
 
         return view('reviewapplication', [
-            'application' => \App\Models\Application::query()
+            'application' => Application::query()
                 ->firstWhere('slug', $slug)
         ]);
     }
 
     public function redact($id)
     {
-        $this->authorize('update', App::query()->findOrFail($id));
+        $this->authorize('update', Application::query()->findOrFail($id));
 
-        \App\Models\Application::query()
+        Application::query()
             ->find($id)
             ->update([
                 'status' => 'redacted'
@@ -82,7 +83,7 @@ class Application extends Controller
     public function id($id)
     {
         return view('managemyapplication', [
-            'application' => \App\Models\Application::query()->findOrFail($id)
+            'application' => Application::query()->findOrFail($id)
         ]);
     }
 }

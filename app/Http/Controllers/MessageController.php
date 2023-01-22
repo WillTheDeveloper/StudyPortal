@@ -3,24 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NewTicketMessage;
+use App\Models\Message;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class Message extends Controller
+class MessageController extends Controller
 {
     public function create($ticket, Request $request)
     {
         $this->authorize('create', \App\Models\Message::class);
 
-        $d = \App\Models\Message::query()->create([
+        $d = Message::query()->create([
             'ticket_id' => $ticket,
             'user_id' => auth()->id(),
             'message' => $request->input('message')
         ]);
 
         Mail::to([
-            \App\Models\Ticket::query()->find($ticket)->Student->email,
-            \App\Models\Ticket::query()->find($ticket)->Tutor->email
+            Ticket::query()->find($ticket)->Student->email,
+            Ticket::query()->find($ticket)->Tutor->email
         ])->send(new NewTicketMessage($d));
 
         return redirect(route('ticket.id', $ticket));

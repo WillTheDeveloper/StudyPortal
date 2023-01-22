@@ -2,31 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use Illuminate\Http\Request;
 
-class Note extends Controller
+class NoteController extends Controller
 {
     public function show()
     {
         $this->authorize('viewAny', \App\Models\Note::class);
 
         return view('notes.show', [
-            'list' => \App\Models\Note::query()->where('notes.user_id', auth()->id())->paginate(10),
+            'list' => Note::query()->where('notes.user_id', auth()->id())->paginate(10),
         ]);
     }
 
     public function create()
     {
-        $this->authorize('create', \App\Models\Note::class);
+        $this->authorize('create', Note::class);
 
         return view('notes.create');
     }
 
     public function newNote(Request $request)
     {
-        $this->authorize('create', \App\Models\Note::class);
+        $this->authorize('create', Note::class);
 
-        $note = \App\Models\Note::query()->create(
+        $note = Note::query()->create(
             [
                 'name' => $request->input('title'),
                 'description' => $request->input('description'),
@@ -41,7 +42,7 @@ class Note extends Controller
     }
 
     public function save($id, Request $request) {
-        $this->authorize('update', \App\Models\Note::query()->find($id));
+        $this->authorize('update', Note::query()->find($id));
 
         $note = \App\Models\Note::query()->where('notes.id', $id)->update(
             [
@@ -54,45 +55,45 @@ class Note extends Controller
 
     public function view($id)
     {
-        $this->authorize('view', \App\Models\Note::query()->find($id));
+        $this->authorize('view', Note::query()->find($id));
 
         return view('notes.view', [
-            'render' => \App\Models\Note::query()->where('id', $id)->find($id)
+            'render' => Note::query()->where('id', $id)->find($id)
         ]);
     }
 
     public function edit($id)
     {
-        $this->authorize('update', \App\Models\Note::query()->find($id));
+        $this->authorize('update',Note::query()->find($id));
 
         return view('notes.edit', [
-            'notes' => \App\Models\Note::query()->where('id', $id)->find($id)
+            'notes' =>Note::query()->where('id', $id)->find($id)
         ]);
     }
 
     public function confirmDelete($id)
     {
-        $this->authorize('delete', \App\Models\Note::query()->find($id));
+        $this->authorize('delete',Note::query()->find($id));
 
         return view('deletenote', [
-            'confirm' => \App\Models\Note::query()->find($id)
+            'confirm' => Note::query()->find($id)
         ]);
     }
 
     public function deleteConfirmed($id)
     {
-        $this->authorize('delete', \App\Models\Note::query()->find($id));
+        $this->authorize('delete',Note::query()->find($id));
 
-        \App\Models\Note::query()->find($id)->delete();
+        Note::query()->find($id)->delete();
 
         return redirect(route('note.show'));
     }
 
     public function makePrivate($id)
     {
-        $this->authorize('update', \App\Models\Note::query()->find($id));
+        $this->authorize('update',Note::query()->find($id));
 
-        \App\Models\Note::findOrFail($id)->update(
+        Note::findOrFail($id)->update(
             [
                 'private' => true
             ]
@@ -103,9 +104,9 @@ class Note extends Controller
 
     public function makePublic($id)
     {
-        $this->authorize('update', \App\Models\Note::query()->find($id));
+        $this->authorize('update',Note::query()->find($id));
 
-        \App\Models\Note::findOrFail($id)->update(
+        Note::findOrFail($id)->update(
             [
                 'private' => false
             ]

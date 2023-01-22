@@ -22,6 +22,8 @@ class PlacementFactory extends Factory
             'company' => $this->faker->company,
             'role' => $this->faker->jobTitle,
             'title' => $t =$this->faker->jobTitle,
+            'description'=>$this->faker->text(300),
+            'requirements'=>$this->faker->text(100),
             'slug' => Str::slug($t)
         ];
     }

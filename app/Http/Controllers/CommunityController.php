@@ -20,7 +20,7 @@ use Illuminate\Pagination;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
-class Community extends Controller
+class CommunityController extends Controller
 {
     public function search(Request $request)
     {

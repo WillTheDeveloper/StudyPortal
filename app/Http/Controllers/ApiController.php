@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Api extends Controller
+class ApiController extends Controller
 {
     public function view()
     {

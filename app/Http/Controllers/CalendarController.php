@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 
-class Calendar extends Controller
+class CalendarController extends Controller
 {
     public function view()
     {
@@ -15,7 +16,7 @@ class Calendar extends Controller
 //        $day = CarbonPeriod::start(Carbon::today()->startOfMonth()->toDate())->end(Carbon::today()->endOfMonth()->toDate())->toArray();
 
         return view('calendar', [
-            'events' => \App\Models\Event::query()
+            'events' => Event::query()
                 ->where('user_id', auth()->id())
                 ->whereMonth('date', $month)
                 ->whereYear('date', $year),

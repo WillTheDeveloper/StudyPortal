@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
-class ThirdPartyAuthentication extends Controller
+class ThirdPartyAuthenticationController extends Controller
 {
     public function githubRedirect()
     {
@@ -17,7 +18,7 @@ class ThirdPartyAuthentication extends Controller
     {
         $githubUser = Socialite::driver('github')->user();
 
-        $user = \App\Models\User::query()->where('users.github_id', $githubUser->id)->first();
+        $user = User::query()->where('users.github_id', $githubUser->id)->first();
 
         if ($user) {
             $user->update([

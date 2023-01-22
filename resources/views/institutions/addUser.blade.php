@@ -95,7 +95,7 @@
                     <div class="mt-2 max-w-xl text-sm text-gray-500">
                         <p>Enter the students email to add them to the institution if they are not already part of one.</p>
                     </div>
-                    <form class="mt-5 sm:flex sm:items-center" action="{{route('institution.submit-user')}}" method="post"> //TODO: Add parameter to controller to pass to action
+                    <form class="mt-5 sm:flex sm:items-center" action="{{route('institution.submit-user',$joincode)}}" method="post"> //TODO: Add parameter to controller to pass to action
                         <div class="w-full sm:max-w-xs">
                             <label for="email" class="sr-only">Email</label>
                             <input type="email" name="email" id="email" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">

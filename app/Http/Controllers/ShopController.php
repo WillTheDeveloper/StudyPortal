@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
-class Shop extends Controller
+class ShopController extends Controller
 {
     public function view()
     {
@@ -19,9 +19,10 @@ class Shop extends Controller
 
     public function product($slug)
     {
+        $product = Product::query()->where('slug', $slug)->first();
         return view('shop.product', [
-            'item' => Product::query()->firstWhere('slug', $slug),
-            'reviews' => Review::query()->where('product_id', Product::query()->where('slug', $slug)->first()->id)->get()
+            'item' => $product,
+            'reviews' => Review::query()->where('product_id', $product->id)->get()
         ]);
     }
 

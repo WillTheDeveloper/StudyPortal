@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class Subject extends Controller
+class SubjectController extends Controller
 {
     public function manage()
     {
         return view('subjects.manage', [
-            'data' => \App\Models\Subject::query()->orderBy('subject')->paginate(15)
+            'data' => Subject::query()->orderBy('subject')->paginate(15)
         ]);
     }
 
@@ -21,7 +23,7 @@ class Subject extends Controller
 
     public function save(Request $request)
     {
-        \App\Models\Subject::query()->create([
+        Subject::query()->create([
             'subject' => $request->input('subject'),
         ]);
 
@@ -31,14 +33,14 @@ class Subject extends Controller
     public function setting($id)
     {
         return view('subjects.settings', [
-            'subject' => \App\Models\Subject::find($id),
-            'users' => \App\Models\Subject::find($id)->User()->orderBy('name')->paginate(6)
+            'subject' => Subject::find($id),
+            'users' => Subject::find($id)->User()->orderBy('name')->paginate(6)
         ]);
     }
 
     public function updatesettings($id, Request $request)
     {
-        \App\Models\Subject::query()->find($id)->update([
+        Subject::query()->find($id)->update([
             'subject' => $request->input('subject')
         ]);
 
@@ -49,7 +51,7 @@ class Subject extends Controller
 
     public function connect(Request $request)
     {
-        \App\Models\User::query()
+        User::query()
             ->where('email', $request->email)
             ->first()
             ->Subject()
@@ -58,7 +60,7 @@ class Subject extends Controller
 
     public function disconnect(Request $request)
     {
-        \App\Models\User::query()
+        User::query()
             ->where('email', $request->email)
             ->first()
             ->Subject()
@@ -67,7 +69,7 @@ class Subject extends Controller
 
     public function disconnectall(Request $request)
     {
-        \App\Models\Subject::query()
+        Subject::query()
             ->find($request->input('subject'))
             ->User()
             ->detach();

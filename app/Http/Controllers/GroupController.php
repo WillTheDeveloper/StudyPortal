@@ -6,28 +6,29 @@ use App\Http\Requests\CreateNewGroup;
 use App\Models\Discussion;
 use App\Models\Reply;
 use App\Models\Subject;
-use App\Models\Group as UserGroup;
+use App\Models\Group;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Group extends Controller
+class GroupController extends Controller
 {
     public function returnView($id)
     {
-        $this->authorize('view', UserGroup::find($id));
+        $this->authorize('view', Group::find($id));
 
         return view('groups.manage', [
-            'groupstuff' => UserGroup::all()->where('id', $id)->find($id)
+            'groupstuff' => Group::all()->where('id', $id)->find($id)
         ]);
     }
 
     public function new(CreateNewGroup $request)
     {
-        $this->authorize('create', UserGroup::class);
+        $this->authorize('create', Group::class);
 
         $request->validated();
 
-        $group = new UserGroup([
+        $group = new Group([
             'name' => $request->input('groupname'),
             'subject_id' => $request->input('subject')
         ]);
@@ -41,19 +42,19 @@ class Group extends Controller
 
     public function add($id)
     {
-        $this->authorize('update', UserGroup::find($id));
+        $this->authorize('update', Group::find($id));
 
         return view('groups.add', [
-            'users' => \App\Models\User::all()->where('is_tutor', 0),
+            'users' => User::all()->where('is_tutor', 0),
             'groupid' => $id,
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $this->authorize('update', UserGroup::find($id));
+        $this->authorize('update', Group::find($id));
 
-        $group = UserGroup::find($id);
+        $group = Group::find($id);
 
         $users = $request->input(['user-select']);
         $group->User()->attach([$users]);
@@ -63,17 +64,17 @@ class Group extends Controller
 
     public function delete($id)
     {
-        $this->authorize('update', UserGroup::find($id));
-
-        UserGroup::query()->where('groups.id', $id)->select('*')->delete();
-        $group = new UserGroup();
+        $this->authorize('update', Group::find($id));
+        dd($id);
+        Group::query()->where('groups.id', $id)->select('*')->delete();
+        $group = new Group();
         $group->User()->detach();
-        return redirect('groups');
+        return redirect(route('groups'));
     }
 
     public function create()
     {
-        $this->authorize('create', UserGroup::class);
+        $this->authorize('create', Group::class);
 
         return view('groups.create', [
             'subjects' => Subject::all()
@@ -82,18 +83,18 @@ class Group extends Controller
 
     public function edit($id)
     {
-        $this->authorize('update', UserGroup::find($id));
+        $this->authorize('update', Group::find($id));
 
         return view('groups.edit', [
-            'group' => UserGroup::query()->find($id)
+            'group' => Group::query()->find($id)
         ]);
     }
 
     public function updatename($id, Request $request)
     {
-        $this->authorize('update', UserGroup::find($id));
+        $this->authorize('update', Group::find($id));
 
-        UserGroup::all()->find($id)->update(
+        Group::all()->find($id)->update(
             [
                 'name' => $request->input('groupname'),
             ]

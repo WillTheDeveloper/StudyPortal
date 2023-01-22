@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
+use App\Models\Placement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class Placement extends Controller
+class PlacementController extends Controller
 {
     public function view()
     {
         $this->authorize('viewAny', Placement::class);
 
         return view('placements', [
-            'placements' => \App\Models\Placement::query()
+            'placements' => Placement::query()
                 ->where('active', true)
                 ->groupBy(['open', 'id'])
                 ->paginate(15),
-            'applications' => \App\Models\Application::query()
+            'applications' =>Application::query()
                 ->where('user_id', auth()->id())
                 ->inRandomOrder()
                 ->limit(2)->get(),
@@ -25,17 +27,17 @@ class Placement extends Controller
 
     public function slug($slug)
     {
-        $this->authorize('view', \App\Models\Placement::query()->where('slug', $slug)->first());
+        $this->authorize('view', Placement::query()->where('slug', $slug)->first());
 
         return view('placement.slug', [
-            'placement' => \App\Models\Placement::query()->firstWhere('slug', $slug),
-            'check' => \App\Models\Application::query()
+            'placement' => Placement::query()->firstWhere('slug', $slug),
+            'check' => Application::query()
                 ->where('user_id', auth()->id())
-                ->where('placement_id', \App\Models\Placement::query()->firstWhere('slug', $slug)->id)
+                ->where('placement_id', Placement::query()->firstWhere('slug', $slug)->id)
                 ->exists(),
-            'application' => \App\Models\Application::query()
+            'application' => Application::query()
                 ->where('user_id', auth()->id())
-                ->where('placement_id', \App\Models\Placement::query()
+                ->where('placement_id', Placement::query()
                     ->firstWhere('slug', $slug)
                     ->id)
                 ->get()->first(),
@@ -46,7 +48,7 @@ class Placement extends Controller
     {
         $this->authorize('create', Placement::class);
 
-        $pm = \App\Models\Placement::query()->create([
+        $pm = Placement::query()->create([
             'user_id' => $request->user()->id,
             'location' => $request->input('location'),
             'company' => $request->input('company'),

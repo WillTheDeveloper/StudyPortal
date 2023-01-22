@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Response;
 use Illuminate\Http\Request;
-use Str;
+use Illuminate\Support\Str;
 
-class Blog extends Controller
+class BlogController extends Controller
 {
     public function all(Request $request)
     {
         return view('blog.index', [
-            'articles' => \App\Models\Blog::query()
+            'articles' => Blog::query()
                 ->where('blogs.visible', 1)
                 ->when($request->query('type'), function ($query, $type) {
                     $query->where('content_type', $type);
@@ -24,7 +25,7 @@ class Blog extends Controller
     public function show($slug)
     {
         return view('blog.show', [
-            'content' => \App\Models\Blog::query()
+            'content' => Blog::query()
                 ->where('blogs.slug', $slug)
                 ->where('blogs.visible', 1)
                 ->firstOrFail()
@@ -60,7 +61,7 @@ class Blog extends Controller
 //        dd($request->all());
 
 
-        \App\Models\Blog::query()->create(
+        Blog::query()->create(
             [
                 'title' => $request->input('title'),
                 'body' => $request->input('content'),
@@ -79,7 +80,7 @@ class Blog extends Controller
     public function hidden() //GET
     {
         return view('blog.hidden', [
-            'articles' => \App\Models\Blog::query()
+            'articles' => Blog::query()
                 ->where('blogs.visible', 0)
                 ->orderByDesc('blogs.created_at')
                 ->paginate(6)
@@ -88,7 +89,7 @@ class Blog extends Controller
 
     public function makeVisible($slug) //POST
     {
-        \App\Models\Blog::query()
+        Blog::query()
             ->where('blogs.slug', $slug)
             ->where('blogs.visible', 0)
             ->select('visible')
@@ -102,7 +103,7 @@ class Blog extends Controller
 
     public function makeHidden($slug) //POST
     {
-        \App\Models\Blog::query()
+        Blog::query()
             ->where('blogs.slug', $slug)
             ->where('blogs.visible', 1)
             ->select('visible')
@@ -116,7 +117,7 @@ class Blog extends Controller
 
     public function enableReplies($slug) //POST
     {
-        \App\Models\Blog::query()
+        Blog::query()
             ->where('blogs.slug', $slug)
             ->where('blogs.replies', 0)
             ->select('replies')
@@ -130,7 +131,7 @@ class Blog extends Controller
 
     public function disableReplies($slug) //POST
     {
-        \App\Models\Blog::query()
+        Blog::query()
             ->where('blogs.slug', $slug)
             ->where('blogs.replies', 1)
             ->select('replies')
@@ -144,7 +145,7 @@ class Blog extends Controller
 
     public function response($slug, Request $request) // POST REQUEST
     {
-        $id = \App\Models\Blog::query()
+        $id = Blog::query()
             ->where('slug', $slug)
             ->first()->id;
 

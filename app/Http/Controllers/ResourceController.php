@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Label;
+use App\Models\Resource;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Uid\Uuid;
 
-class Resource extends Controller
+class ResourceController extends Controller
 {
     public function main()
     {
         return view('resources.index', [
-            'resources' => \App\Models\Resource::query()->where('user_id', auth()->id())->paginate(10)
+            'resources' => Resource::query()->where('user_id', auth()->id())->paginate(10)
         ]);
     }
 
@@ -25,7 +26,7 @@ class Resource extends Controller
     public function myresourceresults()
     {
         return view('resources.results', [
-            'results' => \App\Models\Resource::search(request()->input('search'))
+            'results' => Resource::search(request()->input('search'))
                 ->where('user_id', auth()->id())
                 ->paginate(10)
         ]);
@@ -34,7 +35,7 @@ class Resource extends Controller
     public function results()
     {
         return view('resources.results', [
-            'results' => \App\Models\Resource::search(request()->input('search'))
+            'results' => Resource::search(request()->input('search'))
                 ->where('private', false)
                 ->paginate(10)
         ]);
@@ -73,7 +74,7 @@ class Resource extends Controller
     public function show($id)
     {
         return view('resources.show', [
-            'resource' => \App\Models\Resource::query()->find($id)
+            'resource' => Resource::query()->find($id)
         ]);
     }
 

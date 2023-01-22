@@ -166,7 +166,7 @@ class AdminTest extends TestCase
         $this->admin();
         $org = Institution::factory()->create();
         $this->assertModelExists($org);
-        $get = $this->get(route('institutions.add', $org->joincode));
+        $get = $this->get(route('institutions.add',$org->joincode));
         $get->assertOk();
     }
 

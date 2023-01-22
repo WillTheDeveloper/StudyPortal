@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReportPost;
 use App\Models\Post;
+use App\Models\Report;
 use Illuminate\Http\Request;
 
-class Report extends Controller
+class ReportController extends Controller
 {
     public function view($id)
     {
@@ -17,7 +18,7 @@ class Report extends Controller
 
     public function resolve($id)
     {
-        \App\Models\Report::query()->find($id)->update(
+        Report::query()->find($id)->update(
             [
                 'resolved' => 1
             ]
@@ -28,7 +29,7 @@ class Report extends Controller
 
     public function unresolve($id)
     {
-        \App\Models\Report::query()->find($id)->update(
+        Report::query()->find($id)->update(
             [
                 'resolved' => 0
             ]
@@ -40,13 +41,13 @@ class Report extends Controller
     public function details($id)
     {
         return view('reports.details', [
-            'data' => \App\Models\Report::query()->find($id)
+            'data' => Report::query()->find($id)
         ]);
     }
 
     public function submit($id, ReportPost $request)
     {
-        \App\Models\Report::query()->create(
+        Report::query()->create(
             [
                 'comment' => $request->input('info'),
                 'reason' => $request->input('content'),
@@ -62,22 +63,22 @@ class Report extends Controller
     public function overview()
     {
         return view('reports.overview', [
-            'reports' => \App\Models\Report::query()->orderByDesc('created_at')->paginate(10),
-            'stats' => \App\Models\Report::query()->select('reports.resolved'),
+            'reports' => Report::query()->orderByDesc('created_at')->paginate(10),
+            'stats' => Report::query()->select('reports.resolved'),
         ]);
     }
 
     public function resolved()
     {
         return view('reports.resolved', [
-            'reports' => \App\Models\Report::query()->where('reports.resolved', true)->paginate(10)
+            'reports' => Report::query()->where('reports.resolved', true)->paginate(10)
         ]);
     }
 
     public function unresolved()
     {
         return view('reports.unresolved', [
-            'reports' => \App\Models\Report::query()->where('reports.resolved', false)->paginate(10)
+            'reports' => Report::query()->where('reports.resolved', false)->paginate(10)
         ]);
     }
 }
