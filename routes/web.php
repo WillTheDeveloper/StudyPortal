@@ -33,13 +33,13 @@ use Illuminate\Http\Request;
 
 // Normal routes
 Route::get('/', function () {
-    return view('home');
+    return view('guest.home');
 })->name('home');
 Route::get('/features', function () {
-    return view('features');
+    return view('guest.features');
 })->name('features');
 Route::get('/contact', function () {
-    return view('contact');
+    return view('guest.contact');
 })->name('contact');
 
 // Dashboard routes
@@ -47,7 +47,7 @@ Route::get('/dashboard', [Dashboard::class, 'show'])
     ->middleware('auth')
     ->name('dashboard');
 Route::get('/profile', function () {
-    return view('profile');
+    return view('dashboard.profile');
 })->middleware(['auth'])->name('profile');
 Route::get('/groups', function (Request $request) {
     if ($request->user()->is_tutor) {

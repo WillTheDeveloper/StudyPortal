@@ -33,7 +33,7 @@ class Ticket extends Controller
         $subject = $request->query('subject');
         $status = $request->query('status');
 
-        return view('studenttickets', [
+        return view('tickets.studenttickets', [
             'tickets' => \App\Models\Ticket::query()
                 ->where('student_id', auth()->id())
                 ->when($subject, function ($query, $subject) {
@@ -56,7 +56,7 @@ class Ticket extends Controller
         $subject = $request->query('subject');
         $status = $request->query('status');
 
-        return view('tutortickets', [
+        return view('tickets.tutortickets', [
             'tickets' => \App\Models\Ticket::query()
                 ->where('tutor_id', auth()->id())
                 ->when($subject, function ($query, $subject) {
