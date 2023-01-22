@@ -82,7 +82,7 @@ class ApplicationController extends Controller
 
     public function id($id)
     {
-        return view('managemyapplication', [
+        return view('applications.manage', [
             'application' => Application::query()->findOrFail($id)
         ]);
     }

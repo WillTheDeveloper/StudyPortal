@@ -11,6 +11,7 @@ class Placement extends Model
     use HasFactory;
     use HasUuids;
     protected $fillable = [
+         
         'location',
         'company',
         'role',

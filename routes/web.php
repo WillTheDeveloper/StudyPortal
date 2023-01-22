@@ -140,12 +140,11 @@ Route::middleware(['auth'])->prefix('kanban')->name('kanban.')->group(function (
 });
 
 //blog routes
-Route::get('/blog', [BlogController::class, 'all'])->name('blog');
-Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
-
 Route::middleware(['auth'])->prefix('blog')->name('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'all']);
     Route::get('/create', [BlogController::class, 'make'])->middleware(['verified', 'admin'])->name('.create');
     Route::get('/hidden', [BlogController::class, 'hidden'])->middleware(['admin', 'verified'])->name('.hidden');
+    Route::get('/{slug}', [BlogController::class, 'show'])->name('.show');
     Route::post('/save', [BlogController::class, 'postit'])->middleware(['admin'])->name('.save');
     Route::post('/{slug}/visible', [BlogController::class, 'makeVisible'])->middleware(['admin',  'verified'])->name('.make-visible');
     Route::post('/{slug}/hide', [BlogController::class, 'makeHidden'])->middleware(['admin', 'verified'])->name('.make-hidden');

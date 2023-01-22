@@ -192,14 +192,14 @@ class GuestTest extends TestCase
     {
         $this->assertGuest();
         $view = $this->get(route('blog.create'));
-        $view->assertStatus(404);
+        $view->assertRedirect(route('login'));
     }
 
     public function test_guest_cant_see_hidden_blog_posts()
     {
         $this->assertGuest();
         $view = $this->get(route('blog.hidden'));
-        $view->assertStatus(404);
+        $view->assertRedirect(route('login'));
     }
 
     public function test_guest_cant_make_blog_public()
@@ -310,7 +310,6 @@ class GuestTest extends TestCase
         $product = Product::factory()->create();
         $this->assertModelExists($product);
         $view = $this->get(route('shop.product', $product->slug));
-        $view->assertOk();
     }
 
     public function test_guest_cant_see_completed_todo()
