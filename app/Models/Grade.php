@@ -11,16 +11,16 @@ class Grade extends Model
 
     public function Student()
     {
-        return $this->belongsTo(User::query()->where('is_tutor', false));
+        return $this->belongsTo(User::query()->where('is_tutor', false)->get());
     }
 
     public function Tutor()
     {
-        return $this->belongsTo(User::query()->where('is_tutor', true));
+        return $this->belongsTo(User::query()->where('is_tutor', true)->get());
     }
 
-    public function User()
+    public function Exam()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Exam::class);
     }
 }
