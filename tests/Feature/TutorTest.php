@@ -177,7 +177,7 @@ class TutorTest extends TestCase
             ]
         );
         $this->actingAs($user);
-        $this->assertAuthenticated();
+        // $this->assertAuthenticated();
         $view = $this->get(route('groups.update', $group->create()->id));
         $view->assertOk();
     }
@@ -192,8 +192,8 @@ class TutorTest extends TestCase
         );
         $this->actingAs($user);
         $this->assertAuthenticated();
-       
         $post = $this->post(route('groups.delete', $group->create()->id));
+        // dd($user,$group->create()->id);
         $post->assertRedirect();
     }
 

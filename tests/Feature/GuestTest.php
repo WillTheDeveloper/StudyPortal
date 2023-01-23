@@ -310,6 +310,8 @@ class GuestTest extends TestCase
         $product = Product::factory()->create();
         $this->assertModelExists($product);
         $view = $this->get(route('shop.product', $product->slug));
+        $view->assertStatus(200);
+
     }
 
     public function test_guest_cant_see_completed_todo()

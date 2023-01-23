@@ -17,14 +17,14 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $n = $this->faker->words(3),
-            'description' => $this->faker->words,
-            'price' => $this->faker->randomNumber(),
+            'name' => $n = $this->faker->name(),
+            'description' => $this->faker->text(300),
+            'price' => $this->faker->randomNumber(2),
             'shipping' => 0,
             'active' => $this->faker->boolean(50),
             'sold' => $this->faker->name,
             'slug' => Str::slug($n),
-            'user_id' => User::query()->get('id')->random()
+            'user_id' => User::query()->get('id')->random()->id
         ];
     }
 }

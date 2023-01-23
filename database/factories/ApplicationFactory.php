@@ -22,10 +22,10 @@ class ApplicationFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::query()->get('id')->random(),
-            'placement_id' => Placement::query()->get('id')->random(),
+            'user_id' => User::query()->get('id')->random()->id,
+            'placement_id' => Placement::query()->get('id')->random()->id,
             'status' => $this->faker->randomElement(['pending', 'interview', 'declined', 'active', 'accepted', 'completed', 'reviewed', 'redacted']),
-            'cv' => $this->faker->paragraphs
+            'cv' => $this->faker->paragraph(100)
         ];
     }
 }

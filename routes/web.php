@@ -140,17 +140,17 @@ Route::middleware(['auth'])->prefix('kanban')->name('kanban.')->group(function (
 });
 
 //blog routes
-Route::middleware(['auth'])->prefix('blog')->name('blog')->group(function () {
+Route::prefix('blog')->name('blog')->group(function () {
     Route::get('/', [BlogController::class, 'all']);
-    Route::get('/create', [BlogController::class, 'make'])->middleware(['verified', 'admin'])->name('.create');
-    Route::get('/hidden', [BlogController::class, 'hidden'])->middleware(['admin', 'verified'])->name('.hidden');
+    Route::get('/create', [BlogController::class, 'make'])->middleware(['auth','verified', 'admin'])->name('.create');
+    Route::get('/hidden', [BlogController::class, 'hidden'])->middleware(['auth','admin', 'verified'])->name('.hidden');
     Route::get('/{slug}', [BlogController::class, 'show'])->name('.show');
-    Route::post('/save', [BlogController::class, 'postit'])->middleware(['admin'])->name('.save');
-    Route::post('/{slug}/visible', [BlogController::class, 'makeVisible'])->middleware(['admin',  'verified'])->name('.make-visible');
-    Route::post('/{slug}/hide', [BlogController::class, 'makeHidden'])->middleware(['admin', 'verified'])->name('.make-hidden');
-    Route::post('/{slug}/enable', [BlogController::class, 'enableReplies'])->middleware(['admin', 'verified'])->name('.enable-replies');
-    Route::post('/{slug}/disable', [BlogController::class, 'disableReplies'])->middleware(['admin', 'verified'])->name('.disable-replies');
-    Route::post('/{slug}/response/create', [BlogController::class, 'response'])->middleware(['verified'])->name('.response.create');
+    Route::post('/save', [BlogController::class, 'postit'])->middleware(['auth','admin'])->name('.save');
+    Route::post('/{slug}/visible', [BlogController::class, 'makeVisible'])->middleware(['auth','admin',  'verified'])->name('.make-visible');
+    Route::post('/{slug}/hide', [BlogController::class, 'makeHidden'])->middleware(['auth','admin', 'verified'])->name('.make-hidden');
+    Route::post('/{slug}/enable', [BlogController::class, 'enableReplies'])->middleware(['auth','admin', 'verified'])->name('.enable-replies');
+    Route::post('/{slug}/disable', [BlogController::class, 'disableReplies'])->middleware(['auth','admin', 'verified'])->name('.disable-replies');
+    Route::post('/{slug}/response/create', [BlogController::class, 'response'])->middleware(['auth','verified'])->name('.response.create');
 });
 //notes routes
 Route::middleware(['auth'])->prefix('notes')->group(function () {
