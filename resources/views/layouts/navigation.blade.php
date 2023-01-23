@@ -84,21 +84,21 @@
                         <x-responsive-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
                             {{ __('Groups') }}
                         </x-responsive-nav-link>
+
+                        <x-responsive-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
+                            {{ __('Exams') }}
+                        </x-responsive-nav-link>
                     @endif
 
                     @if (auth()->user()->is_admin)
                         <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
                             {{ __('Users') }}
                         </x-responsive-nav-link>
-                    @endif
 
-                    @if (auth()->user()->is_admin)
                         <x-responsive-nav-link :href="route('reports.overview')" :active="request()->routeIs('reports.overview')">
                             {{ __('Reports') }}
                         </x-responsive-nav-link>
-                    @endif
 
-                    @if (auth()->user()->is_admin)
                         <x-responsive-nav-link :href="route('institution.manage')" :active="request()->routeIs('institution.manage')">
                             {{ __('Institutions') }}
                         </x-responsive-nav-link>
@@ -281,21 +281,21 @@
                         <x-responsive-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
                             {{ __('Groups') }}
                         </x-responsive-nav-link>
+
+                    <x-responsive-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
+                        {{ __('Exams') }}
+                    </x-responsive-nav-link>
                 @endif
 
                 @if (auth()->user()->is_admin)
                         <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
                             {{ __('Users') }}
                         </x-responsive-nav-link>
-                @endif
 
-                @if (auth()->user()->is_admin)
                     <x-responsive-nav-link :href="route('reports.overview')" :active="request()->routeIs('reports.overview')">
                         {{ __('Reports') }}
                     </x-responsive-nav-link>
-                @endif
 
-                @if (auth()->user()->is_admin)
                     <x-responsive-nav-link :href="route('institution.manage')" :active="request()->routeIs('institution.manage')">
                         {{ __('Institutions') }}
                     </x-responsive-nav-link>
