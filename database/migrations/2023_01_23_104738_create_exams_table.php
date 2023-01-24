@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('examdate')->nullable(true);
             $table->text('title')->nullable(false);
             $table->integer('tutor_id');
+            $table->time('start');
+            $table->time('end');
             $table->timestamps();
         });
     }

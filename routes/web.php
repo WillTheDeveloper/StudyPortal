@@ -6,6 +6,7 @@ use App\Http\Controllers\Blog;
 use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Exam;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
@@ -224,7 +225,7 @@ Route::middleware(['auth', 'verified'])->prefix('webhooks')->group(function () {
     Route::post('/{id}/delete', [Webhook::class, 'deleteWebhook'])->name('webhooks.delete');
     Route::post('/create', [Webhook::class, 'createWebhook'])->name('webhooks.create');
 });
-//todo routes
+//to do routes
 Route::middleware(['auth', 'verified'])->prefix('todo')->name('todo.')->group(function () {
     Route::get('/completed', [Todo::class, 'completed'])->name('completed');
     Route::get('/archived', [Todo::class, 'archived'])->name('archived');
@@ -290,7 +291,9 @@ Route::middleware(['auth', 'admin'])->prefix('users')->group(function () {
     Route::post('/{id}/update', [User::class, 'updateUser'])->name('user.update');
 });
 
-
+Route::middleware(['auth', 'verified', 'tutor'])->prefix('exams')->group(function () {
+    Route::get('/', [Exam::class, 'index'])->name('exam');
+});
 
 Route::get('/notifications', [Notification::class, 'show'])
     ->middleware('auth')

@@ -85,7 +85,7 @@
                             {{ __('Groups') }}
                         </x-responsive-nav-link>
 
-                        <x-responsive-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
+                        <x-responsive-nav-link :href="route('exam')" :active="request()->routeIs('exam')">
                             {{ __('Exams') }}
                         </x-responsive-nav-link>
                     @endif
@@ -282,7 +282,7 @@
                             {{ __('Groups') }}
                         </x-responsive-nav-link>
 
-                    <x-responsive-nav-link :href="route('groups')" :active="request()->routeIs('groups')">
+                    <x-responsive-nav-link :href="route('exam')" :active="request()->routeIs('exam')">
                         {{ __('Exams') }}
                     </x-responsive-nav-link>
                 @endif
