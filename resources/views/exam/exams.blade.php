@@ -1,3 +1,4 @@
+@php use Carbon\Carbon; @endphp
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -114,25 +115,17 @@
                                             <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Upcoming exams</th>
                                         </tr>
 
-                                        <tr class="border-t border-gray-300">
-                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Lindsay Walton</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
-                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr class="border-t border-gray-200">
-                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Courtney Henry</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Designer</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">courtney.henry@example.com</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
-                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Courtney Henry</span></a>
-                                            </td>
-                                        </tr>
+                                        @foreach($upcoming as $up)
+                                            <tr class="border-t border-gray-300">
+                                                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{$up->title}}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$up->Subject->subject}}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$up->Tutor->name}}</td>
+                                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{$up->start}} - {{$up->end}}</td>
+                                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, {{$up->title}}</span></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
                                         <tr class="border-t border-gray-200">
                                             <th colspan="5" scope="colgroup" class="bg-gray-50 px-4 py-2 text-left text-sm font-semibold text-gray-900 sm:px-6">Active exams</th>
