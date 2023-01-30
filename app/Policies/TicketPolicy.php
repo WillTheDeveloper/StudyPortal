@@ -35,7 +35,7 @@ class TicketPolicy
      */
     public function view(User $user, Ticket $ticket)
     {
-        //
+        return auth()->check() && !auth()->user()->is_banned;
     }
 
     /**
