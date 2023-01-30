@@ -58,7 +58,7 @@ class TicketPolicy
      */
     public function update(User $user, Ticket $ticket)
     {
-        return auth()->check() && auth()->user()->id == $ticket->user_id;
+        return auth()->check() && auth()->user()->id == $ticket->user_id or auth()->user()->is_admin or auth()->user()->is_tutor;
     }
 
     /**
