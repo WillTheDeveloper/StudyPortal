@@ -293,6 +293,7 @@ Route::middleware(['auth', 'admin'])->prefix('users')->group(function () {
 
 Route::middleware(['auth', 'verified', 'tutor'])->prefix('exams')->group(function () {
     Route::get('/', [Exam::class, 'index'])->name('exam');
+    Route::get('/{id}/manage', [Exam::class, 'manage'])->name('exam.manage');
 });
 
 Route::get('/notifications', [Notification::class, 'show'])

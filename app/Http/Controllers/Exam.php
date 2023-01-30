@@ -24,4 +24,11 @@ class Exam extends Controller
                 ->get()
         ]);
     }
+
+    public function manage($id)
+    {
+        return view('exam.manage', [
+            'exam' => \App\Models\Exam::query()->find($id)
+        ]);
+    }
 }
