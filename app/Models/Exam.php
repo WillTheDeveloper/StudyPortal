@@ -11,16 +11,21 @@ class Exam extends Model
 
     public function Student()
     {
-        return $this->belongsToMany(User::query()->where('is_tutor', false)->get());
+        return $this->belongsToMany(User::class);
     }
 
     public function Tutor()
     {
-        return $this->belongsTo(User::query()->where('is_tutor', true)->get());
+        return $this->belongsTo(User::class)->where('is_tutor', true);
     }
 
     public function Grade()
     {
         return $this->hasMany(Grade::class);
+    }
+
+    public function Subject()
+    {
+        return $this->belongsTo(Subject::class);
     }
 }
