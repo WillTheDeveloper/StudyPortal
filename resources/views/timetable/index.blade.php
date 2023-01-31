@@ -101,13 +101,10 @@
                                             <a href="{{route('timetable.add')}}" type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add lesson</a>
                                         </div>
                                         <div class="relative ml-6 md:hidden">
-                                            <button type="button" class="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500" id="menu-0-button" aria-expanded="false" aria-haspopup="true">
-                                                <span class="sr-only">Open menu</span>
-                                                <!-- Heroicon name: solid/dots-horizontal -->
-                                                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                                </svg>
-                                            </button>
+                                            <div class="md:ml-4 md:flex md:items-center">
+                                                <div class="ml-6 w-px bg-gray-300"></div>
+                                                <a href="{{route('timetable.add')}}" type="button" class="focus:outline-none ml-6 rounded-md border border-transparent bg-indigo-600 py-1 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add lesson</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </header>
