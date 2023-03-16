@@ -25,10 +25,6 @@ class Kanban extends Controller
         $kanban = Kan::find($id)->id;
 
         $this->authorize('view', Kan::query()->findOrFail($kanban));
-        $this->authorize('view', KanbanGroup::query()
-            ->where('kanban_groups.kanban_id', $kanban)
-            ->where('kanban_groups.user_id', auth()->id())
-            ->get());
 
         return view('kanban.show',
         [
