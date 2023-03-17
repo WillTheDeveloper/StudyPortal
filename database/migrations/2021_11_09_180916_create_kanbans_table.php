@@ -14,7 +14,7 @@ class CreateKanbansTable extends Migration
     public function up()
     {
         Schema::create('kanbans', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->integer('user_id');
             $table->text('description')->nullable(true);
             $table->string('name');

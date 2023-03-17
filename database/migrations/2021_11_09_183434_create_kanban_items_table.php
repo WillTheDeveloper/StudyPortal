@@ -14,7 +14,7 @@ class CreateKanbanItemsTable extends Migration
     public function up()
     {
         Schema::create('kanban_items', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->text('item');
             $table->integer('user_id');
             $table->integer('kanban_group_id');
