@@ -35,22 +35,6 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-                <div class="px-6 py-5 text-sm font-medium text-center">
-                    <span class="text-gray-900">{{auth()->user()->Assignment()->where('assignment_user.user_id', auth()->id())->where('assignment_user.submitted_on', null)->count()}}</span>
-                    <span class="text-gray-600">Assignments due</span>
-                </div>
-
-                <div class="px-6 py-5 text-sm font-medium text-center">
-                    <span class="text-gray-900">{{auth()->user()->Post()->count()}}</span>
-                    <span class="text-gray-600">Posts</span>
-                </div>
-
-                <div class="px-6 py-5 text-sm font-medium text-center">
-                    <span class="text-gray-900">{{auth()->user()->Comment()->count()}}</span>
-                    <span class="text-gray-600">Comments made</span>
-                </div>
-            </div>
         </div>
 
 
