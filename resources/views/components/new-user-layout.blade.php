@@ -17,7 +17,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>
-<div class="font-sans text-gray-900 antialiased">
+<div class="font-sans text-gray-900 antialiased" x-data="{mobilenav: false}">
     {{--@include('layouts.usernavigation')--}}
     <!--
   This example requires updating your template:
@@ -29,7 +29,7 @@
 -->
     <div>
         <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-        <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+        <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true" x-show="mobilenav" x-cloak>
             <!--
               Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
@@ -65,7 +65,7 @@
                         To: "opacity-0"
                     -->
                     <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
-                        <button type="button" class="-m-2.5 p-2.5">
+                        <button type="button" class="-m-2.5 p-2.5" x-on:click="mobilenav = false">
                             <span class="sr-only">Close sidebar</span>
                             <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -74,7 +74,7 @@
                     </div>
 
                     <!-- Sidebar component, swap this element with another sidebar if you like -->
-                    <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
+                    <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2 w-full" x-on:click.away="mobilenav = false">
                         <div class="flex h-16 shrink-0 items-center">
                             <img class="h-8 w-auto" src="https://studyportal.s3.eu-west-2.amazonaws.com/logo_banner_style_v1.png" alt="Your Company">
                         </div>
@@ -467,7 +467,7 @@
         </div>
 
         <div class="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
-            <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden">
+            <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" x-on:click="mobilenav = true">
                 <span class="sr-only">Open sidebar</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
