@@ -30,7 +30,7 @@ class GroupPolicy
      */
     public function view(User $user, Group $group)
     {
-        return auth()->check() && $group->has($user);
+        return auth()->check();
     }
 
     /**
