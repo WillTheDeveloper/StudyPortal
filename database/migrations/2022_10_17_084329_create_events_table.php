@@ -17,10 +17,12 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->text('title');
             $table->text('details');
+            $table->text('location')->nullable();
             $table->date('date');
             $table->time('start');
             $table->time('end');
             $table->integer('user_id');
+            $table->integer('institution_id');
             $table->enum('priority', ['low', 'normal', 'high'])->default('normal');
             $table->timestamps();
         });

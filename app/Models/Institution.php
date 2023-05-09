@@ -19,4 +19,9 @@ class Institution extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function Event()
+    {
+        return $this->hasMany(Event::class);
+    }
 }
