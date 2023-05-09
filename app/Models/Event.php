@@ -16,11 +16,6 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Institution()
-    {
-        return $this->belongsTo(Institution::class);
-    }
-
     protected $casts = [
         'date' => 'date'
     ];
