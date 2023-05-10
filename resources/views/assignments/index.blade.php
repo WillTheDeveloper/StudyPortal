@@ -1,187 +1,105 @@
+@php use Carbon\Carbon; @endphp
 <x-new-user-layout>
 
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="px-4 sm:px-0">
 
                     @if (auth()->user()->is_tutor)
-                        <a href="{{ route('assignment.create') }}">
-                            <x-button>Create Assignment</x-button>
+                        <a href="{{route('assignment.create')}}">
+                            <button type="submit" class="rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Create assignment</button>
                         </a>
-                   @endif
+                        @endif
 
-                    <!-- Tabs -->
-                        <div class="sm:hidden">
-                            <label for="tabs" class="sr-only">Select a tab</label>
-                            <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
-                            <select id="tabs" name="tabs"
-                                    class="mt-4 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md">
-                                <option>Completed</option>
-
-                                <option selected>Due</option>
-
-                                <option>Late</option>
-                            </select>
-                        </div>
-                        <div class="hidden sm:block">
-                            <div class="border-b border-gray-200">
-                                <nav class="mt-2 -mb-px flex space-x-8" aria-label="Tabs">
-                                    <!-- Current: "border-purple-500 text-purple-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200" -->
-                                    <a href="{{route('assignments.completed')}}"
-                                       class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                                        Completed
-
-                                        <!-- Current: "bg-purple-100 text-purple-600", Default: "bg-gray-100 text-gray-900" -->
-{{--                                        <span class="bg-gray-100 text-gray-900 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">2</span>--}}
-                                    </a>
-
-                                    <a href="{{route('assignments')}}"
-                                       class="border-purple-500 text-purple-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                                        Due
-
-{{--                                        <span class="bg-purple-100 text-purple-600 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">{{$assignments->count()}}</span>--}}
-                                    </a>
-
-                                    <a href="{{route('assignments.late')}}"
-                                       class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
-                                        Late
-
-{{--                                        <span class="bg-gray-100 text-gray-900 hidden ml-2 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block">6</span>--}}
-                                    </a>
-                                </nav>
+                        <div>
+                            <div class="sm:hidden">
+                                <label for="tabs" class="sr-only">Select a tab</label>
+                                <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
+                                <select id="tabs" name="tabs" class="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+                                    <option>My Account</option>
+                                    <option>Company</option>
+                                    <option selected>Team Members</option>
+                                    <option>Billing</option>
+                                </select>
+                            </div>
+                            <div class="hidden sm:block">
+                                <div class="border-b border-gray-200">
+                                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                                        <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+                                        <a href="{{route('assignments.completed')}}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-300">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <span class="pl-1">Completed</span>
+                                        </a>
+                                        <a href="{{route('assignments')}}" class="border-yellow-500 text-yellow-600 group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium" aria-current="page">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <span class="pl-1">Due</span>
+                                        </a>
+                                        <a href="{{route('assignments.late')}}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-300">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                                            </svg>
+                                            <span class="pl-1">Late</span>
+                                        </a>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Stacked list -->
-                    <ul role="list"
-                        class="mt-5 border-t border-gray-200 divide-y divide-gray-200 sm:mt-0 sm:border-t-0">
-                        @forelse($assignments as $assignment)
-                            <li>
-                                <a href="{{ route('assignments.manage', $assignment->id) }}" class="group block">
-                                    <div class="flex items-center py-5 px-4 sm:py-6 sm:px-0">
-                                        <div class="min-w-0 flex-1 flex items-center">
-                                            {{--<div class="flex-shrink-0">
-                                                <img class="h-12 w-12 rounded-full group-hover:opacity-75" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                                            </div>--}}
-                                            <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
-                                                <div>
-                                                    <p class="text-sm font-medium text-purple-600 truncate">{{$assignment->title}}</p>
-                                                    <p class="mt-2 flex items-center text-sm text-gray-500">
-                                                        <!-- Heroicon name: solid/mail -->
-                                                        {{--<svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                                        </svg>--}}
-                                                        <span>{{$assignment->details}}</span>
-                                                    </p>
-                                                </div>
-                                                <div class="hidden md:block">
-                                                    <div>
-                                                        <p class="text-sm text-gray-900">
-                                                            Due for
-                                                            <time>{{$assignment->duedate->format('D d M')}}
-                                                                at {{$assignment->duedate->format('H:00')}}</time>
-                                                        </p>
-                                                        <p class="mt-2 flex items-center text-sm text-gray-500">
-                                                            <!-- Heroicon name: solid/check-circle -->
-                                                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
-                                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                                 fill="currentColor" aria-hidden="true">
-                                                                <path fill-rule="evenodd"
-                                                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                                                      clip-rule="evenodd"/>
-                                                            </svg>
-                                                            {{$assignment->Subject->subject}}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <!-- Heroicon name: solid/chevron-right -->
-                                            <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-700"
-                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                 fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd"
-                                                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                      clip-rule="evenodd"/>
+
+                        <ul role="list" class="divide-y divide-gray-100">
+                            @foreach($assignments as $a)
+                            <li class="flex items-center justify-between gap-x-6 py-5">
+                                <div class="min-w-0">
+                                    <div class="flex items-start gap-x-3">
+                                        <p class="text-sm font-semibold leading-6 text-gray-900">{{$a->title}}</p>
+{{--                                        <p class="rounded-md whitespace-nowrap mt-0.5 px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset text-green-700 bg-green-50 ring-green-600/20">Complete</p>--}}
+                                    </div>
+                                    <div class="mt-1 flex items-center gap-x-2 text-xs leading-5 text-gray-500">
+                                        <p class="whitespace-nowrap">Due on <time datetime="2023-03-17T00:00Z">{{Carbon::createFromDate($a->duedate)->toFormattedDateString()}}</time></p>
+                                        <svg viewBox="0 0 2 2" class="h-0.5 w-0.5 fill-current">
+                                            <circle cx="1" cy="1" r="1" />
+                                        </svg>
+                                        <p class="truncate">Created by {{$a->User->first()->name}}</p>
+                                    </div>
+                                </div>
+                                @if(auth()->user()->is_tutor ?? auth()->user()->is_admin)
+                                <div class="flex flex-none items-center gap-x-4" x-data="{dropdown:false}">
+                                    <a href="{{route('assignments.manage', $a->id)}}" class="hidden rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:block">View<span class="sr-only">, {{$a->title}}</span></a>
+                                    <div class="relative flex-none">
+                                        <button x-on:click="dropdown = true" type="button" class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900" id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
+                                            <span class="sr-only">Open options</span>
+                                            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
                                             </svg>
+                                        </button>
+
+                                        <!--
+                                          Dropdown menu, show/hide based on menu state.
+
+                                          Entering: "transition ease-out duration-100"
+                                            From: "transform opacity-0 scale-95"
+                                            To: "transform opacity-100 scale-100"
+                                          Leaving: "transition ease-in duration-75"
+                                            From: "transform opacity-100 scale-100"
+                                            To: "transform opacity-0 scale-95"
+                                        -->
+                                        <div x-cloak x-show="dropdown" x-on:click.away="dropdown = false" class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
+                                            <!-- Active: "bg-gray-50", Not Active: "" -->
+                                            <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1" id="options-menu-0-item-0">Edit<span class="sr-only">, GraphQL API</span></a>
+                                            <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1" id="options-menu-0-item-1">Move<span class="sr-only">, GraphQL API</span></a>
+                                            <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900" role="menuitem" tabindex="-1" id="options-menu-0-item-2">Delete<span class="sr-only">, GraphQL API</span></a>
                                         </div>
                                     </div>
-                                </a>
+                                </div>
+                                @endif
                             </li>
-                        @empty
-                        <!-- This example requires Tailwind CSS v2.0+ -->
-                            <div class="text-center py-10">
-                                <h3 class="mt-2 text-sm font-medium text-gray-900">No assignments due</h3>
-                                <p class="mt-1 text-sm text-gray-500">
-                                    Good job! You have no assignments
-                                </p>
-                            </div>
-                        @endforelse
-                    </ul>
+                            @endforeach
+                        </ul>
 
-                    {{$assignments->links()}}
-
-                    {{--<!-- Pagination -->
-                    <nav class="border-t border-gray-200 px-4 flex items-center justify-between sm:px-0"
-                         aria-label="Pagination">
-                        <div class="-mt-px w-0 flex-1 flex">
-                            <a href="#"
-                               class="border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-200">
-                                <!-- Heroicon name: solid/arrow-narrow-left -->
-                                <svg class="mr-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                                Previous
-                            </a>
-                        </div>
-                        <div class="hidden md:-mt-px md:flex">
-                            <a href="#"
-                               class="border-purple-500 text-purple-600 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium"
-                               aria-current="page">
-                                1
-                            </a>
-                            <!-- Current: "border-purple-500 text-purple-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200" -->
-                            <a href="#"
-                               class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
-                                2
-                            </a>
-                            <a href="#"
-                               class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
-                                3
-                            </a>
-                            <a href="#"
-                               class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
-                                4
-                            </a>
-                            <a href="#"
-                               class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
-                                5
-                            </a>
-                            <a href="#"
-                               class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
-                                6
-                            </a>
-                        </div>
-                        <div class="-mt-px w-0 flex-1 flex justify-end">
-                            <a href="#"
-                               class="border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-200">
-                                Next
-                                <!-- Heroicon name: solid/arrow-narrow-right -->
-                                <svg class="ml-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd"
-                                          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                          clip-rule="evenodd"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </nav>
-                </div>--}}
-
-        </div>
+                    </div>
+                </div>
+    
 </x-new-user-layout>
