@@ -7,6 +7,7 @@ use App\Http\Controllers\Community;
 use App\Http\Controllers\Contact;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Exam;
+use App\Http\Controllers\Expenses;
 use App\Http\Controllers\Group;
 use App\Http\Controllers\Institution;
 use App\Http\Controllers\Kanban;
@@ -249,6 +250,11 @@ Route::middleware(['auth', 'verified'])->prefix('resources')->group(function () 
     Route::get('/{id}', [Resource::class, 'show'])->name('resource.id');
     Route::post('/{id}/star', [Star::class, 'star'])->name('resources-id.star');
     Route::post('/upload', [Resource::class, 'store'])->name('resources.upload');
+});
+
+//expenses routes
+Route::middleware(['auth', 'verified'])->prefix('expenses')->name('expense.')->group(function () {
+    Route::get('/overview', [Expenses::class, 'overview'])->name('overview');
 });
 
 //tickets routes
