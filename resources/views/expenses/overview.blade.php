@@ -104,7 +104,7 @@
                             <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{{$category->Purchase->count()}}</td>
                             <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">£{{$category->Purchase->sum('cost')}}</td>
                             <td class="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, AAPS0L</span></a>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Details<span class="sr-only">, AAPS0L</span></a>
                             </td>
                         </tr>
                         @endforeach
