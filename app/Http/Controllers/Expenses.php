@@ -54,7 +54,7 @@ class Expenses extends Controller
 
     public function addpurchase()
     {
-
+        return view('expenses.addpurchase');
     }
 
     public function savepurchase()
@@ -64,12 +64,12 @@ class Expenses extends Controller
 
     public function managecategories()
     {
-
+        return view('expenses.categories');
     }
 
     public function addcategory()
     {
-
+        return view('expenses.addcategory');
     }
 
     public function savecategory()
