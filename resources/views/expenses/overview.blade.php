@@ -66,7 +66,9 @@
                 <p class="mt-2 text-sm text-gray-700">A table of placeholder stock market data that does not make any sense.</p>
             </div>
             <div class="mt-4 sm:flex-none">
-                <button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add income</button>
+                <a href="{{route('expense.income.add')}}">
+                    <button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add income</button>
+                </a>
             </div>
             <div class="mt-4 sm:flex-none pl-3">
                 <button type="button" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add purchase</button>

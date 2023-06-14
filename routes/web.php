@@ -255,6 +255,9 @@ Route::middleware(['auth', 'verified'])->prefix('resources')->group(function () 
 //expenses routes
 Route::middleware(['auth', 'verified'])->prefix('expenses')->name('expense.')->group(function () {
     Route::get('/overview', [Expenses::class, 'overview'])->name('overview');
+
+    Route::get('/income/add', [Expenses::class, 'addincome'])->name('income.add');
+    Route::post('/income/save', [Expenses::class, 'saveincome'])->name('income.save');
 });
 
 //tickets routes

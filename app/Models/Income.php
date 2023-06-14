@@ -11,6 +11,14 @@ class Income extends Model
     use HasFactory;
     use HasUuids;
 
+
+    protected $fillable = [
+        'user_id',
+        'card_id',
+        'amount',
+        'paid'
+    ];
+
     public function User()
     {
         return $this->belongsTo(User::class);

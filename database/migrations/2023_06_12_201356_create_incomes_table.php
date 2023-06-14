@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('incomes', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->integer('user_id');
             $table->uuid('card_id');
             $table->decimal('amount', 10, 2, true);

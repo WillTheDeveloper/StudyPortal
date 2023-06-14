@@ -21,7 +21,7 @@ class Card extends Model
         return $this->hasMany(Purchase::class);
     }
 
-    public function Saving()
+    public function Savings()
     {
         return $this->hasMany(Saving::class);
     }

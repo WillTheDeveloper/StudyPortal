@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Card;
 use App\Models\Category;
 use App\Models\Income;
 use App\Models\Purchase;
@@ -27,5 +28,52 @@ class Expenses extends Controller
                 ->orderByDesc('title')
                 ->get()
         ]);
+    }
+
+    public function addincome()
+    {
+        return view('expenses.addincome', [
+            'cards' => Card::query()
+                ->where('user_id', auth()->id())
+                ->where('active', true)
+                ->get()
+        ]);
+    }
+
+    public function saveincome(Request $request)
+    {
+        Income::query()->create([
+            'amount' => $request->input('amount'),
+            'paid' => $request->input('paid'),
+            'card_id' => $request->input('card'),
+            'user_id' => auth()->id()
+        ])->save();
+
+        return redirect(route('expense.overview'));
+    }
+
+    public function addpurchase()
+    {
+
+    }
+
+    public function savepurchase()
+    {
+
+    }
+
+    public function managecategories()
+    {
+
+    }
+
+    public function addcategory()
+    {
+
+    }
+
+    public function savecategory()
+    {
+
     }
 }
