@@ -110,12 +110,12 @@
                             <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">{{$category->title}}</td>
                             {{--<td class="whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900">Chase &amp; Co.</td>
                             <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-900">CAC</td>--}}
-                            <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{{$category->Purchase->sum('cost') / $spendthismonth * 100}}%</td>
+                            <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{{round($spendthismonth > 0 ? $category->Purchase->sum('cost') / $spendthismonth * 100: 0, 2)}}%</td>
                             <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">£{{$category->Purchase->sum('cost')}}</td>
                             <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{{$category->Purchase->count()}}</td>
                             <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">£{{$category->Purchase->sum('cost')}}</td>
                             <td class="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Details<span class="sr-only">, AAPS0L</span></a>
+                                <a href="{{route('expense.category.detail', $category->id)}}" class="text-indigo-600 hover:text-indigo-900">Details<span class="sr-only">, {{$category->title}}</span></a>
                             </td>
                         </tr>
                         @endforeach

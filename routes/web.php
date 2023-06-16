@@ -263,6 +263,7 @@ Route::middleware(['auth', 'verified'])->prefix('expenses')->name('expense.')->g
     Route::post('/purchase/save', [Expenses::class, 'savepurchase'])->name('purchase.save');
 
     Route::get('/categories', [Expenses::class, 'managecategories'])->name('category.manage');
+    Route::get('/categories/{id}', [Expenses::class, 'category'])->name('category.detail');
     Route::get('/categories/add', [Expenses::class, 'addcategory'])->name('category.add');
     Route::post('/categories/save', [Expenses::class, 'savecategory'])->name('category.save');
 });

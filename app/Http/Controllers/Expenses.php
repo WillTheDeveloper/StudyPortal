@@ -26,6 +26,7 @@ class Expenses extends Controller
             'categories' => Category::query()
                 ->where('user_id', auth()->id())
                 ->orderByDesc('title')
+                ->whereRelation('Purchase', 'cost', '>', 0)
                 ->get()
         ]);
     }
@@ -65,6 +66,13 @@ class Expenses extends Controller
     public function managecategories()
     {
         return view('expenses.categories');
+    }
+
+    public function category($id)
+    {
+        return view('expenses.category', [
+            'category' => Category::query()->find($id)
+        ]);
     }
 
     public function addcategory()
