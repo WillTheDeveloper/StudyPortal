@@ -12,6 +12,16 @@ class Purchase extends Model
     use HasFactory;
     use HasUuids;
 
+    protected $fillable = [
+        'product',
+        'description',
+        'cost',
+        'category_id',
+        'card_id',
+        'user_id',
+        'purchased'
+    ];
+
     public function User()
     {
         return $this->belongsTo(User::class);

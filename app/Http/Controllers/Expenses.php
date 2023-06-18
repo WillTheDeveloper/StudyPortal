@@ -55,12 +55,28 @@ class Expenses extends Controller
 
     public function addpurchase()
     {
-        return view('expenses.addpurchase');
+        return view('expenses.addpurchase', [
+            'cards' => Card::query()->where('user_id', auth()->id())->where('active', true)->get(),
+            'categories' => Category::query()->where('user_id', auth()->id())->orderByDesc('title')->get(),
+            'today' => Carbon::today()->toDateString()
+        ]);
     }
 
-    public function savepurchase()
+    public function savepurchase(Request $request)
     {
+        Purchase::query()->create(
+            [
+                'product' => $request->input('product'),
+                'description' => $request->input('description'),
+                'cost' => $request->input('price'),
+                'category_id' => $request->input('category'),
+                'card_id' => $request->input('card'),
+                'user_id' => auth()->id(),
+                'purchased' => $request->date('purchased')
+            ]
+        )->save();
 
+        return redirect(route('expense.overview'));
     }
 
     public function managecategories()
