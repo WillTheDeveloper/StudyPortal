@@ -266,6 +266,7 @@ Route::middleware(['auth', 'verified'])->prefix('expenses')->name('expense.')->g
     Route::get('/categories/{id}', [Expenses::class, 'category'])->name('category.detail');
     Route::get('/categories/add', [Expenses::class, 'addcategory'])->name('category.add');
     Route::post('/categories/save', [Expenses::class, 'savecategory'])->name('category.save');
+    Route::post('/categories/{id}/delete', [Expenses::class, 'deletecategory'])->name('category.delete');
 });
 
 //tickets routes

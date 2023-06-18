@@ -103,6 +103,14 @@ class Expenses extends Controller
         return view('expenses.addcategory');
     }
 
+    public function deletecategory($id)
+    {
+        Category::query()->find($id)->delete();
+        Purchase::query()->where('category_id', $id)->delete();
+
+        return redirect(route('expenses.categories'));
+    }
+
     public function savecategory()
     {
 
