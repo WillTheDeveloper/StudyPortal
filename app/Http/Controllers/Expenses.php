@@ -86,7 +86,9 @@ class Expenses extends Controller
 
     public function managecategories()
     {
-        return view('expenses.categories');
+        return view('expenses.categories', [
+            'categories' => Category::query()->where('user_id', auth()->id())->orderByDesc('title')->paginate(10),
+        ]);
     }
 
     public function category($id)
