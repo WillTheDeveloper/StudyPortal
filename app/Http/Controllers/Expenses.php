@@ -14,15 +14,20 @@ class Expenses extends Controller
     public function overview()
     {
         $thismonth = Carbon::today()->month;
+        $lastmonth = Carbon::today()->subRealMonth()->month;
 
         return view('expenses.overview', [
             'spendthismonth' => $spend = Purchase::query()
                 ->whereMonth('purchased', '=', $thismonth)
                 ->sum('cost'),
+            'spendlastmonth' => $last = Purchase::query()
+                ->whereMonth('purchased', '=', $lastmonth)
+                ->sum('cost'),
             'totalincome' => $income = Income::query()
                 ->whereMonth('paid', '=', $thismonth)
                 ->sum('amount'),
             'remaining' => $income - $spend,
+            'diffinspend' => $spend > 0 & $last > 0 ? round($spend / $last * 100, 2) : 0,
             'categories' => Category::query()
                 ->where('user_id', auth()->id())
                 ->orderByDesc('title')
