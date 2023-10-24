@@ -41,7 +41,7 @@
 <div class="relative bg-gray-50 pt-4 overflow-hidden sm:pt-24 lg:pt-8 bg-gradient-to-t from-grape-300 to-white">
     <div class="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
         <div class="mt-12 -mb-10 sm:-mb-24 lg:-mb-80">
-            <img class="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5" src="images/dashboard01.png" alt="">
+            <img class="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5" src="{{asset('images/dashboard01.png')}}" alt="">
         </div>
     </div>
 </div>
@@ -137,7 +137,7 @@
             </div>
             <div class="mt-12 sm:mt-16 lg:mt-0">
                 <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="images/community01.png" alt="Inbox user interface">
+                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{{asset('images/community01.png')}}" alt="Inbox user interface">
                 </div>
             </div>
         </div>
@@ -171,7 +171,7 @@
             </div>
             <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
                 <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="images/sidebar02.png" alt="Customer profile user interface">
+                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="{{asset('images/sidebar02.png')}}" alt="Customer profile user interface">
                 </div>
             </div>
         </div>
