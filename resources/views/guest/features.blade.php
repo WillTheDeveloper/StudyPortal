@@ -74,7 +74,7 @@
             </div>
             <div class="mt-12 sm:mt-16 lg:mt-0">
                 <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{{route('home')}}/images/timetable01.png" alt="Timetable">
+                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{{asset('/images/timetable01.png')}}" alt="Timetable">
                 </div>
             </div>
         </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
                 <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="{{route('home')}}/images/assignments01.png" alt="Customer profile user interface">
+                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="{{asset('/images/assignments01.png')}}" alt="Customer profile user interface">
                 </div>
             </div>
         </div>
