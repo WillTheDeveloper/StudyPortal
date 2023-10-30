@@ -14,6 +14,7 @@ use App\Http\Controllers\Kanban;
 use App\Http\Controllers\Report;
 use App\Http\Controllers\Star;
 use App\Http\Controllers\Subject;
+use App\Http\Controllers\Subscription;
 use App\Http\Controllers\ThirdPartyAuthentication;
 use App\Http\Controllers\Timetable;
 use App\Http\Controllers\Todo;
@@ -40,6 +41,9 @@ Route::get('/', function () {
 Route::get('/features', function () {
     return view('guest.features');
 })->name('features');
+Route::get('/pricing', function () {
+    return view('guest.pricing');
+})->name('pricing');
 Route::get('/contact', function () {
     return view('guest.contact');
 })->name('contact');
@@ -350,20 +354,7 @@ Route::post('/institution/{joincode}/user/add', [Institution::class, 'submitUser
 
 
 //STRIPE
-Route::get('/billing-portal', function (Request $request) {
-    return $request->user()->redirectToBillingPortal(route('dashboard'));
-});
-Route::get('/subscribe', function () {
-    return auth()->user()
-        ->newSubscription('default', ['price_1JiiBJDEx6ZR0UQMWtdBytdf'])
-        ->checkout(
-            [
-                'success_url' => route('dashboard'),
-                'cancel_url' => route('subscribe')
-            ]
-        );
-})->middleware('auth')->name('subscribe');
-
+Route::get('/billing-portal', [Subscription::class, 'billingPortal'])->name('billing-portal');
 
 //SOCIALITE
 Route::get('/auth/github/redirect', [ThirdPartyAuthentication::class, 'githubRedirect'])

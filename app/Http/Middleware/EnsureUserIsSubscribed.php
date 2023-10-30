@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Laravel\Cashier\Cashier;
 
 class EnsureUserIsSubscribed
 {
@@ -16,8 +17,8 @@ class EnsureUserIsSubscribed
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && ! $request->user()->subscribed('default')) {
-            return redirect('subscribe');
+        if ($request->user() && ! $request->user()->subscribed()) {
+            return redirect(route('billing-portal'));
         }
 
         return $next($request);

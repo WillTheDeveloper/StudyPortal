@@ -9,7 +9,7 @@
         "ext-pdo": "*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/cashier": "^13.5",
+        "laravel/cashier": "^14.12",
         "laravel/fortify": "^1.8",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.11",

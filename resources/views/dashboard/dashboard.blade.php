@@ -28,10 +28,14 @@
                             @endswitch
                         </div>
                     </div>
-                    <div class="mt-5 flex justify-center sm:mt-0">
+                    <div class="mt-5 flex justify-center sm:mt-0 space-x-3">
                         <a href="{{route('community.profile', auth()->id())}}"
                            class="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                             View profile </a>
+
+                        <a href="{{route('billing-portal')}}"
+                           class="flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                            Manage membership </a>
                     </div>
                 </div>
             </div>
