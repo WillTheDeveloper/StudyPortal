@@ -2,9 +2,9 @@
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/WillTheDeveloper/StudyPortal) ![GitHub](https://img.shields.io/github/license/WillTheDeveloper/StudyPortal) ![Codecov](https://img.shields.io/codecov/c/github/WillTheDeveloper/StudyPortal) ![GitHub issues](https://img.shields.io/github/issues/WillTheDeveloper/StudyPortal) ![GitHub pull requests](https://img.shields.io/github/issues-pr/WillTheDeveloper/StudyPortal) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/WillTheDeveloper/StudyPortal)
 
-Official Discord server - https://discord.gg/ZEkX2NPWVs
+Official Discord server - [Link to server](https://discord.gg/MzXgfSGcT3)
 
-Contact email about anything related to Study Portal: [will@studyportal.cloud](mailto:will@studyportal.cloud)
+Contact email about anything related to Study Portal: [Send email](mailto:github@willthedeveloper.co.uk)
 
 ## About Study Portal
 
@@ -16,18 +16,20 @@ The full public roadmap is available to everyone. The link to it can be found he
 
 Development for this project can sometimes fall behind in regard to keeping up with the roadmap since essentially all the development is done by me and I have a full time job. I will try my best to keep up with the roadmap and keep it up to date. Occasionally people help but nothing significant.
 
-| Q/Year  | Status             | Version     |
-|---------|--------------------|-------------|
-| Q3 2021 | ✔ Start of project | Alpha       |
-| Q4 2021 | ✔ Not recorded     | Alpha       |
-| Q1 2022 | ✔ Completed        | Beta        |
-| Q2 2022 | ✔ Completed        | Beta        |
-| Q3 2022 | ✔ Completed        | Beta        |
-| Q4 2022 | ✔ Completed        | Beta        |
-| Q1 2023 | ❔ Pending          | Pre-release |
-| Q2 2023 | ❔ Planning         | v1.0.0      |
-| Q3 2023 | ❔ Planning         | v1.x.x      |
-| Q4 2023 | ❔ Planning         | v1.x.x      |
+| Q/Year       | Status             | Version     |
+|--------------|--------------------|-------------|
+| Q3 2021      | ✔ Start of project | Alpha       |
+| Q4 2021      | ✔ Not recorded     | Alpha       |
+| Q1 2022      | ✔ Completed        | Beta        |
+| Q2 2022      | ✔ Completed        | Beta        |
+| Q3 2022      | ✔ Completed        | Beta        |
+| Q4 2022      | ✔ Completed        | Beta        |
+| Q4 2025      | ✔ In progress      | Beta        |
+| Q1 2026      | ❔ Pending          | Beta        |
+| Unknown      | ❔ Pending          | Pre-release |
+| Unknown      | ❔ Planning         | v1.0.0      |
+| Unknown      | ❔ Planning         | v1.x.x      |
+| Unknown      | ❔ Planning         | v1.x.x      |
 
 ## My goal and original idea
 
@@ -63,7 +65,7 @@ But, long explanation, cut short, my primary goals were as follows;
 - Resources - A place where students are able to share resources or keep them private amongst themselves, allowing for support amongst students to take place.
 - Tickets - These are support tickets that allow students to have a channel where they can get answers for any questions directly from the tutors of their choice.
 
-If you want to see what is happening in more detail than follow this link: https://github.com/users/WillTheDeveloper/projects/5
+If you want to see what is happening in more detail than follow this link: [Project planning](https://github.com/users/WillTheDeveloper/projects/15)
 
 More features will be added to this list soon. Progress has outpaced the documentation and roadmap a little.
 
@@ -137,7 +139,7 @@ The versioning has been introduced into the repository a bit late but has now be
 - [X] Alpha (Not part of versioning)
 - [ ] Beta (Currently in Beta)
 - [X] Public Beta Testing
-- [ ] Initial release (31st April 2023)
+- [ ] Initial release (Unknown)
 
 ## Testing
 
